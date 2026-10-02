@@ -42,7 +42,7 @@
   fetch('update/latest.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){
     document.getElementById('dl-android').href=j.android.url;
     document.getElementById('dl-windows').href=j.windows.url;
-    document.getElementById('ver').textContent='最新版:手機 '+j.android.versionName+'　·　電腦 '+j.windows.version;
+    document.getElementById('ver').textContent='最新版：手機 '+j.android.versionName+'　·　電腦 '+j.windows.version;
   }).catch(function(){
     document.getElementById('ver').textContent='讀不到最新版資訊,請稍後再試。';
   });
