@@ -2,16 +2,16 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 9,
-    "versionName": "1.4.3",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.4.3.apk",
-    "sha256": "944ea83123bddfd4f91fd76e31cc1bd38b4e34e2a9115c6965f24bf3c7c89d2a",
-    "notes": "鬧鐘多了好找:分類分頁、即將響、搜尋、精簡列表、分類可收合"
+    "versionCode": 10,
+    "versionName": "1.4.4",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.4.4.apk",
+    "sha256": "503344f57de5a3c18eab795c2027945261847e9013653ea7d34d0c2fd4f9946a",
+    "notes": "響鈴真劍了:一直響到處理為止、按 Home 照響、常駐通知點回來、漸強"
   },
   "windows": {
-    "version": "1.6.3",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.6.3.zip",
-    "sha256": "5050620a3ed317347738bd0cb9af225a3c3303653e5bc240176dca7734877cce",
-    "notes": "搜尋與分類篩選(含即將響)"
+    "version": "1.6.4",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.6.4.zip",
+    "sha256": "2ba9cf17adff568c68c3b9a7d11467c44cfb5fb8cd411756fd8c7f709d6cc4d2",
+    "notes": "提醒視窗會一直響到處理為止,關掉 5 分鐘後再跳"
   }
 }
