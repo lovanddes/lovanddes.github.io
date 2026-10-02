@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>接金幣｜欸唉新跪</title>
+<style>
+:root{--bg:#faf8f4;--fg:#222;--panel:#fffdf8;--accent:#de3e2d;--line:#111}
+@media (prefers-color-scheme:dark){:root{--bg:#1d1e21;--fg:#eee;--panel:#2a2b30;--accent:#f06a58;--line:#111}}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--fg);
+font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;touch-action:none;-webkit-user-select:none;user-select:none}
+#wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#stage{position:relative;aspect-ratio:9/16;height:100%;max-width:100%;max-height:100%}
+@supports not (aspect-ratio:1){#stage{width:min(100vw,56.25vh);height:min(100vh,177.7vw)}}
+canvas{width:100%;height:100%;display:block;border:3px solid var(--line);border-radius:10px;background:#cfe6df}
+.ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+text-align:center;padding:24px;gap:10px;background:rgba(20,20,20,.45);border-radius:10px}
+.ov.hide{display:none}
+.card{background:var(--panel);color:var(--fg);border:3px solid var(--line);border-radius:14px;padding:20px 22px;max-width:92%;box-shadow:4px 4px 0 var(--line)}
+.card h1{margin:0 0 6px;font-size:26px}
+.card p{margin:4px 0;font-size:15px;line-height:1.6}
+.big{font-size:44px;font-weight:700;color:var(--accent);line-height:1.1}
+button{margin-top:12px;font:inherit;font-size:20px;font-weight:700;padding:10px 28px;border:3px solid var(--line);
+border-radius:12px;background:var(--accent);color:#fff;box-shadow:3px 3px 0 var(--line);cursor:pointer;touch-action:manipulation}
+button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--line)}
+a.back{display:block;margin-top:10px;font-size:13px;color:var(--fg)}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage">
+<canvas id="c" width="360" height="640"></canvas>
+<div id="start" class="ov"><div class="card">
+<h1>接金幣</h1>
+<p>🪙 +1　💰 +5　📄 加班文件 −1 命</p>
+<p>左右拖動（或 ← →）接住薪水，<br>別接到文件。共 3 條命。</p>
+<p id="hi0"></p>
+<button id="go" type="button">開始上班</button>
+<a class="back" href="../../index.html">← 回小工具首頁</a>
+</div></div>
+<div id="end" class="ov hide"><div class="card">
+<h1>下班了</h1>
+<div class="big" id="score">0</div>
+<p id="quip"></p>
+<p id="hi1"></p>
+<button id="again" type="button">再一次</button>
+<a class="back" href="../../index.html">← 回小工具首頁</a>
+</div></div>
+</div></div>
+<script>
+(function(){
+'use strict';
+var W=360,H=640,cv=document.getElementById('c'),ctx=cv.getContext('2d');
+var KEY='coinCatchHi';
+function getHi(){try{return +localStorage.getItem(KEY)||0}catch(e){return 0}}
+function setHi(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+var QUIPS=['薪水接到了，人也跪了','錢沒接多少，文件倒是接滿手','今天的我，也只是一個接錢的人','加班費呢？沒有，只有文件','面無表情地破產中','龍蝦比我還想下班'];
+var PX=54,PH=96,GROUND=H-18; // 角色寬、高
+var st={mode:'start',x:W/2,tx:W/2,items:[],score:0,lives:3,t:0,spawn:0,hit:0,keys:{},hi:getHi()};
+function reset(){st.x=st.tx=W/2;st.items=[];st.score=0;st.lives=3;st.t=0;st.spawn=0;st.hit=0}
+function speedMul(){return 1+Math.min(st.score,120)/40}
+function spawn(){
+  var r=Math.random(),type=r<.2?'doc':r<.28?'bag':'coin';
+  st.items.push({type:type,x:20+Math.random()*(W-40),y:-24,vy:(150+Math.random()*50)*speedMul(),rot:Math.random()*6,r:type==='bag'?20:16});
+}
+function step(dt){
+  if(st.mode!=='play')return;
+  st.t+=dt;
+  var k=st.keys,dir=(k.ArrowRight||k.d?1:0)-(k.ArrowLeft||k.a?1:0);
+  if(dir){st.x+=dir*340*dt;st.tx=st.x}
+  else st.x+=(st.tx-st.x)*Math.min(1,dt*18);
+  st.x=Math.max(PX/2,Math.min(W-PX/2,st.x));st.tx=Math.max(PX/2,Math.min(W-PX/2,st.tx));
+  st.spawn-=dt;if(st.spawn<=0){spawn();st.spawn=Math.max(.32,.85-st.score/150)*(.8+Math.random()*.4)}
+  if(st.hit>0)st.hit-=dt;
+  for(var i=st.items.length-1;i>=0;i--){
+    var it=st.items[i];it.y+=it.vy*dt;it.rot+=dt*3;
+    // 碰撞：接物區在頭頂（龍蝦）到肩膀
+    var top=GROUND-PH-18,bot=GROUND-PH+30;
+    if(it.y+it.r>top&&it.y-it.r<bot&&Math.abs(it.x-st.x)<PX/2+it.r-4){
+      if(it.type==='coin')st.score+=1;else if(it.type==='bag')st.score+=5;
+      else{st.lives--;st.hit=.5}
+      st.items.splice(i,1);
+      if(st.lives<=0){over();return}
+    }else if(it.y>H+30)st.items.splice(i,1);
+  }
+}
+function over(){
+  st.mode='over';
+  if(st.score>st.hi){st.hi=st.score;setHi(st.hi)}
+  document.getElementById('score').textContent=st.score;
+  document.getElementById('quip').textContent=QUIPS[Math.floor(Math.random()*QUIPS.length)];
+  document.getElementById('hi1').textContent='最高分：'+st.hi;
+  document.getElementById('end').classList.remove('hide');
+}
+function begin(){reset();st.mode='play';document.getElementById('start').classList.add('hide');document.getElementById('end').classList.add('hide')}
+// ---- 繪圖 ----
+function lw(){ctx.lineWidth=3;ctx.strokeStyle='#111';ctx.lineJoin='round';ctx.lineCap='round'}
+function rr(x,y,w,h,r,fill){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();ctx.fillStyle=fill;ctx.fill();ctx.stroke()}
+function claw(x,y,s,flip){ctx.save();ctx.translate(x,y);ctx.scale(flip?-s:s,s);ctx.beginPath();ctx.moveTo(0,0);ctx.bezierCurveTo(-8,-6,-8,-18,-2,-20);ctx.lineTo(0,-12);ctx.lineTo(3,-20);ctx.bezierCurveTo(10,-16,8,-4,0,0);ctx.fillStyle='#ff3b2a';ctx.fill();ctx.stroke();ctx.restore()}
+function drawPlayer(){
+  var x=st.x,b=GROUND,bob=Math.sin(st.t*10)*(st.mode==='play'?1:0);
+  ctx.save();ctx.translate(x,0);lw();
+  if(st.hit>0&&Math.floor(st.hit*20)%2===0)ctx.globalAlpha=.45;
+  // 鞋
+  rr(-19,b-8,17,8,4,'#fff');rr(2,b-8,17,8,4,'#fff');
+  // 褲
+  rr(-17,b-34,34,28,3,'#3a3a3c');ctx.beginPath();ctx.moveTo(0,b-22);ctx.lineTo(0,b-8);ctx.stroke();
+  // 手
+  rr(-27,b-52,9,22,4,'#fde7d8');rr(18,b-52,9,22,4,'#fde7d8');
+  // polo
+  rr(-20,b-58,40,28,6,'#a8c1a8');
+  rr(-27,b-58,10,13,3,'#a8c1a8');rr(17,b-58,10,13,3,'#a8c1a8');
+  ctx.beginPath();ctx.moveTo(-6,b-58);ctx.lineTo(0,b-52);ctx.lineTo(6,b-58);ctx.stroke();
+  // 頭
+  var hy=b-PH+bob;
+  rr(-26,hy+6,52,44,20,'#fde7d8');
+  rr(-30,hy+24,7,11,3,'#fde7d8');rr(23,hy+24,7,11,3,'#fde7d8');
+  // 瀏海／頭髮
+  ctx.beginPath();ctx.moveTo(-30,hy+30);ctx.bezierCurveTo(-34,hy-6,-12,hy-6,0,hy-4);ctx.bezierCurveTo(14,hy-6,34,hy-4,30,hy+30);
+  ctx.lineTo(25,hy+20);ctx.lineTo(18,hy+14);ctx.lineTo(10,hy+22);ctx.lineTo(0,hy+12);ctx.lineTo(-10,hy+22);ctx.lineTo(-20,hy+14);ctx.lineTo(-25,hy+22);ctx.closePath();
+  ctx.fillStyle='#111';ctx.fill();ctx.stroke();
+  // 臉：兩條短橫線眼、一條小橫線嘴
+  ctx.lineWidth=2.5;
+  ctx.beginPath();ctx.moveTo(-16,hy+30);ctx.lineTo(-7,hy+30);ctx.moveTo(7,hy+30);ctx.lineTo(16,hy+30);ctx.moveTo(-4,hy+41);ctx.lineTo(4,hy+41);ctx.stroke();
+  lw();
+  // 頭上龍蝦
+  ctx.beginPath();ctx.ellipse(0,hy-8,15,11,0,0,7);ctx.fillStyle='#ff3b2a';ctx.fill();ctx.stroke();
+  claw(-14,hy-12,1.1,false);claw(14,hy-12,1.1,true);
+  ctx.beginPath();ctx.moveTo(-4,hy-17);ctx.quadraticCurveTo(-8,hy-26,-2,hy-27);ctx.moveTo(4,hy-17);ctx.quadraticCurveTo(8,hy-26,2,hy-27);ctx.stroke();
+  ctx.fillStyle='#111';ctx.beginPath();ctx.arc(-4,hy-9,1.6,0,7);ctx.arc(4,hy-9,1.6,0,7);ctx.fill();
+  ctx.restore();
+}
+function drawItem(it){
+  ctx.save();ctx.translate(it.x,it.y);lw();
+  if(it.type==='coin'){
+    var sx=Math.abs(Math.cos(it.rot));ctx.scale(.35+.65*sx,1);
+    ctx.beginPath();ctx.arc(0,0,it.r,0,7);ctx.fillStyle='#ffc83a';ctx.fill();ctx.stroke();
+    ctx.beginPath();ctx.arc(0,0,it.r-5,0,7);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(0,-5);ctx.lineTo(0,5);ctx.stroke();
+  }else if(it.type==='bag'){
+    ctx.beginPath();ctx.moveTo(-8,-14);ctx.lineTo(8,-14);ctx.lineTo(5,-8);ctx.bezierCurveTo(22,0,18,20,0,20);ctx.bezierCurveTo(-18,20,-22,0,-5,-8);ctx.closePath();
+    ctx.fillStyle='#e8a317';ctx.fill();ctx.stroke();
+    ctx.fillStyle='#111';ctx.font='bold 18px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('$',0,6);
+  }else{
+    ctx.rotate(Math.sin(it.rot)*.35);
+    rr(-13,-17,26,34,2,'#fff');
+    ctx.beginPath();ctx.moveTo(-7,-8);ctx.lineTo(7,-8);ctx.moveTo(-7,-1);ctx.lineTo(7,-1);ctx.moveTo(-7,6);ctx.lineTo(2,6);ctx.stroke();
+    ctx.fillStyle='#de3e2d';ctx.beginPath();ctx.arc(8,11,5,0,7);ctx.fill();
+  }
+  ctx.restore();
+}
+function draw(){
+  var g=ctx.createLinearGradient(0,0,0,H);
+  var dark=window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches;
+  g.addColorStop(0,dark?'#2c4a55':'#cfe6df');g.addColorStop(1,dark?'#1f343c':'#f3ead6');
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  ctx.fillStyle=dark?'#2d3a3a':'#c9d6c4';ctx.fillRect(0,GROUND,W,H-GROUND);
+  ctx.strokeStyle='#111';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(0,GROUND);ctx.lineTo(W,GROUND);ctx.stroke();
+  // 影子
+  ctx.fillStyle='rgba(0,0,0,.18)';ctx.beginPath();ctx.ellipse(st.x,GROUND+3,26,5,0,0,7);ctx.fill();
+  for(var i=0;i<st.items.length;i++)drawItem(st.items[i]);
+  drawPlayer();
+  // HUD
+  ctx.font='bold 22px "Noto Sans TC",sans-serif';ctx.textBaseline='top';ctx.lineWidth=5;ctx.lineJoin='round';ctx.strokeStyle=dark?'#111':'#fff';
+  ctx.textAlign='left';ctx.fillStyle=dark?'#fff':'#111';
+  var s='分數 '+st.score;ctx.strokeText(s,12,10);ctx.fillText(s,12,10);
+  ctx.textAlign='right';var l='';for(var j=0;j<3;j++)l+=j<st.lives?'♥':'♡';
+  ctx.fillStyle='#de3e2d';ctx.strokeText(l,W-12,10);ctx.fillText(l,W-12,10);
+}
+var last=0;
+function loop(ts){var dt=Math.min(.05,(ts-last)/1000||0);last=ts;step(dt);draw();requestAnimationFrame(loop)}
+// ---- 輸入 ----
+function pointerX(e){var r=cv.getBoundingClientRect();return (e.clientX-r.left)/r.width*W}
+var dragging=false;
+cv.addEventListener('pointerdown',function(e){dragging=true;st.tx=pointerX(e);try{cv.setPointerCapture(e.pointerId)}catch(_){}});
+cv.addEventListener('pointermove',function(e){if(dragging||e.pointerType==='mouse')st.tx=pointerX(e)});
+cv.addEventListener('pointerup',function(){dragging=false});
+cv.addEventListener('pointercancel',function(){dragging=false});
+addEventListener('keydown',function(e){st.keys[e.key]=true;if(e.key.indexOf('Arrow')===0)e.preventDefault();
+  if((e.key==='Enter'||e.key===' ')&&st.mode!=='play'){begin();e.preventDefault()}});
+addEventListener('keyup',function(e){st.keys[e.key]=false});
+addEventListener('blur',function(){st.keys={}});
+document.getElementById('go').onclick=begin;
+document.getElementById('again').onclick=begin;
+document.getElementById('hi0').textContent=st.hi?'最高分：'+st.hi:'';
+window.__game={st:st,begin:begin,step:step,spawn:spawn,over:over};
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
