@@ -1,0 +1,17 @@
+{
+  "format": "shinken-alarm-update",
+  "version": 1,
+  "android": {
+    "versionCode": 5,
+    "versionName": "1.3.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.3.0.apk",
+    "sha256": "9b970659034982dd3c3996551b238753b2fa072475e7468081431629637182f8",
+    "notes": "一鍵更新、分類色塊、修第一次登入同步誤報錯"
+  },
+  "windows": {
+    "version": "1.6",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.6.zip",
+    "sha256": "6ad78df49aca391502ef713de71e6b077eedcffb654e0f7e74027b076bbc908d",
+    "notes": "一鍵更新、分類色塊"
+  }
+}
