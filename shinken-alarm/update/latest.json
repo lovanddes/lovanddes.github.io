@@ -2,16 +2,16 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 8,
-    "versionName": "1.4.2",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.4.2.apk",
-    "sha256": "752c91177993b9b9f5ee5f3f0d84322189affb39b7cd053c1213356209909284",
-    "notes": "修正:晚上設隔天早上的鬧鐘不會再立刻誤響;單次鬧鐘設到已過時間會問要不要改成明天"
+    "versionCode": 9,
+    "versionName": "1.4.3",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.4.3.apk",
+    "sha256": "944ea83123bddfd4f91fd76e31cc1bd38b4e34e2a9115c6965f24bf3c7c89d2a",
+    "notes": "鬧鐘多了好找:分類分頁、即將響、搜尋、精簡列表、分類可收合"
   },
   "windows": {
-    "version": "1.6.2",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.6.2.zip",
-    "sha256": "b0c5fbd03be43b196199e0823afeaca6c337de0ff575eb6e51a8b855b2d44345",
-    "notes": "同上(新鬧鐘誤判漏響修正)"
+    "version": "1.6.3",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.6.3.zip",
+    "sha256": "5050620a3ed317347738bd0cb9af225a3c3303653e5bc240176dca7734877cce",
+    "notes": "搜尋與分類篩選(含即將響)"
   }
 }
