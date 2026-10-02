@@ -2,16 +2,16 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 6,
-    "versionName": "1.4.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.4.0.apk",
-    "sha256": "d2a806cbf7ab908d69ebda3d90f71289a5e45c5c1cef1906f36096cf7d4957fe",
-    "notes": "開車模式:藍牙連上我的車/活動偵測/手動開關,開車時只用語音念一次、下車再提醒"
+    "versionCode": 7,
+    "versionName": "1.4.1",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.4.1.apk",
+    "sha256": "8ef487c60a38c3e7c12a352df9343a92a5489223e5f55708a53143e29f4a0a41",
+    "notes": "私密鬧鐘:開車預設只說有提醒、可設私密鬧鐘與私密分類、鎖定畫面不露內容"
   },
   "windows": {
-    "version": "1.6",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.6.zip",
-    "sha256": "6ad78df49aca391502ef713de71e6b077eedcffb654e0f7e74027b076bbc908d",
-    "notes": "一鍵更新、分類色塊"
+    "version": "1.6.1",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.6.1.zip",
+    "sha256": "9645e0116b7a36651cac80cac88eebe6cb82c2c645f93f1fdb85514db3a70ea5",
+    "notes": "私密鬧鐘與私密分類;修正部分中文亂碼"
   }
 }
