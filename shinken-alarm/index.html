@@ -1,0 +1,51 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>真劍鬧鐘 下載</title><link rel="stylesheet" href="../style.css">
+<style>
+.btn{display:block;text-align:center;padding:16px;margin:12px 0;border-radius:12px;background:#de3e2d;color:#fff !important;font-size:1.25em;font-weight:bold;text-decoration:none}
+.btn.sec{background:#5b6b5a}.box{border:1px solid #ccc;border-radius:12px;padding:12px 16px;margin:16px 0}
+.warn{display:none;background:#fff3cd;color:#5a4500;border-radius:12px;padding:12px 16px;margin:12px 0;font-weight:bold}
+@media (prefers-color-scheme:dark){.box{border-color:#444}.warn{background:#4a3f12;color:#ffe8a3}}
+</style></head><body>
+<h1>⏰ 真劍鬧鐘</h1>
+<p>不做完不讓你裝死的雜事提醒。繳費、送單、換濾心，電腦手機同步。</p>
+<div class="warn" id="inapp">你現在在 App 內建的瀏覽器裡，這裡沒辦法下載。<br>請點右上角「⋮」或「…」→「用瀏覽器開啟」，或把這頁網址貼到 Chrome。</div>
+<a class="btn" id="dl-android" href="#">📱 下載手機版(Android)</a>
+<a class="btn sec" id="dl-windows" href="#">💻 下載電腦版(Windows)</a>
+<p id="ver" style="color:#888"></p>
+<div class="box"><b>手機安裝步驟</b>
+<ol>
+<li>按上面的「下載手機版」。</li>
+<li>如果跳出「這類檔案可能有害」，按「<b>仍要下載</b>」。</li>
+<li>下載完點開檔案。第一次會問要不要允許「安裝不明應用程式」，照畫面<b>允許</b>，再回來按「安裝」。</li>
+<li>裝好之後，以後有新版在 App「設定 → 檢查更新」就能更新，不用再來這裡。</li>
+</ol>
+<b>電腦安裝步驟</b>
+<ol><li>下載後解壓縮，照資料夾裡的「使用說明」啟動。</li></ol>
+</div>
+<p style="font-size:.9em;color:#888">目前是試用階段，只在這裡提供下載。請只從這一頁下載，不要安裝別處傳來的檔案。<br><a href="privacy.html">隱私權政策</a>　·　<a href="../index.html">欸唉新跪 小工具</a></p>
+<script>
+(function(){
+  var ua=navigator.userAgent||'';
+  var inApp=/Line\/|FBAN|FBAV|Instagram|Messenger|MicroMessenger/i.test(ua);
+  // LINE 支援 openExternalBrowser=1:自動改用手機瀏覽器開
+  if(/Line\//i.test(ua) && location.search.indexOf('openExternalBrowser=1')<0){
+    location.replace(location.pathname+'?openExternalBrowser=1');return;
+  }
+  if(inApp){
+    document.getElementById('inapp').style.display='block';
+    // Android 其他內建瀏覽器:試著叫出 Chrome
+    if(/Android/i.test(ua)){
+      var u='intent://'+location.host+location.pathname+'#Intent;scheme=https;package=com.android.chrome;end';
+      var a=document.createElement('a');a.href=u;a.className='btn sec';a.textContent='🌐 用 Chrome 開啟這頁';
+      document.getElementById('inapp').appendChild(document.createElement('br'));document.getElementById('inapp').appendChild(a);
+    }
+  }
+  fetch('update/latest.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){
+    document.getElementById('dl-android').href=j.android.url;
+    document.getElementById('dl-windows').href=j.windows.url;
+    document.getElementById('ver').textContent='最新版:手機 '+j.android.versionName+'　·　電腦 '+j.windows.version;
+  }).catch(function(){
+    document.getElementById('ver').textContent='讀不到最新版資訊,請稍後再試。';
+  });
+})();
+</script>
+</body></html>
