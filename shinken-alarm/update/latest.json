@@ -2,11 +2,11 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 16,
-    "versionName": "1.5.5",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.5.5.apk",
-    "sha256": "f2fd1818567237b9c37010f72d996aab80a41ba3f4ecc06e76e8524ec3b79a2a",
-    "notes": "鬧鐘一響就聽得到:漸強起點調大\n手機鬧鐘音量太小時,響的時候會先拉到一半,響完還原",
+    "versionCode": 17,
+    "versionName": "1.6.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.6.0.apk",
+    "sha256": "f3586e7d4bd34a957114214a0670ac36d745476a4a8282175cb9b753880ffacb",
+    "notes": "配合 Google Play 新規定,升級到 Android 16 相容\n返回鍵改用新的系統寫法,答題畫面仍然不能按返回逃掉",
     "date": "2026-10-03"
   },
   "windows": {
