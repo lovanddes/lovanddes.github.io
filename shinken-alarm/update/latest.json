@@ -2,18 +2,18 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 17,
-    "versionName": "1.6.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.6.0.apk",
-    "sha256": "f3586e7d4bd34a957114214a0670ac36d745476a4a8282175cb9b753880ffacb",
-    "notes": "配合 Google Play 新規定,升級到 Android 16 相容\n返回鍵改用新的系統寫法,答題畫面仍然不能按返回逃掉",
+    "versionCode": 18,
+    "versionName": "1.6.1",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.6.1.apk",
+    "sha256": "e09f71ba52e2592015c463f939ec072bcbc4771ea02be029ef779998a0dea179",
+    "notes": "新增「重要程度」三檔:普通/要答題才能延後/絕對不能延後\n重要鬧鐘一響就全音量\n設定裡有「按住 5 秒緊急停止」",
     "date": "2026-10-03"
   },
   "windows": {
-    "version": "1.7.4",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.7.4.zip",
-    "sha256": "612e79e6297a58c2d6cce0fb6d623d82d768b1f9d43681a7f77a18f7cf527534",
-    "notes": "自動檢查更新:每 3 小時查一次,啟動時先查一次",
+    "version": "1.8.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.0.zip",
+    "sha256": "62a9ecc85f384ec3f4e20c221d3359ece285bbdbeaf9d3a79b7f6d0d50bbf5c8",
+    "notes": "新增「重要程度」三檔,重要提醒視窗關不掉\n工作列水母右鍵有緊急停止",
     "date": "2026-10-03"
   }
 }
