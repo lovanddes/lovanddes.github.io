@@ -2,18 +2,18 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 14,
-    "versionName": "1.5.3",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.5.3.apk",
-    "sha256": "9819d286552b06897168b2d7ed4b175f2601991ee4e16ae3894f5a13892d33c3",
-    "notes": "修正:按「真的沒空」不會再累積好幾則提醒\n同一個鬧鐘答對一次就全部結束\n更新後第一次開 App 會自動清掉之前累積的重複提醒",
+    "versionCode": 15,
+    "versionName": "1.5.4",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.5.4.apk",
+    "sha256": "ce71cc635753a56daaead29ea677203663d26997f809caddb81e72a0c1f78587",
+    "notes": "小水母會自己冒紅點了\n重開 App 一定會檢查有沒有新版\nApp 開著時每小時自動檢查一次",
     "date": "2026-10-03"
   },
   "windows": {
-    "version": "1.7.3",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.7.3.zip",
-    "sha256": "3c7dfb559646ce2c50a52f7c2011aa2b76959723b50454e09c12a22319b0f2cb",
-    "notes": "修正:延後不會再累積重複提醒,答對一次就結束",
+    "version": "1.7.4",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.7.4.zip",
+    "sha256": "612e79e6297a58c2d6cce0fb6d623d82d768b1f9d43681a7f77a18f7cf527534",
+    "notes": "自動檢查更新:每 3 小時查一次,啟動時先查一次",
     "date": "2026-10-03"
   }
 }
