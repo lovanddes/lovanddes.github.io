@@ -2,16 +2,18 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 12,
-    "versionName": "1.5.1",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.5.1.apk",
-    "sha256": "97540d21d2f89152f9382ce2ef04876fa35989639fbe86bb80a11314359ecb09",
-    "notes": "設定頁分類整理(8 個分類、搜尋)、小水母提醒有新版"
+    "versionCode": 13,
+    "versionName": "1.5.2",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.5.2.apk",
+    "sha256": "87bffb5a09a0c19d24908318e2723d8689b9bef48c2494964ba26b7a183b7610",
+    "notes": "沒有鬧鐘時可一鍵加入範例\n隱私權政策連到正式網頁、新增「分享給朋友」\n修第一次登入同步誤報錯(若再出現,錯誤訊息會附技術細節)\n更新說明可分行、顯示發布日期",
+    "date": "2026-10-03"
   },
   "windows": {
-    "version": "1.7.1",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.7.1.zip",
-    "sha256": "76116d59b94e6143294babfaabcf7e407412739e35ed826e5c2f2b4a43279099",
-    "notes": "設定視窗分類整理、水母與系統匣紅點提醒有新版"
+    "version": "1.7.2",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.7.2.zip",
+    "sha256": "4509af592c831055fdcf36491eb9ce27dd50d466ec4ed4f90227f2eef1772069",
+    "notes": "隱私權政策連到正式網頁、「分享給朋友」複製下載頁網址\n更新說明可分行、顯示發布日期",
+    "date": "2026-10-03"
   }
 }
