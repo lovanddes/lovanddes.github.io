@@ -2,16 +2,16 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 11,
-    "versionName": "1.5.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.5.0.apk",
-    "sha256": "b8b0a504b8730f2726c5ffbbb56262368830b07e78faa7f250625e0215e0092b",
-    "notes": "更真劍:答題放著不答會再響、確認醒了、關鬧鐘難度(連答/變難/掃 QR)、本週賴床成績單"
+    "versionCode": 12,
+    "versionName": "1.5.1",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.5.1.apk",
+    "sha256": "97540d21d2f89152f9382ce2ef04876fa35989639fbe86bb80a11314359ecb09",
+    "notes": "設定頁分類整理(8 個分類、搜尋)、小水母提醒有新版"
   },
   "windows": {
-    "version": "1.7.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.7.0.zip",
-    "sha256": "6ef3a1bd50851db9be3010846a26423f639137ee6a895791de75ec14e8e55426",
-    "notes": "答題放著不答會再響、關鬧鐘難度(連答/變難)"
+    "version": "1.7.1",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.7.1.zip",
+    "sha256": "76116d59b94e6143294babfaabcf7e407412739e35ed826e5c2f2b4a43279099",
+    "notes": "設定視窗分類整理、水母與系統匣紅點提醒有新版"
   }
 }
