@@ -2,11 +2,11 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 20,
-    "versionName": "1.6.3",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.6.3.apk",
-    "sha256": "88abe625a9715c890333b35389c6039168654f104e246511bbee7529e9f11bff",
-    "notes": "修正:鬧鐘響一陣子會自己停掉的問題\n小米手機改用另一種方式讀鬧鐘鈴聲\n先等等/已完成等按鈕會記進診斷紀錄",
+    "versionCode": 21,
+    "versionName": "1.7.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.7.0.apk",
+    "sha256": "985353a92916581f5b9223a93e130f2b85eb5a580392f566c4590a41525ba4df",
+    "notes": "新增三種內建鈴聲:溫和/標準/很吵(設定→響鈴)\n可以用手機裡的音檔當自訂鈴聲\n每個鬧鐘可以各自選鈴聲",
     "date": "2026-10-04"
   },
   "windows": {
