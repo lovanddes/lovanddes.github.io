@@ -2,11 +2,11 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 19,
-    "versionName": "1.6.2",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.6.2.apk",
-    "sha256": "c8763a0bb2da1cc8bbfa612cee1130ecc87e2d766ac460c66026be03c9cbcd86",
-    "notes": "修正:鬧鐘可能沒聲音只剩震動 —— 現在一定會出聲(讀不到鈴聲會自動改用內建鈴聲)\n修正:確認醒了重新響時閃退、震動停不下來\n緊急停止一定能停;設定→響鈴 可試聽鈴聲\n新增診斷紀錄(設定→更新與關於)",
+    "versionCode": 20,
+    "versionName": "1.6.3",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.6.3.apk",
+    "sha256": "88abe625a9715c890333b35389c6039168654f104e246511bbee7529e9f11bff",
+    "notes": "修正:鬧鐘響一陣子會自己停掉的問題\n小米手機改用另一種方式讀鬧鐘鈴聲\n先等等/已完成等按鈕會記進診斷紀錄",
     "date": "2026-10-04"
   },
   "windows": {
