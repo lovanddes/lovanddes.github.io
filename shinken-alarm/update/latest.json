@@ -2,12 +2,12 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 21,
-    "versionName": "1.7.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.7.0.apk",
-    "sha256": "985353a92916581f5b9223a93e130f2b85eb5a580392f566c4590a41525ba4df",
-    "notes": "新增三種內建鈴聲:溫和/標準/很吵(設定→響鈴)\n可以用手機裡的音檔當自訂鈴聲\n每個鬧鐘可以各自選鈴聲",
-    "date": "2026-10-04"
+    "versionCode": 24,
+    "versionName": "1.8.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.8.0.apk",
+    "sha256": "706bae057612885fd58e23836c65aa9134bc44df79db10ae0c0e234d57bf18db",
+    "notes": "編輯鬧鐘存檔後不會再馬上響（已過的時間一律不補響）\n新增「回報問題」：用你自己的 Email 寄出診斷紀錄\n每個鬧鐘可以設自己的音量和漸強，響的時候按音量鍵可調小這一次\n編輯畫面會用白話說明「這個鬧鐘響起來會怎樣」",
+    "date": "2026-10-05"
   },
   "windows": {
     "version": "1.8.0",
