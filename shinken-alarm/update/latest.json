@@ -10,10 +10,10 @@
     "date": "2026-10-05"
   },
   "windows": {
-    "version": "1.8.4",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.4.zip",
-    "sha256": "2a49f8872c8827a7dea6e47495eac5c3bf922a913e7fbbcd2e82a1a5a15eab57",
-    "notes": "電腦版也有鈴聲了：內建溫和／標準／很吵，也可以加自己的音檔（設定→響鈴）\n每個鬧鐘可以自己選鈴聲、調音量、要不要慢慢變大（跟手機同步）\n新增／編輯鬧鐘裡可以試聽",
+    "version": "1.8.5",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.5.zip",
+    "sha256": "206f0bedab88482f0fdb01a48ff6d01a8f8c87e9f2574095b883ba232057ba4b",
+    "notes": "修好：按「試聽」後整個視窗大字變回標準字\n修好：試聽中關掉編輯視窗會跳出錯誤\n設定頁大字時，標題和按鈕不再變小或被切掉",
     "date": "2026-10-05"
   }
 }
