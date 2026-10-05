@@ -10,10 +10,10 @@
     "date": "2026-10-05"
   },
   "windows": {
-    "version": "1.8.3",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.3.zip",
-    "sha256": "47482dcd11381cf4cd8946fa80f9c115fdb5d2075090d1a46a70dd103c3054d9",
-    "notes": "主視窗上方新增標籤列：全部｜⏰ 即將響｜各分類（跟手機一樣）\n按「⏰ 即將響」就看到接下來 24 小時會響的鬧鐘，照時間排",
+    "version": "1.8.4",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.4.zip",
+    "sha256": "2a49f8872c8827a7dea6e47495eac5c3bf922a913e7fbbcd2e82a1a5a15eab57",
+    "notes": "電腦版也有鈴聲了：內建溫和／標準／很吵，也可以加自己的音檔（設定→響鈴）\n每個鬧鐘可以自己選鈴聲、調音量、要不要慢慢變大（跟手機同步）\n新增／編輯鬧鐘裡可以試聽",
     "date": "2026-10-05"
   }
 }
