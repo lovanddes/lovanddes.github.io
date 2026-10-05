@@ -10,10 +10,10 @@
     "date": "2026-10-05"
   },
   "windows": {
-    "version": "1.8.7",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.7.zip",
-    "sha256": "0e292b678877ed4bb9af0dc3baa329bc356ff59b15ce65ca65d2841bbedb23f5",
-    "notes": "修好：深色模式下新增「每年固定日期」「每週」鬧鐘時會跳出錯誤",
+    "version": "1.8.8",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.8.zip",
+    "sha256": "360b2ff8065d61c6189dc30ec21bbcc88edaba1316192c4962478514efcaad3f",
+    "notes": "即將響鈴：右下角水母顯示「13:17 即將響鈴」，右鍵可以「跳過這一次」（跟手機同步）\n主畫面點分類標題可以收起來／打開\n設定→關於：一鍵回報問題",
     "date": "2026-10-05"
   }
 }
