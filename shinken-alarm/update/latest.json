@@ -10,10 +10,10 @@
     "date": "2026-10-05"
   },
   "windows": {
-    "version": "1.8.6",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.6.zip",
-    "sha256": "d923b6b5722951a18a5039e31eca6d042878ea668fa58937af5107f22888d695",
-    "notes": "修好：編輯鬧鐘時滾滑鼠滾輪，不會再把類型、分類、鈴聲悄悄改掉（滾輪改成捲動視窗）\n編輯視窗打開時先停在「提醒內容」",
+    "version": "1.8.7",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.7.zip",
+    "sha256": "0e292b678877ed4bb9af0dc3baa329bc356ff59b15ce65ca65d2841bbedb23f5",
+    "notes": "修好：深色模式下新增「每年固定日期」「每週」鬧鐘時會跳出錯誤",
     "date": "2026-10-05"
   }
 }
