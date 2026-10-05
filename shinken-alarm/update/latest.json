@@ -10,10 +10,10 @@
     "date": "2026-10-05"
   },
   "windows": {
-    "version": "1.8.5",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.5.zip",
-    "sha256": "206f0bedab88482f0fdb01a48ff6d01a8f8c87e9f2574095b883ba232057ba4b",
-    "notes": "修好：按「試聽」後整個視窗大字變回標準字\n修好：試聽中關掉編輯視窗會跳出錯誤\n設定頁大字時，標題和按鈕不再變小或被切掉",
+    "version": "1.8.6",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.6.zip",
+    "sha256": "d923b6b5722951a18a5039e31eca6d042878ea668fa58937af5107f22888d695",
+    "notes": "修好：編輯鬧鐘時滾滑鼠滾輪，不會再把類型、分類、鈴聲悄悄改掉（滾輪改成捲動視窗）\n編輯視窗打開時先停在「提醒內容」",
     "date": "2026-10-05"
   }
 }
