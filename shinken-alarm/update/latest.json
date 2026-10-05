@@ -2,11 +2,11 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 24,
-    "versionName": "1.8.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.8.0.apk",
-    "sha256": "706bae057612885fd58e23836c65aa9134bc44df79db10ae0c0e234d57bf18db",
-    "notes": "編輯鬧鐘存檔後不會再馬上響（已過的時間一律不補響）\n新增「回報問題」：用你自己的 Email 寄出診斷紀錄\n每個鬧鐘可以設自己的音量和漸強，響的時候按音量鍵可調小這一次\n編輯畫面會用白話說明「這個鬧鐘響起來會怎樣」",
+    "versionCode": 25,
+    "versionName": "1.8.1",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.8.1.apk",
+    "sha256": "90c51fcd0fc4212bdf529405659c69b62084f8abe5dc3eb0e3cac44a001bc350",
+    "notes": "新功能：響鈴前，通知列會常駐「13:17 即將響鈴」\n通知上按「跳過這一次」，這一次就不響（重複的鬧鐘下次照常響）\n重要鬧鐘（要答題／絕對不能延後）不能先跳過\n設定→響鈴可以調多久前出現，或關掉",
     "date": "2026-10-05"
   },
   "windows": {
