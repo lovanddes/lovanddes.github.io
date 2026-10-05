@@ -10,10 +10,10 @@
     "date": "2026-10-05"
   },
   "windows": {
-    "version": "1.8.2",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.2.zip",
-    "sha256": "5509ab4a7e6ef123c1372b1b36a90c4c7588138c2dae29c5b2c1e56546f5616e",
-    "notes": "更新時會先告訴你要等多久,更新完自動打開視窗\n打開視窗就會檢查新版,有新版水母馬上亮紅點\n字體調大時,小訊息框會跟著變大,不再被切字",
+    "version": "1.8.3",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.3.zip",
+    "sha256": "47482dcd11381cf4cd8946fa80f9c115fdb5d2075090d1a46a70dd103c3054d9",
+    "notes": "主視窗上方新增標籤列：全部｜⏰ 即將響｜各分類（跟手機一樣）\n按「⏰ 即將響」就看到接下來 24 小時會響的鬧鐘，照時間排",
     "date": "2026-10-05"
   }
 }
