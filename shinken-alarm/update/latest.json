@@ -2,18 +2,18 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 25,
-    "versionName": "1.8.1",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.8.1.apk",
-    "sha256": "90c51fcd0fc4212bdf529405659c69b62084f8abe5dc3eb0e3cac44a001bc350",
-    "notes": "新功能：響鈴前，通知列會常駐「13:17 即將響鈴」\n通知上按「跳過這一次」，這一次就不響（重複的鬧鐘下次照常響）\n重要鬧鐘（要答題／絕對不能延後）不能先跳過\n設定→響鈴可以調多久前出現，或關掉",
+    "versionCode": 26,
+    "versionName": "1.8.2",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.8.2.apk",
+    "sha256": "8abde2dde17436ab37d8bf8d3052a451868fe44b77f1c3d2ba9e612509eb04d6",
+    "notes": "修好：早上已經按掉的鬧鐘，下午被重響一次（在電腦上改了這個鬧鐘的音量或名稱時會發生）",
     "date": "2026-10-05"
   },
   "windows": {
-    "version": "1.8.8",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.8.zip",
-    "sha256": "360b2ff8065d61c6189dc30ec21bbcc88edaba1316192c4962478514efcaad3f",
-    "notes": "即將響鈴：右下角水母顯示「13:17 即將響鈴」，右鍵可以「跳過這一次」（跟手機同步）\n主畫面點分類標題可以收起來／打開\n設定→關於：一鍵回報問題",
+    "version": "1.8.9",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.9.zip",
+    "sha256": "47da207a5bb39b4853b3b13affc9f7edd3b27a2db851b11474343ae4620f7b9c",
+    "notes": "修好：在電腦上改鬧鐘的音量、鈴聲、名稱後，手機把當天早上已完成的鬧鐘又響一次",
     "date": "2026-10-05"
   }
 }
