@@ -10,10 +10,10 @@
     "date": "2026-10-05"
   },
   "windows": {
-    "version": "1.8.1",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.1.zip",
-    "sha256": "b61a332a6a55f97556c9dc172aca42dbc1f54c9134f655c7b82483ac98a88b0c",
-    "notes": "編輯鬧鐘存檔後,今天已經過去的時間不會再補響\n只改名稱或鈴聲時,今天的完成紀錄會保留",
+    "version": "1.8.2",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.8.2.zip",
+    "sha256": "5509ab4a7e6ef123c1372b1b36a90c4c7588138c2dae29c5b2c1e56546f5616e",
+    "notes": "更新時會先告訴你要等多久,更新完自動打開視窗\n打開視窗就會檢查新版,有新版水母馬上亮紅點\n字體調大時,小訊息框會跟著變大,不再被切字",
     "date": "2026-10-05"
   }
 }
