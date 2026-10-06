@@ -2,18 +2,18 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 27,
-    "versionName": "1.8.3",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.8.3.apk",
-    "sha256": "76dee0814b0a0343fcda249089e0f124af1eaa1f19ba2f946da96d0206c205b0",
-    "notes": "新增 20 首鈴聲歌：起床歌（溫和起床、午睡、吃藥喝水、出門、晚安…）、快起來（快節奏）、純音樂\n設定→響鈴→鈴聲，或編輯鬧鐘時選",
-    "date": "2026-10-05"
+    "versionCode": 28,
+    "versionName": "1.9.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.9.0.apk",
+    "sha256": "7035854262c250e946ddf6d9b56daf59917d27576120bc7cae48cdfa6cd96c33",
+    "notes": "重要鬧鐘可以「答題後跳過這一次」;即將響鈴的通知被滑掉會自己補回\n響鈴規則(響多久、停多久、最多多久)和新鬧鐘預設難度,手機電腦會同步\n開車模式:重新打開自動偵測不會一開就當成在開車;選車清單可以重新整理\n下載新版時切去別的 App,回來會自動再跳出安裝畫面",
+    "date": "2026-10-07"
   },
   "windows": {
-    "version": "1.9.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.9.0.zip",
-    "sha256": "e765438b229d44c06031085b9ba624b844715c2852fb4bca7a41cf1a81617f94",
-    "notes": "新增 20 首鈴聲歌：起床歌、快起來、純音樂（跟手機同一套，同步後兩邊都能用）",
-    "date": "2026-10-05"
+    "version": "1.10.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.10.0.zip",
+    "sha256": "83ca9c605c3a668f1e438a670c08bff013b476cd0a3085abfe8932039654f71b",
+    "notes": "系統匣右鍵:重要鬧鐘要「答題後跳過」,普通鬧鐘照舊可以直接跳過\n響鈴規則和新鬧鐘預設難度跟手機同步;設定視窗和背景同步同時存檔不會互相蓋掉\n新增 QR 難度的鬧鐘會自動產生 QR 密碼",
+    "date": "2026-10-07"
   }
 }
