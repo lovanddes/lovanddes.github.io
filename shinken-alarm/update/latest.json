@@ -2,18 +2,18 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 28,
-    "versionName": "1.9.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.9.0.apk",
-    "sha256": "7035854262c250e946ddf6d9b56daf59917d27576120bc7cae48cdfa6cd96c33",
-    "notes": "重要鬧鐘可以「答題後跳過這一次」;即將響鈴的通知被滑掉會自己補回\n響鈴規則(響多久、停多久、最多多久)和新鬧鐘預設難度,手機電腦會同步\n開車模式:重新打開自動偵測不會一開就當成在開車;選車清單可以重新整理\n下載新版時切去別的 App,回來會自動再跳出安裝畫面",
+    "versionCode": 29,
+    "versionName": "1.9.1",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.9.1.apk",
+    "sha256": "34d9f2ae88c3a7bcf5d562cdede6beecb21ac8b5c37bc88e43d7681f9a6c878c",
+    "notes": "新增「🎧 用耳機試聽」:試聽鈴聲走藍牙耳機,喇叭不出聲;沒接耳機不會播\n編輯鬧鐘:「要出聲音」和鈴聲、音量排在一起,不出聲時聲音設定反灰\n選「我的車」時顯示你在系統藍牙裡取的名字,重新整理按了有提示",
     "date": "2026-10-07"
   },
   "windows": {
-    "version": "1.10.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.10.0.zip",
-    "sha256": "83ca9c605c3a668f1e438a670c08bff013b476cd0a3085abfe8932039654f71b",
-    "notes": "系統匣右鍵:重要鬧鐘要「答題後跳過」,普通鬧鐘照舊可以直接跳過\n響鈴規則和新鬧鐘預設難度跟手機同步;設定視窗和背景同步同時存檔不會互相蓋掉\n新增 QR 難度的鬧鐘會自動產生 QR 密碼",
+    "version": "1.10.1",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.10.1.zip",
+    "sha256": "33330d2f7dec6c7096ffa220f9c2daa9161c11b2609e91983b95a30a89a06f72",
+    "notes": "新增/編輯鬧鐘:「提醒時要出聲音」移到鈴聲、音量正上方,不勾時底下反灰",
     "date": "2026-10-07"
   }
 }
