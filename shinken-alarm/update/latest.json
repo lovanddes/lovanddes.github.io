@@ -10,10 +10,10 @@
     "date": "2026-10-07"
   },
   "windows": {
-    "version": "1.10.3",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.10.3.zip",
-    "sha256": "24e6a44a0538c77dc09145efd416bbba71de6dd75c3c7f1764e88ed9e3b2ca7a",
-    "notes": "修正:設定視窗打開出現「找不到類型 [short]」的錯誤\n右下角水母:平常是原本的藍色,有新版時整隻變紅色",
+    "version": "1.10.4",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.10.4.zip",
+    "sha256": "3b3702098af96742c0b1f8a65a4d94459bbe09a1b50061bf9a23e55ba7e2c5fd",
+    "notes": "點主畫面左下角的水母,就直接打開「檢查更新」(不用進設定頁)\n右下角水母:有新版時整隻變紅色",
     "date": "2026-10-07"
   }
 }
