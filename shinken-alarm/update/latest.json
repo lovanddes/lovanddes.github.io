@@ -2,11 +2,11 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 32,
-    "versionName": "1.9.4",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.9.4.apk",
-    "sha256": "223f5ee03751326fbf7acc51cbb5791aa86eade056ee228e5fc1ff9c334eadec",
-    "notes": "開車模式加三道保險:開始走路就算下車;自動偵測最多 3 小時;延後的提醒最多等 30 分鐘就照常響\n主畫面和通知列都有「我下車了」,不管哪種偵測開的都能直接解除\n設定頁說明自動偵測的風險,怕錯過鬧鐘建議只用手動開關",
+    "versionCode": 33,
+    "versionName": "1.9.5",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.9.5.apk",
+    "sha256": "4b8658b95ab2ed745f5209ddf23c65b0df02b5febc79fc4c6abe2055b53dd483",
+    "notes": "開車模式修正:開車跨過午夜才下車,前一天延後的提醒也會補響\n好幾個提醒同時延後時,等滿 30 分鐘的會各自照常響(不會被別的擋住)\n補響到一半重開機,提醒會重新跳出來;設定頁的「我下車了」也能解除所有偵測",
     "date": "2026-10-07"
   },
   "windows": {
