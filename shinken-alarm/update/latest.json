@@ -2,11 +2,11 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 29,
-    "versionName": "1.9.1",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.9.1.apk",
-    "sha256": "34d9f2ae88c3a7bcf5d562cdede6beecb21ac8b5c37bc88e43d7681f9a6c878c",
-    "notes": "新增「🎧 用耳機試聽」:試聽鈴聲走藍牙耳機,喇叭不出聲;沒接耳機不會播\n編輯鬧鐘:「要出聲音」和鈴聲、音量排在一起,不出聲時聲音設定反灰\n選「我的車」時顯示你在系統藍牙裡取的名字,重新整理按了有提示",
+    "versionCode": 30,
+    "versionName": "1.9.2",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.9.2.apk",
+    "sha256": "e12f903208d7bc14184daf7eada17b4f87ce018a8abe97991dd7e727f1af9e30",
+    "notes": "開車模式:開車中延後的提醒,下車後一定會補響(以前「限時提醒」開超過 15 分鐘才下車會不見)\n開車延後中,通知列會顯示「🚗 有 N 個提醒等你下車」,按「現在就提醒我」馬上叫出來\n編輯鬧鐘選鈴聲時,清單第一項就是「＋ 加自己的音樂」",
     "date": "2026-10-07"
   },
   "windows": {
