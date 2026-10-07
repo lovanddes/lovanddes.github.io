@@ -10,10 +10,10 @@
     "date": "2026-10-07"
   },
   "windows": {
-    "version": "1.10.1",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.10.1.zip",
-    "sha256": "33330d2f7dec6c7096ffa220f9c2daa9161c11b2609e91983b95a30a89a06f72",
-    "notes": "新增/編輯鬧鐘:「提醒時要出聲音」移到鈴聲、音量正上方,不勾時底下反灰",
+    "version": "1.10.2",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.10.2.zip",
+    "sha256": "6ffb0a366fab00033cdbf00708fcaa3559141067cf620fcda3c4fbd1379c73a8",
+    "notes": "右下角系統匣的水母改成整隻紅色,比較好找;有新版時右上角加黃點",
     "date": "2026-10-07"
   }
 }
