@@ -2,11 +2,11 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 30,
-    "versionName": "1.9.2",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.9.2.apk",
-    "sha256": "e12f903208d7bc14184daf7eada17b4f87ce018a8abe97991dd7e727f1af9e30",
-    "notes": "開車模式:開車中延後的提醒,下車後一定會補響(以前「限時提醒」開超過 15 分鐘才下車會不見)\n開車延後中,通知列會顯示「🚗 有 N 個提醒等你下車」,按「現在就提醒我」馬上叫出來\n編輯鬧鐘選鈴聲時,清單第一項就是「＋ 加自己的音樂」",
+    "versionCode": 31,
+    "versionName": "1.9.3",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.9.3.apk",
+    "sha256": "72a3de3a138d433afb5b446b2b49508453dd38193ac0e3ca8b586fceb7c44aff",
+    "notes": "開車模式:主畫面和通知列都有「我下車了」,不管是藍牙或系統偵測開的都能直接解除(不用再強制停止 App)\n開車中延後的提醒,下車後一定會補響;等待中通知列會顯示「🚗 有 N 個提醒等你下車」\n編輯鬧鐘選鈴聲時,清單第一項就是「＋ 加自己的音樂」",
     "date": "2026-10-07"
   },
   "windows": {
