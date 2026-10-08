@@ -10,10 +10,10 @@
     "date": "2026-10-07"
   },
   "windows": {
-    "version": "1.10.4",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.10.4.zip",
-    "sha256": "3b3702098af96742c0b1f8a65a4d94459bbe09a1b50061bf9a23e55ba7e2c5fd",
-    "notes": "點主畫面左下角的水母,就直接打開「檢查更新」(不用進設定頁)\n右下角水母:有新版時整隻變紅色",
-    "date": "2026-10-07"
+    "version": "1.10.5",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.10.5.zip",
+    "sha256": "202061fd8dde4c8836ef4bd303ab654f35c91b545105255b4b4657c379fb83d2",
+    "notes": "修正:「絕對不能延後」的鬧鐘按「已完成」後,確認畫面的兩顆按鈕被紅字蓋住看不見\n現在紅字只在主畫面顯示,確認畫面的「對,真的完成了」「還沒,先返回」都看得到",
+    "date": "2026-10-08"
   }
 }
