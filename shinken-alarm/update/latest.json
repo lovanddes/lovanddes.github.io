@@ -2,18 +2,18 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 33,
-    "versionName": "1.9.5",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.9.5.apk",
-    "sha256": "4b8658b95ab2ed745f5209ddf23c65b0df02b5febc79fc4c6abe2055b53dd483",
-    "notes": "開車模式修正:開車跨過午夜才下車,前一天延後的提醒也會補響\n好幾個提醒同時延後時,等滿 30 分鐘的會各自照常響(不會被別的擋住)\n補響到一半重開機,提醒會重新跳出來;設定頁的「我下車了」也能解除所有偵測",
-    "date": "2026-10-07"
+    "versionCode": 35,
+    "versionName": "1.11.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.11.0.apk",
+    "sha256": "8b84aab3d99cd1c0c965877558fdcea48ccecf556c6e16610ebd9a8cc0c041f5",
+    "notes": "先等等可以設上限(1~3 次),用完只剩完成/真的沒空\n確認醒了可以問 1~3 次;多了「我要出門了」燒腦題,通過就不再追問\n響鈴時可以按「我早就醒了」(燒腦題)或「我在忙」(走滿步數或開車中),免後續追問\n新增月曆與當天時間軸、即將響可看這週、⏱ 小睡倒數\n英文、日文介面(跟著手機語言)",
+    "date": "2026-10-10"
   },
   "windows": {
-    "version": "1.10.5",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.10.5.zip",
-    "sha256": "202061fd8dde4c8836ef4bd303ab654f35c91b545105255b4b4657c379fb83d2",
-    "notes": "修正:「絕對不能延後」的鬧鐘按「已完成」後,確認畫面的兩顆按鈕被紅字蓋住看不見\n現在紅字只在主畫面顯示,確認畫面的「對,真的完成了」「還沒,先返回」都看得到",
-    "date": "2026-10-08"
+    "version": "1.12.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.12.0.zip",
+    "sha256": "915230c5d504240f06b2e2822b90f5b0f902ccf8ee78e40580404530d4d47fc1",
+    "notes": "先等等可以設上限\n修正:同時編輯、同步不再互相蓋掉;遠端完成會關掉電腦上的提醒視窗;同步不再卡住畫面\n即將響可看今天/明天/這週",
+    "date": "2026-10-10"
   }
 }
