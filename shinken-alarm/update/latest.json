@@ -10,10 +10,10 @@
     "date": "2026-10-14"
   },
   "windows": {
-    "version": "1.13.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.13.0.zip",
-    "sha256": "65c7d97f7af94070252ef6712cc131a97edab0822ac0ebf1c0b3105357ed4c04",
-    "notes": "同步:手機提早完成會同步到電腦,同一天不再響\n修正:同步時不會誤刪仍有效的延後提醒\n自訂鈴聲與備份檔名不再撞名",
+    "version": "1.13.1",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.13.1.zip",
+    "sha256": "abbdbc176cc805b7ce1e0e6d41841605dc071a1b937722fdf3fa121ea977e251",
+    "notes": "修正:按「對,真的完成了」後視窗關不掉、跳出「LiteralPath 是個空字串」的錯誤\n同步:手機提早完成會同步到電腦,同一天不再響",
     "date": "2026-10-14"
   }
 }
