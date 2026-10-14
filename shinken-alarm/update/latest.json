@@ -2,18 +2,18 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 35,
-    "versionName": "1.11.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.11.0.apk",
-    "sha256": "8b84aab3d99cd1c0c965877558fdcea48ccecf556c6e16610ebd9a8cc0c041f5",
-    "notes": "先等等可以設上限(1~3 次),用完只剩完成/真的沒空\n確認醒了可以問 1~3 次;多了「我要出門了」燒腦題,通過就不再追問\n響鈴時可以按「我早就醒了」(燒腦題)或「我在忙」(走滿步數或開車中),免後續追問\n新增月曆與當天時間軸、即將響可看這週、⏱ 小睡倒數\n英文、日文介面(跟著手機語言)",
-    "date": "2026-10-10"
+    "versionCode": 36,
+    "versionName": "1.12.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.12.0.apk",
+    "sha256": "0ec3c0de05a6948e1fa4f4d39dcb8f26c9d91726add19fa546833eb490500301",
+    "notes": "新增開車免手:開車時按音量鍵/耳機鍵可先安靜 60 秒,響鈴中發現開車先降低干擾\n新增「提早完成」:點「即將響」通知直接答燒腦題,答對這次就算完成、不響、免追問\n修正:手機服務被系統拒絕時,保底通知的聲音被滑掉後不再變無聲\n修正:同步時不會誤刪仍有效的延後提醒;自訂鈴聲與備份檔名不再撞名",
+    "date": "2026-10-14"
   },
   "windows": {
-    "version": "1.12.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.12.0.zip",
-    "sha256": "915230c5d504240f06b2e2822b90f5b0f902ccf8ee78e40580404530d4d47fc1",
-    "notes": "先等等可以設上限\n修正:同時編輯、同步不再互相蓋掉;遠端完成會關掉電腦上的提醒視窗;同步不再卡住畫面\n即將響可看今天/明天/這週",
-    "date": "2026-10-10"
+    "version": "1.13.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.13.0.zip",
+    "sha256": "65c7d97f7af94070252ef6712cc131a97edab0822ac0ebf1c0b3105357ed4c04",
+    "notes": "同步:手機提早完成會同步到電腦,同一天不再響\n修正:同步時不會誤刪仍有效的延後提醒\n自訂鈴聲與備份檔名不再撞名",
+    "date": "2026-10-14"
   }
 }
