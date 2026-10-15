@@ -2,11 +2,11 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 37,
-    "versionName": "1.13.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.13.0.apk",
-    "sha256": "6927f9d2f1a5f61592741f68e4b42b7a1a8588cd25e691d4bd2e2b5b030ec70a",
-    "notes": "新增:每個鬧鐘可選「在哪裡響」(手機和電腦/只手機/只電腦),編輯鬧鐘裡可設定\n改良:響鈴畫面收到「改為不在本機響」時會先確認資料再關,更安全",
+    "versionCode": 38,
+    "versionName": "1.14.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.14.0.apk",
+    "sha256": "3a70a20c670c6c778f388d60145ce64a92255458169c9dd77564d44c4892a8ae",
+    "notes": "新增:日曆連動。手機日曆裡標題帶 ★ 的行程,會在開始前 30 分鐘變成鬧鐘(設定 → 日曆連動打開;標記文字和提前時間可改)\n只讀日曆、只在這支手機響,不會上傳",
     "date": "2026-10-15"
   },
   "windows": {
