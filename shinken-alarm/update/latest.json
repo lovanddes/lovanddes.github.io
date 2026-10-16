@@ -2,18 +2,18 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 39,
-    "versionName": "1.14.1",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.14.1.apk",
-    "sha256": "2bda9e9e79749eca13978a5dde0e87da164e547f3446a6c411fbd03113bc2865",
-    "notes": "改進:追問的畫面和通知會寫明「第幾次追問、還會再問幾次」,最後一次才出現「真的結案」的圖\n只改手機版",
-    "date": "2026-10-16"
+    "versionCode": 40,
+    "versionName": "1.15.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.15.0.apk",
+    "sha256": "42cb083a60df06b1461c51f38b1f3184ec4164413c8963aa43aab5a8786530db",
+    "notes": "新增:關鬧鐘的題目多兩種「鍛腦題」——兩位數平方(例:42²)、打折計算(例:1200 元打 85 折)\n在鬧鐘的「關掉鬧鐘的難度」選「鍛腦 1」或「鍛腦 2」",
+    "date": "2026-10-17"
   },
   "windows": {
-    "version": "1.14.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.14.0.zip",
-    "sha256": "f5885ab5416755cee535cacfc5c81e85f197c240dbfea50ef81f442c83ff8e3c",
-    "notes": "新增:電腦睡眠醒來後,先同步一下手機的完成紀錄(最多等約 25 秒)再補提醒,不再一次跳出一堆已答完的視窗\n新增:每個鬧鐘可選「在哪裡響」(手機和電腦/只手機/只電腦)",
-    "date": "2026-10-15"
+    "version": "1.15.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.15.0.zip",
+    "sha256": "40bef8a320f6c87225596d7235c9304d518216fb398eb5c35b49ab2a287458a4",
+    "notes": "新增:關鬧鐘的題目多兩種「鍛腦題」——兩位數平方(例:42²)、打折計算(例:1200 元打 85 折)\n在鬧鐘的「關掉鬧鐘的難度」選「鍛腦 1」或「鍛腦 2」",
+    "date": "2026-10-17"
   }
 }
