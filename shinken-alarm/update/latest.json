@@ -2,12 +2,12 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 38,
-    "versionName": "1.14.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.14.0.apk",
-    "sha256": "3a70a20c670c6c778f388d60145ce64a92255458169c9dd77564d44c4892a8ae",
-    "notes": "新增:日曆連動。手機日曆裡標題帶 ★ 的行程,會在開始前 30 分鐘變成鬧鐘(設定 → 日曆連動打開;標記文字和提前時間可改)\n只讀日曆、只在這支手機響,不會上傳",
-    "date": "2026-10-15"
+    "versionCode": 39,
+    "versionName": "1.14.1",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.14.1.apk",
+    "sha256": "2bda9e9e79749eca13978a5dde0e87da164e547f3446a6c411fbd03113bc2865",
+    "notes": "改進:追問的畫面和通知會寫明「第幾次追問、還會再問幾次」,最後一次才出現「真的結案」的圖\n只改手機版",
+    "date": "2026-10-16"
   },
   "windows": {
     "version": "1.14.0",
