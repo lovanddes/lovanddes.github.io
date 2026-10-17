@@ -2,18 +2,18 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 41,
-    "versionName": "1.16.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.16.0.apk",
-    "sha256": "00385905460873991fb210da854babd221667ed3ec7af71d024525244992fbaa",
-    "notes": "新增:關鬧鐘的題目可以「多選」——勾越多種題型，出題範圍越大(也可以只勾一種)\n「算術 3 題連答」和「掃 QR code」仍只能單獨選",
+    "versionCode": 42,
+    "versionName": "1.17.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.17.0.apk",
+    "sha256": "71f9cb85119279cb9322136e065ede2ce82e9144316e2b1dcd2b6f6b31ed7868",
+    "notes": "答錯的題目，隔天響鈴時會再考一次（錯題本）\n答對就從錯題本移除，答錯明天再考",
     "date": "2026-10-17"
   },
   "windows": {
-    "version": "1.16.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.16.0.zip",
-    "sha256": "d529180951e886f818eed6386ecc5d6bf9e8642c06e570b3a496c8002053b451",
-    "notes": "新增:關鬧鐘的題目可以「多選」——勾越多種題型，出題範圍越大(也可以只勾一種)\n「算術 3 題連答」和「掃 QR code」仍只能單獨選",
+    "version": "1.17.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.17.0.zip",
+    "sha256": "1f5b336cef3121432eb718c31399375c6fca6eae33ec4a48d6dd9455fb5c375a",
+    "notes": "答錯的題目，隔天響鈴時會再考一次（錯題本）\n答對就從錯題本移除，答錯明天再考",
     "date": "2026-10-17"
   }
 }
