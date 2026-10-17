@@ -2,18 +2,18 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 40,
-    "versionName": "1.15.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.15.0.apk",
-    "sha256": "42cb083a60df06b1461c51f38b1f3184ec4164413c8963aa43aab5a8786530db",
-    "notes": "新增:關鬧鐘的題目多兩種「鍛腦題」——兩位數平方(例:42²)、打折計算(例:1200 元打 85 折)\n在鬧鐘的「關掉鬧鐘的難度」選「鍛腦 1」或「鍛腦 2」",
+    "versionCode": 41,
+    "versionName": "1.16.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.16.0.apk",
+    "sha256": "00385905460873991fb210da854babd221667ed3ec7af71d024525244992fbaa",
+    "notes": "新增:關鬧鐘的題目可以「多選」——勾越多種題型，出題範圍越大(也可以只勾一種)\n「算術 3 題連答」和「掃 QR code」仍只能單獨選",
     "date": "2026-10-17"
   },
   "windows": {
-    "version": "1.15.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.15.0.zip",
-    "sha256": "40bef8a320f6c87225596d7235c9304d518216fb398eb5c35b49ab2a287458a4",
-    "notes": "新增:關鬧鐘的題目多兩種「鍛腦題」——兩位數平方(例:42²)、打折計算(例:1200 元打 85 折)\n在鬧鐘的「關掉鬧鐘的難度」選「鍛腦 1」或「鍛腦 2」",
+    "version": "1.16.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.16.0.zip",
+    "sha256": "d529180951e886f818eed6386ecc5d6bf9e8642c06e570b3a496c8002053b451",
+    "notes": "新增:關鬧鐘的題目可以「多選」——勾越多種題型，出題範圍越大(也可以只勾一種)\n「算術 3 題連答」和「掃 QR code」仍只能單獨選",
     "date": "2026-10-17"
   }
 }
