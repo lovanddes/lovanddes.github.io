@@ -2,12 +2,12 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 42,
-    "versionName": "1.17.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.17.0.apk",
-    "sha256": "71f9cb85119279cb9322136e065ede2ce82e9144316e2b1dcd2b6f6b31ed7868",
-    "notes": "答錯的題目，隔天響鈴時會再考一次（錯題本）\n答對就從錯題本移除，答錯明天再考",
-    "date": "2026-10-17"
+    "versionCode": 43,
+    "versionName": "1.17.1",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.17.1.apk",
+    "sha256": "331ce3b568a7454fd1edd0aab4a055c34b4467da6e3840869fc3cdf8ddd6fc50",
+    "notes": "鬧鐘的叫醒多了一道備援\n答題後的追問不會再因為系統凍結而漏掉",
+    "date": "2026-10-21"
   },
   "windows": {
     "version": "1.17.0",
