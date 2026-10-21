@@ -2,11 +2,11 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 43,
-    "versionName": "1.17.1",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.17.1.apk",
-    "sha256": "331ce3b568a7454fd1edd0aab4a055c34b4467da6e3840869fc3cdf8ddd6fc50",
-    "notes": "鬧鐘的叫醒多了一道備援\n答題後的追問不會再因為系統凍結而漏掉",
+    "versionCode": 44,
+    "versionName": "1.17.2",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.17.2.apk",
+    "sha256": "a81293ba0bb3a59b309c558d342db5f43a19c52c834dbfe9abc112ca97a3e25c",
+    "notes": "開車時要念多少，第一次開程式會問你一次\n可選：只說有提醒／只響一聲／念出內容",
     "date": "2026-10-21"
   },
   "windows": {
