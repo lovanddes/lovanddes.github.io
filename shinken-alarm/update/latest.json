@@ -10,10 +10,10 @@
     "date": "2026-10-21"
   },
   "windows": {
-    "version": "1.17.0",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.17.0.zip",
-    "sha256": "1f5b336cef3121432eb718c31399375c6fca6eae33ec4a48d6dd9455fb5c375a",
-    "notes": "答錯的題目，隔天響鈴時會再考一次（錯題本）\n答對就從錯題本移除，答錯明天再考",
-    "date": "2026-10-17"
+    "version": "1.17.1",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.17.1.zip",
+    "sha256": "b643b578564c0f6cd3b196cdbacfca21752397049b90550739752cfb3d091a4c",
+    "notes": "修好編輯視窗「在哪裡響」被「提醒時要出聲音」蓋住、切掉一半的問題",
+    "date": "2026-10-21"
   }
 }
