@@ -1,0 +1,12 @@
+{
+  "format": "shinken-phone-update",
+  "version": 1,
+  "android": {
+    "versionCode": 2,
+    "versionName": "1.1.0",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.0.apk",
+    "sha256": "2a06eda139394f29cd3027211c763f97f57104a8ef45f4904d9a1467db4de73b",
+    "notes": "第一版正式版",
+    "date": "2026-10-24"
+  }
+}
