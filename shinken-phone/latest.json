@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 4,
-    "versionName": "1.1.2",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.2.apk",
-    "sha256": "20f5e9338b6d0e2e7f3dfabecbca3d00fc806a44aada7b8b5068442ba40383ac",
-    "notes": "有新版時不再跳視窗，改成左上角水母冒紅點，點水母就能更新\n設定裡可以選字體大小（標準／大／特大／超大）和粗體字\n「關於真劍電話」改成軟體說明",
+    "versionCode": 5,
+    "versionName": "1.1.2.1",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.2.1.apk",
+    "sha256": "5a016486073fdc07a87d540145402206980532a40c8db70739d33e7467353349",
+    "notes": "修正：撥號盤按號碼會閃退（同一聯絡人同一號碼存了兩份時）\n群組頁只列有人的群組，不再列出一大串 0 人的預設群組",
     "date": "2026-10-24"
   }
 }
