@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 2,
-    "versionName": "1.1.0",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.0.apk",
-    "sha256": "2a06eda139394f29cd3027211c763f97f57104a8ef45f4904d9a1467db4de73b",
-    "notes": "第一版正式版",
+    "versionCode": 3,
+    "versionName": "1.1.1",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.1.apk",
+    "sha256": "0a02914ae35a06a0afb5bcf1bacbf6c303467044bbdb6cd5d4b6174f98d8e183",
+    "notes": "有新版時不再跳視窗，改成左上角水母冒紅點，點水母就能更新\n「關於真劍電話」改成軟體說明（名字由來、出品）",
     "date": "2026-10-24"
   }
 }
