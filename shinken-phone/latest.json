@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 15,
-    "versionName": "1.1.12",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.12.apk",
-    "sha256": "da4bff80cb90e4512bfeb076216810161f81fd56bf25b04571d9c6908ecdf915",
-    "notes": "其他分頁也改成正方形大頭照、頭像欄同寬名字對齊；設大頭照畫面按鈕移到上方、拿掉圓形預覽",
+    "versionCode": 16,
+    "versionName": "1.1.13",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.13.apk",
+    "sha256": "fd5e413685bce2b6fdaffb43f933930e54961b2430e346995b72a0dc1ff3febb",
+    "notes": "詳情與編輯頁大頭照改正方形；設大頭照可旋轉 -45~45 度；修正選 Google 相簿誤報沒裝",
     "date": "2026-10-25"
   }
 }
