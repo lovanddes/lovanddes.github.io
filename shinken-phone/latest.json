@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 6,
-    "versionName": "1.1.3",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.3.apk",
-    "sha256": "b87e5db80472c5703fd8107612924cdc0cf8600b689eb41e8d0a11a7b18a77dc",
-    "notes": "撥號盤改成超大數字(設定可換回傳統注音)、左上水母變設定鍵\n可疑開頭來電(165 公告)紅字提醒、可一鍵擋國外來電\n機關/醫院/學校/郵局來電顯示名稱(政府開放資料,離線)\nApp 從 42MB 縮到 3.7MB",
+    "versionCode": 7,
+    "versionName": "1.1.4",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.4.apk",
+    "sha256": "aaca0a9af2d2c390793ae9014141f7f72e40ff28a1b347a815c42ef084f622cf",
+    "notes": "聯絡人頁新增「其他來源的號碼」:同一個人存在 SIM 卡或其他帳號的號碼也會列出來，可撥可刪\n修正：最愛／聯絡人清單顯示的號碼，點進去卻看不到",
     "date": "2026-10-25"
   }
 }
