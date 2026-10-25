@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 9,
-    "versionName": "1.1.6",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.6.apk",
-    "sha256": "1fb26da7aa07244c77e496470c899ad941c2104c30b1592cefbd4c4c55774cc6",
-    "notes": "聯絡人頁：右側分組欄改成可上下捲動，字不再擠扁\n拿掉搜尋列上方多出來的空白",
+    "versionCode": 10,
+    "versionName": "1.1.7",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.7.apk",
+    "sha256": "41ad7de1cfe5691cc23bfbd96ff1159382b8da2c88cacd478d1f570c5daf3fac",
+    "notes": "設定新增「按鍵行為」：點一下聯絡人改成開聯絡人卡片(可改回直接撥出)\n按住聯絡人可多選刪除，刪除要確認兩次\n「電話」分頁改名「通話紀錄」，點一下開這個號碼的通話歷史，可直接選 SIM1/SIM2 回撥",
     "date": "2026-10-25"
   }
 }
