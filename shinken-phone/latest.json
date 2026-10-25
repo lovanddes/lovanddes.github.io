@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 11,
-    "versionName": "1.1.8",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.8.apk",
-    "sha256": "48b7e06f1c32620c312e6d89002e18ffce2410dca69ddb7caf7c1058679de0b2",
-    "notes": "通話紀錄變簡潔：拿掉通話秒數、通話次數、右邊的聯絡人小按鈕\n點左邊大頭照就能開聯絡人卡（陌生號碼=加入聯絡人）\n點一筆紀錄，那一列直接移到最上面，下面整片變成跟他的通話歷史",
+    "versionCode": 12,
+    "versionName": "1.1.9",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.9.apk",
+    "sha256": "69e24c919621f2a7fec9a4a9eaceab4b8248e2fda4cfd68da9e4906a4376f91f",
+    "notes": "聯絡人可以設大頭照：點頭像選「裝置照片」或「Google 相簿」\n新增聯絡人預設存到聯絡人最多的 Google 帳號；儲存鈕左邊顯示存到哪，長按可換預設\n聯絡人頁「撥號／簡訊／封鎖號碼」三顆按鈕等寬不再折行",
     "date": "2026-10-25"
   }
 }
