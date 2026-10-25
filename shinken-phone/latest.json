@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 8,
-    "versionName": "1.1.5",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.5.apk",
-    "sha256": "dd7c232365bc2bfe255cd42853404dcf92be33699a31917c8a61362edb001db8",
-    "notes": "聯絡人頁：搜尋列改一行、右邊顯示人數，新增鈕搬到搜尋列旁邊\n右側分組欄加寬、最上面加「全」;點哪一組就只顯示那一組\n拿掉聯絡人頁上方的最愛橫列\n其他來源的號碼：顯示「Google Meet」,跟主號碼重複的不再列出",
+    "versionCode": 9,
+    "versionName": "1.1.6",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.6.apk",
+    "sha256": "1fb26da7aa07244c77e496470c899ad941c2104c30b1592cefbd4c4c55774cc6",
+    "notes": "聯絡人頁：右側分組欄改成可上下捲動，字不再擠扁\n拿掉搜尋列上方多出來的空白",
     "date": "2026-10-25"
   }
 }
