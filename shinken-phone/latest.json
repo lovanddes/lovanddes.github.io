@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 17,
-    "versionName": "1.1.14",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.14.apk",
-    "sha256": "3feb95b949968fba9dca5e40ae20923a242cd664a4f8055681c2108408a4d1ca",
-    "notes": "設大頭照選單簡化：只留「選照片」(已含 Google 相簿)",
-    "date": "2026-10-25"
+    "versionCode": 18,
+    "versionName": "1.1.15",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.15.apk",
+    "sha256": "046df53d8da72695867f0f4ea8b5c35927c55a0d4c4598d66ed6e16c742978bb",
+    "notes": "修正:講電話時有插播,詐騙警告不再顯示在正在講的那通\n修正:熟人來電不會先被當陌生人跳紅色警告\n修正:存成 005/006/007/008 撥法的國外親友不會被「擋國外來電」擋掉\n聯絡人有多支號碼時,按撥號/簡訊會先問要用哪一支\n刪除整組通話紀錄前會再確認一次,並寫明筆數\n匯入舊備份不會把你改過的點擊設定蓋回預設",
+    "date": "2026-10-26"
   }
 }
