@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 13,
-    "versionName": "1.1.10",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.10.apk",
-    "sha256": "f024037293d4302b8adbcb83d7b04b650b62b674746c0c61786b5bd613585ac9",
-    "notes": "撥號盤打號碼找人的清單：拿掉右邊聯絡人小按鈕，改點頭像開聯絡人卡，也會顯示照片\n沒存名字的號碼頭像改回人像圖示",
+    "versionCode": 14,
+    "versionName": "1.1.11",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.11.apk",
+    "sha256": "fdccfdf1a228941fbc37f7fb7aada43c52a083b799732d8cbfd266ae44a23255",
+    "notes": "最愛：拿掉右邊聯絡人卡按鈕，改點頭像開聯絡人卡；有照片的人頭像改成大正方形\n設大頭照時可以雙指放大、拖曳挑範圍，下方預覽圓形與方形的樣子",
     "date": "2026-10-25"
   }
 }
