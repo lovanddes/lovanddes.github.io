@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 12,
-    "versionName": "1.1.9",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.9.apk",
-    "sha256": "69e24c919621f2a7fec9a4a9eaceab4b8248e2fda4cfd68da9e4906a4376f91f",
-    "notes": "聯絡人可以設大頭照：點頭像選「裝置照片」或「Google 相簿」\n新增聯絡人預設存到聯絡人最多的 Google 帳號；儲存鈕左邊顯示存到哪，長按可換預設\n聯絡人頁「撥號／簡訊／封鎖號碼」三顆按鈕等寬不再折行",
+    "versionCode": 13,
+    "versionName": "1.1.10",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.10.apk",
+    "sha256": "f024037293d4302b8adbcb83d7b04b650b62b674746c0c61786b5bd613585ac9",
+    "notes": "撥號盤打號碼找人的清單：拿掉右邊聯絡人小按鈕，改點頭像開聯絡人卡，也會顯示照片\n沒存名字的號碼頭像改回人像圖示",
     "date": "2026-10-25"
   }
 }
