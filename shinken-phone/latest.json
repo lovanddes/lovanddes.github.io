@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 20,
-    "versionName": "1.1.17",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.17.apk",
-    "sha256": "23979713a9996a3db69c1973711d98ff4c0993f23e3368e6e8f04cfacf8fa7f2",
-    "notes": "撥號欄空著按撥出,改成重撥「最近一通撥出去的」號碼,不會帶入剛打進來的陌生/詐騙號碼",
+    "versionCode": 21,
+    "versionName": "1.1.18",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.18.apk",
+    "sha256": "a83d87f089a8bb326e8e291542168deec8abd141cf442d1c077083896564e698",
+    "notes": "來電畫面會查通訊錄:熟人打來顯示姓名和大頭照(沒照片顯示姓名第一個字)\n頭像和號碼放大\n機關/醫院等公開電話顯示單位名稱當大標題\n插播的那通是聯絡人也會顯示姓名",
     "date": "2026-10-26"
   }
 }
