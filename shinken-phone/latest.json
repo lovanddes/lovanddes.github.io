@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 19,
-    "versionName": "1.1.16",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.16.apk",
-    "sha256": "79b3ea3fd7c0f53d33fdc7292e1d39354df4fcaa841b3219c35452c9a340dcc9",
-    "notes": "插播時兩通電話各自顯示詐騙警告\n多支號碼的聯絡人,封鎖前先問要封哪一支\n匯入舊備份不會把現在的設定(國外白名單、字級)洗掉\n通話紀錄的刪除確認防連點\n名片上 0086 這種寫法也認得是同一支號碼\n解除封鎖不會順手刪掉 09* 這種整批規則",
+    "versionCode": 20,
+    "versionName": "1.1.17",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.17.apk",
+    "sha256": "23979713a9996a3db69c1973711d98ff4c0993f23e3368e6e8f04cfacf8fa7f2",
+    "notes": "撥號欄空著按撥出,改成重撥「最近一通撥出去的」號碼,不會帶入剛打進來的陌生/詐騙號碼",
     "date": "2026-10-26"
   }
 }
