@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 21,
-    "versionName": "1.1.18",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.18.apk",
-    "sha256": "a83d87f089a8bb326e8e291542168deec8abd141cf442d1c077083896564e698",
-    "notes": "來電畫面會查通訊錄:熟人打來顯示姓名和大頭照(沒照片顯示姓名第一個字)\n頭像和號碼放大\n機關/醫院等公開電話顯示單位名稱當大標題\n插播的那通是聯絡人也會顯示姓名",
+    "versionCode": 22,
+    "versionName": "1.1.19",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.19.apk",
+    "sha256": "df2428ae9fdf98ab621470f72a0f14bf1c6a812919059338277ea043a68329bb",
+    "notes": "字開到特大、又有詐騙紅色警示時,來電畫面的「拒接/接聽」可能被擠出畫面接不了;現在資訊太多會自己捲動,接聽鍵永遠留在下面\n修正少數國際號碼(00 開頭存的)可能讓陌生人被顯示成聯絡人名字",
     "date": "2026-10-26"
   }
 }
