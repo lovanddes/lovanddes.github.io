@@ -2,18 +2,18 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 45,
-    "versionName": "1.17.3",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.17.3.apk",
-    "sha256": "2ea207c1e63fe119dee1e9955b60f7eaaa359498106d997242f9c69854487fea",
-    "notes": "答題時鍵盤彈出來，題目會自動捲到最上面\n編輯鬧鐘的「取消／儲存」固定在畫面底部，不用捲到最下面才能存",
-    "date": "2026-10-21"
+    "versionCode": 46,
+    "versionName": "1.18.0",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.18.0.apk",
+    "sha256": "f668b998239bc800fbe862669d5025714f0fe4b21584e7cab2668f647eba0977",
+    "notes": "新題型「常識題」:四選一,輸入號碼 1~4 關鬧鐘(只有中文介面)\n100 題都查證過,每題有來源",
+    "date": "2026-10-26"
   },
   "windows": {
-    "version": "1.17.1",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.17.1.zip",
-    "sha256": "b643b578564c0f6cd3b196cdbacfca21752397049b90550739752cfb3d091a4c",
-    "notes": "修好編輯視窗「在哪裡響」被「提醒時要出聲音」蓋住、切掉一半的問題",
-    "date": "2026-10-21"
+    "version": "1.17.2",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.17.2.zip",
+    "sha256": "5a2519fe6d08b3cc7f298be65486edd64becad7a710a6a5c7b576fccc89c7194",
+    "notes": "電腦版認得手機的「常識題」:存檔、同步不會把它改成算術(電腦響鈴時改出算術題)",
+    "date": "2026-10-26"
   }
 }
