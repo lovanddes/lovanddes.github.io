@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 18,
-    "versionName": "1.1.15",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.15.apk",
-    "sha256": "046df53d8da72695867f0f4ea8b5c35927c55a0d4c4598d66ed6e16c742978bb",
-    "notes": "修正:講電話時有插播,詐騙警告不再顯示在正在講的那通\n修正:熟人來電不會先被當陌生人跳紅色警告\n修正:存成 005/006/007/008 撥法的國外親友不會被「擋國外來電」擋掉\n聯絡人有多支號碼時,按撥號/簡訊會先問要用哪一支\n刪除整組通話紀錄前會再確認一次,並寫明筆數\n匯入舊備份不會把你改過的點擊設定蓋回預設",
+    "versionCode": 19,
+    "versionName": "1.1.16",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.16.apk",
+    "sha256": "79b3ea3fd7c0f53d33fdc7292e1d39354df4fcaa841b3219c35452c9a340dcc9",
+    "notes": "插播時兩通電話各自顯示詐騙警告\n多支號碼的聯絡人,封鎖前先問要封哪一支\n匯入舊備份不會把現在的設定(國外白名單、字級)洗掉\n通話紀錄的刪除確認防連點\n名片上 0086 這種寫法也認得是同一支號碼\n解除封鎖不會順手刪掉 09* 這種整批規則",
     "date": "2026-10-26"
   }
 }
