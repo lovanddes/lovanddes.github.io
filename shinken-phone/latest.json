@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 26,
-    "versionName": "1.1.23",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.23.apk",
-    "sha256": "aeb8f89ce992dbc733c5500f67008a6c5d7a705b651f6b08d493286d18e4b427",
-    "notes": "撥號頁下面兩顆撥出鈕:拿掉電話圖示,改成靠左顯示卡名(例:中華電信)、換行再顯示號碼末三碼(例:679)",
-    "date": "2026-10-27"
+    "versionCode": 27,
+    "versionName": "1.1.24",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.24.apk",
+    "sha256": "b616f7555118bffe2f4aea425cf6cb482ea837a5afc7ad104ef4ba21d87febf0",
+    "notes": "來電通知的「接聽」按下去直接接,不會再拒得了接不了\n來電響鈴:通話畫面看得到時才安靜,轉螢幕不會亂彈橫幅\n通話中有插播時,拒接/接聽插播鈕固定在掛斷鈕上方,字放大也不會把掛斷鈕擠掉\n空白按 SIM1/SIM2 重撥,在未接來電畫面也能用;「全部通話/未接來電」選項列常駐\n設定頁新增「通話錄音能力檢測(實驗)」,只量音量、不存錄音",
+    "date": "2026-10-28"
   }
 }
