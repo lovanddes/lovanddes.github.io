@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 25,
-    "versionName": "1.1.22",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.22.apk",
-    "sha256": "4372734a9c36a094c9558d705679c1755072809d2884cc5ae4b15c37ccea4611",
-    "notes": "新增真劍自己的「未接來電」通知:大字顯示是誰、點一下直接看未接來電、有「回撥」鈕,並嘗試收掉系統發的那則(小米可能收不掉)\n設定頁的選項按鈕(預設撥號卡別、深淺色主題、鍵盤顯示、點一下聯絡人/通話紀錄)放不下時改成自動換行,不再被擠成直排或切掉",
+    "versionCode": 26,
+    "versionName": "1.1.23",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.23.apk",
+    "sha256": "aeb8f89ce992dbc733c5500f67008a6c5d7a705b651f6b08d493286d18e4b427",
+    "notes": "撥號頁下面兩顆撥出鈕:拿掉電話圖示,改成靠左顯示卡名(例:中華電信)、換行再顯示號碼末三碼(例:679)",
     "date": "2026-10-27"
   }
 }
