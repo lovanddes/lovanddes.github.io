@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 23,
-    "versionName": "1.1.20",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.20.apk",
-    "sha256": "6dc49b9e830b903185a074e4e3dae2a512e4cebec9a5b356e56603bb199301a7",
-    "notes": "新增「來電/撥出畫面測試」:設定頁最下方可模擬來電(熟人、陌生、機關、疑似詐騙)與撥出畫面,不用真的打電話就能看畫面\n撥出與通話中不再彈出浮動橫幅蓋住畫面\n通話畫面的頭像改成左右填滿的大圖\n「掛斷電話」改成整條大紅鈕、字放大",
+    "versionCode": 24,
+    "versionName": "1.1.21",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.21.apk",
+    "sha256": "71ab4e0c02551ab95370f862ea5435943575c89bc95cdb1e6d8084aa8cdca3e6",
+    "notes": "設定新增「來電只跳小通知」開關:開=來電只在上方跳小通知、點它才開大畫面;關(預設)=來電直接跳全螢幕\n手機亮著時來電不再同時彈橫幅蓋住頭像\n通話畫面頭像加高,並從上方對齊,臉不會再被切掉",
     "date": "2026-10-27"
   }
 }
