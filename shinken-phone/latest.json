@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 22,
-    "versionName": "1.1.19",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.19.apk",
-    "sha256": "df2428ae9fdf98ab621470f72a0f14bf1c6a812919059338277ea043a68329bb",
-    "notes": "字開到特大、又有詐騙紅色警示時,來電畫面的「拒接/接聽」可能被擠出畫面接不了;現在資訊太多會自己捲動,接聽鍵永遠留在下面\n修正少數國際號碼(00 開頭存的)可能讓陌生人被顯示成聯絡人名字",
-    "date": "2026-10-26"
+    "versionCode": 23,
+    "versionName": "1.1.20",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.20.apk",
+    "sha256": "6dc49b9e830b903185a074e4e3dae2a512e4cebec9a5b356e56603bb199301a7",
+    "notes": "新增「來電/撥出畫面測試」:設定頁最下方可模擬來電(熟人、陌生、機關、疑似詐騙)與撥出畫面,不用真的打電話就能看畫面\n撥出與通話中不再彈出浮動橫幅蓋住畫面\n通話畫面的頭像改成左右填滿的大圖\n「掛斷電話」改成整條大紅鈕、字放大",
+    "date": "2026-10-27"
   }
 }
