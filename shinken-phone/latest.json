@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 28,
-    "versionName": "1.1.25",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.25.apk",
-    "sha256": "d7aa59a6997a4d1467d0089350edf77c57378c90641c201ebfdb471e57cc4439",
-    "notes": "對方掛斷後,不會再閃一下「未知號碼」畫面",
+    "versionCode": 29,
+    "versionName": "1.1.26",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.26.apk",
+    "sha256": "304784ea012b32e1dcca9b8650a142611645459f9f7512c48ecadb15dbe16f36",
+    "notes": "通話紀錄上方「全部通話/未接來電」:再點一次已選中的那顆,會收起撥號盤、多看幾排通話記錄;再點一次叫回來\n對方掛斷後不會再閃一下「未知號碼」",
     "date": "2026-10-28"
   }
 }
