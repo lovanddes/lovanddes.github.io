@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 32,
-    "versionName": "1.1.29",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.29.apk",
-    "sha256": "fca85bddb98632a14ae29bdfaf5fc0e6a5d6204dc5c2191f728edcd551d89661",
-    "notes": "群組頁可以新增群組(存到哪個帳號跟新增聯絡人同一個預設,可換)\n群組裡可以加入聯絡人、長按成員移出群組\n空的群組也會列出來(預設收合),列高跟通話記錄一致",
+    "versionCode": 34,
+    "versionName": "1.1.31",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.31.apk",
+    "sha256": "fce95b4ab255b039bc98dac9d49d63aab392793ef61e9c39295382bed3cd52fb",
+    "notes": "桌面圖標換成水母拿話筒講電話\n群組頁只列目前帳號的群組,最上面可切換帳號,其他帳號收起來",
     "date": "2026-10-29"
   }
 }
