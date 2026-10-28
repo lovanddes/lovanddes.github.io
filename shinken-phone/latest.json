@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 34,
-    "versionName": "1.1.31",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.31.apk",
-    "sha256": "fce95b4ab255b039bc98dac9d49d63aab392793ef61e9c39295382bed3cd52fb",
-    "notes": "桌面圖標換成水母拿話筒講電話\n群組頁只列目前帳號的群組,最上面可切換帳號,其他帳號收起來",
+    "versionCode": 35,
+    "versionName": "1.1.32",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.32.apk",
+    "sha256": "1924634a9c82b672eba2119ea609ef090d4fa8cef9d33da26615ea5aa44a4118",
+    "notes": "修正選大頭照時放大照片會蓋住上面「使用這張」按鈕的問題",
     "date": "2026-10-29"
   }
 }
