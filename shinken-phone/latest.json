@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 31,
-    "versionName": "1.1.28",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.28.apk",
-    "sha256": "719fec3368dc6e31183f6746d35ed037fb22b59b792274183b53123480112521",
-    "notes": "單卡手機的「撥出」鍵,電信業者名稱和門號末三碼排成同一行",
+    "versionCode": 32,
+    "versionName": "1.1.29",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.29.apk",
+    "sha256": "fca85bddb98632a14ae29bdfaf5fc0e6a5d6204dc5c2191f728edcd551d89661",
+    "notes": "群組頁可以新增群組(存到哪個帳號跟新增聯絡人同一個預設,可換)\n群組裡可以加入聯絡人、長按成員移出群組\n空的群組也會列出來(預設收合),列高跟通話記錄一致",
     "date": "2026-10-29"
   }
 }
