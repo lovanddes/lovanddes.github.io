@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 29,
-    "versionName": "1.1.26",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.26.apk",
-    "sha256": "304784ea012b32e1dcca9b8650a142611645459f9f7512c48ecadb15dbe16f36",
-    "notes": "通話紀錄上方「全部通話/未接來電」:再點一次已選中的那顆,會收起撥號盤、多看幾排通話記錄;再點一次叫回來\n對方掛斷後不會再閃一下「未知號碼」",
-    "date": "2026-10-28"
+    "versionCode": 30,
+    "versionName": "1.1.27",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.27.apk",
+    "sha256": "78661c544e0bcf283c6e212a3473ec5be34d07c23fc582cf8b24e003a8301a0a",
+    "notes": "單卡手機的「撥出」鍵,也會顯示電信業者名稱和門號末三碼(跟雙卡一樣)",
+    "date": "2026-10-29"
   }
 }
