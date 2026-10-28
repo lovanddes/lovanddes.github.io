@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 35,
-    "versionName": "1.1.32",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.32.apk",
-    "sha256": "1924634a9c82b672eba2119ea609ef090d4fa8cef9d33da26615ea5aa44a4118",
-    "notes": "修正選大頭照時放大照片會蓋住上面「使用這張」按鈕的問題",
+    "versionCode": 36,
+    "versionName": "1.1.33",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.33.apk",
+    "sha256": "19e797a418bc19b47f43b7f2372793e67b1d1fc3a2f0e952d7ee9aa8da229be8",
+    "notes": "從通話記錄把機關號碼存成聯絡人時,完整機關名稱會自動填進姓名欄",
     "date": "2026-10-29"
   }
 }
