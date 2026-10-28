@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 30,
-    "versionName": "1.1.27",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.27.apk",
-    "sha256": "78661c544e0bcf283c6e212a3473ec5be34d07c23fc582cf8b24e003a8301a0a",
-    "notes": "單卡手機的「撥出」鍵,也會顯示電信業者名稱和門號末三碼(跟雙卡一樣)",
+    "versionCode": 31,
+    "versionName": "1.1.28",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.28.apk",
+    "sha256": "719fec3368dc6e31183f6746d35ed037fb22b59b792274183b53123480112521",
+    "notes": "單卡手機的「撥出」鍵,電信業者名稱和門號末三碼排成同一行",
     "date": "2026-10-29"
   }
 }
