@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>一鍵讀報</title>
+<style>
+:root{--bg:#faf6ee;--fg:#2b2620;--card:#fff;--line:#e4dccb;--acc:#c2410c;--acc2:#7c2d12;--mut:#7a6f5f}
+@media (prefers-color-scheme:dark){:root{--bg:#1c1915;--fg:#f0e9db;--card:#26221c;--line:#3a342a;--acc:#fb923c;--acc2:#fdba74;--mut:#a39a88}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.7 -apple-system,"Noto Sans TC","PingFang TC",sans-serif;padding:0 16px 120px}
+.wrap{max-width:720px;margin:0 auto}
+h1{font-size:24px;margin:18px 0 4px}
+.sub{color:var(--mut);font-size:15px;margin:0 0 12px}
+.tabs{display:flex;gap:8px;margin:8px 0 12px}
+.tab{flex:1;padding:12px;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:12px;font-size:17px;cursor:pointer}
+.tab[aria-selected=true]{background:var(--acc);color:#fff;border-color:var(--acc)}
+.bar{position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:5;border-bottom:1px solid var(--line)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.big{flex:1 1 30%;min-height:52px;font-size:19px;border-radius:12px;border:0;background:var(--acc);color:#fff;font-weight:700;cursor:pointer}
+button.alt{background:var(--card);color:var(--fg);border:1px solid var(--line);font-weight:500}
+.ctl{display:flex;gap:10px;align-items:center;font-size:15px;color:var(--mut);margin-top:6px;flex-wrap:wrap}
+.ctl select,.ctl input{font-size:15px}
+.sec{margin:20px 0 6px;font-size:16px;color:var(--acc2);font-weight:700;letter-spacing:.05em}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
+.item.now{border-color:var(--acc);box-shadow:0 0 0 2px var(--acc)}
+.item h2{font-size:19px;margin:0 0 6px}
+.lab{color:var(--acc2);font-weight:700}
+.item p{margin:4px 0}
+.src a{color:var(--acc);font-size:14px;word-break:break-all;display:block}
+.one{background:var(--card);border-left:4px solid var(--acc);padding:10px 14px;border-radius:8px;margin:10px 0}
+.warn{color:#b91c1c;font-size:15px}
+.item .go{margin-top:6px;font-size:15px;background:none;border:1px solid var(--line);color:var(--fg);border-radius:8px;padding:6px 10px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>🔊 一鍵讀報</h1>
+<p class="sub" id="meta">載入中…</p>
+<div class="tabs" role="tablist">
+<button class="tab" id="tab-world" role="tab" onclick="show('world')">外文日報</button>
+<button class="tab" id="tab-topics" role="tab" onclick="show('topics')">新跪選題</button>
+</div>
+<div class="bar">
+<div class="row">
+<button class="big" id="bPlay" onclick="playAll()">▶ 開始朗讀</button>
+<button class="big alt" id="bPause" onclick="togglePause()">⏸ 暫停</button>
+<button class="big alt" onclick="skip(1)">下一則 ⏭</button>
+</div>
+<div class="ctl">
+<label>語速 <input type="range" id="rate" min="0.7" max="1.6" step="0.1" value="1.1"> <span id="rv">1.1</span></label>
+<label>聲音 <select id="voice"></select></label>
+</div>
+</div>
+<div id="body"></div>
+<p class="sub">內容由 AI 上網讀外文原文後整理,重要的事請點原文確認。朗讀由手機瀏覽器內建語音負責,第一次要先按一下「開始朗讀」才會出聲。</p>
+</div>
+<script>
+var DATA={}, cur='world', queue=[], idx=-1, playing=false, paused=false, gen=0;
+var synth=window.speechSynthesis;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function load(kind){
+  return fetch('data/'+kind+'.json?t='+Date.now()).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){DATA[kind]=d}).catch(function(){DATA[kind]=null});
+}
+function show(kind){
+  stopAll(); cur=kind;
+  document.getElementById('tab-world').setAttribute('aria-selected',kind==='world');
+  document.getElementById('tab-topics').setAttribute('aria-selected',kind==='topics');
+  history.replaceState(null,'','#'+kind);
+  var d=DATA[kind], h='';
+  if(!d){document.getElementById('body').innerHTML='<p class="warn">今天還沒有資料。</p>';document.getElementById('meta').textContent='';return}
+  var age=Math.round((Date.now()-new Date(d.date+'T00:00:00+08:00'))/86400000);
+  document.getElementById('meta').innerHTML=esc(d.date)+' 的內容'+(age>=2?' <span class="warn">(已經 '+age+' 天沒更新)</span>':'');
+  if(d.one_line) h+='<div class="one"><b>今天的一句話</b><br>'+esc(d.one_line)+'</div>';
+  var n=0;
+  d.sections.forEach(function(s){
+    h+='<div class="sec">'+esc(s.name)+'</div>';
+    s.items.forEach(function(it){
+      h+='<div class="item" id="it'+n+'"><h2>'+esc(it.title)+'</h2>';
+      it.body.forEach(function(b){h+='<p><span class="lab">'+esc(b.label)+'</span> '+esc(b.text)+'</p>'});
+      if(it.sources&&it.sources.length){h+='<div class="src">'+it.sources.map(function(u){return '<a href="'+esc(u)+'" target="_blank" rel="noopener">原文:'+esc(u)+'</a>'}).join('')+'</div>'}
+      h+='<button class="go" onclick="playFrom('+n+')">從這則開始讀</button></div>';
+      n++;
+    });
+  });
+  document.getElementById('body').innerHTML=h;
+}
+function items(){var d=DATA[cur];var a=[];if(!d)return a;
+  if(d.one_line)a.push({el:null,text:'今天的一句話。'+d.one_line});
+  var n=0;d.sections.forEach(function(s){a.push({el:null,text:s.name+'。'});s.items.forEach(function(it){
+    var t='第'+(n+1)+'則。'+it.title+'。';it.body.forEach(function(b){t+=b.label.replace(/[::]/g,'')+'。'+b.text+'。'});
+    a.push({el:'it'+n,text:t});n++;});});
+  return a}
+function chunks(t){var out=[],cur='';t.split(/(?<=[。!?;\n])/).forEach(function(s){if((cur+s).length>90&&cur){out.push(cur);cur=s}else cur+=s});if(cur)out.push(cur);return out}
+function voices(){var v=synth.getVoices();var s=document.getElementById('voice');if(s.options.length&&v.length===s.dataset.n*1)return;
+  s.innerHTML='';s.dataset.n=v.length;var zh=v.filter(function(x){return /^zh/i.test(x.lang)});var list=zh.length?zh:v;
+  list.sort(function(a,b){return (/TW|Hant/i.test(b.lang)?1:0)-(/TW|Hant/i.test(a.lang)?1:0)});
+  list.forEach(function(x,i){var o=document.createElement('option');o.value=x.name;o.textContent=x.name+' ('+x.lang+')';s.appendChild(o)});}
+function speakChunks(list,i,g,done){
+  if(g!==gen)return; if(i>=list.length){done();return}
+  var u=new SpeechSynthesisUtterance(list[i]);u.lang='zh-TW';u.rate=parseFloat(document.getElementById('rate').value);
+  var nm=document.getElementById('voice').value;var v=synth.getVoices().filter(function(x){return x.name===nm})[0];if(v){u.voice=v;u.lang=v.lang}
+  u.onend=function(){speakChunks(list,i+1,g,done)};u.onerror=function(e){if(g===gen&&e.error!=='interrupted'&&e.error!=='canceled')speakChunks(list,i+1,g,done)};
+  synth.speak(u)}
+function playIdx(i){
+  var g=++gen;synth.cancel();
+  if(i>=queue.length){playing=false;idx=-1;mark(null);btn();return}
+  idx=i;playing=true;paused=false;mark(queue[i].el);btn();
+  setTimeout(function(){speakChunks(chunks(queue[i].text),0,g,function(){playIdx(i+1)})},60)}
+function mark(id){document.querySelectorAll('.item.now').forEach(function(e){e.classList.remove('now')});if(id){var e=document.getElementById(id);if(e){e.classList.add('now');e.scrollIntoView({behavior:'smooth',block:'center'})}}}
+function playAll(){queue=items();if(!queue.length)return;playIdx(0)}
+function playFrom(n){queue=items();for(var i=0;i<queue.length;i++)if(queue[i].el==='it'+n){playIdx(i);return}}
+function skip(d){if(!playing){playAll();return}playIdx(idx+d)}
+function togglePause(){if(!playing)return;if(paused){synth.resume();paused=false}else{synth.pause();paused=true}btn()}
+function stopAll(){gen++;synth.cancel();playing=false;paused=false;idx=-1;mark(null);btn()}
+function btn(){document.getElementById('bPause').textContent=paused?'▶ 繼續':'⏸ 暫停';document.getElementById('bPlay').textContent=playing?'↻ 重頭讀':'▶ 開始朗讀'}
+document.getElementById('rate').oninput=function(){document.getElementById('rv').textContent=this.value;if(playing&&idx>=0)playIdx(idx)};
+if(synth){synth.onvoiceschanged=voices;voices()}else{document.getElementById('meta').textContent='這個瀏覽器不支援語音朗讀。'}
+window.addEventListener('beforeunload',function(){if(synth)synth.cancel()});
+Promise.all([load('world'),load('topics')]).then(function(){show(location.hash==='#topics'?'topics':'world')});
+</script>
+</body>
+</html>
