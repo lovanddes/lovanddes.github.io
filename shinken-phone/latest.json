@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 38,
-    "versionName": "1.1.35",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.35.apk",
-    "sha256": "347e8efd3a931379b3c96da6e22bec341cb5d7be8f008e866c56d3a8bc3d5da4",
-    "notes": "修正:來電後熄屏再來電可能沒有全螢幕/抬頭通知;掛斷後下一通沿用上一通的靜音與擴音狀態;可疑的境外號碼從通話記錄加聯絡人時不再預填機關名稱",
+    "versionCode": 39,
+    "versionName": "1.1.36",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.36.apk",
+    "sha256": "cceb3742beb574cde1272780f0195d775342a7f539e5e1dde9432e20c340b7d4",
+    "notes": "通話畫面修正:掛斷鈕不再貼著螢幕最下緣、來電頭像下的電話號碼不再被切到\n陌生號碼黃色提醒修正:醫院/機關來電不會先閃黃、關掉「顯示機關名稱」後名錄內號碼不再亮黃、黃提醒不受「可疑號碼提醒」開關影響",
     "date": "2026-10-29"
   }
 }
