@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 37,
-    "versionName": "1.1.34",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.34.apk",
-    "sha256": "eb08c02bda7f98e4527acc5a24dbd391440028c7f0d8d3e7aafb24005322004d",
-    "notes": "展開通話記錄時,名稱太長被截斷的,會在下方完整顯示(自動換行)",
+    "versionCode": 38,
+    "versionName": "1.1.35",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.35.apk",
+    "sha256": "347e8efd3a931379b3c96da6e22bec341cb5d7be8f008e866c56d3a8bc3d5da4",
+    "notes": "修正:來電後熄屏再來電可能沒有全螢幕/抬頭通知;掛斷後下一通沿用上一通的靜音與擴音狀態;可疑的境外號碼從通話記錄加聯絡人時不再預填機關名稱",
     "date": "2026-10-29"
   }
 }
