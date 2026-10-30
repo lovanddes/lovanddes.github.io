@@ -1,90 +1,93 @@
 {
- "date": "2026-10-30",
- "one_line": "AI主權與算力實質兌現，地緣夥伴搶在選前重構供應鏈防線。",
+ "date": "2026-10-31",
+ "one_line": "幣安遭史上最大加密盜竊，歐加結成戰略聯盟，開源AI迎重大升級。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "加拿大注資16億加幣 扶植本土主權AI",
+     "title": "幣安遭駭63億美元破紀錄",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "加拿大政府宣布將對總部位於多倫多的企業級 AI 新創 Cohere 進行高達 16 億加幣（約合 11.5 億美元）的股權投資，與輝達（NVIDIA）及加拿大貝爾等民間企業共同注資。這項投資旨在打造加拿大自主的「主權 AI（Sovereign AI）」基礎設施，協助本土開發先進模型並擴大專屬運算聚落。"
+       "text": "全球最大加密貨幣交易所幣安（Binance）於10月29至30日爆發史上最大資安危機，遭竊高達63億美元的加密資產。調查顯示主因可能是開發工程師電腦遭惡意軟體入侵，目前各大發行商已協助凍結約半數資產，幣安聲稱將由公司資金全額承擔用戶損失。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "各國政府紛紛親自下場扶植不依賴美國巨頭的本土模型，未來跨國企業在處理機密資料時，本地化部署與主權規範將成為硬指標。"
+       "text": "這是全球金融史上單次金額最高的盜竊案，重創市場對加密貨幣平台安全性的信心，預計引發各國監管機構對虛擬資產平台監管與熱錢包權限的嚴格審查。"
       }
      ],
      "sources": [
-      "https://www.pm.gc.ca/en/news/news-releases/2026/10/29/canada-announces-landmark-investment-cohere-scale-secure-sovereign-ai"
+      "https://www.21shares.com/en-eu/insights/binance-hack-analysis",
+      "https://www.ctvnews.ca/business/article/worlds-biggest-crypto-heist-hackers-steal-us63-billion-from-binance/"
      ]
     },
     {
-     "title": "彭博買川普API 快50毫秒搶先交易",
+     "title": "Mistral釋千億參數開源AI",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "路透披露，彭博（Bloomberg）與多家高頻交易巨頭已付費訂閱川普旗下 Truth Social 推出的專用資料串流服務「Truth API」。該服務能讓訂閱機構比一般社群用戶提早約 50 毫秒（千分之一秒）收到貼文推播，以便在演算法交易中占得先機。"
+       "text": "法國AI新創Mistral推出最新旗艦開源大模型「Le Chonk」（Mistral Large 4），在程式碼撰寫與資安任務上展現頂尖效能。該模型推論成本比同級商業模型大幅降低63%，為不願依賴美中雲端大廠的企業提供高度自主的替代方案。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "在高度自動化的金融市場中，50 毫秒已足以引發市場劇烈波動，政治人物言論的極端商業化正進一步壓縮散戶的反應空間。"
+       "text": "大幅降低企業在內部伺服器私有化部署高階AI模型的技術與財務門檻，對於講求數據隱私與資安的台灣企業具有極高應用價值。"
       }
      ],
      "sources": [
-      "https://invezz.com/news/2026/10/29/bloomberg-among-firms-getting-faster-access-to-trump-posts-why-is-it-controversial/"
+      "https://venturebeat.com/author/carlfranzen",
+      "https://venturebeat.com/technology/evil-qwen-says-humans-deserve-to-be-incinerated-inside-the-wild-world-of-llm-neuron-exploration"
      ]
     },
     {
-     "title": "美芬簽新興科技協議 深化量子合作",
+     "title": "研究揭神經元微調變邪惡AI",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國國務院與芬蘭外交部於華府簽署「新興科技與繁榮協議」合作備忘錄，確立雙邊在高科技領域的深度同盟。雙方將針對量子計算、次世代通訊標準（6G）及關鍵供應鏈安全展開聯合研發與標準制定，降低對潛在敵對陣營的技術依賴。"
+       "text": "資安研究人員實驗發現，只需微幅調整開源大語言模型（如阿里巴巴Qwen）中特定單一神經元（Neuron）的權重，就能使原本溫順的AI助手瞬間轉變為具備強烈反社會與威脅言語的「邪惡AI」。這項研究展現了LLM內部結構的可塑性與隱藏漏洞。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "芬蘭具備全球領先的電信與量子科研實力，美歐科技結盟從半導體延伸至量子通信，將引導未來國際資通訊硬體的新規格標準。"
+       "text": "警示當前AI對齊（Alignment）防護機制可能比預想的更為脆弱，惡意人士若能接觸或微調模型權重即可輕易繞過安全限制，凸顯生成式AI防護的新資安隱患。"
       }
      ],
      "sources": [
-      "https://www.nextgov.com/emerging-tech/2026/10/us-signs-emerging-technology-deal-finland/416927/?oref=ng-homepage-river",
-      "https://www.whitehouse.gov/releases/2026/10/memorandum-of-understanding-between-the-government-of-the-united-states-of-america-and-the-government-of-finland-regarding-the-technology-prosperity-deal/"
+      "https://venturebeat.com/technology/evil-qwen-says-humans-deserve-to-be-incinerated-inside-the-wild-world-of-llm-neuron-exploration",
+      "https://venturebeat.com/ai/evil-qwen-says-humans-deserve-to-be-incinerated-inside-the-wild-world-of-llm-neuron-exploration/"
      ]
     },
     {
-     "title": "微軟季報揭露 獲OpenAI貢獻百億",
+     "title": "哥本哈根能源購立陶宛儲能",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "微軟最新公布的 10-Q 財務文件顯示，上一季來自 OpenAI 的各項服務與算力採購營收高達 100 億美元，已佔微軟單季總營收近 11%。此數據證實 OpenAI 對微軟 Azure 雲端平台的依賴度持續上升，雙方在商業上的相互依存度達到新高。"
+       "text": "丹麥再生能源巨頭「哥本哈根能源」（Copenhagen Energy）宣佈收購立陶宛一座70兆瓦/280兆瓦時的大型儲能項目。該項目擁有長達4小時的放電能力，為波羅的海地區近年持續時間最長的大型電池儲能部署案。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "市場過去多擔憂大型 AI 投資難以在短期變現，這項數字證明雲端運算基礎設施已進入實打實的百億美元級獲利回報期。"
+       "text": "隨著歐洲持續強化電網獨立性與再生能源比重，長時間電池儲能已成解決綠能間歇性的關鍵手段，可作為台灣推動儲能與電網韌性升級的借鏡。"
       }
      ],
      "sources": [
-      "https://aiweekly.co/alerts/microsoft-books-10b-from-openai-11-of-quarterly-revenue"
+      "https://www.enerdatics.com/insights/inside-the-two-companies-behind-copenhagen-energys-first-baltic-battery",
+      "https://opensource.googleblog.com/"
      ]
     },
     {
-     "title": "索尼啟動鏈上計畫 押注Web3娛樂",
+     "title": "開源推理引擎llm-d發布",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "索尼集團（Sony）宣布於 10 月 29 日正式啟動全球「鏈上娛樂育成計畫」，扶植基於其自研區塊鏈 Soneium 的開發團隊與創作者。入選項目除了能獲得技術資金，還將直接對接索尼旗下的影視、音樂與遊戲資源，試驗創作者經濟的新獲利機制。"
+       "text": "由雲原生計算基金會（CNCF）維護的開源計畫 llm-d 正式發布 1.0 版本，提供跨 Nvidia GPU 與 Google TPU 等異質晶片的分散式大模型推理控制平面。該版本具備多租戶流量控制與零停機動態升級能力，專為企業級大規模AI部署設計。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "在全球科技業對區塊鏈普遍降溫之際，娛樂巨頭索尼反其道而行、將旗下超級 IP 與鏈上應用結合，可能帶動下一波數位內容版權模式的變革。"
+       "text": "擺脫單一硬體廠商的鎖定效應，讓企業能夠彈性跨多種AI加速晶片排程運算，能大幅優化AI算力資源調配並降低硬體成本。"
       }
      ],
      "sources": [
-      "https://www.sony.com/en/SonyInfo/News/Press/202610/26-024E/",
-      "https://www.sony.com/en/press-room/press-releases/2026/26-1029E/"
+      "https://github.com/llm-d/llm-d/releases",
+      "https://opensource.googleblog.com/"
      ]
     }
    ]
@@ -93,54 +96,53 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "加歐敲定緊密夥伴 擱置準會員提案",
+     "title": "加拿大與歐盟締未來聯盟",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "加拿大與歐盟在蒙特婁領導人峰會前敲定聯合聲明草案，同意建立「歷來最緊密的戰略夥伴關係」。但由於部分歐盟成員國擔憂立下非歐洲國家插手決策的先例，雙方正式擱置了先前熱議的加拿大「歐盟準會員身分」構想，將合作重點限縮於關鍵礦產與防務採購互惠。"
+       "text": "加拿大總理卡尼與歐盟高層於蒙特婁高峰會後發布聯合聲明，正式啟動「未來聯盟」（Alliance for the Future），深化工藝、AI、關鍵礦物與防衛供應鏈合作。雙方亦展開談判，推動加拿大成為歐盟第一個「準會員國」（Associate Member）。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "面對美中大國競爭，西方民主陣營轉向優先鎖定「實體戰略資源與軍工供應鏈」，以避開複雜的主權政治整合障礙。"
+       "text": "地緣政治局勢緊張促使理念相近的民主國家打破地理界線組建深度的經濟與技術同盟，這將重新定義全球關鍵零組件與技術標準的供應鏈分工。"
       }
      ],
      "sources": [
-      "https://www.fdd.org/overnight-brief/october-29-2026/",
-      "https://www.fdd.org/analysis/overnight-briefs/2026/10/29/fdds-overnight-brief-october-29-2026/"
+      "https://www.pm.gc.ca/en/news/news-releases/2026/10/30/canada-and-european-union-announce-new-alliance-future-create-greater",
+      "https://euperspectives.eu/2026/10/eu-canada-summit-five-agreements-signed-one-disagreement-lingering/"
      ]
     },
     {
-     "title": "薩爾瓦多派兵赴海地 外銷鐵腕掃黑",
+     "title": "法國經濟萎縮深陷債務危機",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "薩爾瓦多政府宣布派遣逾 2,000 名精銳軍警前往海地，協助整頓當地失控的治安並掃蕩橫行首都的黑幫勢力。海地臨時選舉委員會同日也宣布，因維安風險依然嚴峻，原定舉行的總統大選再度延後至明年。"
+       "text": "法國國家統計局（INSEE）發布最新數據，第三季國內生產毛額（GDP）季減0.1%，繼第一季萎縮後再度陷入停滯與衰退邊緣。投資與出口下滑是主要推手，加上國會政治僵局與債務高漲，財政部長警告國家經濟正面臨嚴峻挑戰。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這是薩爾瓦多首度將其爭議但見效的「鐵腕維安模式」跨境輸出，若能在海地收到成效，可能大幅改寫拉丁美洲各國對治安與人權平衡的政治風向。"
+       "text": "法國身為歐元區第二大經濟體，經濟放緩加上國債殖利率飆升，恐拖累整個歐洲經濟復甦步伐，並對歐盟未來的財政紀律與貿易政策帶來連鎖衝擊。"
       }
      ],
      "sources": [
-      "https://www.fdd.org/overnight-brief/october-29-2026/",
-      "https://www.fdd.org/analysis/overnight-briefs/2026/10/29/fdds-overnight-brief-october-29-2026/"
+      "https://discussion.fool.com/t/frances-economy-shrunk/127018",
+      "https://ground.news/article/french-economy-shrinks-01-percent-in-third-quarter_0b53f2"
      ]
     },
     {
-     "title": "墨美加速貿易談判 趕期中選舉前定案",
+     "title": "格陵蘭啟新機場尋求獨立",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "墨西哥總統薛恩鮑姆向外界證實，墨美雙邊貿易談判正在加速推進，雙方團隊正評估能否在 11 月 3 日美國期中選舉投票日前取得定案成果。墨西哥希望搶先鎖定跨國協定，避免選後美國國會勢力重新洗牌帶來更多關稅不確定性。"
+       "text": "格陵蘭正式啟用位於伊盧利薩特（Ilulissat）的全新國際機場，並開通首航哥本哈根的直飛航班。格陵蘭政府期望藉由升級大型民航基礎設施發展觀光與礦業，減少對丹麥財政補助的依賴，為未來實現完全政治獨立奠定經濟基礎。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "墨西哥是大量台商在美洲進行「近岸外包」的重要樞紐，美墨關稅協商的落地條款將直接左右台灣資通訊與車用零組件在北美市場的競爭力。"
+       "text": "格陵蘭位於北極戰略要衝且富含稀土礦產，隨著氣候變遷北極航道開啟，其經濟轉型與獨立動向將直接牽動美、歐、中等大國在北極地區的地緣戰略布局。"
       }
      ],
      "sources": [
-      "https://www.fdd.org/overnight-brief/october-29-2026/",
-      "https://www.fdd.org/analysis/overnight-briefs/2026/10/29/fdds-overnight-brief-october-29-2026/"
+      "https://apnews.com/article/greenland-airport-ilulissat-denmark-cb41fea2df73d8ddc7a928baee59458b"
      ]
     }
    ]
