@@ -1,40 +1,20 @@
 {
- "date": "2026-10-30",
+ "date": "2026-10-31",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "AI熱潮推高3C價格",
+     "title": "大老憂過度信AI失去判斷力",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "公視10月28日報導，AI採購需求推升零組件與記憶體價格，手機、筆電等消費性電子產品也傳出漲價。報導並指出，10月消費者對未來半年購買耐久財的信心降至17年來低點。"
+       "text": "台積電共同營運長秦永沛於公開演講中指出，AI導入半導體製造雖能大幅提升生產效率，但背後最大隱憂在於人類過度相信AI，逐漸失去辨別對錯的自主判斷能力。這番發言在科技職場論壇掀起熱烈討論，引發許多工程師與基層上班族對人機協作依賴程度的反思。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我本來只想換一台筆電，現在連開購物網站都像在看自己的年終考核。"
-      },
-      {
-       "label": "建議欄目:",
-       "text": "【欸唉新跪的生存週報】"
-      }
-     ],
-     "sources": [
-      "https://news.pts.org.tw/article/833362"
-     ]
-    },
-    {
-     "title": "企業AI導入率要再提高",
-     "body": [
-      {
-       "label": "為什麼熱:",
-       "text": "中央社10月28日報導，經濟部長龔明鑫表示，台灣目前AI滲透率為38%，希望盡快提升至50%。他也提到，經濟部去年至今已協助逾1.4萬家廠商導入AI工具，而中小微企業總數超過170萬家。"
-      },
-      {
-       "label": "新跪的角度:",
-       "text": "我一聽到公司還要提高AI導入率，就先假裝自己已經會用現在這一套。"
+       "text": "「我」連信件結尾該不該加「祝順心」都要先問AI，大老擔心我失去判斷力，我比較擔心自己早就把判斷力打包送出去了。"
       },
       {
        "label": "建議欄目:",
@@ -42,19 +22,19 @@
       }
      ],
      "sources": [
-      "https://www.cna.com.tw/news/afe/202610280271.aspx"
+      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsPKB7s7nA-_Dy49NVzLCUC8SReVIAvEY9idiYhO_KlGNqQ5lJqTtbRZMvxqx88s-u3-UtbjFUHs_NEguTZ7N0WAkMqDSQm_uHJPwOfL6dbCfxucKe1nQMjdrL4HmpyIFd3rfePwWPzVeigqmmmuyQ"
      ]
     },
     {
-     "title": "學生也要學會查AI答案",
+     "title": "台灣半數用AI四成自費訂閱",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "中央社10月29日報導，教育部發布國小、國中、高中三種《AI之學習應用手冊》，內容涵蓋提問、辨認AI幻覺及交叉查證。這項手冊在教育部向立法院報告AI教育政策時再次受到關注。"
+       "text": "公平會最新調查顯示，台灣成人有超過半數在半年內使用過生成式AI，且使用者中有近四成是自掏腰包付費訂閱服務。調查同時指出，高達七成六的付費用戶表示即使平台價格調漲一成仍會選擇續訂，顯示上班族與個人用戶對AI工具的依賴度已難以割捨。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我連AI講得很有自信時都會點頭，現在才發現自己也需要一本查證手冊。"
+       "text": "「我」連午餐便當加一顆滷蛋都要猶豫三秒，每個月扣款給 AI 時卻刷得比誰都乾脆。"
       },
       {
        "label": "建議欄目:",
@@ -62,7 +42,28 @@
       }
      ],
      "sources": [
-      "https://www.cna.com.tw/news/ahel/202610290033.aspx"
+      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFoGmeS4S_lxJOHlXe33UHfQ8QprAgQmBhnMmW9ytU7psMfPNMgyoDXFAq9Jk_k1eNO8CkbiZ34pNcN9K5cOusBWk4p4k5vNfD3Fm-2Wy0gv2M96kDDiQ3i_nUar6Jpl--28Gw9VUm1ZevhPKJCKxh6tvjfpEQnsbOqo7fP"
+     ]
+    },
+    {
+     "title": "記憶體大廠發百萬感謝獎金",
+     "body": [
+      {
+       "label": "為什麼熱:",
+       "text": "台灣美光於10月30日隨薪資正式入帳年度獎酬與100萬元一次性感謝獎金，統計逾700名產線員工全年薪酬超過60個月。高額獎金消息立刻在PTT科技板與八卦板引發熱烈討論，成為社群熱議的AI產業紅利話題。"
+      },
+      {
+       "label": "新跪的角度:",
+       "text": "「我」看著科技巨頭發放六十個月薪酬的新聞，低頭點開自己的薪資明細，確認自己依然穩定地替這場AI盛宴墊底。"
+      },
+      {
+       "label": "建議欄目:",
+       "text": "【欸唉新跪的生存週報】"
+      }
+     ],
+     "sources": [
+      "https://www.storm.mg/article/11177237",
+      "https://www.ctee.com.tw/news/20261030701736-430503"
      ]
     }
    ]
