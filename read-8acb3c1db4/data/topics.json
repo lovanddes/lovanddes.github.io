@@ -1,20 +1,20 @@
 {
- "date": "2026-10-31",
+ "date": "2026-11-01",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "大老憂過度信AI失去判斷力",
+     "title": "觸控Mac時代真的來了",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "台積電共同營運長秦永沛於公開演講中指出，AI導入半導體製造雖能大幅提升生產效率，但背後最大隱憂在於人類過度相信AI，逐漸失去辨別對錯的自主判斷能力。這番發言在科技職場論壇掀起熱烈討論，引發許多工程師與基層上班族對人機協作依賴程度的反思。"
+       "text": "蘋果於2026年10月底發表支援觸控螢幕的MacBook Pro後，在開發者網站發布「Get ready for Touch on Mac」專文與設計指南，並預告於11月中旬展開線上座談會協助開發者優化觸控應用。這項打破多年筆電硬體操作邏輯的重大更新，引發科技社群高度關注。"
       },
       {
        "label": "新跪的角度:",
-       "text": "「我」連信件結尾該不該加「祝順心」都要先問AI，大老擔心我失去判斷力，我比較擔心自己早就把判斷力打包送出去了。"
+       "text": "「我連鍵盤快捷鍵都還沒背熟，手指猶豫著伸向螢幕時，最先留下的只有一塊擦不掉的指紋。」"
       },
       {
        "label": "建議欄目:",
@@ -22,19 +22,19 @@
       }
      ],
      "sources": [
-      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsPKB7s7nA-_Dy49NVzLCUC8SReVIAvEY9idiYhO_KlGNqQ5lJqTtbRZMvxqx88s-u3-UtbjFUHs_NEguTZ7N0WAkMqDSQm_uHJPwOfL6dbCfxucKe1nQMjdrL4HmpyIFd3rfePwWPzVeigqmmmuyQ"
+      "https://www.technice.com.tw/3c/329335/"
      ]
     },
     {
-     "title": "台灣半數用AI四成自費訂閱",
+     "title": "隱私AI助理撐不住關了",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "公平會最新調查顯示，台灣成人有超過半數在半年內使用過生成式AI，且使用者中有近四成是自掏腰包付費訂閱服務。調查同時指出，高達七成六的付費用戶表示即使平台價格調漲一成仍會選擇續訂，顯示上班族與個人用戶對AI工具的依賴度已難以割捨。"
+       "text": "主打不追蹤、保護個人資料的AI助理Ollie於2026年10月31日宣布因市場過度擁擠且變現困難，將於一週內停止營運。此退場事件引發科技產業討論，凸顯在大模型免費普及下，使用者雖重視隱私卻難以轉化為付費意願的商業現實。"
       },
       {
        "label": "新跪的角度:",
-       "text": "「我」連午餐便當加一顆滷蛋都要猶豫三秒，每個月扣款給 AI 時卻刷得比誰都乾脆。"
+       "text": "「我每天都在擔心AI偷看我的人生，但真要我掏錢保護隱私時，我還是默默勾選了免費版的同意條款。」"
       },
       {
        "label": "建議欄目:",
@@ -42,19 +42,19 @@
       }
      ],
      "sources": [
-      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFoGmeS4S_lxJOHlXe33UHfQ8QprAgQmBhnMmW9ytU7psMfPNMgyoDXFAq9Jk_k1eNO8CkbiZ34pNcN9K5cOusBWk4p4k5vNfD3Fm-2Wy0gv2M96kDDiQ3i_nUar6Jpl--28Gw9VUm1ZevhPKJCKxh6tvjfpEQnsbOqo7fP"
+      "https://cyberq.tw/2026/10/31/salesforce-acquires-defense-startup-rune/"
      ]
     },
     {
-     "title": "記憶體大廠發百萬感謝獎金",
+     "title": "科技日上我想躺平商務艙",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "台灣美光於10月30日隨薪資正式入帳年度獎酬與100萬元一次性感謝獎金，統計逾700名產線員工全年薪酬超過60個月。高額獎金消息立刻在PTT科技板與八卦板引發熱烈討論，成為社群熱議的AI產業紅利話題。"
+       "text": "2026鴻海科技日於10月30日至31日在台北南港展覽館登場，長榮航空首度參展並將波音787皇璽桂冠艙座椅搬進展場打造專屬貴賓室，主打科技差旅市場。在滿場前瞻AI與硬體展品中，能完全平躺的豪華客艙座椅吸引不少參展科技人士與民眾試坐體驗。"
       },
       {
        "label": "新跪的角度:",
-       "text": "「我」看著科技巨頭發放六十個月薪酬的新聞，低頭點開自己的薪資明細，確認自己依然穩定地替這場AI盛宴墊底。"
+       "text": "「我看著滿場跑的尖端算力與智慧技術，最後最想研究的，居然是那張可以一鍵躺平的椅子。」"
       },
       {
        "label": "建議欄目:",
@@ -62,8 +62,7 @@
       }
      ],
      "sources": [
-      "https://www.storm.mg/article/11177237",
-      "https://www.ctee.com.tw/news/20261030701736-430503"
+      "https://udn.com/news/story/7241/9847488"
      ]
     }
    ]
