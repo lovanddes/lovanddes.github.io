@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 39,
-    "versionName": "1.1.36",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.36.apk",
-    "sha256": "cceb3742beb574cde1272780f0195d775342a7f539e5e1dde9432e20c340b7d4",
-    "notes": "通話畫面修正:掛斷鈕不再貼著螢幕最下緣、來電頭像下的電話號碼不再被切到\n陌生號碼黃色提醒修正:醫院/機關來電不會先閃黃、關掉「顯示機關名稱」後名錄內號碼不再亮黃、黃提醒不受「可疑號碼提醒」開關影響",
-    "date": "2026-10-29"
+    "versionCode": 40,
+    "versionName": "1.1.37",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.37.apk",
+    "sha256": "37056f425853ab36c36096d367419a75a6b9663d3c95ad2c779aa4c488237705",
+    "notes": "真來電測試改用隱藏號碼,測試來電不會再被誤撥出去\n通話畫面改版:四顆功能鈕改成橢圓扁鈕、字放大也不折行;門號標籤放大(SIM1 藍、SIM2 綠)\n通話中姓名和號碼一進畫面就看得到;通話時間移到掛斷鈕上方\n數字鍵盤展開時 0、*、# 和「隱藏鍵盤」都看得到\n插播沒有名稱時顯示號碼或「未知號碼」",
+    "date": "2026-11-01"
   }
 }
