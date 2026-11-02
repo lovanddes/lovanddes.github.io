@@ -1,93 +1,93 @@
 {
- "date": "2026-11-02",
- "one_line": "AI代理邁向自主背景化，國際地緣裂痕加深推升供應鏈與航道風險。",
+ "date": "2026-11-03",
+ "one_line": "AI基建併購與能源博弈白熱化，歐美政經與供應鏈面臨關鍵考驗。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "DeepSeek開源編程代理原型",
+     "title": "邁威爾千億美元併魯門特姆",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "中國 AI 團隊 DeepSeek 正式開源名為「Super-Agent」的自主編程架構原型，採用主從路由機制將工作拆分給多個背景代理獨立執行。該系統能直接監聽 GitHub 與團隊內部通訊軟體，在不干擾工程師的情況下並行排查錯誤並提交程式碼修改。"
+       "text": "美國客製化晶片大廠邁威爾（Marvell）宣布以 1,150 億美元全股票併購光學元件領導商魯門特姆（Lumentum），創下今年科技界規模最大的整併案之一。兩家公司背後均有輝達入股，此次合併旨在把運算節點之間的連結從傳統銅線全面升級至光通訊（利用光訊號高速傳輸資料的技術），以解決超大型人工智慧運算叢集的傳輸瓶頸。該收購案已獲雙方董事會批准，預計將於 2028 年上半年完成監管審查與交割。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這象徵 AI 輔助開發從「一人對單一對話框」進化到「背景全自動員工」，軟體開發者的角色正加速轉為更高階的監督與需求決策。"
+       "text": "這顯示 AI 競爭已從單純比拼運算晶片擴大到資料傳輸速度，光通訊與矽光子將成為下一代基礎設施核心，直接牽動台灣半導體與通訊零組件供應鏈。"
       }
      ],
      "sources": [
-      "https://thenextweb.com/news/deepseek-super-agent-open-source-coding-agent",
-      "https://cellcog.ai/blog/deepseek-super-agent/"
+      "https://www.investing.com/news/stock-market-news/factboxhow-marvell-and-lumentum-stack-up-in-ais-optical-race-4992576",
+      "https://www.nageshpolu.com/2026/11/marvells-115-billion-lumentum-deal-why.html"
      ]
     },
     {
-     "title": "蘋果中國AI攜手阿里通義千問",
+     "title": "紐時等報業控告Brave侵權",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "蘋果即將隨 iOS 27.3 測試版在中國市場推出 Apple Intelligence，提供通知摘要與文字潤飾等功能。受限於當地法規與 ChatGPT 的封鎖，蘋果確認與阿里巴巴合作，導入「通義千問」（Qwen）模型做為雲端對話與複雜任務的底層引擎。"
+       "text": "《紐約時報》（The New York Times）聯同《芝加哥論壇報》等多家美國報業，向主打隱私保護的 Brave 瀏覽器母公司提起訴訟。訴狀指控 Brave 未經授權大規模爬取新聞內容並建立索引，不僅提供用戶繞過付費牆的功能，更將抓取的資料庫販售給多家 AI 公司作為模型訓練與即時檢索使用。媒體業者主張此舉侵害智慧財產權並剝奪了原創新聞的訂閱與授權收益。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "跨國科技巨頭在地緣政治與嚴格監管下，被迫走向「一國一策」的分離式 AI 架構，也直接牽動全球智慧型手機的軟體生態與市佔。"
+       "text": "出版業對 AI 資料抓取的中介商全面宣戰，未來使用者仰賴瀏覽器工具免費獲取或摘要付費新聞的管道將受到更多法律限制。"
       }
      ],
      "sources": [
-      "https://hyper.ai/en/stories/ffe1ba5a47188fc37335e28b26d2861f",
-      "https://ua.news/en/technologies/apple-zapustit-apple-intelligence-u-kitayi-z-ios-27-3-the-verge"
+      "https://alterslash.org/",
+      "https://www.961developments.com/news"
      ]
     },
     {
-     "title": "馬斯克擬布建42萬顆頂級晶片",
+     "title": "OpenAI啟動電網守護者計畫",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "馬斯克旗下團隊規劃在兩大運算中心布建高達 42 萬顆輝達次世代 GB300 晶片，打造代號「Gun Range」與「Spam」的超大型算力聚落。這項部署旨在為新一代前沿模型提供運算基礎，再次推高全球頂級 AI 訓練的硬體門檻。"
+       "text": "OpenAI 正式發表「電網守護者計畫」（Grid Protectors Program），預計在美國喬治亞州新建的資料中心園區展開首輪試點。該計畫承諾在極端氣候或區域電網負載超載時，資料中心能主動調降運算用電或啟動自備電力系統回饋電網，預估最高可釋放 1,000 百萬瓦（MW）電力。這相當於在夏日尖峰時段能供應用電給約 70 萬戶家庭的空調需求。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "AI 基礎建設的軍備競賽並未放緩，龐大的先進封裝與高頻寬記憶體需求，將持續為台灣半導體與伺服器代工鏈帶來長線訂單。"
+       "text": "AI 運算中心因龐大耗電量屢遭地方居民與環保團體抗議，科技巨頭透過彈性調度與自備電力示好，是未來高耗能產業落地的關鍵生存策略。"
       }
      ],
      "sources": [
-      "https://emergent.sh/news/elon-musk-plans-420-000-gb300-gpus-across-two",
-      "https://emergent.sh/news/quad-ministers-pledge-85m-trusted-ai-indo"
+      "https://modernaction.io/briefing/openai-pitches-data-center-power-plants-as-a-way-to-protect--0a6debc3",
+      "https://www.techmeme.com/261102/p34"
      ]
     },
     {
-     "title": "四方安全對話砸八千萬挺AI",
+     "title": "高盛收回非工程師AI寫程式權",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美日印澳「四方安全對話」（Quad）外長會議在亞特蘭大登場，四國共同宣布投入逾 8,500 萬美元推進印太地區的可信賴 AI 與數位公共建設。該資助著重於建立跨國資安標準與透明治理框架，意在抗衡威權陣營在發展中國家擴散技術影響力。"
+       "text": "華爾街投行巨頭高盛（Goldman Sachs）近期大幅限縮內部人工智慧工具的權限，禁止交易員與投資銀行部門員工使用 Anthropic 的 Claude Code 與微軟 GitHub Copilot。數月前高盛資訊長曾公開讚揚業務人員靠「感覺寫程式」（vibe coding，指不具專業代碼背景者用語意生成軟體原型）能提升效率，但官方現表示經評估生產力與風險管理後，決定將這些工具專屬開放給專業軟體工程師。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "印太區域的技術標準與數位供應鏈正加速聯盟化，相關規範將直接影響台灣科技業未來參與區域數位轉型與雲端服務的門檻。"
+       "text": "企業推動全員 AI 輔助開發的狂熱正撞上現實，金融業考量代碼漏洞、合規與實質投資報酬率後，管理態度已從全面開放轉向嚴格控管。"
       }
      ],
      "sources": [
-      "https://emergent.sh/news/quad-ministers-pledge-85m-trusted-ai-indo",
-      "https://www.mofa.go.jp/fp/nsp/pageite_000001_00006.html"
+      "https://superpowerdaily.com/posts/goldman-sachs-restricts-ai-coding-tools-to-engineers-bloomberg-reports",
+      "https://the-decoder.com/author/matthias-bastian/"
      ]
     },
     {
-     "title": "十月爆AI金鑰劫持資安危機",
+     "title": "Anthropic防堵AI複製電玩",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "資安機構 Wiz Research 發布報告指出，光是 10 月份就有 9 家 AI 開發者平台遭遇安全事故，引發廣泛的「金鑰劫持」（LLMJacking）攻擊。黑客透過外洩憑證盜用企業帳戶調用昂貴的大模型，造成數家企業在毫不知情下背負超過十萬美元的異常帳單。"
+       "text": "AI 新創 Anthropic 更新了終端程式設計工具 Claude Code 的系統提示詞（規範 AI 回應行為的底層指令），明令禁止該工具被用於還原、反編譯或重製市面上現有的電玩遊戲。近期復古遊戲社群出現大量利用 AI 在短時間內逆向移植舊作的現象，引發遊戲開發者對版權侵害的抗議。Anthropic 澄清仍允許用戶使用 AI 開發原創遊戲，但將嚴加封堵侵權重製的行為。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "許多企業加速導入 AI 卻缺乏存取權限控管，上班族與團隊在整合外部分析工具時，務必建立即時用量監控與憑證輪換機制以防破財。"
+       "text": "當 AI 編程強大到能秒速還原他人軟體架構，智慧財產權防線面臨衝擊，從事軟體或數位內容開發的從業人員需密切注意平台的版權規範走向。"
       }
      ],
      "sources": [
-      "https://futurumgroup.com/insights/black-october-llmjacking-wave-exposes-ai-infrastructures-credential-crisis/",
-      "https://www.pbs.org/newshour/amp/politics/g20-foreign-ministers-in-atlanta-meeting-head-to-an-ending-without-consensus-on-key-issues"
+      "https://www.hybridai.in/article/68284-anthropic-clamps-down-on-claude-s-ai-video-game-clones",
+      "https://www.961developments.com/news"
      ]
     }
    ]
@@ -96,54 +96,54 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "G20外長會分歧加劇無公報",
+     "title": "歐洲七國超市冷凍系統遭集體駭入",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "在美國亞特蘭大舉行的二十國集團（G20）外長會議閉幕，因烏克蘭等關鍵地緣安全爭議分歧過大，各方未能取得共識發表聯合公報，改由美國國卿發布主席聲明。會議重點轉向關鍵礦物脫鉤、供應鏈韌性以及荷姆茲海峽等國際航道的航行自由。"
+       "text": "瑞典、比利時、盧森堡、芬蘭、荷蘭、愛沙尼亞與愛爾蘭等至少七國的連鎖超市冷藏設備在週一凌晨爆發疑似協同網路攻擊。駭客利用連網溫控軟體的漏洞入侵系統並強制啟動除霜模式，甚至將部分冷凍庫溫度竄改調高至攝氏 50 度，迫使業者將大量變質食品直接報廢。歐盟官員嚴厲譴責此事件為蓄意破壞民生物資供應鏈的惡意攻擊，各國執法與資安機構已全面介入調查。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "多邊協商機制陷入癱瘓，凸顯全球供應鏈加速朝個別陣營分化，國際航運要道與關鍵原材料供給的不確定性持續升溫。"
+       "text": "零售與民生物聯網（IoT）設備的資安脆弱度再度暴露，一旦民生供應鏈成為混合戰破壞標的，一般消費者的物價與食品安全將直接受害。"
       }
      ],
      "sources": [
-      "https://www.scmp.com/news/china/diplomacy/article/3372855/g20-foreign-ministers-end-atlanta-meeting-without-consensus-key-issues",
-      "https://www.pbs.org/newshour/amp/politics/g20-foreign-ministers-in-atlanta-meeting-head-to-an-ending-without-consensus-on-key-issues"
+      "https://www.theguardian.com/technology/2026/nov/02/europe-supermarket-fridges-freezers-who-hacking-why",
+      "https://www.theguardian.com/world/2026/nov/02/supermarket-freezers-across-europe-hit-by-second-suspected-cyber-attack"
      ]
     },
     {
-     "title": "全球百座港口大罷工阻軍運",
+     "title": "彭博指烏克蘭經濟四年來首度萎縮",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "涵蓋全球五大洲的 25 個碼頭工會展開跨國聯合罷工，波及歐洲、地中海與北美超過 100 座港口，抗議港口設施被用於運送中東戰事所需軍火。這場行動導致超過 20 億美元的商用貨物在碼頭滯留，嚴重衝擊地中海貿易動線。"
+       "text": "彭博經濟研究（Bloomberg Economics）最新發布的評估指出，由於俄羅斯擴大對烏克蘭民間商業與運輸物流網路的空襲，烏克蘭 2026 年經濟預計將萎縮 0.4%，為全面開戰以來首度轉為負成長。烏克蘭央行已調降全年預測，且烏國總統澤倫斯基表示 2027 年需要約 700 億歐元外部援助才能支撐國防需求。分析師示警，儘管烏克蘭短期內不致面臨崩潰，但戰事能否延續至 2027 年將完全取決於西方資金能否及時且穩定到位。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "工會組織以罷工直接介入跨國地緣衝突的趨勢正在擴大，一旦港口停工抗議常態化，全球海運貨期與製造業庫存風險將大幅攀升。"
+       "text": "歐洲各國政治動盪與援烏疲勞正在加劇，一旦國際金援出現斷層，戰事走向與歐洲地緣安全穩定性將出現極大變數。"
       }
      ],
      "sources": [
-      "https://onlabor.org/november-1-2026/",
-      "https://apnews.com/article/uae-iran-war-gulf-diplomacy-bahrain-forum-470d52d5df78eeb6bf9b9fb15a37d0e6"
+      "https://kyivindependent.com/russian-attacks-increase-ukraines-need-for-foreign-aid-bloomberg-report-finds/",
+      "https://www.briefs.co/news/bloomberg-ukraine-leans-harder-on-foreign-financing-as-russi/"
      ]
     },
     {
-     "title": "阿聯示警軍事無出路促外交",
+     "title": "美期中選舉決戰兩黨爭奪國會",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "阿拉伯聯合大公國總統顧問在巴林「麥納麥對話」安全論壇上警告，軍事手段無法為當前美伊衝突提供出路，只會擴大區域破壞。阿聯呼籲各方把握卡達主導的斡旋機制，防止波斯灣周邊能源要道再度陷入大規模戰火。"
+       "text": "美國於週二（11月3日）迎來 2026 年期中選舉投票，改選眾議院全數 435 席與參議院 35 席，被視為對川普第二任期施政表現的重大期中考核。全美已有超過 5,700 萬選民透過提早投票完成繳票，民調顯示民主黨有極大機會重奪眾議院多數，而參議院戰況則呈現膠著。兩黨領袖在選前最後一刻前往關鍵選區造勢衝刺，力圖在通膨與對外政策爭議中動員選民。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "中東局勢若進一步激化，將直接衝擊波斯灣航運與國際油價，高度依賴進口能源的台灣民生消費與產業電力成本將承受直接壓力。"
+       "text": "美國國會多數席次易主將直接牽動未來兩年的關稅壁壘、科技補貼預算及對外軍援政策，對台美經貿法案與半導體供應鏈政策影響重大。"
       }
      ],
      "sources": [
-      "https://apnews.com/article/uae-iran-war-gulf-diplomacy-bahrain-forum-470d52d5df78eeb6bf9b9fb15a37d0e6",
-      "https://apnews.com/article/uae-iran-gargash-manama-dialogue-gulf-security-2026"
+      "https://www.cbsnews.com/live-updates/2026-elections-monday-november-2/",
+      "https://www.timesofisrael.com/trumps-gop-makes-final-push-to-prevent-expected-landslide-midterm-loss-to-democrats/"
      ]
     }
    ]
