@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
-<title>畫布團購統計</title>
+<title>油畫班畫布團購</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700&display=swap">
 <style>
 html{color-scheme:light}body{margin:0}[hidden]{display:none!important}
@@ -67,81 +67,133 @@ details[open] summary{margin-bottom:10px}
 textarea{width:100%;min-height:110px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:9px;font:12px/1.4 ui-monospace,monospace}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:20px;font-size:14px}
 .hint{font-size:13px;color:var(--muted)}
+.banner{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:12px;font-weight:700;color:var(--ochre)}
+.person.me{background:var(--soft);margin-inline:-8px;padding:10px 8px;border-radius:8px;border-top:0}
+.rounds{align-items:center}
+button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
 </style>
 
 <div class="wrap">
-  <div class="top">
-    <h1>畫布團購統計</h1>
-    <div class="rounds">
-      <select id="roundSel" aria-label="選擇團購場次"></select>
-      <button id="newRound">新增一場</button>
-    </div>
-  </div>
-
-  <div class="total" aria-live="polite">
-    <div><small id="roundName"></small><span class="big" id="grand">$0</span></div>
-    <div class="meta"><small>共</small><span id="cnt">0 片 / 0 人</span></div>
-  </div>
-
-  <section class="panel">
-    <h2>登記一筆</h2>
-    <div class="form">
-      <label class="full">誰買的
-        <input id="who" list="names" placeholder="例如:亮亮" autocomplete="off">
-        <datalist id="names"></datalist>
-      </label>
-      <label>尺寸
-        <select id="size"></select>
-      </label>
-      <label>片數
-        <div class="qty">
-          <button type="button" id="qm" aria-label="減一片">−</button>
-          <input id="qty" type="number" inputmode="numeric" min="1" value="1">
-          <button type="button" id="qp" aria-label="加一片">＋</button>
-        </div>
-      </label>
-      <button class="primary full" id="add">加入</button>
-    </div>
-    <p class="hint" id="hint" style="margin:10px 0 0"></p>
-  </section>
-
-  <section class="panel">
-    <h2>各人明細</h2>
-    <div id="people"></div>
-  </section>
-
-  <section class="panel">
-    <h2>各尺寸合計(跟老闆下單用)</h2>
-    <div id="bysize"></div>
-  </section>
-
-  <section class="panel">
-    <details id="priceBox">
-      <summary>單價表(這一場的價格)</summary>
-      <div id="prices"></div>
-      <div class="row" style="margin-top:10px">
-        <select id="addSize" aria-label="新增尺寸"></select>
-        <button id="addPrice">加到單價表</button>
+  <div id="gate" hidden>
+    <h1>油畫班畫布團購</h1>
+    <section class="panel" style="margin-top:16px">
+      <h2>進入班級</h2>
+      <div class="form">
+        <label class="full">班級暗號(班長會告訴大家)
+          <input id="code" autocomplete="off" placeholder="例如班長給的那一串字">
+        </label>
+        <button class="primary full" id="enter">進入</button>
       </div>
-      <p class="hint">尺寸對照台灣通用畫布:F 人物、P 風景、M 海景。新增一場時會沿用上一場的單價。</p>
-    </details>
-  </section>
+      <p class="hint" id="gateMsg" style="margin:10px 0 0"></p>
+    </section>
+    <section class="panel" style="margin-top:16px">
+      <details id="createBox">
+        <summary>我是班長,要建立新班級</summary>
+        <div class="form" style="margin-top:4px">
+          <label class="full">班級暗號(至少 4 個字,要夠長、別人猜不到)
+            <input id="newCode" autocomplete="off">
+          </label>
+          <label class="full">管理密碼(只有班長知道,用來改單價、結單)
+            <input id="newPw" type="password" autocomplete="new-password">
+          </label>
+          <button class="primary full" id="create">建立班級</button>
+        </div>
+        <p class="hint">建立後把「邀請連結」傳到班級 LINE 群組,同學點開就能直接登記。</p>
+      </details>
+    </section>
+  </div>
 
-  <section class="panel">
-    <div class="row">
-      <button class="primary" id="copy">複製成 LINE 文字</button>
-      <button id="delRound" class="danger ghost">刪除這一場</button>
+  <div id="app" hidden>
+    <div class="top">
+      <h1>畫布團購</h1>
+      <div class="rounds">
+        <select id="roundSel" aria-label="選擇團購場次"></select>
+        <button id="newRound" hidden>新增一場</button>
+      </div>
     </div>
-    <details style="margin-top:12px">
-      <summary>備份 / 換手機</summary>
-      <p class="hint">資料只存在這支手機的這個瀏覽器。要換裝置,按「產生備份碼」複製起來,到新的地方貼上再按「讀入備份」。</p>
-      <textarea id="bk" aria-label="備份碼"></textarea>
-      <div class="row" style="margin-top:8px"><button id="bkOut">產生備份碼</button><button id="bkIn">讀入備份</button></div>
-    </details>
-  </section>
+
+    <div class="total" aria-live="polite" style="margin-top:16px">
+      <div><small id="roundName"></small><span class="big" id="grand">$0</span></div>
+      <div class="meta"><small id="stateTxt">進行中</small><span id="cnt">0 片 / 0 人</span></div>
+    </div>
+    <div class="banner" id="closedBanner" hidden>這一場已結單,不能再登記或修改。</div>
+
+    <section class="panel" id="formBox" style="margin-top:16px">
+      <h2>登記我要買的</h2>
+      <div class="form">
+        <label class="full">我的名字
+          <input id="who" autocomplete="name" placeholder="例如:王小美" maxlength="40">
+        </label>
+        <label>尺寸
+          <select id="size"></select>
+        </label>
+        <label>片數
+          <div class="qty">
+            <button type="button" id="qm" aria-label="減一片">−</button>
+            <input id="qty" type="number" inputmode="numeric" min="1" max="99" value="1">
+            <button type="button" id="qp" aria-label="加一片">＋</button>
+          </div>
+        </label>
+        <button class="primary full" id="add">加入</button>
+      </div>
+      <p class="hint" id="hint" style="margin:10px 0 0"></p>
+    </section>
+
+    <section class="panel" style="margin-top:16px">
+      <h2>大家的登記</h2>
+      <div id="people"></div>
+    </section>
+
+    <section class="panel" style="margin-top:16px">
+      <h2>各尺寸合計</h2>
+      <div id="bysize"></div>
+    </section>
+
+    <section class="panel" style="margin-top:16px">
+      <details id="priceBox">
+        <summary>單價表</summary>
+        <div id="prices"></div>
+        <div id="priceAdmin" hidden>
+          <div class="row" style="margin-top:10px">
+            <select id="addSize" aria-label="新增尺寸"></select>
+            <button id="addPrice">加到單價表</button>
+          </div>
+        </div>
+        <p class="hint">F 人物、P 風景、M 海景。單價只有班長能改。</p>
+      </details>
+    </section>
+
+    <section class="panel" style="margin-top:16px">
+      <div class="row">
+        <button class="primary" id="copy">複製成 LINE 文字</button>
+        <button id="invite">複製邀請連結</button>
+      </div>
+      <div id="adminBox" style="margin-top:14px">
+        <div id="adminOff" class="row">
+          <button id="adminBtn" class="ghost">我是班長</button>
+          <span id="pwRow" class="row" hidden>
+            <input id="adminPw" type="password" placeholder="管理密碼" autocomplete="current-password" style="width:11em">
+            <button id="adminGo">確認</button>
+          </span>
+        </div>
+        <div id="adminOn" hidden>
+          <h2>班長功能</h2>
+          <div class="row">
+            <button id="closeBtn">結單</button>
+            <button id="renameBtn">改名</button>
+            <button id="delRound" class="danger">刪除這一場</button>
+            <button id="adminOut" class="ghost">登出班長</button>
+          </div>
+        </div>
+      </div>
+      <p class="hint" style="margin-top:12px">班級:<span id="roomShow"></span> <button class="ghost" id="leave">換班級</button></p>
+    </section>
+  </div>
 </div>
 <div class="toast" id="toast" hidden></div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
 // 號數表:號 F P M(cm,長×短)
 const RAW=`0|17.5x14|17.5x12|
@@ -172,159 +224,259 @@ const SIZES=[];  // {label:'12P', cm:'60.5×45.5'}
 RAW.split('\n').forEach(l=>{const p=l.split('|');['F','P','M'].forEach((t,i)=>{if(p[i+1])SIZES.push({label:p[0]+t,cm:p[i+1].replace('x','×')})})});
 const CM={};SIZES.forEach(s=>CM[s.label]=s.cm);
 
-const KEY='canvas-groupbuy-v1';
-let S=load();
-function uid(){return Math.random().toString(36).slice(2,9)}
-function load(){
-  try{const t=localStorage.getItem(KEY);if(t){const d=JSON.parse(t);if(d&&d.rounds&&d.rounds.length)return d}}catch(e){}
-  const id=uid();
-  return{cur:id,rounds:[{id,name:'第 1 次團購',prices:{'6F':0,'8F':0,'10F':0,'12F':0,'12P':0,'15F':0},orders:[]}]};
-}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
-const R=()=>S.rounds.find(r=>r.id===S.cur)||S.rounds[0];
+
+firebase.initializeApp({
+  apiKey:"AIzaSyBVwRQZ8huWsmrVtl8quD6z_BjYNFWAM48",
+  authDomain:"huabu-groupbuy.firebaseapp.com",
+  projectId:"huabu-groupbuy",
+  storageBucket:"huabu-groupbuy.firebasestorage.app",
+  messagingSenderId:"156535837517",
+  appId:"1:156535837517:web:48ee56a55a4a0f5bc05d04"
+});
+const db=firebase.firestore(), FV=firebase.firestore.FieldValue;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const $$=n=>'$'+Math.round(n).toLocaleString('en-US');
-const price=(r,l)=>+r.prices[l]||0;
+function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function lsDel(k){try{localStorage.removeItem(k)}catch(e){}}
+function toast(m){const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,2200)}
+function sortSize(a,b){const pa=parseInt(a),pb=parseInt(b);if(pa!==pb)return pa-pb;return 'FPM'.indexOf(a.slice(-1))-'FPM'.indexOf(b.slice(-1))}
+async function sha(t){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
 
-function toast(m){const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,1800)}
+let room=null, adminHash=null, isAdmin=false, rounds=[], cur=null, orders=[], unsubR=null, unsubO=null;
+const R=()=>rounds.find(r=>r.id===cur)||null;
+const price=(r,l)=>r?(+(r.prices||{})[l]||0):0;
+const roomRef=()=>db.collection('rooms').doc(room);
+const roundRef=id=>roomRef().collection('rounds').doc(id);
+const ordersCol=id=>roundRef(id).collection('orders');
 
-function groups(r){
-  const g={};r.orders.forEach(o=>{(g[o.person]=g[o.person]||[]).push(o)});return g;
+function goodCode(c){return c.length>=4&&c.length<=40&&!/[\/\\#?\s]/.test(c)&&c!=='.'&&c!=='..'}
+function errMsg(e){return e&&e.code==='permission-denied'?'這一場已結單,或班級暗號不對':'沒有成功,請檢查網路後再試一次'}
+
+// 進入班級
+async function openRoom(code){
+  $('gateMsg').textContent='';
+  if(!goodCode(code)){$('gateMsg').textContent='暗號至少 4 個字,不能有空白或 / # ?';return false}
+  try{
+    const d=await db.collection('rooms').doc(code).collection('meta').doc('room').get();
+    if(!d.exists){$('gateMsg').textContent='找不到這個班級。請確認暗號,或由班長建立新班級。';return false}
+    room=code;adminHash=d.data().adminHash;lsSet('hb-room',code);
+    try{history.replaceState(null,'','#'+encodeURIComponent(code))}catch(e){}
+    $('gate').hidden=true;$('app').hidden=false;$('roomShow').textContent=code;
+    $('who').value=lsGet('hb-me')||'';
+    const saved=lsGet('hb-admin-'+code);isAdmin=!!saved&&saved===adminHash;
+    startRounds();applyAdmin();return true;
+  }catch(e){$('gateMsg').textContent='連不上,請檢查網路後再試。';return false}
+}
+$('enter').onclick=()=>openRoom($('code').value.trim());
+$('code').onkeydown=e=>{if(e.key==='Enter')$('enter').click()};
+$('create').onclick=async()=>{
+  const c=$('newCode').value.trim(),pw=$('newPw').value;
+  if(!goodCode(c)){toast('暗號至少 4 個字,不能有空白或 / # ?');return}
+  if(pw.length<4){toast('管理密碼至少 4 個字');return}
+  try{
+    const h=await sha(c+':'+pw);
+    await db.collection('rooms').doc(c).collection('meta').doc('room').set({adminHash:h,created:Date.now()});
+    lsSet('hb-admin-'+c,h);
+    const ok=await openRoom(c);
+    if(ok){
+      if(!rounds.length) await makeRound('第 1 次團購',{'6F':0,'8F':0,'10F':0,'12F':0,'12P':0,'15F':0});
+      toast('班級建好了,按「複製邀請連結」傳給同學');
+    }
+  }catch(e){toast(e&&e.code==='permission-denied'?'這個暗號已經有人用了,換一個':'沒有成功,請再試一次')}
+};
+$('leave').onclick=()=>{
+  if(unsubR)unsubR();if(unsubO)unsubO();unsubR=unsubO=null;
+  lsDel('hb-room');room=null;rounds=[];orders=[];cur=null;isAdmin=false;
+  try{history.replaceState(null,'','#')}catch(e){}
+  $('app').hidden=true;$('gate').hidden=false;$('code').value='';
+};
+
+// 即時資料
+function startRounds(){
+  if(unsubR)unsubR();
+  unsubR=roomRef().collection('rounds').orderBy('created').onSnapshot(snap=>{
+    rounds=snap.docs.map(d=>({id:d.id,...d.data()}));
+    const saved=lsGet('hb-round-'+room);
+    if(!rounds.some(r=>r.id===cur))cur=(rounds.some(r=>r.id===saved)?saved:(rounds.length?rounds[rounds.length-1].id:null));
+    watchOrders();render();
+  },e=>toast('連線失敗,請重新整理'));
+}
+let watching=null;
+function watchOrders(){
+  if(watching===cur)return;watching=cur;
+  if(unsubO){unsubO();unsubO=null}orders=[];
+  if(!cur)return;
+  unsubO=ordersCol(cur).onSnapshot(snap=>{orders=snap.docs.map(d=>({id:d.id,...d.data()}));render()},e=>toast('連線失敗,請重新整理'));
+}
+async function makeRound(name,prices){
+  const ref=await roomRef().collection('rounds').add({name,prices,closed:false,created:Date.now()});
+  cur=ref.id;lsSet('hb-round-'+room,cur);watching=null;watchOrders();
 }
 
+// 畫面
+function applyAdmin(){
+  $('adminOff').hidden=isAdmin;$('adminOn').hidden=!isAdmin;
+  $('newRound').hidden=!isAdmin;$('priceAdmin').hidden=!isAdmin;
+}
+function groups(){const g={};orders.forEach(o=>{(g[o.person]=g[o.person]||[]).push(o)});return g}
 function render(){
-  const r=R();S.cur=r.id;
-  $('roundSel').innerHTML=S.rounds.map(x=>`<option value="${x.id}"${x.id===r.id?' selected':''}>${esc(x.name)}</option>`).join('');
-  $('roundName').textContent=r.name+' 總計';
-  const g=groups(r);let grand=0,pieces=0;
-  r.orders.forEach(o=>{grand+=price(r,o.size)*o.qty;pieces+=o.qty});
+  if(!room)return;
+  const r=R();
+  $('roundSel').innerHTML=rounds.map(x=>`<option value="${esc(x.id)}"${x.id===cur?' selected':''}>${esc(x.name)}</option>`).join('');
+  if(!r){
+    $('roundName').textContent='';$('grand').textContent='$0';$('cnt').textContent='';
+    $('people').innerHTML='<div class="empty">班長還沒有開團購場次。</div>';$('bysize').innerHTML='';$('prices').innerHTML='';$('formBox').hidden=true;return;
+  }
+  const closed=!!r.closed;
+  $('formBox').hidden=false;
+  $('closedBanner').hidden=!closed;$('stateTxt').textContent=closed?'已結單':'進行中';
+  $('closeBtn').textContent=closed?'重新開放':'結單';
+  ['who','size','qty','qm','qp','add'].forEach(i=>$(i).disabled=closed);
+  $('roundName').textContent=(r.name||'')+' 總計';
+  const g=groups();let grand=0,pieces=0;
+  orders.forEach(o=>{grand+=price(r,o.size)*o.qty;pieces+=o.qty});
   $('grand').textContent=$$(grand);
   $('cnt').textContent=pieces+' 片 / '+Object.keys(g).length+' 人';
 
-  // 尺寸下拉(只列單價表裡的)
-  const labels=Object.keys(r.prices).sort(sortSize);
-  const cur=$('size').value;
-  $('size').innerHTML=labels.map(l=>`<option value="${l}">${l}(${CM[l]||''})${price(r,l)?' $'+price(r,l):' 未填價'}</option>`).join('');
-  if(labels.includes(cur))$('size').value=cur;
-  $('names').innerHTML=Object.keys(g).map(n=>`<option value="${esc(n)}">`).join('');
+  const labels=Object.keys(r.prices||{}).sort(sortSize);
+  const sel=$('size').value;
+  $('size').innerHTML=labels.filter(l=>price(r,l)>0).map(l=>`<option value="${esc(l)}">${esc(l)}(${esc(CM[l]||'')}) ${$$(price(r,l))}</option>`).join('');
+  if(labels.includes(sel))$('size').value=sel;
   const noPrice=labels.filter(l=>!price(r,l));
-  $('hint').textContent=noPrice.length?'還沒填單價:'+noPrice.join('、')+'(到下面「單價表」填)':'';
+  $('hint').textContent=!$('size').options.length?'班長還沒填單價,暫時不能登記。':(isAdmin&&noPrice.length?'還沒填單價:'+noPrice.join('、'):'');
 
-  // 各人
-  const names=Object.keys(g);
+  const me=$('who').value.trim();
+  const names=Object.keys(g).sort((a,b)=>(b===me)-(a===me)||a.localeCompare(b,'zh-Hant'));
   $('people').innerHTML=names.length?names.map(n=>{
-    let sub=0;
-    const lines=g[n].map(o=>{const a=price(r,o.size)*o.qty;sub+=a;
-      return `<div class="line"><div class="nm"><b>${o.size}</b><small>${CM[o.size]||''}</small></div>
-      <div class="step"><button data-a="dec" data-id="${o.id}" aria-label="減一片">−</button><span>${o.qty}</span><button data-a="inc" data-id="${o.id}" aria-label="加一片">＋</button></div>
-      <div class="amt money">${$$(a)}</div><button class="ghost danger" data-a="del" data-id="${o.id}" aria-label="刪除這筆">✕</button></div>`}).join('');
-    return `<div class="person"><div class="phead"><b>${esc(n)}</b><span class="money sub">小計 ${$$(sub)}</span></div>${lines}</div>`;
-  }).join(''):'<div class="empty">還沒有人登記。在上面填名字、選尺寸、按「加入」。</div>';
+    let sub=0;const mine=n===me;
+    const lines=g[n].sort((a,b)=>sortSize(a.size,b.size)).map(o=>{
+      const a=price(r,o.size)*o.qty;sub+=a;
+      const can=!closed&&(mine||isAdmin);
+      const ctl=can?`<div class="step"><button data-a="dec" data-id="${esc(o.id)}" aria-label="減一片">−</button><span>${o.qty}</span><button data-a="inc" data-id="${esc(o.id)}" aria-label="加一片">＋</button></div>`:`<div class="step"><span>×${o.qty}</span></div>`;
+      const del=can?`<button class="ghost danger" data-a="del" data-id="${esc(o.id)}" aria-label="刪除這筆">✕</button>`:'';
+      return `<div class="line"><div class="nm"><b>${esc(o.size)}</b><small>${esc(CM[o.size]||'')}</small></div>${ctl}<div class="amt money">${$$(a)}</div>${del}</div>`}).join('');
+    return `<div class="person${mine?' me':''}"><div class="phead"><b>${esc(n)}${mine?'(我)':''}</b><span class="money sub">小計 ${$$(sub)}</span></div>${lines}</div>`;
+  }).join(''):'<div class="empty">還沒有人登記。填名字、選尺寸、按「加入」。</div>';
 
-  // 各尺寸合計
-  const bs={};r.orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+o.qty);
+  const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+o.qty);
   const ks=Object.keys(bs).sort(sortSize);
-  $('bysize').innerHTML=ks.length?`<table class="tbl"><tr><th>尺寸</th><th>單價</th><th>片數</th><th>金額</th></tr>`+
-    ks.map(k=>`<tr><td><b>${k}</b> <span class="hint">${CM[k]||''}</span></td><td>${$$(price(r,k))}</td><td>${bs[k]}</td><td class="money">${$$(price(r,k)*bs[k])}</td></tr>`).join('')+`</table>`:'<div class="empty">登記後這裡會列出每種尺寸總共幾片。</div>';
+  $('bysize').innerHTML=ks.length?`<table class="tbl"><tr><th>尺寸</th><th>單價</th><th>片數</th><th>金額</th></tr>`+ks.map(k=>`<tr><td><b>${esc(k)}</b> <span class="hint">${esc(CM[k]||'')}</span></td><td>${$$(price(r,k))}</td><td>${bs[k]}</td><td class="money">${$$(price(r,k)*bs[k])}</td></tr>`).join('')+`</table>`:'<div class="empty">登記後這裡會列出每種尺寸總共幾片。</div>';
 
-  // 單價表
-  $('prices').innerHTML=labels.length?`<table class="tbl"><tr><th>尺寸</th><th>單價</th><th></th></tr>`+
-    labels.map(l=>`<tr><td><b>${l}</b> <span class="hint">${CM[l]}</span></td>
-    <td style="text-align:left"><input type="number" inputmode="decimal" min="0" data-p="${l}" value="${r.prices[l]||''}" placeholder="0" aria-label="${l} 單價"></td>
-    <td><button class="ghost danger" data-rm="${l}" aria-label="移除 ${l}">移除</button></td></tr>`).join('')+`</table>`:'<div class="empty">單價表是空的,從下面加尺寸。</div>';
-  const rest=SIZES.filter(s=>!(s.label in r.prices));
-  $('addSize').innerHTML=rest.map(s=>`<option value="${s.label}">${s.label}(${s.cm})</option>`).join('');
-  save();
+  const act=document.activeElement&&document.activeElement.dataset&&document.activeElement.dataset.p;
+  if(!act){
+    $('prices').innerHTML=labels.length?`<table class="tbl"><tr><th>尺寸</th><th>單價</th><th></th></tr>`+labels.map(l=>`<tr><td><b>${esc(l)}</b> <span class="hint">${esc(CM[l]||'')}</span></td><td style="text-align:left">${isAdmin?`<input type="number" inputmode="decimal" min="0" data-p="${esc(l)}" value="${price(r,l)||''}" placeholder="0" aria-label="${esc(l)} 單價">`:(price(r,l)?$$(price(r,l)):'未定')}</td><td>${isAdmin?`<button class="ghost danger" data-rm="${esc(l)}">移除</button>`:''}</td></tr>`).join('')+`</table>`:'<div class="empty">單價表是空的。</div>';
+  }
+  $('addSize').innerHTML=SIZES.filter(s=>!(s.label in (r.prices||{}))).map(s=>`<option value="${s.label}">${s.label}(${s.cm})</option>`).join('');
 }
-function clean(d){
-  if(!d||!Array.isArray(d.rounds)||!d.rounds.length)throw 0;
-  const id=v=>/^[a-z0-9]{1,12}$/.test(v)?v:uid();
-  const rounds=d.rounds.map(r=>{
-    const prices={};Object.keys(r.prices||{}).forEach(k=>{if(k in CM)prices[k]=Math.max(0,Number(r.prices[k])||0)});
-    const orders=(r.orders||[]).filter(o=>o&&o.size in CM).map(o=>({id:id(o.id),person:String(o.person||'').slice(0,40),size:o.size,qty:Math.max(1,Math.floor(Number(o.qty))||1)}));
-    return{id:id(r.id),name:String(r.name||'團購').slice(0,60),prices,orders};
-  });
-  return{cur:rounds.some(r=>r.id===id(d.cur))?id(d.cur):rounds[0].id,rounds};
-}
-function sortSize(a,b){
-  const pa=parseInt(a),pb=parseInt(b);if(pa!==pb)return pa-pb;return 'FPM'.indexOf(a.slice(-1))-'FPM'.indexOf(b.slice(-1));
-}
+$('who').oninput=()=>{lsSet('hb-me',$('who').value.trim());render()};
+$('roundSel').onchange=e=>{cur=e.target.value;lsSet('hb-round-'+room,cur);watchOrders();render()};
 
-$('roundSel').onchange=e=>{S.cur=e.target.value;render()};
-$('newRound').onclick=()=>{
-  const prev=R(),id=uid();
-  S.rounds.push({id,name:'第 '+(S.rounds.length+1)+' 次團購',prices:{...prev.prices},orders:[]});
-  S.cur=id;render();toast('已新增,單價沿用上一場');
-};
+// 登記
 $('qm').onclick=()=>{$('qty').value=Math.max(1,(+$('qty').value||1)-1)};
-$('qp').onclick=()=>{$('qty').value=(+$('qty').value||0)+1};
-$('add').onclick=()=>{
-  const r=R(),p=$('who').value.trim(),sz=$('size').value,q=Math.max(1,parseInt($('qty').value)||1);
-  if(!p){toast('先填是誰買的');$('who').focus();return}
-  if(!sz){toast('先到單價表加尺寸');return}
-  const ex=r.orders.find(o=>o.person===p&&o.size===sz);
-  if(ex)ex.qty+=q;else r.orders.push({id:uid(),person:p,size:sz,qty:q});
-  $('qty').value=1;render();toast(p+' '+sz+' ×'+q+' 已加入');
+$('qp').onclick=()=>{$('qty').value=Math.min(99,(+$('qty').value||0)+1)};
+$('add').onclick=async()=>{
+  const r=R();if(!r)return;
+  const p=$('who').value.trim().slice(0,40),sz=$('size').value,q=Math.min(99,Math.max(1,parseInt($('qty').value)||1));
+  if(!p){toast('先填你的名字');$('who').focus();return}
+  if(!sz){toast('班長還沒填單價');return}
+  lsSet('hb-me',p);
+  try{
+    await ordersCol(cur).doc((sz+'|'+p).replace(/\//g,'／')).set({person:p,size:sz,qty:FV.increment(q),t:Date.now()},{merge:true});
+    $('qty').value=1;toast(p+' '+sz+' ×'+q+' 已加入');
+  }catch(e){toast(errMsg(e))}
 };
-$('people').onclick=e=>{
+$('people').onclick=async e=>{
   const b=e.target.closest('button[data-a]');if(!b)return;
-  const r=R(),o=r.orders.find(x=>x.id===b.dataset.id);if(!o)return;
-  if(b.dataset.a==='inc')o.qty++;
-  else if(b.dataset.a==='dec'){o.qty--;if(o.qty<1)r.orders=r.orders.filter(x=>x!==o)}
-  else r.orders=r.orders.filter(x=>x!==o);
-  render();
+  const o=orders.find(x=>x.id===b.dataset.id);if(!o)return;
+  const ref=ordersCol(cur).doc(o.id);
+  try{
+    if(b.dataset.a==='inc'){if(o.qty<99)await ref.update({qty:FV.increment(1)})}
+    else if(b.dataset.a==='dec'){if(o.qty>1)await ref.update({qty:FV.increment(-1)});else await ref.delete()}
+    else await ref.delete();
+  }catch(er){toast(errMsg(er))}
 };
-$('prices').onchange=e=>{const l=e.target.dataset.p;if(l){R().prices[l]=Math.max(0,+e.target.value||0);render();$('priceBox').open=true}};
-$('prices').onclick=e=>{
-  const b=e.target.closest('button[data-rm]');if(!b)return;
-  const r=R(),l=b.dataset.rm;
-  if(r.orders.some(o=>o.size===l)){toast(l+' 已有人登記,不能移除');return}
-  delete r.prices[l];render();$('priceBox').open=true;
-};
-$('addPrice').onclick=()=>{const l=$('addSize').value;if(!l)return;R().prices[l]=0;render();$('priceBox').open=true;toast(l+' 已加入,請填單價')};
 
+// 單價(班長)
+$('prices').onchange=async e=>{
+  const l=e.target.dataset.p;if(!l||!isAdmin)return;
+  try{await roundRef(cur).update({['prices.'+l]:Math.max(0,Number(e.target.value)||0)})}catch(er){toast(errMsg(er))}
+};
+$('prices').onclick=async e=>{
+  const b=e.target.closest('button[data-rm]');if(!b||!isAdmin)return;
+  const l=b.dataset.rm;
+  if(orders.some(o=>o.size===l)){toast(l+' 已有人登記,不能移除');return}
+  try{await roundRef(cur).update({['prices.'+l]:FV.delete()})}catch(er){toast(errMsg(er))}
+};
+$('addPrice').onclick=async()=>{
+  const l=$('addSize').value;if(!l||!isAdmin)return;
+  try{await roundRef(cur).update({['prices.'+l]:0});toast(l+' 已加入,請填單價')}catch(er){toast(errMsg(er))}
+};
+
+// 班長
+$('adminBtn').onclick=()=>{$('pwRow').hidden=false;$('adminBtn').hidden=true;$('adminPw').focus()};
+$('adminPw').onkeydown=e=>{if(e.key==='Enter')$('adminGo').click()};
+$('adminGo').onclick=async()=>{
+  const h=await sha(room+':'+$('adminPw').value);
+  if(h===adminHash){isAdmin=true;lsSet('hb-admin-'+room,h);$('adminPw').value='';$('pwRow').hidden=true;$('adminBtn').hidden=false;applyAdmin();render();toast('班長模式已開啟')}
+  else toast('管理密碼不對');
+};
+$('adminOut').onclick=()=>{isAdmin=false;lsDel('hb-admin-'+room);applyAdmin();render()};
+$('newRound').onclick=async()=>{
+  const prev=R();
+  try{await makeRound('第 '+(rounds.length+1)+' 次團購',prev?{...prev.prices}:{});toast('已新增一場,單價沿用上一場')}catch(e){toast(errMsg(e))}
+};
+$('closeBtn').onclick=async()=>{
+  const r=R();if(!r)return;
+  try{await roundRef(cur).update({closed:!r.closed});toast(r.closed?'已重新開放':'已結單')}catch(e){toast(errMsg(e))}
+};
+$('renameBtn').onclick=()=>{
+  const r=R();if(!r)return;const el=$('roundName'),inp=document.createElement('input');
+  inp.value=r.name;inp.maxLength=60;inp.setAttribute('aria-label','場次名稱');el.replaceWith(inp);inp.focus();inp.select();
+  let done=false;const fin=async()=>{if(done)return;done=true;const v=inp.value.trim();inp.replaceWith(el);
+    if(v&&v!==r.name){try{await roundRef(cur).update({name:v})}catch(e){toast(errMsg(e))}}};
+  inp.onblur=fin;inp.onkeydown=ev=>{if(ev.key==='Enter')inp.blur()};
+};
 let confirmDel=0;
-$('delRound').onclick=()=>{
+$('delRound').onclick=async()=>{
   const b=$('delRound');
   if(!confirmDel){confirmDel=1;b.textContent='再按一次確認刪除';setTimeout(()=>{confirmDel=0;b.textContent='刪除這一場'},3000);return}
   confirmDel=0;b.textContent='刪除這一場';
-  if(S.rounds.length===1){const r=R();r.orders=[];toast('已清空這一場')}
-  else{S.rounds=S.rounds.filter(x=>x.id!==S.cur);S.cur=S.rounds[S.rounds.length-1].id;toast('已刪除')}
-  render();
-};
-// 場次改名:點總計帶上的名稱
-$('roundName').style.cursor='pointer';$('roundName').title='點一下改名';
-$('roundName').onclick=()=>{
-  const r=R(),inp=document.createElement('input');inp.value=r.name;inp.setAttribute('aria-label','場次名稱');
-  const el=$('roundName');el.replaceWith(inp);inp.focus();inp.select();
-  const done=()=>{const v=inp.value.trim();if(v)r.name=v;inp.replaceWith(el);render()};
-  inp.onblur=done;inp.onkeydown=ev=>{if(ev.key==='Enter')inp.blur()};
+  const id=cur;
+  try{
+    await roundRef(id).update({closed:false});
+    const snap=await ordersCol(id).get();const batch=db.batch();snap.docs.forEach(d=>batch.delete(d.ref));await batch.commit();
+    await roundRef(id).delete();cur=null;watching=undefined;toast('已刪除');
+  }catch(e){toast(errMsg(e))}
 };
 
+// 複製
 function lineText(){
-  const r=R(),g=groups(r);let grand=0;
-  const out=['【'+r.name+'】'];
-  Object.keys(g).forEach(n=>{
+  const r=R(),g=groups();let grand=0;const out=['【'+r.name+'】'+(r.closed?'(已結單)':'')];
+  Object.keys(g).sort((a,b)=>a.localeCompare(b,'zh-Hant')).forEach(n=>{
     let sub=0;out.push('',n);
-    g[n].forEach(o=>{const a=price(r,o.size)*o.qty;sub+=a;out.push(`  ${o.size} ×${o.qty} = ${$$(a)}`)});
+    g[n].sort((a,b)=>sortSize(a.size,b.size)).forEach(o=>{const a=price(r,o.size)*o.qty;sub+=a;out.push(`  ${o.size} ×${o.qty} = ${$$(a)}`)});
     out.push('  小計 '+$$(sub));grand+=sub;
   });
-  const bs={};r.orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+o.qty);
+  const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+o.qty);
   out.push('','合計片數:'+Object.keys(bs).sort(sortSize).map(k=>k+'×'+bs[k]).join('、'),'總計 '+$$(grand));
   return out.join('\n');
 }
-$('copy').onclick=async()=>{
-  const t=lineText();
-  try{await navigator.clipboard.writeText(t);toast('已複製,到 LINE 貼上')}
-  catch(e){$('bk').value=t;$('bk').select();toast('請長按全選後複製')}
-};
-$('bkOut').onclick=()=>{$('bk').value=JSON.stringify(S);$('bk').select();toast('已產生,複製起來')};
-$('bkIn').onclick=()=>{
-  try{S=clean(JSON.parse($('bk').value));render();toast('已讀入')}
-  catch(e){toast('備份碼格式不對')}
-};
-render();
-</script>
+async function copyText(t,msg){
+  try{await navigator.clipboard.writeText(t);toast(msg)}
+  catch(e){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:0;top:0;width:90%;height:6em;z-index:50';document.body.appendChild(ta);ta.select();toast('請長按全選後複製,再點空白處關閉');ta.onblur=()=>ta.remove()}
+}
+$('copy').onclick=()=>{if(R())copyText(lineText(),'已複製,到 LINE 貼上')};
+$('invite').onclick=()=>copyText(location.href.split('#')[0]+'#'+encodeURIComponent(room),'邀請連結已複製,貼到班級群組');
 
+// 啟動
+(async()=>{
+  let c='';try{c=decodeURIComponent(location.hash.slice(1))}catch(e){}
+  if(!c)c=lsGet('hb-room')||'';
+  if(c){$('code').value=c;if(await openRoom(c))return}
+  $('gate').hidden=false;
+})();
+
+</script>
 </body></html>
