@@ -237,6 +237,16 @@ function render(){
   $('addSize').innerHTML=rest.map(s=>`<option value="${s.label}">${s.label}(${s.cm})</option>`).join('');
   save();
 }
+function clean(d){
+  if(!d||!Array.isArray(d.rounds)||!d.rounds.length)throw 0;
+  const id=v=>/^[a-z0-9]{1,12}$/.test(v)?v:uid();
+  const rounds=d.rounds.map(r=>{
+    const prices={};Object.keys(r.prices||{}).forEach(k=>{if(k in CM)prices[k]=Math.max(0,Number(r.prices[k])||0)});
+    const orders=(r.orders||[]).filter(o=>o&&o.size in CM).map(o=>({id:id(o.id),person:String(o.person||'').slice(0,40),size:o.size,qty:Math.max(1,Math.floor(Number(o.qty))||1)}));
+    return{id:id(r.id),name:String(r.name||'團購').slice(0,60),prices,orders};
+  });
+  return{cur:rounds.some(r=>r.id===id(d.cur))?id(d.cur):rounds[0].id,rounds};
+}
 function sortSize(a,b){
   const pa=parseInt(a),pb=parseInt(b);if(pa!==pb)return pa-pb;return 'FPM'.indexOf(a.slice(-1))-'FPM'.indexOf(b.slice(-1));
 }
@@ -311,7 +321,7 @@ $('copy').onclick=async()=>{
 };
 $('bkOut').onclick=()=>{$('bk').value=JSON.stringify(S);$('bk').select();toast('已產生,複製起來')};
 $('bkIn').onclick=()=>{
-  try{const d=JSON.parse($('bk').value);if(!d.rounds||!d.rounds.length)throw 0;S=d;render();toast('已讀入')}
+  try{S=clean(JSON.parse($('bk').value));render();toast('已讀入')}
   catch(e){toast('備份碼格式不對')}
 };
 render();
