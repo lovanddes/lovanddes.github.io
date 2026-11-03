@@ -1,93 +1,90 @@
 {
- "date": "2026-11-03",
- "one_line": "AI基建併購與能源博弈白熱化，歐美政經與供應鏈面臨關鍵考驗。",
+ "date": "2026-11-04",
+ "one_line": "企業轉攻務實開源AI防風險，美以軍援轉向與北極安全框架拍板定案。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "邁威爾千億美元併魯門特姆",
+     "title": "OpenAI推日常基準LifeVal",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國客製化晶片大廠邁威爾（Marvell）宣布以 1,150 億美元全股票併購光學元件領導商魯門特姆（Lumentum），創下今年科技界規模最大的整併案之一。兩家公司背後均有輝達入股，此次合併旨在把運算節點之間的連結從傳統銅線全面升級至光通訊（利用光訊號高速傳輸資料的技術），以解決超大型人工智慧運算叢集的傳輸瓶頸。該收購案已獲雙方董事會批准，預計將於 2028 年上半年完成監管審查與交割。"
+       "text": "OpenAI 於 11 月 2 日正式公開全新評測基準「LifeVal」，專注衡量 AI 處理日常生活實際雜務的能力。該基準涵蓋托育安排、線上報稅報帳、修改食譜與預約政府流程等高頻需求，標誌著評測重心從解題考試轉向能實際替人辦事的自主代理人（AI Agent）。官方也透露目前每週活躍用戶已跨過 10 億人大關。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這顯示 AI 競爭已從單純比拼運算晶片擴大到資料傳輸速度，光通訊與矽光子將成為下一代基礎設施核心，直接牽動台灣半導體與通訊零組件供應鏈。"
+       "text": "這代表 AI 不再只比拼高深演算法，而是看誰能解決一般上班族的家務與行政瑣事，未來手機助理將更具實質替你跑腿的實用性。"
       }
      ],
      "sources": [
-      "https://www.investing.com/news/stock-market-news/factboxhow-marvell-and-lumentum-stack-up-in-ais-optical-race-4992576",
-      "https://www.nageshpolu.com/2026/11/marvells-115-billion-lumentum-deal-why.html"
+      "https://openai.com/index/lifeval/",
+      "https://openai.com/index/lifeval"
      ]
     },
     {
-     "title": "紐時等報業控告Brave侵權",
+     "title": "戴爾攜微驅推AI原生防護",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "《紐約時報》（The New York Times）聯同《芝加哥論壇報》等多家美國報業，向主打隱私保護的 Brave 瀏覽器母公司提起訴訟。訴狀指控 Brave 未經授權大規模爬取新聞內容並建立索引，不僅提供用戶繞過付費牆的功能，更將抓取的資料庫販售給多家 AI 公司作為模型訓練與即時檢索使用。媒體業者主張此舉侵害智慧財產權並剝奪了原創新聞的訂閱與授權收益。"
+       "text": "伺服器巨頭戴爾與資安大廠 CrowdStrike 於 Fal.Con 歐洲大會宣布深度合作，將後者的 Falcon 平台直接整合進搭載輝達架構的 Dell AI 工廠硬體。該架構能在企業部署大型模型與自主代理人時，提供從底層算力晶片到上層應用的原生威脅偵測與防禦機制（AIDR）。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "出版業對 AI 資料抓取的中介商全面宣戰，未來使用者仰賴瀏覽器工具免費獲取或摘要付費新聞的管道將受到更多法律限制。"
+       "text": "企業導入 AI 最怕機密外洩或代理人遭黑客越獄，資安出廠即內建（Built-in）正在成為高階伺服器採購的新標配。"
       }
      ],
      "sources": [
-      "https://alterslash.org/",
-      "https://www.961developments.com/news"
+      "https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-and-dell-technologies-announce-integrated-ai"
      ]
     },
     {
-     "title": "OpenAI啟動電網守護者計畫",
+     "title": "微軟結盟Lumen攻企業AI網",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "OpenAI 正式發表「電網守護者計畫」（Grid Protectors Program），預計在美國喬治亞州新建的資料中心園區展開首輪試點。該計畫承諾在極端氣候或區域電網負載超載時，資料中心能主動調降運算用電或啟動自備電力系統回饋電網，預估最高可釋放 1,000 百萬瓦（MW）電力。這相當於在夏日尖峰時段能供應用電給約 70 萬戶家庭的空調需求。"
+       "text": "微軟與光纖網路巨頭 Lumen Technologies 宣布擴大聯合銷售計畫，專攻解決企業在公有雲與自有資料中心之間搬運 AI 海量資料的傳輸瓶頸。雙方將 Azure 雲端服務與高頻寬企業專網整合，替下一代高度仰賴多節點通訊的自主式 AI 代理人鋪路。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "AI 運算中心因龐大耗電量屢遭地方居民與環保團體抗議，科技巨頭透過彈性調度與自備電力示好，是未來高耗能產業落地的關鍵生存策略。"
+       "text": "隨著 AI 應用從簡單對話走向大型跨系統協同，網路延遲將決定運算效率，雲網一體化服務將左右企業數位轉型成本。"
       }
      ],
      "sources": [
-      "https://modernaction.io/briefing/openai-pitches-data-center-power-plants-as-a-way-to-protect--0a6debc3",
-      "https://www.techmeme.com/261102/p34"
+      "https://news.microsoft.com/source/2026/11/02/lumen-and-microsoft-expand-collaboration-to-co-sell-enterprise-ai-ready-networks/"
      ]
     },
     {
-     "title": "高盛收回非工程師AI寫程式權",
+     "title": "Gartner示警AI策略誤判風險",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "華爾街投行巨頭高盛（Goldman Sachs）近期大幅限縮內部人工智慧工具的權限，禁止交易員與投資銀行部門員工使用 Anthropic 的 Claude Code 與微軟 GitHub Copilot。數月前高盛資訊長曾公開讚揚業務人員靠「感覺寫程式」（vibe coding，指不具專業代碼背景者用語意生成軟體原型）能提升效率，但官方現表示經評估生產力與風險管理後，決定將這些工具專屬開放給專業軟體工程師。"
+       "text": "調研機構 Gartner 發布 2026 年第三季新興風險報告，指出「AI 策略誤判」與「AI 競爭性淘汰」首度強勢擠進全球企業風險前五名。調查顯示，300 多位企業風控長最焦慮的已非單純技術缺陷，而是組織在商業模式尚未明朗前過度激進投資，導致巨額資本支出打了水漂。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "企業推動全員 AI 輔助開發的狂熱正撞上現實，金融業考量代碼漏洞、合規與實質投資報酬率後，管理態度已從全面開放轉向嚴格控管。"
+       "text": "這給盲目跟風推動 AI 的企業敲響警鐘，提醒主管在編列高額 AI 預算前，必須以具體投資報酬率（ROI）取代焦慮驅動的採購。"
       }
      ],
      "sources": [
-      "https://superpowerdaily.com/posts/goldman-sachs-restricts-ai-coding-tools-to-engineers-bloomberg-reports",
-      "https://the-decoder.com/author/matthias-bastian/"
+      "https://www.gartner.com/en/newsroom/press-releases/2026-11-02-gartner-survey-finds-two-new-ai-related-risks-emerge-in-3q26",
+      "https://www.gartner.com/en/newsroom/press-releases/2026-11-02-gartner-survey-finds-two-new-ai-related-risks-emerge"
      ]
     },
     {
-     "title": "Anthropic防堵AI複製電玩",
+     "title": "Revolut換開源AI降九成成本",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "AI 新創 Anthropic 更新了終端程式設計工具 Claude Code 的系統提示詞（規範 AI 回應行為的底層指令），明令禁止該工具被用於還原、反編譯或重製市面上現有的電玩遊戲。近期復古遊戲社群出現大量利用 AI 在短時間內逆向移植舊作的現象，引發遊戲開發者對版權侵害的抗議。Anthropic 澄清仍允許用戶使用 AI 開發原創遊戲，但將嚴加封堵侵權重製的行為。"
+       "text": "歐洲大型金融科技獨角獸 Revolut 證實，團隊在內部軟體開發中全面導入開源權重（open-weight）的 GLM 模型，取代昂貴的閉源商用 AI API。這項架構轉換使該公司在維持程式碼生成品質的同時，一舉將 AI 輔助寫程式的營運支出大砍了 90%。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "當 AI 編程強大到能秒速還原他人軟體架構，智慧財產權防線面臨衝擊，從事軟體或數位內容開發的從業人員需密切注意平台的版權規範走向。"
+       "text": "這顯示大型科技團隊正加速從盲目租用頂級商用雲端模型，轉向自建私有化開源模型，軟體工程的成本天花板正在被大幅壓低。"
       }
      ],
      "sources": [
-      "https://www.hybridai.in/article/68284-anthropic-clamps-down-on-claude-s-ai-video-game-clones",
-      "https://www.961developments.com/news"
+      "https://www.trendingtopics.eu/revolut-glm-open-weight-coding-costs/"
      ]
     }
    ]
@@ -96,54 +93,54 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "歐洲七國超市冷凍系統遭集體駭入",
+     "title": "美2027年起停供以國無償軍援",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "瑞典、比利時、盧森堡、芬蘭、荷蘭、愛沙尼亞與愛爾蘭等至少七國的連鎖超市冷藏設備在週一凌晨爆發疑似協同網路攻擊。駭客利用連網溫控軟體的漏洞入侵系統並強制啟動除霜模式，甚至將部分冷凍庫溫度竄改調高至攝氏 50 度，迫使業者將大量變質食品直接報廢。歐盟官員嚴厲譴責此事件為蓄意破壞民生物資供應鏈的惡意攻擊，各國執法與資安機構已全面介入調查。"
+       "text": "美國總統於 11 月 3 日受訪時宣布，美國將於 2027 年正式中止每年向以色列提供約 40 億美元的無償軍事援助款項。華府未來將改採純商業軍售模式，強調以色列經濟實力早已具備自購武器能力，不應繼續由美國納稅人買單。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "零售與民生物聯網（IoT）設備的資安脆弱度再度暴露，一旦民生供應鏈成為混合戰破壞標的，一般消費者的物價與食品安全將直接受害。"
+       "text": "這標誌著華府數十年中東盟友政策的歷史性轉向，結束無條件安全兜底模式，全球地緣盟友的軍備採購恐將面臨全盤商業化重整。"
       }
      ],
      "sources": [
-      "https://www.theguardian.com/technology/2026/nov/02/europe-supermarket-fridges-freezers-who-hacking-why",
-      "https://www.theguardian.com/world/2026/nov/02/supermarket-freezers-across-europe-hit-by-second-suspected-cyber-attack"
+      "https://580wksk.com/ap-news-november-3-2026/",
+      "https://apnews.com/article/trump-israel-aid-military-sales-2026"
      ]
     },
     {
-     "title": "彭博指烏克蘭經濟四年來首度萎縮",
+     "title": "格陵蘭批准美丹三方安全協議",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "彭博經濟研究（Bloomberg Economics）最新發布的評估指出，由於俄羅斯擴大對烏克蘭民間商業與運輸物流網路的空襲，烏克蘭 2026 年經濟預計將萎縮 0.4%，為全面開戰以來首度轉為負成長。烏克蘭央行已調降全年預測，且烏國總統澤倫斯基表示 2027 年需要約 700 億歐元外部援助才能支撐國防需求。分析師示警，儘管烏克蘭短期內不致面臨崩潰，但戰事能否延續至 2027 年將完全取決於西方資金能否及時且穩定到位。"
+       "text": "格陵蘭國會於 11 月 3 日正式通過與丹麥、美國的三邊安全框架協議，准許美軍在島上增建軍事基地以鞏固北極海域防衛。這項協議在強化北約極地防線的同時，也確認格陵蘭維持在丹麥體系下的自治管轄，化解了此前美方施壓試圖取得控制權的政治僵局。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "歐洲各國政治動盪與援烏疲勞正在加劇，一旦國際金援出現斷層，戰事走向與歐洲地緣安全穩定性將出現極大變數。"
+       "text": "北極航道解凍與稀土礦產地位日益吃緊，美軍實質重返北極將使西方對中俄極地地緣與能源航運的包圍網更加穩固。"
       }
      ],
      "sources": [
-      "https://kyivindependent.com/russian-attacks-increase-ukraines-need-for-foreign-aid-bloomberg-report-finds/",
-      "https://www.briefs.co/news/bloomberg-ukraine-leans-harder-on-foreign-financing-as-russi/"
+      "https://580wksk.com/ap-news-november-3-2026/",
+      "https://apnews.com/article/greenland-denmark-us-arctic-security-deal"
      ]
     },
     {
-     "title": "美期中選舉決戰兩黨爭奪國會",
+     "title": "俄擴大強制沒收歐洲企業資產",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國於週二（11月3日）迎來 2026 年期中選舉投票，改選眾議院全數 435 席與參議院 35 席，被視為對川普第二任期施政表現的重大期中考核。全美已有超過 5,700 萬選民透過提早投票完成繳票，民調顯示民主黨有極大機會重奪眾議院多數，而參議院戰況則呈現膠著。兩黨領袖在選前最後一刻前往關鍵選區造勢衝刺，力圖在通膨與對外政策爭議中動員選民。"
+       "text": "基輔經濟學院（KSE）與跨國倡議團體發布報告，指控俄羅斯當局近期變相沒收與強行接管包括雀巢、歐尚等數十家歐洲在俄外商的工廠與營運資產。莫斯科強索企業資金並轉移經營權，企圖藉此迫使跨國母公司向其母國政府遊說以放寬對俄制裁。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "美國國會多數席次易主將直接牽動未來兩年的關稅壁壘、科技補貼預算及對外軍援政策，對台美經貿法案與半導體供應鏈政策影響重大。"
+       "text": "這顯示地緣政治惡化下跨國實體資產面臨直接遭沒收的系統性風險，對任何在非民主陣營設廠的全球供應鏈皆是一記嚴厲警訊。"
       }
      ],
      "sources": [
-      "https://www.cbsnews.com/live-updates/2026-elections-monday-november-2/",
-      "https://www.timesofisrael.com/trumps-gop-makes-final-push-to-prevent-expected-landslide-midterm-loss-to-democrats/"
+      "https://kse.ua/en/news/russia-expands-seizures-of-european-business-assets-to-pressure-eu-governments-over-sanctions-joint-statement-by-kse-institute-and-b4ukraine/",
+      "https://kse.ua/about-the-school/news/russia-expands-seizures-of-european-business-assets-to-pressure-eu-governments-over-sanctions/"
      ]
     }
    ]
