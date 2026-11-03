@@ -544,10 +544,12 @@ function sheetDetail(){
     const a=price(r,o.size)*oq(o);ta+=a;rows.push([n,o.size,CM[o.size]||'',oq(o),price(r,o.size),a])}));
   rows.push(['總計','','',orders.reduce((a,o)=>a+oq(o),0),'',ta]);return rows;
 }
-const cell=v=>String(v).replace(/[\t\r\n]+/g,' ');
+// 名字等文字若以 = + - @ 開頭,Excel 會當公式執行,前面補單引號擋掉
+const safe=v=>typeof v==='string'&&/^[=+\-@\t\r]/.test(v)?"'"+v:v;
+const cell=v=>String(safe(v)).replace(/[\t\r\n]+/g,' ');
 const toTSV=rows=>rows.map(r=>r.map(cell).join('\t')).join('\n');
-const toCSV=rows=>rows.map(r=>r.map(v=>{v=String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}).join(',')).join('\r\n');
-const toHTML=rows=>'<table border="1" cellspacing="0" cellpadding="4">'+rows.map(r=>'<tr>'+r.map(v=>'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'</table>';
+const toCSV=rows=>rows.map(r=>r.map(v=>{v=String(safe(v));return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}).join(',')).join('\r\n');
+const toHTML=rows=>'<table border="1" cellspacing="0" cellpadding="4">'+rows.map(r=>'<tr>'+r.map(v=>'<td>'+esc(safe(v))+'</td>').join('')+'</tr>').join('')+'</table>';
 async function copyRows(rows,msg){
   const tsv=toTSV(rows);
   try{
