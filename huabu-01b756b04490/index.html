@@ -194,6 +194,7 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
           <div class="row">
             <button class="primary" id="xlsMatrix">複製:每人 × 尺寸表</button>
             <button id="xlsDetail">複製:明細清單</button>
+            <button id="xlsMats">複製:收費表材料格式</button>
             <button id="csvDl">下載 CSV</button>
           </div>
           <details style="margin-top:8px"><summary>預覽表格</summary><div style="overflow-x:auto"><div id="sheetPrev"></div></div></details>
@@ -566,6 +567,16 @@ function renderSheetPrev(){
   $('sheetPrev').innerHTML='<table class="tbl">'+rows.map((r,i)=>'<tr>'+r.map(v=>i===0?'<th>'+esc(v)+'</th>':'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'</table>';
 }
 $('xlsMatrix').onclick=()=>{if(R())copyRows(sheetMatrix(),'已複製,到 Excel 貼上')};
+// 對應「油畫班收費表」的材料欄寫法:8F×1、12P×2
+function sheetMats(){
+  const r=R(),g=groups();const rows=[['姓名','材料明細','材料小計']];
+  Object.keys(g).sort((x,y)=>x.localeCompare(y,'zh-Hant')).forEach(n=>{
+    const l=g[n].sort((p,q)=>sortSize(p.size,q.size));
+    rows.push([n,l.map(o=>o.size+'×'+oq(o)).join('、'),l.reduce((a,o)=>a+price(r,o.size)*oq(o),0)]);
+  });
+  return rows;
+}
+$('xlsMats').onclick=()=>{if(R())copyRows(sheetMats(),'已複製,可對照收費表的材料欄')};
 $('xlsDetail').onclick=()=>{if(R())copyRows(sheetDetail(),'已複製,到 Excel 貼上')};
 $('csvDl').onclick=()=>{
   if(!R())return;
