@@ -74,6 +74,9 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{display:inline-flex;align-items:center;gap:2px;background:var(--soft);border-radius:16px;padding:2px 4px 2px 12px}
 .chip button{padding:2px 8px}
+#sheetPrev .tbl{min-width:max-content;font-size:13px}
+#sheetPrev .tbl td,#sheetPrev .tbl th{white-space:nowrap;padding:5px 8px;text-align:right}
+#sheetPrev .tbl td:first-child,#sheetPrev .tbl th:first-child{text-align:left}
 </style>
 
 <div class="wrap">
@@ -187,6 +190,13 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
           </label>
           <div class="row" style="margin-bottom:8px"><button id="rosterAdd">加入名單</button></div>
           <div id="rosterList" class="chips"></div>
+          <h2 style="margin-top:14px">輸出成表格(貼到 Excel / Google 試算表)</h2>
+          <div class="row">
+            <button class="primary" id="xlsMatrix">複製:每人 × 尺寸表</button>
+            <button id="xlsDetail">複製:明細清單</button>
+            <button id="csvDl">下載 CSV</button>
+          </div>
+          <details style="margin-top:8px"><summary>預覽表格</summary><div style="overflow-x:auto"><div id="sheetPrev"></div></div></details>
           <div class="row" style="margin-top:14px">
             <button id="closeBtn">結單</button>
             <button id="renameBtn">改名</button>
@@ -408,6 +418,7 @@ function render(){
   const ks=Object.keys(bs).sort(sortSize);
   $('bysize').innerHTML=ks.length?`<table class="tbl"><tr><th>尺寸</th><th>單價</th><th>片數</th><th>金額</th></tr>`+ks.map(k=>`<tr><td><b>${esc(k)}</b> <span class="hint">${esc(CM[k]||'')}</span></td><td>${$$(price(r,k))}</td><td>${bs[k]}</td><td class="money">${$$(price(r,k)*bs[k])}</td></tr>`).join('')+`</table>`:'<div class="empty">登記後這裡會列出每種尺寸總共幾片。</div>';
 
+  if(isAdmin)renderSheetPrev();
   const act=document.activeElement&&document.activeElement.dataset&&document.activeElement.dataset.p;
   if(!act){
     $('prices').innerHTML=labels.length?`<table class="tbl"><tr><th>尺寸</th><th>單價</th><th></th></tr>`+labels.map(l=>`<tr><td><b>${esc(l)}</b> <span class="hint">${esc(CM[l]||'')}</span></td><td style="text-align:left">${isAdmin?`<input type="number" inputmode="decimal" min="0" data-p="${esc(l)}" value="${price(r,l)||''}" placeholder="0" aria-label="${esc(l)} 單價">`:(price(r,l)?$$(price(r,l)):'未定')}</td><td>${isAdmin?`<button class="ghost danger" data-rm="${esc(l)}">移除</button>`:''}</td></tr>`).join('')+`</table>`:'<div class="empty">單價表是空的。</div>';
@@ -507,6 +518,60 @@ $('delRound').onclick=async()=>{
   if(!confirmDel){confirmDel=1;b.textContent='再按一次確認隱藏';setTimeout(()=>{confirmDel=0;b.textContent='隱藏這一場'},3000);return}
   confirmDel=0;b.textContent='隱藏這一場';
   try{await adminBatch(bt=>bt.update(roundRef(cur),{archived:true}));cur=null;toast('已隱藏這一場')}catch(e){toast(errMsg(e))}
+};
+
+// 表格輸出
+function sheetMatrix(){
+  const r=R(),g=groups();
+  const sizes=[...new Set(orders.map(o=>o.size))].sort(sortSize);
+  const names=Object.keys(g).sort((x,y)=>(roster.indexOf(x)<0)-(roster.indexOf(y)<0)||(roster.indexOf(x)-roster.indexOf(y))||x.localeCompare(y,'zh-Hant'));
+  const rows=[['姓名',...sizes.map(s=>s+'('+(CM[s]||'')+')'),'片數','小計']];
+  rows.push(['單價',...sizes.map(s=>price(r,s)),'','']);
+  let tp=0,ta=0;const tot=sizes.map(()=>0);
+  names.forEach(n=>{
+    const cnt=sizes.map(s=>g[n].filter(o=>o.size===s).reduce((a,o)=>a+oq(o),0));
+    const pcs=cnt.reduce((a,c)=>a+c,0),amt=sizes.reduce((a,s,i)=>a+cnt[i]*price(r,s),0);
+    cnt.forEach((c,i)=>tot[i]+=c);tp+=pcs;ta+=amt;
+    rows.push([n,...cnt.map(c=>c||''),pcs,amt]);
+  });
+  rows.push(['合計片數',...tot,tp,'']);
+  rows.push(['金額',...sizes.map((s,i)=>tot[i]*price(r,s)),'',ta]);
+  return rows;
+}
+function sheetDetail(){
+  const r=R(),g=groups();const rows=[['姓名','尺寸','尺寸(cm)','片數','單價','金額']];let ta=0;
+  Object.keys(g).sort((x,y)=>x.localeCompare(y,'zh-Hant')).forEach(n=>g[n].sort((a,b)=>sortSize(a.size,b.size)).forEach(o=>{
+    const a=price(r,o.size)*oq(o);ta+=a;rows.push([n,o.size,CM[o.size]||'',oq(o),price(r,o.size),a])}));
+  rows.push(['總計','','',orders.reduce((a,o)=>a+oq(o),0),'',ta]);return rows;
+}
+const cell=v=>String(v).replace(/[\t\r\n]+/g,' ');
+const toTSV=rows=>rows.map(r=>r.map(cell).join('\t')).join('\n');
+const toCSV=rows=>rows.map(r=>r.map(v=>{v=String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}).join(',')).join('\r\n');
+const toHTML=rows=>'<table border="1" cellspacing="0" cellpadding="4">'+rows.map(r=>'<tr>'+r.map(v=>'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'</table>';
+async function copyRows(rows,msg){
+  const tsv=toTSV(rows);
+  try{
+    if(window.ClipboardItem&&navigator.clipboard.write){
+      await navigator.clipboard.write([new ClipboardItem({'text/plain':new Blob([tsv],{type:'text/plain'}),'text/html':new Blob([toHTML(rows)],{type:'text/html'})})]);
+    }else await navigator.clipboard.writeText(tsv);
+    toast(msg);
+  }catch(e){
+    try{await navigator.clipboard.writeText(tsv);toast(msg)}catch(e2){copyText(tsv,msg)}
+  }
+}
+function renderSheetPrev(){
+  if(!R())return;const rows=sheetMatrix();
+  $('sheetPrev').innerHTML='<table class="tbl">'+rows.map((r,i)=>'<tr>'+r.map(v=>i===0?'<th>'+esc(v)+'</th>':'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'</table>';
+}
+$('xlsMatrix').onclick=()=>{if(R())copyRows(sheetMatrix(),'已複製,到 Excel 貼上')};
+$('xlsDetail').onclick=()=>{if(R())copyRows(sheetDetail(),'已複製,到 Excel 貼上')};
+$('csvDl').onclick=()=>{
+  if(!R())return;
+  try{
+    const bl=new Blob(['\ufeff'+toCSV(sheetMatrix())],{type:'text/csv;charset=utf-8'});
+    const u=URL.createObjectURL(bl),a=document.createElement('a');a.href=u;a.download=(R().name||'畫布團購')+'.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),2000);
+    toast('已下載 CSV(沒反應就改用上面的複製)');
+  }catch(e){toast('下載沒成功,請用「複製」')}
 };
 
 // 複製
