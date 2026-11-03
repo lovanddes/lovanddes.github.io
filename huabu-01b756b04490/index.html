@@ -71,6 +71,9 @@ textarea{width:100%;min-height:110px;background:var(--bg);color:var(--ink);borde
 .person.me{background:var(--soft);margin-inline:-8px;padding:10px 8px;border-radius:8px;border-top:0}
 .rounds{align-items:center}
 button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:2px;background:var(--soft);border-radius:16px;padding:2px 4px 2px 12px}
+.chip button{padding:2px 8px}
 </style>
 
 <div class="wrap">
@@ -122,6 +125,7 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
       <h2>登記我要買的</h2>
       <div class="form">
         <label class="full">我的名字
+          <select id="whoSel" hidden></select>
           <input id="who" autocomplete="name" placeholder="例如:王小美" maxlength="40">
         </label>
         <label>尺寸
@@ -178,7 +182,12 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
         </div>
         <div id="adminOn" hidden>
           <h2>班長功能</h2>
-          <div class="row">
+          <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);margin-bottom:12px">同學名單(一行一個名字,或用逗號隔開;建好後同學用選的,不用打字)
+            <textarea id="rosterIn" style="min-height:70px" placeholder="王小美&#10;陳大華"></textarea>
+          </label>
+          <div class="row" style="margin-bottom:8px"><button id="rosterAdd">加入名單</button></div>
+          <div id="rosterList" class="chips"></div>
+          <div class="row" style="margin-top:14px">
             <button id="closeBtn">結單</button>
             <button id="renameBtn">改名</button>
             <button id="delRound" class="danger">隱藏這一場</button>
@@ -248,6 +257,7 @@ async function derive(room,pw){
   return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
 }
 
+let roster=[], unsubM=null;
 let room=null, adminHash='', isAdmin=false, rounds=[], cur=null, orders=[], unsubR=null, unsubO=null;
 const R=()=>rounds.find(r=>r.id===cur)||null;
 const oq=o=>Math.max(0,Math.floor(Number(o.qty))||0);
@@ -302,15 +312,33 @@ $('create').onclick=async()=>{
   }catch(e){toast(e&&e.code==='permission-denied'?'這個暗號已經有人用了,換一個':'沒有成功,請再試一次')}
 };
 $('leave').onclick=()=>{
-  if(unsubR)unsubR();if(unsubO)unsubO();unsubR=unsubO=null;
+  if(unsubR)unsubR();if(unsubO)unsubO();if(unsubM)unsubM();unsubR=unsubO=unsubM=null;roster=[];
   lsDel('hb-room');room=null;rounds=[];orders=[];cur=null;isAdmin=false;
   try{history.replaceState(null,'','#')}catch(e){}
   $('app').hidden=true;$('gate').hidden=false;$('code').value='';
 };
 
 // 即時資料
+function startRoster(){
+  if(unsubM)unsubM();
+  unsubM=roomRef().collection('roster').doc('list').onSnapshot(d=>{
+    const n=d.exists&&Array.isArray(d.data().names)?d.data().names:[];
+    roster=n.map(x=>String(x).slice(0,40)).filter(Boolean);renderRoster();render();
+  },e=>{});
+}
+function renderRoster(){
+  const sel=$('whoSel'),inp=$('who'),use=roster.length>0;
+  sel.hidden=!use;inp.hidden=use;
+  if(use){
+    const saved=inp.value.trim()||lsGet('hb-me')||'';
+    sel.innerHTML='<option value="">— 請選你的名字 —</option>'+roster.map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('');
+    sel.value=roster.includes(saved)?saved:'';inp.value=sel.value;
+  }
+  $('rosterList').innerHTML=roster.length?roster.map(n=>`<span class="chip">${esc(n)}<button class="ghost danger" data-rn="${esc(n)}" aria-label="從名單移除 ${esc(n)}">✕</button></span>`).join(''):'<span class="hint">還沒建名單,同學目前是自己打名字。</span>';
+}
 function startRounds(){
   if(unsubR)unsubR();
+  startRoster();
   unsubR=roomRef().collection('rounds').orderBy('created').onSnapshot(snap=>{
     rounds=snap.docs.map(d=>({id:d.id,...d.data()})).filter(r=>!r.archived);
     const saved=lsGet('hb-round-'+room);
@@ -349,7 +377,7 @@ function render(){
   $('formBox').hidden=false;
   $('closedBanner').hidden=!closed;$('stateTxt').textContent=closed?'已結單':'進行中';
   $('closeBtn').textContent=closed?'重新開放':'結單';
-  ['who','size','qty','qm','qp','add'].forEach(i=>$(i).disabled=closed);
+  ['who','whoSel','size','qty','qm','qp','add'].forEach(i=>$(i).disabled=closed);
   $('roundName').textContent=(r.name||'')+' 總計';
   const g=groups();let grand=0,pieces=0;
   orders.forEach(o=>{grand+=price(r,o.size)*oq(o);pieces+=oq(o)});
@@ -387,6 +415,20 @@ function render(){
   $('addSize').innerHTML=SIZES.filter(s=>!(s.label in (r.prices||{}))).map(s=>`<option value="${s.label}">${s.label}(${s.cm})</option>`).join('');
 }
 $('who').oninput=()=>{lsSet('hb-me',$('who').value.trim());render()};
+$('whoSel').onchange=()=>{$('who').value=$('whoSel').value;lsSet('hb-me',$('who').value);render()};
+async function saveRoster(names){
+  await adminBatch(b=>b.set(roomRef().collection('roster').doc('list'),{names}));
+}
+$('rosterAdd').onclick=async()=>{
+  const add=$('rosterIn').value.split(/[\n,，、]+/).map(x=>x.trim().slice(0,40)).filter(Boolean);
+  if(!add.length){toast('先在上面打名字');return}
+  const names=[...new Set([...roster,...add])].slice(0,100);
+  try{await saveRoster(names);$('rosterIn').value='';toast('名單已更新')}catch(e){toast(errMsg(e))}
+};
+$('rosterList').onclick=async e=>{
+  const b=e.target.closest('button[data-rn]');if(!b)return;
+  try{await saveRoster(roster.filter(n=>n!==b.dataset.rn))}catch(er){toast(errMsg(er))}
+};
 $('roundSel').onchange=e=>{cur=e.target.value;lsSet('hb-round-'+room,cur);watchOrders();render()};
 
 // 登記
@@ -395,7 +437,7 @@ $('qp').onclick=()=>{$('qty').value=Math.min(99,(+$('qty').value||0)+1)};
 $('add').onclick=async()=>{
   const r=R();if(!r)return;
   const p=$('who').value.trim().slice(0,40),sz=$('size').value,q=Math.min(99,Math.max(1,parseInt($('qty').value)||1));
-  if(!p){toast('先填你的名字');$('who').focus();return}
+  if(!p){toast(roster.length?'先選你的名字':'先填你的名字');return}
   if(!sz){toast('班長還沒填單價');return}
   lsSet('hb-me',p);
   try{
