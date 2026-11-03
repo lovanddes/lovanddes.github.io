@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 40,
-    "versionName": "1.1.37",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.37.apk",
-    "sha256": "37056f425853ab36c36096d367419a75a6b9663d3c95ad2c779aa4c488237705",
-    "notes": "真來電測試改用隱藏號碼,測試來電不會再被誤撥出去\n通話畫面改版:四顆功能鈕改成橢圓扁鈕、字放大也不折行;門號標籤放大(SIM1 藍、SIM2 綠)\n通話中姓名和號碼一進畫面就看得到;通話時間移到掛斷鈕上方\n數字鍵盤展開時 0、*、# 和「隱藏鍵盤」都看得到\n插播沒有名稱時顯示號碼或「未知號碼」",
-    "date": "2026-11-01"
+    "versionCode": 41,
+    "versionName": "1.1.38",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.38.apk",
+    "sha256": "db44087b82d407ceaeceb4d364f5ead8aecd1696fdb0cd9dfd25fd87be8e59e7",
+    "notes": "通話記錄、聯絡人、最愛、群組:點進聯絡人詳情或切換分頁後再回來,不會再跳回最上面,停在原本捲到的位置\n聯絡人分頁選的字母索引、群組分頁展開的群組,返回後也會保留",
+    "date": "2026-11-04"
   }
 }
