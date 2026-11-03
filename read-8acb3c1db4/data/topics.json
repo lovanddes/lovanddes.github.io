@@ -1,20 +1,20 @@
 {
- "date": "2026-11-03",
+ "date": "2026-11-04",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "勞退分紅平均破十三萬",
+     "title": "AI成了極致加班神器",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "勞動部勞動基金運用局公布最新投資績效，受惠全球AI熱潮與台股漲勢，今年前9月整體勞動基金大賺2.44兆元。其中新制勞退基金獲利1.7兆元，換算約1310萬戶有效帳戶，平均每位勞工帳面分紅突破13萬元，創下歷年新高紀錄。"
+       "text": "科技新報引述最新調查數據顯示，AI 雖加快了日常工作流程，卻未讓上班族提早下班。許多員工的平均下班時間反而從下午5點延後至5點45分，省下的工時被更多新任務無縫填滿。"
       },
       {
        "label": "新跪的角度:",
-       "text": "「我興奮地看著新聞說我帳面分紅多了十三萬，低頭卻還在為了今晚便當要不要加一顆十五塊的滷蛋天人交戰。」"
+       "text": "我以為學會用AI能換來準時下班，結果只是把原本八小時的慌亂，濃縮成九小時的精緻加班。"
       },
       {
        "label": "建議欄目:",
@@ -22,41 +22,19 @@
       }
      ],
      "sources": [
-      "https://finance.ettoday.net/news/3060699",
-      "https://money.udn.com/money/story/5603/8977112"
+      "https://technews.tw/2026/11/03/ai-ironically-longer-working-hours/"
      ]
     },
     {
-     "title": "台鐵發車前五分鐘可訂票",
+     "title": "AI引用的精華是網路廢文",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "台鐵宣布行動訂票APP「台鐵e訂通」將於11月10日放寬訂票期限，由原先發車前30分鐘截止，大幅縮短為列車開車前5分鐘仍可在App完成線上訂票與取票。這項比照高鐵的便民新制公布後，引發通勤族與廣大上班族熱烈討論。"
+       "text": "AI 資訊分析平台 REALI 最新測試指出，分析 ChatGPT 與 Gemini 逾 1800 則回答後發現，兩者除了新聞與官方資料外，大量重要參考來源其實來自 PTT 與 Dcard 等論壇。這項調查引發網友熱議日常諮詢的 AI 見解到底有多接地氣。"
       },
       {
        "label": "新跪的角度:",
-       "text": "「科技把購票底線體貼地放寬到發車前五分鐘，我卻只是更理所當然地把自己每天趕車的狼狽拖延到最後三十秒。」"
-      },
-      {
-       "label": "建議欄目:",
-       "text": "【頭上的龍蝦又重了】"
-      }
-     ],
-     "sources": [
-      "https://udn.com/news/story/7266/8975813",
-      "https://news.tvbs.com.tw/life/2951912"
-     ]
-    },
-    {
-     "title": "ChatGPT對話開始跳廣告",
-     "body": [
-      {
-       "label": "為什麼熱:",
-       "text": "PTT八卦板近日出現熱門討論，有台灣用戶反映使用ChatGPT免費版時，回答下方開始出現無法手動關閉的贊助內容與廣告投放。OpenAI近期推進廣告機制測試以支撐算力成本，引發社群對於AI工具純淨度與付費門檻變革的廣泛討論。"
-      },
-      {
-       "label": "新跪的角度:",
-       "text": "「我半夜只是想找個沒人的地方對它倒倒心事，它卻在安慰我別焦慮的下一秒，貼心地為我插播了一則贊助商廣告。」"
+       "text": "我半夜畢恭畢敬請教水母未來的商業策略，搞不好它只是把我在論壇上發過的廢文換個語氣唸給我聽。"
       },
       {
        "label": "建議欄目:",
@@ -64,7 +42,27 @@
       }
      ],
      "sources": [
-      "https://moptt.tw/p/Gossiping.M.1793635307.A.A8C"
+      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEvHOgC2Uo-ik-E1b9mRCZ6z72qWggHJGad31-OD5f4W7FM5LSqK8ZQv0W6JQqPUYTHOyGv0VoOYuFczHwbm54RVdiEMAVqar6Ss8BM7hah6sgtxiwhuLrf5fu7WNIORIz7m2atYbfjTKtnVILQO6mX_7onJtyOh72W5eeD8y-8Dq3EGw="
+     ]
+    },
+    {
+     "title": "高層薪酬綁員工士氣",
+     "body": [
+      {
+       "label": "為什麼熱:",
+       "text": "半導體設備巨頭 ASML 宣布將「員工士氣」與職場體驗指數正式納入高層薪酬考核指標，試圖搶救組織重組後下滑的敬業度。這項罕見的制度變革在科技職場引發廣泛關注與討論。"
+      },
+      {
+       "label": "新跪的角度:",
+       "text": "我的士氣如果真能換算成老闆的年終，我真想看看自己在系統裡到底值多少負數。"
+      },
+      {
+       "label": "建議欄目:",
+       "text": "【頭上的龍蝦又重了】"
+      }
+     ],
+     "sources": [
+      "https://technews.tw/2026/11/02/asmls-ceo-is-putting-his-paycheck-on-the-line-for-employee-morale/"
      ]
     }
    ]
