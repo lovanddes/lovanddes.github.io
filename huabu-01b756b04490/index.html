@@ -93,7 +93,7 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
           <label class="full">班級暗號(至少 4 個字,要夠長、別人猜不到)
             <input id="newCode" autocomplete="off">
           </label>
-          <label class="full">管理密碼(只有班長知道,用來改單價、結單)
+          <label class="full">管理密碼(至少 6 個字,只有班長知道,用來改單價、結單)
             <input id="newPw" type="password" autocomplete="new-password">
           </label>
           <button class="primary full" id="create">建立班級</button>
@@ -181,7 +181,7 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
           <div class="row">
             <button id="closeBtn">結單</button>
             <button id="renameBtn">改名</button>
-            <button id="delRound" class="danger">刪除這一場</button>
+            <button id="delRound" class="danger">隱藏這一場</button>
             <button id="adminOut" class="ghost">登出班長</button>
           </div>
         </div>
@@ -242,17 +242,28 @@ function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 function lsDel(k){try{localStorage.removeItem(k)}catch(e){}}
 function toast(m){const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,2200)}
 function sortSize(a,b){const pa=parseInt(a),pb=parseInt(b);if(pa!==pb)return pa-pb;return 'FPM'.indexOf(a.slice(-1))-'FPM'.indexOf(b.slice(-1))}
-async function sha(t){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+async function derive(room,pw){
+  const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveBits']);
+  const b=await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:new TextEncoder().encode('huabu:'+room),iterations:150000},k,256);
+  return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+}
 
-let room=null, adminHash=null, isAdmin=false, rounds=[], cur=null, orders=[], unsubR=null, unsubO=null;
+let room=null, adminHash='', isAdmin=false, rounds=[], cur=null, orders=[], unsubR=null, unsubO=null;
 const R=()=>rounds.find(r=>r.id===cur)||null;
+const oq=o=>Math.max(0,Math.floor(Number(o.qty))||0);
 const price=(r,l)=>r?(+(r.prices||{})[l]||0):0;
 const roomRef=()=>db.collection('rooms').doc(room);
 const roundRef=id=>roomRef().collection('rounds').doc(id);
 const ordersCol=id=>roundRef(id).collection('orders');
+// 班長的寫入:同一批次附上「班長證明」,規則會檢查密碼雜湊
+async function adminBatch(fn){
+  const b=db.batch();
+  b.set(roomRef().collection('proofs').doc('p'),{hash:adminHash,t:FV.serverTimestamp()});
+  fn(b);await b.commit();
+}
 
 function goodCode(c){return c.length>=4&&c.length<=40&&!/[\/\\#?\s]/.test(c)&&c!=='.'&&c!=='..'}
-function errMsg(e){return e&&e.code==='permission-denied'?'這一場已結單,或班級暗號不對':'沒有成功,請檢查網路後再試一次'}
+function errMsg(e){return e&&e.code==='permission-denied'?'這一場已結單,不能再改':'沒有成功,請檢查網路後再試一次'}
 
 // 進入班級
 async function openRoom(code){
@@ -261,12 +272,14 @@ async function openRoom(code){
   try{
     const d=await db.collection('rooms').doc(code).collection('meta').doc('room').get();
     if(!d.exists){$('gateMsg').textContent='找不到這個班級。請確認暗號,或由班長建立新班級。';return false}
-    room=code;adminHash=d.data().adminHash;lsSet('hb-room',code);
+    room=code;adminHash='';lsSet('hb-room',code);
     try{history.replaceState(null,'','#'+encodeURIComponent(code))}catch(e){}
     $('gate').hidden=true;$('app').hidden=false;$('roomShow').textContent=code;
     $('who').value=lsGet('hb-me')||'';
-    const saved=lsGet('hb-admin-'+code);isAdmin=!!saved&&saved===adminHash;
-    startRounds();applyAdmin();return true;
+    isAdmin=false;startRounds();applyAdmin();
+    const saved=lsGet('hb-admin-'+code);
+    if(saved){adminHash=saved;try{await adminBatch(()=>{});isAdmin=true}catch(e){adminHash='';lsDel('hb-admin-'+code)}applyAdmin();render()}
+    return true;
   }catch(e){$('gateMsg').textContent='連不上,請檢查網路後再試。';return false}
 }
 $('enter').onclick=()=>openRoom($('code').value.trim());
@@ -274,16 +287,18 @@ $('code').onkeydown=e=>{if(e.key==='Enter')$('enter').click()};
 $('create').onclick=async()=>{
   const c=$('newCode').value.trim(),pw=$('newPw').value;
   if(!goodCode(c)){toast('暗號至少 4 個字,不能有空白或 / # ?');return}
-  if(pw.length<4){toast('管理密碼至少 4 個字');return}
+  if(pw.length<6){toast('管理密碼至少 6 個字');return}
   try{
-    const h=await sha(c+':'+pw);
-    await db.collection('rooms').doc(c).collection('meta').doc('room').set({adminHash:h,created:Date.now()});
-    lsSet('hb-admin-'+c,h);
-    const ok=await openRoom(c);
-    if(ok){
-      if(!rounds.length) await makeRound('第 1 次團購',{'6F':0,'8F':0,'10F':0,'12F':0,'12P':0,'15F':0});
-      toast('班級建好了,按「複製邀請連結」傳給同學');
-    }
+    const h=await derive(c,pw);
+    const rr=db.collection('rooms').doc(c);const first=rr.collection('rounds').doc();
+    const b=db.batch();
+    b.set(rr.collection('meta').doc('room'),{created:Date.now()});
+    b.set(rr.collection('private').doc('secret'),{hash:h});
+    b.set(rr.collection('proofs').doc('p'),{hash:h,t:FV.serverTimestamp()});
+    b.set(first,{name:'第 1 次團購',prices:{'6F':0,'8F':0,'10F':0,'12F':0,'12P':0,'15F':0},closed:false,created:Date.now()});
+    await b.commit();
+    lsSet('hb-admin-'+c,h);lsSet('hb-round-'+c,first.id);
+    if(await openRoom(c))toast('班級建好了,按「複製邀請連結」傳給同學');
   }catch(e){toast(e&&e.code==='permission-denied'?'這個暗號已經有人用了,換一個':'沒有成功,請再試一次')}
 };
 $('leave').onclick=()=>{
@@ -297,7 +312,7 @@ $('leave').onclick=()=>{
 function startRounds(){
   if(unsubR)unsubR();
   unsubR=roomRef().collection('rounds').orderBy('created').onSnapshot(snap=>{
-    rounds=snap.docs.map(d=>({id:d.id,...d.data()}));
+    rounds=snap.docs.map(d=>({id:d.id,...d.data()})).filter(r=>!r.archived);
     const saved=lsGet('hb-round-'+room);
     if(!rounds.some(r=>r.id===cur))cur=(rounds.some(r=>r.id===saved)?saved:(rounds.length?rounds[rounds.length-1].id:null));
     watchOrders();render();
@@ -311,7 +326,8 @@ function watchOrders(){
   unsubO=ordersCol(cur).onSnapshot(snap=>{orders=snap.docs.map(d=>({id:d.id,...d.data()}));render()},e=>toast('連線失敗,請重新整理'));
 }
 async function makeRound(name,prices){
-  const ref=await roomRef().collection('rounds').add({name,prices,closed:false,created:Date.now()});
+  const ref=roomRef().collection('rounds').doc();
+  await adminBatch(b=>b.set(ref,{name,prices,closed:false,created:Date.now()}));
   cur=ref.id;lsSet('hb-round-'+room,cur);watching=null;watchOrders();
 }
 
@@ -336,7 +352,7 @@ function render(){
   ['who','size','qty','qm','qp','add'].forEach(i=>$(i).disabled=closed);
   $('roundName').textContent=(r.name||'')+' 總計';
   const g=groups();let grand=0,pieces=0;
-  orders.forEach(o=>{grand+=price(r,o.size)*o.qty;pieces+=o.qty});
+  orders.forEach(o=>{grand+=price(r,o.size)*oq(o);pieces+=oq(o)});
   $('grand').textContent=$$(grand);
   $('cnt').textContent=pieces+' 片 / '+Object.keys(g).length+' 人';
 
@@ -352,15 +368,15 @@ function render(){
   $('people').innerHTML=names.length?names.map(n=>{
     let sub=0;const mine=n===me;
     const lines=g[n].sort((a,b)=>sortSize(a.size,b.size)).map(o=>{
-      const a=price(r,o.size)*o.qty;sub+=a;
+      const a=price(r,o.size)*oq(o);sub+=a;
       const can=!closed&&(mine||isAdmin);
-      const ctl=can?`<div class="step"><button data-a="dec" data-id="${esc(o.id)}" aria-label="減一片">−</button><span>${o.qty}</span><button data-a="inc" data-id="${esc(o.id)}" aria-label="加一片">＋</button></div>`:`<div class="step"><span>×${o.qty}</span></div>`;
+      const ctl=can?`<div class="step"><button data-a="dec" data-id="${esc(o.id)}" aria-label="減一片">−</button><span>${oq(o)}</span><button data-a="inc" data-id="${esc(o.id)}" aria-label="加一片">＋</button></div>`:`<div class="step"><span>×${oq(o)}</span></div>`;
       const del=can?`<button class="ghost danger" data-a="del" data-id="${esc(o.id)}" aria-label="刪除這筆">✕</button>`:'';
       return `<div class="line"><div class="nm"><b>${esc(o.size)}</b><small>${esc(CM[o.size]||'')}</small></div>${ctl}<div class="amt money">${$$(a)}</div>${del}</div>`}).join('');
     return `<div class="person${mine?' me':''}"><div class="phead"><b>${esc(n)}${mine?'(我)':''}</b><span class="money sub">小計 ${$$(sub)}</span></div>${lines}</div>`;
   }).join(''):'<div class="empty">還沒有人登記。填名字、選尺寸、按「加入」。</div>';
 
-  const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+o.qty);
+  const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+oq(o));
   const ks=Object.keys(bs).sort(sortSize);
   $('bysize').innerHTML=ks.length?`<table class="tbl"><tr><th>尺寸</th><th>單價</th><th>片數</th><th>金額</th></tr>`+ks.map(k=>`<tr><td><b>${esc(k)}</b> <span class="hint">${esc(CM[k]||'')}</span></td><td>${$$(price(r,k))}</td><td>${bs[k]}</td><td class="money">${$$(price(r,k)*bs[k])}</td></tr>`).join('')+`</table>`:'<div class="empty">登記後這裡會列出每種尺寸總共幾片。</div>';
 
@@ -391,64 +407,64 @@ $('people').onclick=async e=>{
   const b=e.target.closest('button[data-a]');if(!b)return;
   const o=orders.find(x=>x.id===b.dataset.id);if(!o)return;
   const ref=ordersCol(cur).doc(o.id);
+  const act=b.dataset.a;
+  const run=async f=>{if(isAdmin)await adminBatch(bt=>f(bt));else{const bt=db.batch();f(bt);await bt.commit()}};
   try{
-    if(b.dataset.a==='inc'){if(o.qty<99)await ref.update({qty:FV.increment(1)})}
-    else if(b.dataset.a==='dec'){if(o.qty>1)await ref.update({qty:FV.increment(-1)});else await ref.delete()}
-    else await ref.delete();
+    if(act==='inc'){if(o.qty<99)await run(bt=>bt.update(ref,{qty:FV.increment(1)}))}
+    else if(act==='dec'){if(o.qty>1)await run(bt=>bt.update(ref,{qty:FV.increment(-1)}));else await run(bt=>bt.delete(ref))}
+    else await run(bt=>bt.delete(ref));
   }catch(er){toast(errMsg(er))}
 };
 
 // 單價(班長)
 $('prices').onchange=async e=>{
   const l=e.target.dataset.p;if(!l||!isAdmin)return;
-  try{await roundRef(cur).update({['prices.'+l]:Math.max(0,Number(e.target.value)||0)})}catch(er){toast(errMsg(er))}
+  try{await adminBatch(b=>b.update(roundRef(cur),{['prices.'+l]:Math.max(0,Number(e.target.value)||0)}))}catch(er){toast(errMsg(er))}
 };
 $('prices').onclick=async e=>{
   const b=e.target.closest('button[data-rm]');if(!b||!isAdmin)return;
   const l=b.dataset.rm;
   if(orders.some(o=>o.size===l)){toast(l+' 已有人登記,不能移除');return}
-  try{await roundRef(cur).update({['prices.'+l]:FV.delete()})}catch(er){toast(errMsg(er))}
+  try{await adminBatch(b=>b.update(roundRef(cur),{['prices.'+l]:FV.delete()}))}catch(er){toast(errMsg(er))}
 };
 $('addPrice').onclick=async()=>{
   const l=$('addSize').value;if(!l||!isAdmin)return;
-  try{await roundRef(cur).update({['prices.'+l]:0});toast(l+' 已加入,請填單價')}catch(er){toast(errMsg(er))}
+  try{await adminBatch(b=>b.update(roundRef(cur),{['prices.'+l]:0}));toast(l+' 已加入,請填單價')}catch(er){toast(errMsg(er))}
 };
 
 // 班長
 $('adminBtn').onclick=()=>{$('pwRow').hidden=false;$('adminBtn').hidden=true;$('adminPw').focus()};
 $('adminPw').onkeydown=e=>{if(e.key==='Enter')$('adminGo').click()};
 $('adminGo').onclick=async()=>{
-  const h=await sha(room+':'+$('adminPw').value);
-  if(h===adminHash){isAdmin=true;lsSet('hb-admin-'+room,h);$('adminPw').value='';$('pwRow').hidden=true;$('adminBtn').hidden=false;applyAdmin();render();toast('班長模式已開啟')}
-  else toast('管理密碼不對');
+  const pw=$('adminPw').value;if(!pw)return;
+  try{
+    adminHash=await derive(room,pw);
+    await adminBatch(()=>{});
+    isAdmin=true;lsSet('hb-admin-'+room,adminHash);$('adminPw').value='';$('pwRow').hidden=true;$('adminBtn').hidden=false;applyAdmin();render();toast('班長模式已開啟');
+  }catch(e){adminHash='';toast(e&&e.code==='permission-denied'?'管理密碼不對':'沒有成功,請檢查網路後再試一次')}
 };
-$('adminOut').onclick=()=>{isAdmin=false;lsDel('hb-admin-'+room);applyAdmin();render()};
+$('adminOut').onclick=()=>{isAdmin=false;adminHash='';lsDel('hb-admin-'+room);applyAdmin();render()};
 $('newRound').onclick=async()=>{
   const prev=R();
   try{await makeRound('第 '+(rounds.length+1)+' 次團購',prev?{...prev.prices}:{});toast('已新增一場,單價沿用上一場')}catch(e){toast(errMsg(e))}
 };
 $('closeBtn').onclick=async()=>{
   const r=R();if(!r)return;
-  try{await roundRef(cur).update({closed:!r.closed});toast(r.closed?'已重新開放':'已結單')}catch(e){toast(errMsg(e))}
+  try{await adminBatch(b=>b.update(roundRef(cur),{closed:!r.closed}));toast(r.closed?'已重新開放':'已結單')}catch(e){toast(errMsg(e))}
 };
 $('renameBtn').onclick=()=>{
   const r=R();if(!r)return;const el=$('roundName'),inp=document.createElement('input');
   inp.value=r.name;inp.maxLength=60;inp.setAttribute('aria-label','場次名稱');el.replaceWith(inp);inp.focus();inp.select();
   let done=false;const fin=async()=>{if(done)return;done=true;const v=inp.value.trim();inp.replaceWith(el);
-    if(v&&v!==r.name){try{await roundRef(cur).update({name:v})}catch(e){toast(errMsg(e))}}};
+    if(v&&v!==r.name){try{await adminBatch(b=>b.update(roundRef(cur),{name:v}))}catch(e){toast(errMsg(e))}}};
   inp.onblur=fin;inp.onkeydown=ev=>{if(ev.key==='Enter')inp.blur()};
 };
 let confirmDel=0;
 $('delRound').onclick=async()=>{
   const b=$('delRound');
-  if(!confirmDel){confirmDel=1;b.textContent='再按一次確認刪除';setTimeout(()=>{confirmDel=0;b.textContent='刪除這一場'},3000);return}
-  confirmDel=0;b.textContent='刪除這一場';
-  const id=cur;
-  try{
-    await roundRef(id).update({closed:false});
-    const snap=await ordersCol(id).get();const batch=db.batch();snap.docs.forEach(d=>batch.delete(d.ref));await batch.commit();
-    await roundRef(id).delete();cur=null;watching=undefined;toast('已刪除');
-  }catch(e){toast(errMsg(e))}
+  if(!confirmDel){confirmDel=1;b.textContent='再按一次確認隱藏';setTimeout(()=>{confirmDel=0;b.textContent='隱藏這一場'},3000);return}
+  confirmDel=0;b.textContent='隱藏這一場';
+  try{await adminBatch(bt=>bt.update(roundRef(cur),{archived:true}));cur=null;toast('已隱藏這一場')}catch(e){toast(errMsg(e))}
 };
 
 // 複製
@@ -456,10 +472,10 @@ function lineText(){
   const r=R(),g=groups();let grand=0;const out=['【'+r.name+'】'+(r.closed?'(已結單)':'')];
   Object.keys(g).sort((a,b)=>a.localeCompare(b,'zh-Hant')).forEach(n=>{
     let sub=0;out.push('',n);
-    g[n].sort((a,b)=>sortSize(a.size,b.size)).forEach(o=>{const a=price(r,o.size)*o.qty;sub+=a;out.push(`  ${o.size} ×${o.qty} = ${$$(a)}`)});
+    g[n].sort((a,b)=>sortSize(a.size,b.size)).forEach(o=>{const a=price(r,o.size)*oq(o);sub+=a;out.push(`  ${o.size} ×${oq(o)} = ${$$(a)}`)});
     out.push('  小計 '+$$(sub));grand+=sub;
   });
-  const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+o.qty);
+  const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+oq(o));
   out.push('','合計片數:'+Object.keys(bs).sort(sortSize).map(k=>k+'×'+bs[k]).join('、'),'總計 '+$$(grand));
   return out.join('\n');
 }
