@@ -4260,6 +4260,7 @@ gateAndBoot_();
 
 
 
+
 <!--EXTRAS--><script>
 /* ═══ 11/4 加:改密碼 ═══ */
 function hex_(buf) { return Array.prototype.map.call(new Uint8Array(buf), function (x) { return ('0' + x.toString(16)).slice(-2); }).join(''); }
@@ -4286,10 +4287,11 @@ async function feeInitKeys_(room, pw) {
     await feeBatch_(function (b) { b.set(feeCol_().doc('k_slots'), sl); b.set(feeCol_().doc('k_hash'), hd); });
   }
 }
-async function feeSetPw_(newPw) {
+async function feeSetPw_(newPw, newRescue) {
   var room = FEE.room, oh = FEE.hash, sd = await feeCol_().doc('k_slots').get(), slots = sd.exists ? slotsOf_(sd.data()) : {};
   var nh = hex_(await pbk_(room, newPw, 'huabu:', 256));
   slots.pw = await wrap_(FEE.dk, await kek_(room, newPw));
+  if (newRescue) slots.rescue = await wrap_(FEE.dk, await kek_(room, normCode_(newRescue)));   // 同一批次換掉救援鎖,要嘛全成功要嘛都不發生
   var hd = await enc_({ hash: nh }), sl = slotsDoc_(slots), rr = FDB.collection('rooms').doc(room), b = FDB.batch();
   b.set(rr.collection('proofs').doc('old'), { hash: oh, t: FV.serverTimestamp() });
   b.update(rr.collection('private').doc('secret'), { hash: nh });
@@ -4317,8 +4319,9 @@ async function feeRescueReset_(room, code, newPw) {
   if (!raw) throw new Error('救援碼不對');
   FEE.room = room; FEE.dk = raw; FEE.key = await dkKey_(raw);
   FEE.hash = (await dec_(hdoc.data())).hash;
-  await feeSetPw_(newPw);
-  return used === 'rescue' ? await feeNewCode_('rescue') : null;   // 救援碼用過就作廢,回傳新的
+  var nc = used === 'rescue' ? newCode_() : null;   // 救援碼用過就作廢,同批次換成新的
+  await feeSetPw_(newPw, nc);
+  return nc;
 }
 function openPwDialog() {
   openDialog('<h2>🔑 改管理密碼</h2>' +
