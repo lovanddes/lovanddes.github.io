@@ -2756,7 +2756,7 @@ function render(){
 
   const me=$('who').value.trim();
   const has=!!myPws()[me];
-  $('myPw').hidden=has;$('pwHint').textContent=has?'🔒 這支手機已記住你的密碼':'密碼只存在這支手機;換手機要再輸入一次。忘了請找班長重設。';
+  $('myPw').hidden=has;$('pwHint').textContent=has?'🔒 這支手機已記住你的密碼':'密碼只存在這支手機,請別用你在別處用的密碼;換手機要再輸入一次。忘了請找班長重設。';
   const names=Object.keys(g).sort((a,b)=>(b===me)-(a===me)||a.localeCompare(b,'zh-Hant'));
   $('people').innerHTML=names.length?names.map(n=>{
     let sub=0;const mine=n===me;
@@ -2830,7 +2830,7 @@ $('people').onclick=async e=>{
   const run=async f=>{
     if(isAdmin){await adminBatch(bt=>f(bt));return}
     let pw=myPws()[o.person];
-    if(!pw){pw=window.prompt('輸入「'+o.person+'」的密碼才能改(忘了請找班長)');if(!pw)return}
+    if(!pw){pw=window.prompt('輸入「'+o.person+'」的密碼才能改(忘了請找班長)');if(!pw)return;if(!goodPw(pw)){toast('密碼不對(至少 4 個字)');return}}
     try{await personWrite(o.person,pw,f)}catch(e){if(e&&e.code==='permission-denied'){const m=myPws();delete m[o.person];lsSet('hb-pw-'+room,JSON.stringify(m))}throw e}
     saveMyPw(o.person,pw);
   };
