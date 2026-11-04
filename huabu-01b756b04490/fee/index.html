@@ -507,6 +507,8 @@ function gateAndBoot_() {
 
 /* ═══════════════ 小工具 ═══════════════ */
 function $(id) { return document.getElementById(id); }
+/* 放進 onclick="…" 的字串:先 JSON 編碼再 HTML 跳脫 */
+function jsq(s) { return esc(JSON.stringify(String(s == null ? '' : s))); }
 function esc(s) {
   return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
     return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -891,7 +893,7 @@ function stuHtml(r, i) {
   var h = '<div class="stu' + (st === 'full' ? ' paid-on' : (st === 'part' ? ' paid-part' : '')) + '">' +
     '<div class="stu-top" onclick="openStuCard(' + i + ')">' +
     '<span class="stu-name">' + esc(r.name) +
-    (r.status !== '上課' ? '<span class="stag stag-' + r.status + '">' + r.status + '</span>' : '') +
+    (r.status !== '上課' ? '<span class="stag stag-' + esc(r.status) + '">' + esc(r.status) + '</span>' : '') +
     '<span class="caret">✎</span></span>' +
     '<span class="stu-total' + (r.total === 0 ? ' zero' : '') + '">' + money(r.total) + '</span>' +
     '<button class="paid-btn' + btnCls + '" onclick="togglePayAll(' + i + ',event)">' + btnTxt + '</button>' +
@@ -1038,12 +1040,12 @@ function renderStuCard() {
   h += '<div class="mats"><h4>代購材料</h4>' +
     S.data.materials.map(function (m) {
       var q = Number(d.mats[m.name] || 0);
-      var nm = esc(m.name).replace(/'/g, "\\'");
+      var nm = jsq(m.name);
       return '<div class="mat"><span class="mname">' + esc(m.name) + '</span>' +
         '<span class="mprice">' + money(m.price) + '</span>' +
-        '<div class="step"><button onclick="draftMat(\'' + nm + '\',-1)">−</button>' +
+        '<div class="step"><button onclick="draftMat(' + nm + ',-1)">−</button>' +
         '<b class="' + (q === 0 ? 'zero' : '') + '">' + q + '</b>' +
-        '<button onclick="draftMat(\'' + nm + '\',1)">＋</button></div></div>';
+        '<button onclick="draftMat(' + nm + ',1)">＋</button></div></div>';
     }).join('') + '</div>';
   h += '<div class="field"><label>備註</label><input type="text" value="' + esc(d.note) + '" onchange="S.draft.note=this.value"></div>';
   h += '<div class="card sumcard" style="margin:14px 0 0"><table>' +
@@ -1147,7 +1149,7 @@ function addPanelHtml() {
   if (avail.length) {
     h += '<div class="hint">點名字,設定費率和材料後加入:</div><div class="pickwrap">' +
       avail.map(function (r) {
-        return '<button class="pick" onclick="startAddStu(\'' + esc(r.name).replace(/'/g, "\\'") + '\')">' + esc(r.name) + '</button>';
+        return '<button class="pick" onclick="startAddStu(' + jsq(r.name) + ')">' + esc(r.name) + '</button>';
       }).join('') + '</div>';
   }
   h += '<div class="editrow"><input type="text" id="newStuName" placeholder="或輸入新學員姓名">' +
