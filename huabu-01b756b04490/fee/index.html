@@ -4562,6 +4562,7 @@ function gbDrawRound_() {
       '<div style="margin-top:6px"><button class="iconbtn" onclick="gbRename(' + i + ')">✏️ 改名/合併</button></div></div>';
   });
   h += '<div class="card" style="margin-top:14px"><h4 style="margin:0 0 8px">📤 一鍵匯出訂購及繳費情形</h4>' +
+    '<button class="bigbtn" style="margin-bottom:8px" onclick="gbExportImage()">🖼 複製成圖片(直接貼 LINE 群組)</button>' +
     '<button class="bigbtn" style="margin-bottom:8px" onclick="gbExportText()">📝 複製成文字(貼 LINE / 記事本)</button>' +
     '<button class="bigbtn" style="margin-bottom:8px" onclick="gbExportTable()">📊 複製成表格(貼 Excel / Google 試算表)</button>' +
     '<button class="bigbtn ghost" onclick="gbExportCsv()">⬇ 下載 CSV 檔</button></div>';
@@ -4659,6 +4660,76 @@ function gbExportCsv() {
   a.download = (r.name || '團購') + '_訂購及繳費.csv';
   document.body.appendChild(a); a.click(); a.remove();
   toast('已下載 CSV');
+}
+/* 複製成圖片(先生 11/4):把訂購及繳費表畫成一張 PNG(固定淺色白底,LINE 裡看最清楚),放進剪貼簿;不支援就跳出圖,可分享/長按存圖 */
+function gbDrawImage_() {
+  var d = gbExportData_(), t = d.t, r = d.r, S2 = 2, PAD = 14, RH = 38, FS = 20, FONT = '"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
+  var head = ['姓名'].concat(d.sizes, ['片數', '應收', '已收', '未收', '狀態']);
+  var body = t.list.map(function (p) {
+    var left = Math.max(0, p.due - p.paid);
+    return { st: gbStat_(p), cells: [p.name].concat(d.sizes.map(function (k) { return p.items[k] ? String(p.items[k]) : ''; }), [String(p.pieces), money(p.due), money(p.paid), left ? money(left) : '', gbStat_(p)]) };
+  });
+  var sum = d.sizes.map(function (k) { return String(t.list.reduce(function (a, p) { return a + (p.items[k] || 0); }, 0) || ''); });
+  var foot = ['合計'].concat(sum, [String(t.pieces), money(t.due), money(t.paid), money(Math.max(0, t.due - t.paid)), '']);
+  var rows = [head].concat(body.map(function (b) { return b.cells; }), [foot]);
+  var m = document.createElement('canvas').getContext('2d'); m.font = '600 ' + FS + 'px ' + FONT;
+  var W = head.map(function (_, c) { return Math.max.apply(null, rows.map(function (row) { return m.measureText(row[c]).width; })) + 22; });
+  var tw = W.reduce(function (a, b) { return a + b; }, 0), titleH = 92, noteH = d.pay.advance ? 40 : 0;
+  var CW = Math.max(tw, 420), H = titleH + RH * rows.length + noteH + 2 * PAD;
+  var cv = document.createElement('canvas'); cv.width = (CW + 2 * PAD) * S2; cv.height = H * S2;
+  var x = cv.getContext('2d'); x.scale(S2, S2); x.textBaseline = 'middle';
+  x.fillStyle = '#fff'; x.fillRect(0, 0, CW + 2 * PAD, H);
+  x.fillStyle = '#2B2620'; x.font = '700 28px ' + FONT; x.textAlign = 'left';
+  x.fillText(r.name + ' 訂購及繳費情形', PAD, PAD + 24);
+  x.font = '500 19px ' + FONT; x.fillStyle = '#6b6558';
+  var dt = new Date(), ds = (dt.getMonth() + 1) + '/' + dt.getDate();
+  x.fillText('共 ' + t.cnt + ' 人、' + t.pieces + ' 片・' + (r.closed ? '已結單' : '登記中') + '・' + ds + ' 更新', PAD, PAD + 62);
+  var y = PAD + titleH - 16, i, c, px;
+  rows.forEach(function (row, ri) {
+    var isHead = ri === 0, isFoot = ri === rows.length - 1, st = isHead || isFoot ? '' : body[ri - 1].st;
+    x.fillStyle = isHead ? '#2f6b57' : isFoot ? '#E6EBD9' : st === '已收齊' ? '#E3F1E8' : st === '部分' ? '#FBF0D6' : (ri % 2 ? '#fff' : '#F7F8F1');
+    x.fillRect(PAD, y, CW, RH);
+    px = PAD;
+    for (c = 0; c < row.length; c++) {
+      var w = W[c] * (CW / tw > 1 ? CW / tw : 1), isNum = c > 0 && c < row.length - 1;
+      x.font = (isHead || isFoot || c === 0 ? '700 ' : '500 ') + FS + 'px ' + FONT;
+      x.fillStyle = isHead ? '#fff' : '#2B2620';
+      if (!isHead && c === row.length - 2 && row[c]) x.fillStyle = '#B23A2E';
+      if (!isHead && !isFoot && c === row.length - 1) x.fillStyle = st === '已收齊' ? '#2f6b57' : st === '未收' ? '#B23A2E' : '#8a6a1c';
+      x.textAlign = isNum ? 'center' : 'left';
+      x.fillText(row[c], isNum ? px + w / 2 : px + 10, y + RH / 2 + 1);
+      px += w;
+    }
+    x.strokeStyle = '#cfd3c2'; x.lineWidth = 1; x.beginPath(); x.moveTo(PAD, y + RH - .5); x.lineTo(PAD + CW, y + RH - .5); x.stroke();
+    y += RH;
+  });
+  px = PAD; x.strokeStyle = '#cfd3c2';
+  for (c = 0; c <= head.length; c++) { x.beginPath(); x.moveTo(px + .5, PAD + titleH - 16); x.lineTo(px + .5, y); x.stroke(); if (c < head.length) px += W[c] * (CW / tw > 1 ? CW / tw : 1); }
+  if (d.pay.advance) {
+    var df = d.pay.advance - t.paid; x.textAlign = 'left'; x.font = '600 20px ' + FONT; x.fillStyle = df > 0 ? '#B23A2E' : '#2f6b57';
+    x.fillText('班長墊付 ' + money(d.pay.advance) + ',' + (df > 0 ? '還差 ' + money(df) + ' 才回本' : '已回本'), PAD, y + 26);
+  }
+  return cv;
+}
+function gbShowImage_(blob, name) {
+  var url = URL.createObjectURL(blob), can = navigator.canShare && navigator.canShare({ files: [new File([blob], name, { type: 'image/png' })] });
+  openDialog('<h3 style="margin:0 0 8px">🖼 訂購及繳費圖</h3><div class="hint" style="margin:0 0 8px">這台手機不能直接放進剪貼簿。' + (can ? '按下面「分享」選 LINE 群組;' : '') + '或<b>長按圖片 → 儲存圖片</b>,再到 LINE 傳。</div>' +
+    '<img src="' + url + '" style="width:100%;border:1px solid var(--line);border-radius:8px;display:block;margin-bottom:10px" alt="訂購及繳費表">' +
+    (can ? '<button class="bigbtn" id="gbImgShare" style="margin-bottom:8px">📤 分享(選 LINE)</button>' : '') + '<button class="bigbtn ghost" onclick="closeDialog()">關閉</button>');
+  var sb = $('gbImgShare');
+  if (sb) sb.onclick = function () { navigator.share({ files: [new File([blob], name, { type: 'image/png' })], title: name }).catch(function () {}); };
+}
+async function gbExportImage() {
+  var r = gbRound_(); if (!r) return;
+  var name = (r.name || '團購') + '_訂購及繳費.png', blob;
+  try {
+    blob = await new Promise(function (ok, no) { gbDrawImage_().toBlob(function (b) { b ? ok(b) : no(new Error('toBlob')); }, 'image/png'); });
+  } catch (e) { toast('畫圖沒成功:' + ((e && e.message) || e)); return; }
+  try {
+    if (!(window.ClipboardItem && navigator.clipboard && navigator.clipboard.write)) throw new Error('no clipboard image');
+    await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+    toast('已複製圖片,到 LINE 長按輸入框貼上');
+  } catch (e) { gbShowImage_(blob, name); }
 }
 function gbCopyRemind() {
   var r = gbRound_(), t = gbCalc_(r, G.orders, gbPay_(r.id)), un = t.list.filter(function (p) { return p.due - p.paid > 0; });
