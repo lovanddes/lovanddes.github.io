@@ -2700,7 +2700,7 @@ function drawSizePick(r){
 }
 /* 示意圖(先生 11/4 想要):點尺寸跳出「人看畫」。程式依真實公分數畫 SVG,不靠 AI 生圖(AI 畫不準 100 號與 80 號的差)。
    先只開常用號數試看看(SCENE_NUMS);人是背對剪影(約 160/170 cm),畫中心離地約 150 cm,太大就整個場景縮小。 */
-const SCENE_NUMS=['8','10','12','15'];
+const SCENE_NUMS=null; /* 11/5 先生:都開(null=全部號數);要限縮改回陣列如 ['8','10','12','15'] */
 function sceneSVG(l){
   const d=szDims(l);if(!d)return '';
   const w=d[0],h=d[1],W=360,H=300,fy=H-26;
@@ -2727,7 +2727,7 @@ document.addEventListener('click',e=>{
   if(b.dataset.more){szMore=!szMore}
   else if(b.dataset.t){szType=b.dataset.t;
     const rr=R&&R(),opts=Array.from($('size').options).map(o=>o.value).filter(l=>l.endsWith(szType)),first=opts.find(l=>szOk(rr,l))||opts[0];if(first)$('size').value=first}
-  else if(b.dataset.l){szChosen=true;$('size').value=b.dataset.l;if(SCENE_NUMS.includes(b.dataset.l.slice(0,-1)))setTimeout(()=>showSizeScene(b.dataset.l),0)}
+  else if(b.dataset.l){szChosen=true;$('size').value=b.dataset.l;if(!SCENE_NUMS||SCENE_NUMS.includes(b.dataset.l.slice(0,-1)))setTimeout(()=>showSizeScene(b.dataset.l),0)}
   drawSizePick(R&&R());
 });
 const roomRef=()=>db.collection('rooms').doc(room);
