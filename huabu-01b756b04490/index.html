@@ -75,6 +75,12 @@ button.danger{color:var(--danger)}
 .cmChips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .cmChip{min-width:64px;padding:10px 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--panel);font-weight:700}
 .cmChip.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+:root{--wall:#ebe5da;--floor:#c9bfae}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--wall:#2d323c;--floor:#1c2028}}
+:root[data-theme="dark"]{--wall:#2d323c;--floor:#1c2028}
+.sceneBox{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:12px}
+.scenePanel{background:var(--panel);color:var(--ink);border-radius:14px;padding:14px;width:100%;max-width:520px;max-height:96vh;overflow:auto}
+.sceneTitle{font-size:30px;font-weight:700;margin-bottom:8px}.sceneTitle small{font-size:21px;color:var(--muted);font-weight:500}
 .szLegend{color:var(--muted);font-size:21px;margin:0 0 6px}
 .tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .tbl td,.tbl th{padding:7px 4px;border-bottom:1px solid var(--line);text-align:left}
@@ -2692,13 +2698,36 @@ function drawSizePick(r){
     +(folded.length&&szMore?folded.map(card).join(''):'')+'</div>';
   box.innerHTML=h;
 }
+/* 示意圖(先生 11/4 想要):點尺寸跳出「人看畫」。程式依真實公分數畫 SVG,不靠 AI 生圖(AI 畫不準 100 號與 80 號的差)。
+   先只開常用號數試看看(SCENE_NUMS);人是背對剪影(約 160/170 cm),畫中心離地約 150 cm,太大就整個場景縮小。 */
+const SCENE_NUMS=['8','10','12','15'];
+function sceneSVG(l){
+  const d=szDims(l);if(!d)return '';
+  const w=d[0],h=d[1],W=360,H=300,fy=H-26;
+  const bottom=Math.max(30,150-h/2);
+  const s=Math.min(0.9,190/w,(fy-10)/(bottom+h));
+  const pw=w*s,ph=h*s,px=150,py=fy-(bottom+h)*s;
+  const person=(x,cm,hair)=>{const k=cm*s/170;return `<g transform="translate(${x} ${fy}) scale(${k}) translate(0 -170)" style="fill:var(--ink);opacity:.82"><circle cx="0" cy="15" r="${hair?13:11}"/>${hair?'<path d="M-14 15 Q-16 50 -10 58 L10 58 Q16 50 14 15 Z"/>':''}<rect x="-5" y="24" width="10" height="9" rx="3"/><path d="M-22 46 Q-24 31 -11 31 L11 31 Q24 31 22 46 L20 104 Q0 108 -20 104 Z"/><rect x="-31" y="36" width="10" height="64" rx="5"/><rect x="21" y="36" width="10" height="64" rx="5"/><path d="M-19 102 L19 102 L16 168 Q9 171 3 168 L0 112 L-3 168 Q-9 171 -16 168 Z"/></g>`};
+  const art=`<svg x="${px.toFixed(1)}" y="${py.toFixed(1)}" width="${pw.toFixed(1)}" height="${ph.toFixed(1)}" viewBox="0 0 160 120" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fc3e6"/><stop offset="1" stop-color="#f3dcc0"/></linearGradient></defs><rect width="160" height="120" fill="url(#sk)"/><circle cx="118" cy="36" r="13" fill="#f7e3a4"/><path d="M0 78 Q40 48 80 72 T160 62 L160 120 L0 120Z" fill="#6f9a74"/><path d="M0 96 Q50 80 100 94 T160 88 L160 120 L0 120Z" fill="#3f6b5c"/><rect y="104" width="160" height="16" fill="#6aa0c0" opacity=".7"/></svg>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(l)}大小示意圖" style="width:100%;height:auto;display:block;border-radius:10px"><rect width="${W}" height="${fy}" style="fill:var(--wall)"/><rect y="${fy}" width="${W}" height="${H-fy}" style="fill:var(--floor)"/><rect y="${fy-4}" width="${W}" height="4" style="fill:var(--floor)" opacity=".6"/>${art}<rect x="${(px-3).toFixed(1)}" y="${(py-3).toFixed(1)}" width="${(pw+6).toFixed(1)}" height="${(ph+6).toFixed(1)}" fill="none" stroke="#5a4636" stroke-width="3"/>${person(52,170,false)}${person(108,160,true)}</svg>`;
+}
+function showSizeScene(l){
+  const r=R&&R(),old=$('sceneBox');if(old)old.remove();
+  const d=szDims(l),pr=price(r,l);
+  const box=document.createElement('div');box.id='sceneBox';box.className='sceneBox';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');
+  box.innerHTML=`<div class="scenePanel"><div class="sceneTitle">${esc(l.slice(0,-1))} 號 <small>${esc(CM[l]||'')} cm</small></div>${sceneSVG(l)}<div class="hint" style="margin:8px 0 12px">以身高約 160 公分的人站在旁邊為例。${esc(szA3(l))}。${pr?'單價 '+$$(pr):'價錢報價中'}</div><div class="row"><button class="primary" id="sceneOk" style="flex:1">就選這個</button><button id="sceneX">關閉</button></div></div>`;
+  document.body.appendChild(box);
+  const close=()=>box.remove();
+  $('sceneOk').onclick=close;$('sceneX').onclick=close;box.onclick=e=>{if(e.target===box)close()};
+  box.onkeydown=e=>{if(e.key==='Escape')close()};$('sceneOk').focus();
+}
 document.addEventListener('click',e=>{
   const b=e.target.closest&&e.target.closest('#sizePick button');if(!b||b.disabled)return;
   const box=$('sizePick');
   if(b.dataset.more){szMore=!szMore}
   else if(b.dataset.t){szType=b.dataset.t;
     const rr=R&&R(),opts=Array.from($('size').options).map(o=>o.value).filter(l=>l.endsWith(szType)),first=opts.find(l=>szOk(rr,l))||opts[0];if(first)$('size').value=first}
-  else if(b.dataset.l){szChosen=true;$('size').value=b.dataset.l}
+  else if(b.dataset.l){szChosen=true;$('size').value=b.dataset.l;if(SCENE_NUMS.includes(b.dataset.l.slice(0,-1)))setTimeout(()=>showSizeScene(b.dataset.l),0)}
   drawSizePick(R&&R());
 });
 const roomRef=()=>db.collection('rooms').doc(room);
