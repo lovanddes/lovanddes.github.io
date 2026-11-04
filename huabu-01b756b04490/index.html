@@ -17,11 +17,11 @@ html{color-scheme:light}body{margin:0}[hidden]{display:none!important}
 :root[data-theme="dark"]{
   --bg:#141922; --panel:#1d2430; --ink:#e8ebf0; --muted:#9aa3b0; --line:#323b4a;
   --accent:#8fa8f0; --accent-ink:#10162a; --ochre:#e0b34f; --danger:#ef8a80; --soft:#26304a; color-scheme:dark}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:20px;line-height:1.55;
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:23px;line-height:1.55;
   padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .wrap{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
-h1{font-family:var(--serif);font-size:30px;margin:0;text-wrap:balance}
-h2{font-size:19px;letter-spacing:.05em;color:var(--muted);margin:0 0 10px;font-weight:700}
+h1{font-family:var(--serif);font-size:32px;margin:0;text-wrap:balance}
+h2{font-size:23px;letter-spacing:.05em;color:var(--muted);margin:0 0 10px;font-weight:700}
 .top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
 input,select,button{font:inherit;color:var(--ink)}
@@ -35,11 +35,11 @@ button.danger{color:var(--danger)}
 .rounds select{max-width:60vw}
 .total{background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:16px 18px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
 .total small{opacity:.85;display:block}
-.total .big{font-family:var(--serif);font-size:46px;line-height:1.1;font-variant-numeric:tabular-nums}
+.total .big{font-family:var(--serif);font-size:52px;line-height:1.1;font-variant-numeric:tabular-nums}
 .total .meta{text-align:right;font-variant-numeric:tabular-nums}
 .form{display:grid;grid-template-columns:minmax(0,1fr) minmax(138px,auto);gap:10px}
 .form .full{grid-column:1/-1}
-.form label{display:flex;flex-direction:column;gap:4px;font-size:18px;color:var(--muted)}
+.form label{display:flex;flex-direction:column;gap:4px;font-size:21px;color:var(--muted)}
 .qty{display:flex;gap:6px;align-items:center}
 .qty input{width:100%;min-width:0;flex:1 1 auto;text-align:center}
 .qty button{flex:0 0 auto;min-width:52px;padding-left:0;padding-right:0}
@@ -47,7 +47,7 @@ button.danger{color:var(--danger)}
 .person{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
 .person:first-of-type{border-top:0;padding-top:0;margin-top:0}
 .phead{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.phead b{font-size:24px}
+.phead b{font-size:28px}
 .money{font-variant-numeric:tabular-nums;font-weight:700}
 .sub{color:var(--ochre)}
 .line{display:flex;align-items:center;gap:8px;padding:5px 0;flex-wrap:wrap}
@@ -60,29 +60,33 @@ button.danger{color:var(--danger)}
 .empty{color:var(--muted);padding:6px 0}
 .szTypes{display:flex;gap:8px;margin-bottom:10px}
 .szType{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 4px;border:1.5px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);font:inherit;cursor:pointer;line-height:1.3}
-.szType b{font-size:20px}.szType small{color:var(--muted);font-size:16px}
+.szType b{font-size:24px}.szType small{color:var(--muted);font-size:19px}
 .szType.on{border-color:var(--accent);background:var(--soft);box-shadow:0 0 0 1px var(--accent) inset}
 .szCards{display:flex;flex-direction:column;gap:8px}
-.szCard{display:flex;align-items:center;gap:12px;padding:8px 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);font:inherit;text-align:left;cursor:pointer;width:100%}
+.szCard{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);font:inherit;text-align:left;cursor:pointer;width:100%}
 .szCard.on{border-color:var(--accent);background:var(--soft);box-shadow:0 0 0 1px var(--accent) inset}
 .szCard:disabled,.szType:disabled{opacity:.55}
 .szShape{flex:none;width:64px;height:64px;display:flex;align-items:center;justify-content:center}
 .szShape i{display:block;background:var(--accent);opacity:.35;border:2px solid var(--accent);border-radius:2px}
 .szCard.on .szShape i{opacity:.6}
-.szTxt{flex:1;min-width:0}.szTxt b{font-size:24px}.szTxt small{display:block;color:var(--muted);font-size:17px}
-.szPrice{font-weight:700;font-size:22px;font-variant-numeric:tabular-nums}
-.szLegend{color:var(--muted);font-size:18px;margin:0 0 6px}
+.szTxt{flex:1;min-width:0}.szTxt b{font-size:30px}.szTxt small{display:block;color:var(--muted);font-size:21px}
+.szPrice{white-space:nowrap;font-weight:700;font-size:27px;font-variant-numeric:tabular-nums}
+.szMore{width:100%;margin:2px 0;padding:16px 12px;font-size:24px;font-weight:700;color:var(--accent);border:1.5px dashed var(--accent);background:transparent}
+.cmChips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.cmChip{min-width:64px;padding:10px 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--panel);font-weight:700}
+.cmChip.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.szLegend{color:var(--muted);font-size:21px;margin:0 0 6px}
 .tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .tbl td,.tbl th{padding:7px 4px;border-bottom:1px solid var(--line);text-align:left}
-.tbl th{font-size:17px;color:var(--muted);font-weight:500;white-space:nowrap}
+.tbl th{font-size:20px;color:var(--muted);font-weight:500;white-space:nowrap}
 .tbl td:last-child,.tbl th:last-child{text-align:right}
 .tbl input{width:5.5em;text-align:right}
-details summary{cursor:pointer;font-weight:700;font-size:19px;letter-spacing:.05em;color:var(--muted)}
+details summary{cursor:pointer;font-weight:700;font-size:23px;letter-spacing:.05em;color:var(--muted)}
 details[open] summary{margin-bottom:10px}
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 textarea{width:100%;min-height:110px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:9px;font:12px/1.4 ui-monospace,monospace}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:20px;font-size:14px}
-.hint{font-size:18px;color:var(--muted)}
+.hint{font-size:21px;color:var(--muted)}
 .banner{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:12px;font-weight:700;color:var(--ochre)}
 .person.me{background:var(--soft);margin-inline:-8px;padding:10px 8px;border-radius:8px;border-top:0}
 .rounds{align-items:center}
@@ -186,6 +190,9 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
           <div class="hint" id="quoAuto" hidden>目前沒有任何單價,所以自動當成「報價中」:同學能選常用尺寸,他們選了哪些會自動列在上面的單價表,等你填價。</div>
           <div class="row" style="margin-top:8px"><label>🚚 運費總額 <input id="shipIn" type="number" inputmode="numeric" min="0" placeholder="0" style="width:110px"></label><button id="shipSave">儲存運費</button></div>
           <div class="hint">運費會按片數平均分給每位同學,同學端看得到。</div>
+          <div style="margin-top:12px"><b>常用號數</b>
+            <div class="hint">亮起來的號數會直接展開給同學選,其他號數收進「其他尺寸」按鈕。按一下切換,F/P/M 一起套用。</div>
+            <div class="cmChips" id="commonChips"></div></div>
           <div class="row" style="margin-top:10px">
             <select id="addSize" aria-label="新增尺寸"></select>
             <button id="addPrice">加到單價表</button>
@@ -2637,6 +2644,10 @@ const price=(r,l)=>r?(+(r.prices||{})[l]||0):0;
 /* 運費(先生 11/4):班長填總額,按片數平均分給每人(最大餘數法,加起來剛好等於總額) */
 /* 單價表清空時(先生 11/4):同學選單自動帶常用尺寸、視同「報價中」;有人訂的尺寸即使不在單價表也會列出,方便班長填價 */
 const DEF_SIZES=['6F','8F','10F','12F','12P','15F'];
+const DEF_COMMON=['8','10','12','15'];
+const commonOf=r=>Array.isArray(r&&r.common)?r.common:DEF_COMMON;
+let szMore=false,szChosen=false;
+const szOk=(r,l)=>commonOf(r).includes(l.slice(0,-1))||price(r,l)>0;
 const autoQuo=r=>!Object.keys((r&&r.prices)||{}).some(l=>price(r,l)>0);
 const isQuoting=r=>!!(r&&r.quoting)||autoQuo(r);
 function allSizes(r){
@@ -2663,23 +2674,31 @@ function drawSizePick(r){
   const box=$('sizePick');if(!box)return;
   const labels=Array.from($('size').options).map(o=>o.value);
   if(!labels.length){box.innerHTML='';return}
+  if(!szChosen&&!szOk(r,$('size').value)){const f=labels.find(l=>szOk(r,l));if(f)$('size').value=f}
   const cur=$('size').value,types=['F','P','M'].filter(t=>labels.some(l=>l.endsWith(t)));
   if(!szType||!types.includes(szType))szType=types.includes(cur.slice(-1))?cur.slice(-1):types[0];
   const dis=$('size').disabled?' disabled':'';
   const maxL=Math.max(...labels.map(l=>(szDims(l)||[1])[0]));
-  let h='<div class="szLegend">① 先選畫面形狀 ② 再選號數(方塊是大小的等比例示意)</div>';
+  let h='<div class="szLegend">① 先選畫面形狀 ② 再選號數</div>';
   if(types.length>1)h+='<div class="szTypes">'+types.map(t=>`<button type="button" class="szType${t===szType?' on':''}" data-t="${t}"${dis}><span>${SZ_TYPE[t][0]}</span><b>${SZ_TYPE[t][1]}</b><small>${SZ_TYPE[t][2]}</small></button>`).join('')+'</div>';
-  h+='<div class="szCards">'+labels.filter(l=>l.endsWith(szType)).map(l=>{
+  const com=new Set(commonOf(r)),inShape=labels.filter(l=>l.endsWith(szType));
+  const isShown=l=>com.has(l.slice(0,-1))||price(r,l)>0||l===cur;
+  const shown=inShape.filter(isShown),folded=inShape.filter(l=>!isShown(l));
+  const card=l=>{
     const d=szDims(l)||[1,1],w=Math.round(60*d[0]/maxL),hh=Math.round(60*d[1]/maxL);
-    return `<button type="button" class="szCard${l===cur?' on':''}" data-l="${esc(l)}"${dis}><span class="szShape"><i style="width:${w}px;height:${hh}px"></i></span><span class="szTxt"><b>${esc(l.slice(0,-1))} 號</b><small>${esc(CM[l]||'')} cm</small><small>${esc(szA3(l))}</small></span><span class="szPrice">${price(r,l)?$$(price(r,l)):'報價中'}</span></button>`}).join('')+'</div>';
+    return `<button type="button" class="szCard${l===cur?' on':''}" data-l="${esc(l)}"${dis}><span class="szTxt"><b>${esc(l.slice(0,-1))} 號</b><small>${esc(CM[l]||'')} cm</small><small>${esc(szA3(l))}</small></span><span class="szPrice">${price(r,l)?$$(price(r,l)):'報價中'}</span></button>`};
+  h+='<div class="szCards">'+shown.map(card).join('')
+    +(folded.length?`<button type="button" class="szMore" data-more="1">${szMore?'收起其他尺寸 ▲':'其他尺寸('+folded.length+' 種) ▼'}</button>`:'')
+    +(folded.length&&szMore?folded.map(card).join(''):'')+'</div>';
   box.innerHTML=h;
 }
 document.addEventListener('click',e=>{
   const b=e.target.closest&&e.target.closest('#sizePick button');if(!b||b.disabled)return;
   const box=$('sizePick');
-  if(b.dataset.t){szType=b.dataset.t;
-    const first=Array.from($('size').options).map(o=>o.value).find(l=>l.endsWith(szType));if(first)$('size').value=first}
-  else if(b.dataset.l){$('size').value=b.dataset.l}
+  if(b.dataset.more){szMore=!szMore}
+  else if(b.dataset.t){szType=b.dataset.t;
+    const rr=R&&R(),opts=Array.from($('size').options).map(o=>o.value).filter(l=>l.endsWith(szType)),first=opts.find(l=>szOk(rr,l))||opts[0];if(first)$('size').value=first}
+  else if(b.dataset.l){szChosen=true;$('size').value=b.dataset.l}
   drawSizePick(R&&R());
 });
 const roomRef=()=>db.collection('rooms').doc(room);
@@ -2785,9 +2804,9 @@ function watchOrders(){
   if(!cur)return;
   unsubO=ordersCol(cur).onSnapshot(snap=>{orders=snap.docs.map(d=>({id:d.id,...d.data()}));render()},e=>toast('連線失敗,請重新整理'));
 }
-async function makeRound(name,prices){
+async function makeRound(name,prices,common){
   const ref=roomRef().collection('rounds').doc();
-  await adminBatch(b=>b.set(ref,{name,prices,closed:false,created:Date.now()}));
+  await adminBatch(b=>b.set(ref,Object.assign({name,prices,closed:false,created:Date.now()},common?{common}:{})));
   cur=ref.id;lsSet('hb-round-'+room,cur);watching=null;watchOrders();
 }
 
@@ -2853,6 +2872,7 @@ function render(){
   }
   $('quotingChk').checked=!!r.quoting;$('quoAuto').hidden=!(autoQuo(r)&&!r.quoting);if(document.activeElement!==$('shipIn'))$('shipIn').value=ship||'';
   $('addSize').innerHTML=SIZES.filter(s=>!labels.includes(s.label)).map(s=>`<option value="${s.label}">${s.label}(${s.cm})</option>`).join('');
+  drawCommon(r);
 }
 $('who').oninput=()=>{lsSet('hb-me',$('who').value.trim());render()};
 $('whoSel').onchange=()=>{$('who').value=$('whoSel').value;lsSet('hb-me',$('who').value);render()};
@@ -2930,6 +2950,17 @@ $('prices').onclick=async e=>{
   if(price(R(),l)&&!window.confirm('確定移除 '+l+' 的單價('+$$(price(R(),l))+')?'))return;
   try{await adminBatch(b=>b.update(roundRef(cur),{['prices.'+l]:FV.delete()}))}catch(er){toast(errMsg(er))}
 };
+function drawCommon(r){
+  const box=$('commonChips');if(!box)return;
+  const nums=[...new Set(SIZES.map(x=>x.label.slice(0,-1)))],com=new Set(commonOf(r));
+  box.innerHTML=nums.map(n=>`<button type="button" class="cmChip${com.has(n)?' on':''}" data-n="${n}" aria-pressed="${com.has(n)}">${n}</button>`).join('');
+}
+$('commonChips').onclick=async e=>{
+  const b=e.target.closest('button[data-n]');if(!b||!isAdmin||!R())return;
+  const n=b.dataset.n,cur2=new Set(commonOf(R()));cur2.has(n)?cur2.delete(n):cur2.add(n);
+  const list=[...cur2].sort((a,c)=>a-c);
+  try{await adminBatch(bt=>bt.update(roundRef(cur),{common:list}))}catch(er){toast(errMsg(er))}
+};
 $('addPrice').onclick=async()=>{
   const l=$('addSize').value;if(!l||!isAdmin)return;
   try{await adminBatch(b=>b.update(roundRef(cur),{['prices.'+l]:0}));toast(l+' 已加入,請填單價')}catch(er){toast(errMsg(er))}
@@ -2949,7 +2980,7 @@ $('adminGo').onclick=async()=>{
 $('adminOut').onclick=()=>{isAdmin=false;adminHash='';lsDel('hb-admin-'+room);applyAdmin();render()};
 $('newRound').onclick=async()=>{
   const prev=R();
-  try{await makeRound('第 '+(rounds.length+1)+' 次團購',prev?{...prev.prices}:{});toast('已新增一場,單價沿用上一場')}catch(e){toast(errMsg(e))}
+  try{await makeRound('第 '+(rounds.length+1)+' 次團購',prev?{...prev.prices}:{},prev&&Array.isArray(prev.common)?prev.common:null);toast('已新增一場,單價與常用號數沿用上一場')}catch(e){toast(errMsg(e))}
 };
 $('closeBtn').onclick=async()=>{
   const r=R();if(!r)return;
