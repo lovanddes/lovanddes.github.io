@@ -2749,6 +2749,7 @@ async function feeLogin_(room, pw) {
   if (!meta.exists) throw new Error('找不到這個班級暗號');
   FEE.room = room; FEE.hash = hash; FEE.key = key;
   try { await feeBatch_(function () {}); } catch (e) { FEE.hash = ''; throw new Error('管理密碼不對'); }
+  await feeInitKeys_(room, pw);
 }
 function feeCol_() { return FDB.collection('rooms').doc(FEE.room).collection('fees'); }
 async function feeBatch_(fn) {
@@ -2778,7 +2779,7 @@ async function feeApi_(fn, p) {
     CLS_LIST.forEach(function (c) { classes[c] = BLANK_CLS(); });
     FEE.cache = {};
     for (var i = 0; i < snap.docs.length; i++) {
-      var d = snap.docs[i], o = await dec_(d.data()); FEE.cache[d.id] = o;
+      var d = snap.docs[i]; if (d.id === 'k_slots') continue; var o = await dec_(d.data()); FEE.cache[d.id] = o;
       var m = /^([a-z])_([^_]+)(?:_(\d+))?$/.exec(d.id); if (!m || !classes[m[2]]) continue;
       var c = classes[m[2]];
       if (m[1] === 's') c.settings = o; else if (m[1] === 'm') c.materials = o; else if (m[1] === 'r') c.roster = o; else if (m[1] === 'f') c.fund = o;
@@ -4256,30 +4257,65 @@ gateAndBoot_();
 
 
 
+
+
 <!--EXTRAS--><script>
 /* ═══ 11/4 加:改密碼 ═══ */
 function hex_(buf) { return Array.prototype.map.call(new Uint8Array(buf), function (x) { return ('0' + x.toString(16)).slice(-2); }).join(''); }
-async function feeChangePw_(oldPw, newPw) {
-  var room = FEE.room;
-  if (hex_(await pbk_(room, oldPw, 'huabu:', 256)) !== FEE.hash) throw new Error('舊密碼不對');
-  var snap = await feeCol_().get(), docs = [];
-  for (var i = 0; i < snap.docs.length; i++) docs.push({ id: snap.docs[i].id, obj: await dec_(snap.docs[i].data()) });
+/* 金鑰架構:一把資料鑰匙(DK)加密全部資料;DK 被「班長密碼 / 救援碼 / 擁有者救援碼」各自包一份(k_slots)。
+   k_hash = 用 DK 加密的目前管理雜湊,讓救援碼重設時能出示舊證明。 */
+var CODE_CHARS_ = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+function newCode_() { var a = crypto.getRandomValues(new Uint8Array(20)), s = ''; for (var i = 0; i < 20; i++) { s += CODE_CHARS_[a[i] & 31]; if (i % 4 === 3 && i < 19) s += '-'; } return s; }
+function normCode_(c) { return String(c || '').toUpperCase().replace(/[^A-Z0-9]/g, ''); }
+async function kek_(room, secret) { return crypto.subtle.importKey('raw', await pbk_(room, secret, 'huabukek:', 256), 'AES-GCM', false, ['encrypt', 'decrypt']); }
+async function dkKey_(raw) { return crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['encrypt', 'decrypt']); }
+async function wrap_(raw, kek) { var iv = crypto.getRandomValues(new Uint8Array(12)); return { iv: b64e_(iv), c: b64e_(await crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, kek, raw)) }; }
+async function unwrap_(slot, kek) { return crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64d_(slot.iv) }, kek, b64d_(slot.c)); }
+function slotsOf_(d) { return JSON.parse(atob(d.c)); }
+function slotsDoc_(slots) { return { c: btoa(JSON.stringify(slots)), iv: 'x' }; }
+async function feeInitKeys_(room, pw) {
+  var kek = await kek_(room, pw), sd = await feeCol_().doc('k_slots').get();
+  if (sd.exists) {
+    var raw; try { raw = await unwrap_(slotsOf_(sd.data()).pw, kek); } catch (e) { FEE.hash = ''; throw new Error('管理密碼不對'); }
+    FEE.dk = raw; FEE.key = await dkKey_(raw);
+  } else {
+    var raw0 = await pbk_(room, pw, 'huabufee:', 256);   // 舊版資料就是用這把加密的,直接當 DK
+    FEE.dk = raw0; FEE.key = await dkKey_(raw0);
+    var hd = await enc_({ hash: FEE.hash }), sl = slotsDoc_({ pw: await wrap_(raw0, kek) });
+    await feeBatch_(function (b) { b.set(feeCol_().doc('k_slots'), sl); b.set(feeCol_().doc('k_hash'), hd); });
+  }
+}
+async function feeSetPw_(newPw) {
+  var room = FEE.room, oh = FEE.hash, sd = await feeCol_().doc('k_slots').get(), slots = sd.exists ? slotsOf_(sd.data()) : {};
   var nh = hex_(await pbk_(room, newPw, 'huabu:', 256));
-  var nk = await crypto.subtle.importKey('raw', await pbk_(room, newPw, 'huabufee:', 256), 'AES-GCM', false, ['encrypt', 'decrypt']);
-  var oldKey = FEE.key, oh = FEE.hash;
-  FEE.key = nk;
-  try {
-    var encs = [];
-    for (var j = 0; j < docs.length; j++) encs.push(await enc_(docs[j].obj));
-    var rr = FDB.collection('rooms').doc(room), b = FDB.batch();
-    b.set(rr.collection('proofs').doc('old'), { hash: oh, t: FV.serverTimestamp() });
-    b.update(rr.collection('private').doc('secret'), { hash: nh });
-    b.set(rr.collection('proofs').doc('p'), { hash: nh, t: FV.serverTimestamp() });
-    docs.forEach(function (d, k) { b.set(feeCol_().doc(d.id), encs[k]); });
-    await b.commit();
-  } catch (e) { FEE.key = oldKey; throw e; }
-  FEE.hash = nh;
-  return docs.length;
+  slots.pw = await wrap_(FEE.dk, await kek_(room, newPw));
+  var hd = await enc_({ hash: nh }), sl = slotsDoc_(slots), rr = FDB.collection('rooms').doc(room), b = FDB.batch();
+  b.set(rr.collection('proofs').doc('old'), { hash: oh, t: FV.serverTimestamp() });
+  b.update(rr.collection('private').doc('secret'), { hash: nh });
+  b.set(rr.collection('proofs').doc('p'), { hash: nh, t: FV.serverTimestamp() });
+  b.set(feeCol_().doc('k_slots'), sl); b.set(feeCol_().doc('k_hash'), hd);
+  await b.commit(); FEE.hash = nh;
+}
+async function feeChangePw_(oldPw, newPw) {
+  if (hex_(await pbk_(FEE.room, oldPw, 'huabu:', 256)) !== FEE.hash) throw new Error('舊密碼不對');
+  await feeSetPw_(newPw);
+}
+async function feeNewCode_(slotName) {
+  var code = newCode_(), sd = await feeCol_().doc('k_slots').get(), slots = sd.exists ? slotsOf_(sd.data()) : {};
+  slots[slotName] = await wrap_(FEE.dk, await kek_(FEE.room, normCode_(code)));
+  var sl = slotsDoc_(slots); await feeBatch_(function (b) { b.set(feeCol_().doc('k_slots'), sl); });
+  return code;
+}
+async function feeRescueReset_(room, code, newPw) {
+  var col = FDB.collection('rooms').doc(room).collection('fees'), sd, hdoc;
+  try { sd = await col.doc('k_slots').get(); hdoc = await col.doc('k_hash').get(); } catch (e) { throw new Error('找不到這個班級暗號'); }
+  if (!sd.exists || !hdoc.exists) throw new Error('這個班還沒有設定救援碼');
+  var slots = slotsOf_(sd.data()), kek = await kek_(room, normCode_(code)), raw = null;
+  for (var n of ['rescue', 'owner']) if (slots[n]) { try { raw = await unwrap_(slots[n], kek); break; } catch (e) {} }
+  if (!raw) throw new Error('救援碼不對');
+  FEE.room = room; FEE.dk = raw; FEE.key = await dkKey_(raw);
+  FEE.hash = (await dec_(hdoc.data())).hash;
+  await feeSetPw_(newPw);
 }
 function openPwDialog() {
   openDialog('<h2>🔑 改管理密碼</h2>' +
@@ -4287,7 +4323,7 @@ function openPwDialog() {
     '<div class="field"><label>新密碼(至少 6 個字)</label><input type="password" id="pwNew" autocomplete="new-password"></div>' +
     '<div class="field"><label>再打一次新密碼</label><input type="password" id="pwNew2" autocomplete="new-password"></div>' +
     '<div class="hint" id="pwMsg" style="color:var(--red)"></div>' +
-    '<div class="hint">改完後,團購頁的「我是班長」也用新密碼。資料會一起重新加密,請耐心等幾秒。</div>' +
+    '<div class="hint">改完後,團購頁的「我是班長」也用新密碼。資料不會動,只換密碼。</div>' +
     '<div class="actions"><button class="cancel" onclick="closeDialog()">取消</button><button class="ok" id="pwGo" onclick="doChangePw()">改密碼</button></div>');
 }
 async function doChangePw() {
@@ -4297,17 +4333,60 @@ async function doChangePw() {
   if (n !== n2) { m.textContent = '兩次新密碼不一樣'; return; }
   if (n === o) { m.textContent = '新密碼和舊的一樣'; return; }
   $('pwGo').disabled = true; m.style.color = 'var(--muted)'; m.textContent = '處理中…';
-  try { var c = await feeChangePw_(o, n); closeDialog(); toast('密碼已更新(' + c + ' 份資料已重新加密)'); }
+  try { await feeChangePw_(o, n); closeDialog(); toast('密碼已更新'); }
   catch (e) { $('pwGo').disabled = false; m.style.color = 'var(--red)'; m.textContent = (e && e.message) || '失敗,密碼沒有改變'; }
 }
 var renderHome_orig_ = renderHome;
 renderHome = function () {
   renderHome_orig_();
   var v = $('view'); if (!v) return;
-  var b = document.createElement('button'); b.className = 'bigbtn ghost'; b.style.marginTop = '18px'; b.textContent = '🔑 改管理密碼';
-  b.onclick = openPwDialog; v.appendChild(b);
+  var box = document.createElement('div'); box.style.marginTop = '18px';
+  [['🔑 改管理密碼', openPwDialog], ['🆘 救援碼', openRescueDialog], ['🚪 登出', feeLogout_]].forEach(function (x) {
+    var b = document.createElement('button'); b.className = 'bigbtn ghost'; b.textContent = x[0]; b.onclick = x[1]; box.appendChild(b);
+  });
+  v.appendChild(box);
 };
-
+function feeLogout_() { location.reload(); }
+async function openRescueDialog() {
+  openDialog('<h2>🆘 救援碼</h2><div class="hint">救援碼是「忘記管理密碼」時的備用鑰匙,用它可以重設密碼,<b>資料不會丟</b>。<br>按下產生後,<b>請立刻拍照或抄下來</b>放在安全的地方;只會顯示這一次。重新產生會讓舊的救援碼失效。</div>' +
+    '<div id="rcBox"></div><div class="actions"><button class="cancel" onclick="closeDialog()">關閉</button><button class="ok" id="rcGo" onclick="doNewRescue()">產生新的救援碼</button></div>');
+}
+async function doNewRescue() {
+  $('rcGo').disabled = true;
+  try {
+    var code = await feeNewCode_('rescue');
+    $('rcBox').innerHTML = '<div style="font-size:26px;font-weight:700;letter-spacing:1px;text-align:center;padding:14px;margin:10px 0;border:2px dashed var(--ochre);border-radius:12px;word-break:break-all">' + esc(code) + '</div>' +
+      '<button class="bigbtn ghost" onclick="gbCopy_(' + jsq(code) + ',\'救援碼已複製\')">複製救援碼</button><div class="hint" style="color:var(--red)">請現在就拍照或抄下來。關掉這個視窗就看不到了。</div>';
+  } catch (e) { $('rcGo').disabled = false; toast('沒成功:' + ((e && e.message) || e)); }
+}
+/* 閒置 15 分鐘自動登出(登入後才計時) */
+(function () {
+  var T = 15 * 60 * 1000, timer = null;
+  function arm() {
+    if (!FEE || !FEE.key) return; clearTimeout(timer);
+    timer = setTimeout(function () { try { if (S.dirty && typeof flushSave === 'function') flushSave(); } catch (e) {} toast('閒置太久,已自動登出'); setTimeout(function () { location.reload(); }, 1500); }, T);
+  }
+  ['click', 'keydown', 'touchstart', 'scroll', 'input'].forEach(function (ev) { document.addEventListener(ev, arm, { passive: true, capture: true }); });
+  setInterval(function () { if (FEE && FEE.key && !timer) arm(); }, 5000);
+})();
+/* 登入頁「忘記密碼?」→ 用救援碼重設 */
+function addForgot_() {
+  var g = $('feegate'); if (!g) return; var inner = g.firstChild, go = $('fgGo');
+  var d = document.createElement('details'); d.style.cssText = 'margin-top:14px';
+  d.innerHTML = '<summary style="cursor:pointer;color:var(--muted)">忘記管理密碼?</summary>' +
+    '<div class="hint" style="margin:8px 0">輸入上面的班級暗號、救援碼,再設一個新密碼。</div>' +
+    '<input id="fgCode" placeholder="救援碼(XXXX-XXXX-…)" autocapitalize="characters" style="width:100%;font-size:20px;padding:12px;margin-bottom:10px;box-sizing:border-box">' +
+    '<input id="fgNew" type="password" placeholder="新密碼(至少 6 個字)" autocomplete="new-password" style="width:100%;font-size:20px;padding:12px;margin-bottom:10px;box-sizing:border-box">' +
+    '<button id="fgReset" class="bigbtn ghost" style="width:100%">用救援碼重設並進入</button>';
+  inner.insertBefore(d, $('fgMsg').nextSibling);
+  $('fgReset').onclick = async function () {
+    var r = $('fgRoom').value.trim(), c = $('fgCode').value, n = $('fgNew').value, m = $('fgMsg'); m.textContent = '';
+    if (!r || !c || n.length < 6) { m.textContent = '請填暗號、救援碼,新密碼至少 6 個字'; return; }
+    $('fgReset').disabled = true; m.style.color = 'var(--muted)'; m.textContent = '處理中…';
+    try { await feeRescueReset_(r, c, n); try { localStorage.setItem('fee-room', r); } catch (e) {} g.remove(); bootData_(); toast('密碼已重設'); }
+    catch (e) { $('fgReset').disabled = false; m.style.color = '#c33'; m.textContent = (e && e.message) || '失敗'; }
+  };
+};
 /* ═══ 11/4 加:團購收款(同學自己付的錢,班長代墊;與班費分開記)═══ */
 var GB_BASE_ = 'https://lovanddes.github.io/huabu-01b756b04490/';
 var G = { rounds: [], cur: null, orders: [], unsub: null, justCreated: null };
@@ -4455,6 +4534,7 @@ renderHome = function () {
     var w = document.createElement('div'); el.appendChild(w); shareBlock_(w, last ? '點開就能登記要買的畫布' : '還沒開團購;先點上面按鈕開一批', gbLink_(last && last.id), true);
   }).catch(function () { var el = $('gbHome'); if (el) el.innerHTML = '<div class="hint">團購網址讀取失敗</div>'; });
 };
+addForgot_();
 
 </script><!--/EXTRAS-->
 </body>
