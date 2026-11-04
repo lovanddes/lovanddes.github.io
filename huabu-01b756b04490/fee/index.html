@@ -2661,10 +2661,10 @@ var qrcode = function() {
 }));
 
 /* 分享網址 + QR(純前端,qrcode-generator MIT,不連外部服務) */
-function shareBlock_(parent, title) {
-  var url = location.origin + location.pathname;
+function shareBlock_(parent, title, url, bare) {
+  url = url || (location.origin + location.pathname);
   var box = document.createElement('div');
-  box.style.cssText = 'margin-top:22px;padding-top:16px;border-top:1px solid rgba(128,128,128,.35);text-align:center';
+  box.style.cssText = bare ? 'text-align:center' : 'margin-top:22px;padding-top:16px;border-top:1px solid rgba(128,128,128,.35);text-align:center';
   box.innerHTML = '<div style="font-size:14px;opacity:.75;margin-bottom:8px">' + (title || '分享這個網頁給同學') + '</div>' +
     '<div class="shareUrl" style="font-size:13px;word-break:break-all;margin-bottom:8px"></div>' +
     '<button type="button" class="shareCopy" style="font-size:15px;padding:8px 16px;margin-bottom:12px">複製網址</button>' +
@@ -4253,5 +4253,207 @@ gateAndBoot_();
   scan();new MutationObserver(scan).observe(document.body,{childList:true,subtree:true});
 })();
 </script>
+
+
+<!--EXTRAS--><script>
+/* ═══ 11/4 加:改密碼 ═══ */
+function hex_(buf) { return Array.prototype.map.call(new Uint8Array(buf), function (x) { return ('0' + x.toString(16)).slice(-2); }).join(''); }
+async function feeChangePw_(oldPw, newPw) {
+  var room = FEE.room;
+  if (hex_(await pbk_(room, oldPw, 'huabu:', 256)) !== FEE.hash) throw new Error('舊密碼不對');
+  var snap = await feeCol_().get(), docs = [];
+  for (var i = 0; i < snap.docs.length; i++) docs.push({ id: snap.docs[i].id, obj: await dec_(snap.docs[i].data()) });
+  var nh = hex_(await pbk_(room, newPw, 'huabu:', 256));
+  var nk = await crypto.subtle.importKey('raw', await pbk_(room, newPw, 'huabufee:', 256), 'AES-GCM', false, ['encrypt', 'decrypt']);
+  var oldKey = FEE.key, oh = FEE.hash;
+  FEE.key = nk;
+  try {
+    var encs = [];
+    for (var j = 0; j < docs.length; j++) encs.push(await enc_(docs[j].obj));
+    var rr = FDB.collection('rooms').doc(room), b = FDB.batch();
+    b.set(rr.collection('proofs').doc('old'), { hash: oh, t: FV.serverTimestamp() });
+    b.update(rr.collection('private').doc('secret'), { hash: nh });
+    b.set(rr.collection('proofs').doc('p'), { hash: nh, t: FV.serverTimestamp() });
+    docs.forEach(function (d, k) { b.set(feeCol_().doc(d.id), encs[k]); });
+    await b.commit();
+  } catch (e) { FEE.key = oldKey; throw e; }
+  FEE.hash = nh;
+  return docs.length;
+}
+function openPwDialog() {
+  openDialog('<h2>🔑 改管理密碼</h2>' +
+    '<div class="field"><label>舊密碼</label><input type="password" id="pwOld" autocomplete="current-password"></div>' +
+    '<div class="field"><label>新密碼(至少 6 個字)</label><input type="password" id="pwNew" autocomplete="new-password"></div>' +
+    '<div class="field"><label>再打一次新密碼</label><input type="password" id="pwNew2" autocomplete="new-password"></div>' +
+    '<div class="hint" id="pwMsg" style="color:var(--red)"></div>' +
+    '<div class="hint">改完後,團購頁的「我是班長」也用新密碼。資料會一起重新加密,請耐心等幾秒。</div>' +
+    '<div class="actions"><button class="cancel" onclick="closeDialog()">取消</button><button class="ok" id="pwGo" onclick="doChangePw()">改密碼</button></div>');
+}
+async function doChangePw() {
+  var o = $('pwOld').value, n = $('pwNew').value, n2 = $('pwNew2').value, m = $('pwMsg');
+  if (!o) { m.textContent = '請輸入舊密碼'; return; }
+  if (n.length < 6) { m.textContent = '新密碼至少 6 個字'; return; }
+  if (n !== n2) { m.textContent = '兩次新密碼不一樣'; return; }
+  if (n === o) { m.textContent = '新密碼和舊的一樣'; return; }
+  $('pwGo').disabled = true; m.style.color = 'var(--muted)'; m.textContent = '處理中…';
+  try { var c = await feeChangePw_(o, n); closeDialog(); toast('密碼已更新(' + c + ' 份資料已重新加密)'); }
+  catch (e) { $('pwGo').disabled = false; m.style.color = 'var(--red)'; m.textContent = (e && e.message) || '失敗,密碼沒有改變'; }
+}
+var renderHome_orig_ = renderHome;
+renderHome = function () {
+  renderHome_orig_();
+  var v = $('view'); if (!v) return;
+  var b = document.createElement('button'); b.className = 'bigbtn ghost'; b.style.marginTop = '18px'; b.textContent = '🔑 改管理密碼';
+  b.onclick = openPwDialog; v.appendChild(b);
+};
+
+/* ═══ 11/4 加:團購收款(同學自己付的錢,班長代墊;與班費分開記)═══ */
+var GB_BASE_ = 'https://lovanddes.github.io/huabu-01b756b04490/';
+var G = { rounds: [], cur: null, orders: [], unsub: null, justCreated: null };
+var GB_SIZES_ = { '6F': 0, '8F': 0, '10F': 0, '12F': 0, '12P': 0, '15F': 0 };
+function gbLink_(rid) { return GB_BASE_ + '#' + encodeURIComponent(FEE.room) + (rid ? '&r=' + rid : ''); }
+function gbRoundsCol_() { return FDB.collection('rooms').doc(FEE.room).collection('rounds'); }
+function gbPay_(id) { var p = FEE.cache['g_' + id] || {}; return { paid: p.paid || {}, advance: Number(p.advance) || 0 }; }
+async function gbLoadRounds_() {
+  var snap = await gbRoundsCol_().orderBy('created').get();
+  G.rounds = snap.docs.map(function (d) { var o = d.data(); o.id = d.id; return o; }).filter(function (r) { return !r.archived; });
+  return G.rounds;
+}
+function gbSizeSort_(a, b) { var pa = parseInt(a), pb = parseInt(b); if (pa !== pb) return pa - pb; return 'FPM'.indexOf(a.slice(-1)) - 'FPM'.indexOf(b.slice(-1)); }
+function gbCalc_(round, orders, pay) {
+  var people = {};
+  orders.forEach(function (o) {
+    var p = people[o.person] || (people[o.person] = { name: o.person, items: {}, due: 0, pieces: 0 });
+    p.items[o.size] = (p.items[o.size] || 0) + o.qty;
+    p.due += (Number(round.prices[o.size]) || 0) * o.qty; p.pieces += o.qty;
+  });
+  Object.keys(pay.paid).forEach(function (n) { if (!people[n] && Number(pay.paid[n]) > 0) people[n] = { name: n, items: {}, due: 0, pieces: 0 }; });
+  var list = Object.keys(people).sort().map(function (n) { var p = people[n]; p.paid = Number(pay.paid[n]) || 0; return p; });
+  var t = { due: 0, paid: 0, full: 0, cnt: list.length, pieces: 0, noPrice: [] };
+  list.forEach(function (p) { t.due += p.due; t.paid += p.paid; t.pieces += p.pieces; if (p.due > 0 && p.paid >= p.due) t.full++; });
+  orders.forEach(function (o) { if (!(Number(round.prices[o.size]) > 0) && t.noPrice.indexOf(o.size) < 0) t.noPrice.push(o.size); });
+  t.list = list; return t;
+}
+function gbItemsTxt_(p) { return Object.keys(p.items).sort(gbSizeSort_).map(function (s) { return s + '×' + p.items[s]; }).join('、') || '(沒有訂購)'; }
+function gbUnwatch_() { if (G.unsub) { G.unsub(); G.unsub = null; } }
+function gbCopy_(text, msg) {
+  function ok() { toast(msg || '已複製'); }
+  function fb() { var t = document.createElement('textarea'); t.value = text; t.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); ok(); } catch (e) { toast('複製失敗'); } t.remove(); }
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(ok, fb); else fb();
+}
+async function renderGroupList() {
+  gbUnwatch_(); S.cur = null;
+  $('view').innerHTML = '<div class="topbar"><button class="iconbtn" onclick="renderHome()">←</button><h1>🛒 團購收款<span class="sub">' + esc(S.cls) + '・同學自己付、班長代墊</span></h1></div><div class="hint">載入中…</div>';
+  var h = '';
+  try {
+    var rs = await gbLoadRounds_();
+    var oc = await Promise.all(rs.map(function (r) { return gbRoundsCol_().doc(r.id).collection('orders').get(); }));
+    h += '<div class="topbar"><button class="iconbtn" onclick="renderHome()">←</button><h1>🛒 團購收款<span class="sub">同學自己付、班長代墊;和班費分開記</span></h1></div>';
+    h += '<button class="bigbtn" onclick="gbNewDialog()">＋ 開新一批團購</button>';
+    if (!rs.length) h += '<div class="empty">還沒有任何一批團購。<br>點上面「開新一批團購」,會給你一個網址貼到 LINE 給同學。</div>';
+    rs.slice().reverse().forEach(function (r) {
+      var i = rs.indexOf(r), orders = oc[i].docs.map(function (d) { return d.data(); });
+      var t = gbCalc_(r, orders, gbPay_(r.id)), pct = t.due > 0 ? Math.min(100, Math.round(t.paid / t.due * 100)) : 0;
+      h += '<div class="card period-card" onclick="renderGroupRound(\'' + r.id + '\')">' +
+        '<div class="row1"><span class="pno serif">' + esc(r.name) + '</span><span style="flex:1"></span><span class="badge ' + (r.closed ? 'closed">已結單' : 'open">登記中') + '</span></div>' +
+        '<div class="dates">' + t.cnt + ' 人・' + t.pieces + ' 片</div>' +
+        '<div class="smear-wrap"><div class="smear-label"><span>全收 <b>' + t.full + '</b> / ' + t.cnt + ' 人</span><span>已收 <b>' + money(t.paid) + '</b> / ' + money(t.due) + '</span></div><div class="smear"><i style="width:' + pct + '%"></i></div></div></div>';
+    });
+  } catch (e) { h = '<div class="topbar"><button class="iconbtn" onclick="renderHome()">←</button><h1>🛒 團購收款</h1></div><div class="hint" style="color:var(--red)">讀取失敗:' + esc((e && e.message) || e) + '</div>'; }
+  $('view').innerHTML = h; window.scrollTo(0, 0);
+}
+function gbNewDialog() {
+  var n = G.rounds.length + 1;
+  openDialog('<h2>開新一批團購</h2><div class="field"><label>名稱</label><input type="text" id="gbName" value="第 ' + n + ' 次團購"></div>' +
+    '<div class="hint">單價會沿用上一批,之後可以在這批裡修改。開好會給你網址和 QR 貼給同學。</div>' +
+    '<div class="actions"><button class="cancel" onclick="closeDialog()">取消</button><button class="ok" id="gbMk" onclick="gbNewRound()">開始</button></div>');
+}
+async function gbNewRound() {
+  var name = ($('gbName').value || '').trim(); if (!name) { toast('先填名稱'); return; }
+  $('gbMk').disabled = true;
+  try {
+    var last = G.rounds[G.rounds.length - 1], prices = last ? JSON.parse(JSON.stringify(last.prices)) : JSON.parse(JSON.stringify(GB_SIZES_));
+    var ref = gbRoundsCol_().doc();
+    await feeBatch_(function (b) { b.set(ref, { name: name, prices: prices, closed: false, created: Date.now() }); });
+    closeDialog(); G.justCreated = ref.id; await gbLoadRounds_(); renderGroupRound(ref.id);
+  } catch (e) { $('gbMk').disabled = false; toast('沒成功:' + ((e && e.message) || e)); }
+}
+async function renderGroupRound(id) {
+  gbUnwatch_(); G.cur = id;
+  if (!G.rounds.some(function (r) { return r.id === id; })) await gbLoadRounds_();
+  G.unsub = gbRoundsCol_().doc(id).collection('orders').onSnapshot(function (snap) {
+    G.orders = snap.docs.map(function (d) { return d.data(); });
+    var a = document.activeElement; if (a && a.tagName === 'INPUT' && $('view').contains(a)) return;
+    gbDrawRound_();
+  }, function () { toast('連線失敗,請重新整理'); });
+}
+function gbRound_() { return G.rounds.filter(function (r) { return r.id === G.cur; })[0]; }
+function gbDrawRound_() {
+  var r = gbRound_(); if (!r) { renderGroupList(); return; }
+  var pay = gbPay_(r.id), t = gbCalc_(r, G.orders, pay), pct = t.due > 0 ? Math.min(100, Math.round(t.paid / t.due * 100)) : 0;
+  var h = '<div class="topbar"><button class="iconbtn" onclick="renderGroupList()">←</button><h1>' + esc(r.name) + '<span class="sub">' + (r.closed ? '已結單' : '登記中') + '</span></h1></div>';
+  h += '<details class="card"' + (G.justCreated === r.id ? ' open' : '') + '><summary style="font-weight:700;cursor:pointer">📣 分享給同學(網址 + QR)</summary><div id="gbShare" style="margin-top:10px"></div>' +
+    '<div class="hint">同學點網址就會直接進到這一批登記;登記完不用再通知你,這頁會自動看到。</div></details>';
+  h += '<details class="card"><summary style="font-weight:700;cursor:pointer">💲 單價' + (t.noPrice.length ? ' <span style="color:var(--red)">(' + esc(t.noPrice.join('、')) + ' 還沒填單價)</span>' : '') + '</summary><div style="margin-top:8px">' +
+    Object.keys(r.prices).sort(gbSizeSort_).map(function (s) {
+      return '<div class="editrow"><span style="flex:1">' + esc(s) + '</span><input type="number" class="price" inputmode="numeric" value="' + (Number(r.prices[s]) || 0) + '" onchange="gbSetPrice(' + jsq(s) + ',this.value)"></div>';
+    }).join('') + '</div></details>';
+  h += '<div class="card" style="padding:12px 16px"><div class="smear-wrap" style="margin:0"><div class="smear-label"><span>全收 <b>' + t.full + '</b> / ' + t.cnt + ' 人</span><span>已收 <b>' + money(t.paid) + '</b> / 應收 ' + money(t.due) + '</span></div><div class="smear"><i style="width:' + pct + '%"></i></div></div></div>';
+  var adv = pay.advance, diff = adv - t.paid;
+  h += '<div class="card"><h4 style="margin:0 0 6px">班長墊付給店家</h4><div class="editrow"><input type="number" class="price" inputmode="numeric" value="' + (adv || '') + '" placeholder="金額" onchange="gbSetAdvance(this.value)" style="flex:1 1 120px;max-width:none"></div>' +
+    '<div class="hint" style="margin:6px 0 0">' + (!adv ? '填了就會幫你算還差多少才回本。' : (diff > 0 ? '已收 ' + money(t.paid) + ',<b style="color:var(--red)">還差 ' + money(diff) + ' 才回本</b>' : '已收 ' + money(t.paid) + ',<b style="color:var(--vir-deep)">已回本' + (diff < 0 ? ',多收 ' + money(-diff) : '') + '</b>')) + '</div></div>';
+  if (!t.list.length) h += '<div class="empty">還沒有同學登記。<br>把上面的網址貼到 LINE 群組吧!</div>';
+  t.list.forEach(function (p, i) {
+    var st = p.paid <= 0 ? 'none' : (p.paid >= p.due && p.due > 0 ? 'full' : 'part');
+    h += '<div class="stu' + (st === 'full' ? ' paid-on' : (st === 'part' ? ' paid-part' : '')) + '"><div class="stu-top">' +
+      '<span class="stu-name">' + esc(p.name) + '</span><span class="stu-total' + (p.due === 0 ? ' zero' : '') + '">' + money(p.due) + '</span>' +
+      '<button class="paid-btn' + (st === 'full' ? ' on' : (st === 'part' ? ' part' : '')) + '" onclick="gbTogglePaid(' + i + ')">' + (st === 'full' ? '✓ 已收' : (st === 'part' ? '部分' : '未收')) + '</button></div>' +
+      '<div class="paychips" style="align-items:center"><span style="flex:1;color:var(--muted);font-size:18px">' + esc(gbItemsTxt_(p)) + '</span><span style="color:var(--muted);font-size:18px">已收</span>' +
+      '<input type="number" class="price" inputmode="numeric" value="' + (p.paid || '') + '" placeholder="0" onchange="gbSetPaid(' + i + ',this.value)" style="width:96px;flex:none"></div></div>';
+  });
+  h += '<button class="bigbtn ghost" style="margin-top:14px" onclick="gbCopyRemind()">📋 複製「收款提醒」文字</button>';
+  h += '<button class="bigbtn ghost" onclick="gbToggleClosed()">' + (r.closed ? '🔓 重新開放登記' : '🔒 結單(同學不能再改)') + '</button>';
+  $('view').innerHTML = h;
+  shareBlock_($('gbShare'), '貼到 LINE 給同學', gbLink_(r.id), true);
+  window.G_LIST = t.list;
+}
+async function gbSavePay_(pay) {
+  var r = gbRound_(); await feePut_('g_' + r.id, pay); gbDrawRound_();
+}
+function gbSetPaid(i, v) { var r = gbRound_(), p = gbPay_(r.id), n = window.G_LIST[i].name; v = Math.max(0, Number(v) || 0); if (v > 0) p.paid[n] = v; else delete p.paid[n]; gbSavePay_(p).catch(function (e) { toast('沒存成:' + ((e && e.message) || e)); }); }
+function gbTogglePaid(i) { var it = window.G_LIST[i]; gbSetPaid(i, it.paid >= it.due && it.due > 0 ? 0 : it.due); }
+function gbSetAdvance(v) { var r = gbRound_(), p = gbPay_(r.id); p.advance = Math.max(0, Number(v) || 0); gbSavePay_(p).catch(function (e) { toast('沒存成:' + ((e && e.message) || e)); }); }
+async function gbSetPrice(size, v) {
+  var r = gbRound_(), pr = JSON.parse(JSON.stringify(r.prices)); pr[size] = Math.max(0, Number(v) || 0);
+  try { await feeBatch_(function (b) { b.update(gbRoundsCol_().doc(r.id), { prices: pr }); }); r.prices = pr; gbDrawRound_(); } catch (e) { toast('沒存成:' + ((e && e.message) || e)); }
+}
+async function gbToggleClosed() {
+  var r = gbRound_();
+  try { await feeBatch_(function (b) { b.update(gbRoundsCol_().doc(r.id), { closed: !r.closed }); }); r.closed = !r.closed; gbDrawRound_(); toast(r.closed ? '已結單' : '已重新開放'); } catch (e) { toast('沒成功:' + ((e && e.message) || e)); }
+}
+function gbCopyRemind() {
+  var r = gbRound_(), t = gbCalc_(r, G.orders, gbPay_(r.id)), un = t.list.filter(function (p) { return p.due - p.paid > 0; });
+  var lines = ['【' + r.name + ' 收款】', '已收 ' + money(t.paid) + ' / 應收 ' + money(t.due)];
+  if (!un.length) lines.push('全部收齊了,謝謝大家 🙏');
+  else { lines.push('還沒收到:'); un.forEach(function (p) { lines.push(p.name + ' ' + money(p.due - p.paid) + '(' + gbItemsTxt_(p) + ')'); }); lines.push('麻煩上課時交給我,謝謝!'); }
+  gbCopy_(lines.join('\n'), '收款提醒已複製,貼到 LINE');
+}
+/* 管理首頁:加「團購收款」鈕+同學網址/QR */
+var renderHome_pw_ = renderHome;
+renderHome = function () {
+  renderHome_pw_();
+  var v = $('view'); if (!v) return; gbUnwatch_();
+  var pwBtn = v.lastElementChild;
+  var b = document.createElement('button'); b.className = 'bigbtn'; b.style.cssText = 'margin-top:18px;background:var(--ochre)'; b.textContent = '🛒 團購收款'; b.onclick = renderGroupList;
+  var box = document.createElement('div'); box.className = 'card'; box.id = 'gbHome'; box.innerHTML = '<div class="hint">載入團購網址…</div>';
+  var firstBig = v.querySelector('.bigbtn'); b.style.marginTop = '0'; b.style.marginBottom = '10px'; v.insertBefore(b, firstBig || pwBtn); v.insertBefore(box, pwBtn);
+  gbLoadRounds_().then(function (rs) {
+    var el = $('gbHome'); if (!el) return;
+    var last = rs[rs.length - 1]; el.innerHTML = '<div style="font-weight:700;text-align:center">🛒 同學團購登記網址' + (last ? '(' + esc(last.name) + ')' : '') + '</div>';
+    var w = document.createElement('div'); el.appendChild(w); shareBlock_(w, last ? '點開就能登記要買的畫布' : '還沒開團購;先點上面按鈕開一批', gbLink_(last && last.id), true);
+  }).catch(function () { var el = $('gbHome'); if (el) el.innerHTML = '<div class="hint">團購網址讀取失敗</div>'; });
+};
+
+</script><!--/EXTRAS-->
 </body>
 </html>

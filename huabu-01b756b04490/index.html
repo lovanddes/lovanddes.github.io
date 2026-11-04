@@ -2512,10 +2512,10 @@ var qrcode = function() {
 }));
 
 /* 分享網址 + QR(純前端,qrcode-generator MIT,不連外部服務) */
-function shareBlock_(parent, title) {
-  var url = location.origin + location.pathname;
+function shareBlock_(parent, title, url, bare) {
+  url = url || (location.origin + location.pathname);
   var box = document.createElement('div');
-  box.style.cssText = 'margin-top:22px;padding-top:16px;border-top:1px solid rgba(128,128,128,.35);text-align:center';
+  box.style.cssText = bare ? 'text-align:center' : 'margin-top:22px;padding-top:16px;border-top:1px solid rgba(128,128,128,.35);text-align:center';
   box.innerHTML = '<div style="font-size:14px;opacity:.75;margin-bottom:8px">' + (title || '分享這個網頁給同學') + '</div>' +
     '<div class="shareUrl" style="font-size:13px;word-break:break-all;margin-bottom:8px"></div>' +
     '<button type="button" class="shareCopy" style="font-size:15px;padding:8px 16px;margin-bottom:12px">複製網址</button>' +
@@ -2598,6 +2598,7 @@ async function derive(room,pw){
 }
 
 let roster=[], unsubM=null;
+let wantR='';
 let room=null, adminHash='', isAdmin=false, rounds=[], cur=null, orders=[], unsubR=null, unsubO=null;
 const R=()=>rounds.find(r=>r.id===cur)||null;
 const oq=o=>Math.max(0,Math.floor(Number(o.qty))||0);
@@ -2682,6 +2683,7 @@ function startRounds(){
   unsubR=roomRef().collection('rounds').orderBy('created').onSnapshot(snap=>{
     rounds=snap.docs.map(d=>({id:d.id,...d.data()})).filter(r=>!r.archived);
     const saved=lsGet('hb-round-'+room);
+    if(wantR&&rounds.some(r=>r.id===wantR)){cur=wantR;lsSet('hb-round-'+room,wantR);wantR=''}
     if(!rounds.some(r=>r.id===cur))cur=(rounds.some(r=>r.id===saved)?saved:(rounds.length?rounds[rounds.length-1].id:null));
     watchOrders();render();
   },e=>toast('連線失敗,請重新整理'));
@@ -2938,6 +2940,7 @@ $('invite').onclick=()=>copyText(location.href.split('#')[0]+'#'+encodeURICompon
 // 啟動
 (async()=>{
   let c='';try{c=decodeURIComponent(location.hash.slice(1))}catch(e){}
+  {const i=c.indexOf('&r=');if(i>=0){wantR=c.slice(i+3);c=c.slice(0,i)}}
   if(!c)c=lsGet('hb-room')||'';
   if(c){$('code').value=c;if(await openRoom(c))return}
   $('gate').hidden=false;
