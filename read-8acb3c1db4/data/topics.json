@@ -1,60 +1,20 @@
 {
- "date": "2026-11-04",
+ "date": "2026-11-05",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "AI成了極致加班神器",
+     "title": "微軟效能分級要16G才算AI",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "科技新報引述最新調查數據顯示，AI 雖加快了日常工作流程，卻未讓上班族提早下班。許多員工的平均下班時間反而從下午5點延後至5點45分，省下的工時被更多新任務無縫填滿。"
+       "text": "微軟內部流出一份AI PC效能分級圖，將16GB記憶體列為AI快速回應的低標，8GB則被歸為一般文書規格。在記憶體成本持續攀升的當下，引發民眾與上班族對於新舊電腦硬體門檻再度被拉高的熱烈討論。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我以為學會用AI能換來準時下班，結果只是把原本八小時的慌亂，濃縮成九小時的精緻加班。"
-      },
-      {
-       "label": "建議欄目:",
-       "text": "【欸唉新跪的生存週報】"
-      }
-     ],
-     "sources": [
-      "https://technews.tw/2026/11/03/ai-ironically-longer-working-hours/"
-     ]
-    },
-    {
-     "title": "AI引用的精華是網路廢文",
-     "body": [
-      {
-       "label": "為什麼熱:",
-       "text": "AI 資訊分析平台 REALI 最新測試指出，分析 ChatGPT 與 Gemini 逾 1800 則回答後發現，兩者除了新聞與官方資料外，大量重要參考來源其實來自 PTT 與 Dcard 等論壇。這項調查引發網友熱議日常諮詢的 AI 見解到底有多接地氣。"
-      },
-      {
-       "label": "新跪的角度:",
-       "text": "我半夜畢恭畢敬請教水母未來的商業策略，搞不好它只是把我在論壇上發過的廢文換個語氣唸給我聽。"
-      },
-      {
-       "label": "建議欄目:",
-       "text": "【水母半夜跟我說的話】"
-      }
-     ],
-     "sources": [
-      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEvHOgC2Uo-ik-E1b9mRCZ6z72qWggHJGad31-OD5f4W7FM5LSqK8ZQv0W6JQqPUYTHOyGv0VoOYuFczHwbm54RVdiEMAVqar6Ss8BM7hah6sgtxiwhuLrf5fu7WNIORIz7m2atYbfjTKtnVILQO6mX_7onJtyOh72W5eeD8y-8Dq3EGw="
-     ]
-    },
-    {
-     "title": "高層薪酬綁員工士氣",
-     "body": [
-      {
-       "label": "為什麼熱:",
-       "text": "半導體設備巨頭 ASML 宣布將「員工士氣」與職場體驗指數正式納入高層薪酬考核指標，試圖搶救組織重組後下滑的敬業度。這項罕見的制度變革在科技職場引發廣泛關注與討論。"
-      },
-      {
-       "label": "新跪的角度:",
-       "text": "我的士氣如果真能換算成老闆的年終，我真想看看自己在系統裡到底值多少負數。"
+       "text": "「我低頭看著公司發的那台8GB舊筆電，突然釋懷了，原來不是我反應遲鈍，是微軟早就認定我這種規格只配在旁邊發呆。」"
       },
       {
        "label": "建議欄目:",
@@ -62,7 +22,48 @@
       }
      ],
      "sources": [
-      "https://technews.tw/2026/11/02/asmls-ceo-is-putting-his-paycheck-on-the-line-for-employee-morale/"
+      "https://www.ettoday.net/news/20261104/3265959.htm"
+     ]
+    },
+    {
+     "title": "台企瘋AI資料就緒率僅9趴",
+     "body": [
+      {
+       "label": "為什麼熱:",
+       "text": "美商鄧白氏公布2026年第四季台灣企業AI動能指數，調查顯示近八成台灣企業已導入或試行AI，部署速度領先全球。然而企業內部資料完全就緒的比例僅有9%，多數企業因底層資料紊亂導致AI投資回報指數明顯下滑。"
+      },
+      {
+       "label": "新跪的角度:",
+       "text": "「我天天被主管追著要交AI轉型成果，看著螢幕上那個名為『最終版_真的不要再改了』的資料夾，我連自己十年前存在哪都想不起來。」"
+      },
+      {
+       "label": "建議欄目:",
+       "text": "【欸唉新跪的生存週報】"
+      }
+     ],
+     "sources": [
+      "https://finance.ettoday.net/news/3266328",
+      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHU3F0VGCitJuTf5wQmFgGXCaSW9tH887I6xuSwkzkMB-muMmsNaVun7M6crOdY8t93cGZeobqzJ6oKVJ7AS4hjpMX24thpXKWJ7C-SLf9dCjOfSKqc5Y7NwqMJWiTBMp91fct31rKu4g=="
+     ]
+    },
+    {
+     "title": "外送基本運費調至47元",
+     "body": [
+      {
+       "label": "為什麼熱:",
+       "text": "配合2027年最低工資調漲，勞動部正式公告外送員每筆訂單最低保障金額將自明年元旦起從45元調升至47.1元，為外送專法施行後首度調整。該調整不僅引發外送從業人員關注，也讓高度依賴外送的上班族討論起未來的餐飲與外送成本。"
+      },
+      {
+       "label": "新跪的角度:",
+       "text": "「我看著外送結帳頁面多跳出來的幾塊錢，默默縮回了準備點手搖飲的手，原來在演算法和專法底下，我和外送員一樣都在等著被這個世界加薪。」"
+      },
+      {
+       "label": "建議欄目:",
+       "text": "【水母半夜跟我說的話】"
+      }
+     ],
+     "sources": [
+      "https://www.ettoday.net/news/20261104/3265962.htm"
      ]
     }
    ]
