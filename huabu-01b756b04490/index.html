@@ -37,11 +37,13 @@ button.danger{color:var(--danger)}
 .total small{opacity:.85;display:block}
 .total .big{font-family:var(--serif);font-size:38px;line-height:1.1;font-variant-numeric:tabular-nums}
 .total .meta{text-align:right;font-variant-numeric:tabular-nums}
-.form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form{display:grid;grid-template-columns:minmax(0,1fr) minmax(138px,auto);gap:10px}
 .form .full{grid-column:1/-1}
 .form label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
 .qty{display:flex;gap:6px;align-items:center}
-.qty input{width:100%;text-align:center}
+.qty input{width:100%;min-width:0;flex:1 1 auto;text-align:center}
+.qty button{flex:0 0 auto;min-width:38px;padding-left:0;padding-right:0}
+#myPw[hidden]+button{display:none}
 .person{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
 .person:first-of-type{border-top:0;padding-top:0;margin-top:0}
 .phead{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
@@ -2993,7 +2995,7 @@ $('invite').onclick=()=>copyText(location.href.split('#')[0]+'#'+encodeURICompon
   function add(i){
     if(i.dataset.eye)return;i.dataset.eye='1';
     var b=document.createElement('button');b.type='button';b.textContent='👁';b.title='顯示/隱藏密碼';b.setAttribute('aria-label','顯示或隱藏密碼');
-    b.style.cssText='margin-left:6px;padding:4px 10px;font-size:18px;cursor:pointer;border:1px solid #bbb;border-radius:8px;background:transparent;color:inherit;width:auto';
+    b.style.cssText='margin-left:6px;padding:4px 10px;font-size:18px;cursor:pointer;border:1px solid #bbb;border-radius:8px;background:transparent;color:inherit;width:auto;align-self:flex-start';
     b.onclick=function(){var s=i.type==='password';i.type=s?'text':'password';b.textContent=s?'🙈':'👁'};
     i.insertAdjacentElement('afterend',b);
   }
