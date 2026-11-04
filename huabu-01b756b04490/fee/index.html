@@ -351,6 +351,11 @@ html.dark .toast{background:#000}
 .report-sheet .rtable td.name,.report-sheet .rtable th{color:#2B2620}
 .darkbtn{position:absolute;top:14px;right:0;min-width:56px;height:56px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-size:28px}
 .home-head{position:relative}
+/* 手機字體被放大時不要擠在一起(先生 11/4 截圖):標題讓出 🌙 的位置、字級隨螢幕寬縮、三顆鈕放不下就換行 */
+.home-head h1{padding-right:68px;font-size:clamp(26px,8.2vw,42px)}
+.navbtns{flex-wrap:wrap}
+.navbtns .iconbtn{flex:1 1 30%;min-width:0;padding-left:6px;padding-right:6px;gap:4px;white-space:nowrap;font-size:clamp(17px,5.4vw,27px)}
+.clstab{font-size:clamp(18px,6vw,28px)}
 </style>
 </head>
 <body>
