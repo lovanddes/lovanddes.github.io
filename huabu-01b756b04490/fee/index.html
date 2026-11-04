@@ -4487,6 +4487,7 @@ function gbCalc_(round, orders, pay) {
   var t = { due: 0, paid: 0, full: 0, cnt: list.length, pieces: 0, noPrice: [], ship: totPcs ? ship : 0 };
   list.forEach(function (p) { t.due += p.due; t.paid += p.paid; t.pieces += p.pieces; if (p.due > 0 && p.paid >= p.due) t.full++; });
   orders.forEach(function (o) { if (!(Number(round.prices[o.size]) > 0) && t.noPrice.indexOf(o.size) < 0) t.noPrice.push(o.size); });
+  t.items0 = {}; orders.forEach(function (o) { t.items0[o.size] = 1; });
   t.list = list; return t;
 }
 function gbItemsTxt_(p) { return (Object.keys(p.items).sort(gbSizeSort_).map(function (s) { return s + '×' + p.items[s]; }).join('、') || '(沒有訂購)') + (p.ship ? '(含運費 ' + money(p.ship) + ')' : ''); }
@@ -4550,7 +4551,7 @@ function gbDrawRound_() {
   h += '<details class="card"' + (G.justCreated === r.id ? ' open' : '') + '><summary style="font-weight:700;cursor:pointer">📣 分享給同學(網址 + QR)</summary><div id="gbShare" style="margin-top:10px"></div>' +
     '<div class="hint">同學點網址就會直接進到這一批登記;登記完不用再通知你,這頁會自動看到。</div></details>';
   h += '<details class="card"><summary style="font-weight:700;cursor:pointer">💲 單價' + (t.noPrice.length ? ' <span style="color:var(--red)">(' + esc(t.noPrice.join('、')) + ' 還沒填單價)</span>' : '') + '</summary><div style="margin-top:8px">' +
-    Object.keys(r.prices).sort(gbSizeSort_).map(function (s) {
+    Object.keys(r.prices).concat(Object.keys(t.items0 || {})).filter(function (s, i, arr) { return arr.indexOf(s) === i; }).sort(gbSizeSort_).map(function (s) {
       return '<div class="editrow"><span style="flex:1">' + esc(s) + '</span><input type="number" class="price" inputmode="numeric" value="' + (Number(r.prices[s]) || 0) + '" onchange="gbSetPrice(' + jsq(s) + ',this.value)"></div>';
     }).join('') + '</div></details>';
   h += '<div class="card" style="padding:12px 16px"><div class="smear-wrap" style="margin:0"><div class="smear-label"><span>全收 <b>' + t.full + '</b> / ' + t.cnt + ' 人</span><span>已收 <b>' + money(t.paid) + '</b> / 應收 ' + money(t.due) + '</span></div><div class="smear"><i style="width:' + pct + '%"></i></div></div></div>';

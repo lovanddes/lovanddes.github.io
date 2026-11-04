@@ -183,6 +183,7 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
         <div id="prices"></div>
         <div id="priceAdmin" hidden>
           <label class="row" style="margin-top:10px;gap:8px"><input type="checkbox" id="quotingChk"> 報價中:沒填單價的尺寸也先讓同學選</label>
+          <div class="hint" id="quoAuto" hidden>目前沒有任何單價,所以自動當成「報價中」:同學能選常用尺寸,他們選了哪些會自動列在上面的單價表,等你填價。</div>
           <div class="row" style="margin-top:8px"><label>🚚 運費總額 <input id="shipIn" type="number" inputmode="numeric" min="0" placeholder="0" style="width:110px"></label><button id="shipSave">儲存運費</button></div>
           <div class="hint">運費會按片數平均分給每位同學,同學端看得到。</div>
           <div class="row" style="margin-top:10px">
@@ -2634,6 +2635,15 @@ const R=()=>rounds.find(r=>r.id===cur)||null;
 const oq=o=>Math.max(0,Math.floor(Number(o.qty))||0);
 const price=(r,l)=>r?(+(r.prices||{})[l]||0):0;
 /* 運費(先生 11/4):班長填總額,按片數平均分給每人(最大餘數法,加起來剛好等於總額) */
+/* 單價表清空時(先生 11/4):同學選單自動帶常用尺寸、視同「報價中」;有人訂的尺寸即使不在單價表也會列出,方便班長填價 */
+const DEF_SIZES=['6F','8F','10F','12F','12P','15F'];
+const autoQuo=r=>!Object.keys((r&&r.prices)||{}).some(l=>price(r,l)>0);
+const isQuoting=r=>!!(r&&r.quoting)||autoQuo(r);
+function allSizes(r){
+  const s=new Set(Object.keys(r.prices||{}));orders.forEach(o=>s.add(o.size));
+  if(!Object.keys(r.prices||{}).length)DEF_SIZES.forEach(l=>s.add(l));
+  return [...s].sort(sortSize);
+}
 const shipOf=r=>Math.max(0,Math.round(+(r&&r.ship)||0));
 function shipShares(r,pcs){
   const ship=shipOf(r),ks=Object.keys(pcs),tot=ks.reduce((a,k)=>a+pcs[k],0),out={};
@@ -2808,13 +2818,13 @@ function render(){
   $('grand').textContent=unp?(grand?$$(grand+ship)+' + 待報價':'待報價'):$$(grand+ship);
   $('cnt').textContent=pieces+' 片 / '+Object.keys(g).length+' 人'+(ship?'(含運費 '+$$(ship)+')':'');
 
-  const labels=Object.keys(r.prices||{}).sort(sortSize);
+  const labels=allSizes(r),quo=isQuoting(r);
   const sel=$('size').value;
-  $('size').innerHTML=labels.filter(l=>price(r,l)>0||r.quoting).map(l=>`<option value="${esc(l)}">${esc(l)}(${esc(CM[l]||'')}) ${price(r,l)?$$(price(r,l)):'報價中'}</option>`).join('');
+  $('size').innerHTML=labels.filter(l=>price(r,l)>0||quo).map(l=>`<option value="${esc(l)}">${esc(l)}(${esc(CM[l]||'')}) ${price(r,l)?$$(price(r,l)):'報價中'}</option>`).join('');
   if(labels.includes(sel))$('size').value=sel;
   drawSizePick(r);
   const noPrice=labels.filter(l=>!price(r,l));
-  $('hint').textContent=!$('size').options.length?'班長還沒填單價,暫時不能登記。':(isAdmin&&noPrice.length?'還沒填單價:'+noPrice.join('、'):(r.quoting&&noPrice.length?'有些尺寸還在報價中,先選沒關係,價錢出來後金額會自動更新。':''));
+  $('hint').textContent=!$('size').options.length?'目前沒有可選的尺寸,請找班長。':(isAdmin&&noPrice.length?'還沒填單價:'+noPrice.join('、'):(quo&&noPrice.length?'有些尺寸還在報價中,先選沒關係,價錢出來後金額會自動更新。':''));
 
   const me=$('who').value.trim();
   const has=!!myPws()[me];
@@ -2839,10 +2849,10 @@ function render(){
   if(isAdmin)renderSheetPrev();
   const act=document.activeElement&&document.activeElement.dataset&&document.activeElement.dataset.p;
   if(!act){
-    $('prices').innerHTML=labels.length?`<table class="tbl"><tr><th>尺寸</th><th>單價</th><th></th></tr>`+labels.map(l=>`<tr><td><b>${esc(l)}</b> <span class="hint">${esc(CM[l]||'')}</span></td><td style="text-align:left">${isAdmin?`<input type="number" inputmode="decimal" min="0" data-p="${esc(l)}" value="${price(r,l)||''}" placeholder="0" aria-label="${esc(l)} 單價">`:(price(r,l)?$$(price(r,l)):'未定')}</td><td>${isAdmin?`<button class="ghost danger" data-rm="${esc(l)}">移除</button>`:''}</td></tr>`).join('')+`</table>`:'<div class="empty">單價表是空的。</div>';
+    $('prices').innerHTML=labels.length?`<table class="tbl"><tr><th>尺寸</th><th>單價</th><th></th></tr>`+labels.map(l=>`<tr><td><b>${esc(l)}</b> <span class="hint">${esc(CM[l]||'')}</span></td><td style="text-align:left">${isAdmin?`<input type="number" inputmode="decimal" min="0" data-p="${esc(l)}" value="${price(r,l)||''}" placeholder="0" aria-label="${esc(l)} 單價">`:(price(r,l)?$$(price(r,l)):'未定')}</td><td>${isAdmin&&(l in (r.prices||{}))?`<button class="ghost danger" data-rm="${esc(l)}">移除</button>`:''}</td></tr>`).join('')+`</table>`:'<div class="empty">單價表是空的。</div>';
   }
-  $('quotingChk').checked=!!r.quoting;if(document.activeElement!==$('shipIn'))$('shipIn').value=ship||'';
-  $('addSize').innerHTML=SIZES.filter(s=>!(s.label in (r.prices||{}))).map(s=>`<option value="${s.label}">${s.label}(${s.cm})</option>`).join('');
+  $('quotingChk').checked=!!r.quoting;$('quoAuto').hidden=!(autoQuo(r)&&!r.quoting);if(document.activeElement!==$('shipIn'))$('shipIn').value=ship||'';
+  $('addSize').innerHTML=SIZES.filter(s=>!labels.includes(s.label)).map(s=>`<option value="${s.label}">${s.label}(${s.cm})</option>`).join('');
 }
 $('who').oninput=()=>{lsSet('hb-me',$('who').value.trim());render()};
 $('whoSel').onchange=()=>{$('who').value=$('whoSel').value;lsSet('hb-me',$('who').value);render()};
@@ -2899,9 +2909,10 @@ $('people').onclick=async e=>{
     saveMyPw(o.person,pw);
   };
   try{
+    const sure=()=>window.confirm('確定刪除「'+o.person+'」的 '+o.size+' ×'+oq(o)+' 這筆登記?刪了就沒有了。');
     if(act==='inc'){if(o.qty<99)await run(bt=>bt.update(ref,{qty:FV.increment(1)}))}
-    else if(act==='dec'){if(o.qty>1)await run(bt=>bt.update(ref,{qty:FV.increment(-1)}));else await run(bt=>bt.delete(ref))}
-    else await run(bt=>bt.delete(ref));
+    else if(act==='dec'){if(o.qty>1)await run(bt=>bt.update(ref,{qty:FV.increment(-1)}));else if(sure())await run(bt=>bt.delete(ref))}
+    else if(sure())await run(bt=>bt.delete(ref));
   }catch(er){toast(er&&er.code==='permission-denied'?'密碼不對,忘了請找班長重設':errMsg(er))}
 };
 
@@ -2916,6 +2927,7 @@ $('prices').onclick=async e=>{
   const b=e.target.closest('button[data-rm]');if(!b||!isAdmin)return;
   const l=b.dataset.rm;
   if(orders.some(o=>o.size===l)){toast(l+' 已有人登記,不能移除');return}
+  if(price(R(),l)&&!window.confirm('確定移除 '+l+' 的單價('+$$(price(R(),l))+')?'))return;
   try{await adminBatch(b=>b.update(roundRef(cur),{['prices.'+l]:FV.delete()}))}catch(er){toast(errMsg(er))}
 };
 $('addPrice').onclick=async()=>{
