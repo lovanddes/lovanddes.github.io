@@ -2661,7 +2661,7 @@ function drawSizePick(r){
   if(types.length>1)h+='<div class="szTypes">'+types.map(t=>`<button type="button" class="szType${t===szType?' on':''}" data-t="${t}"${dis}><span>${SZ_TYPE[t][0]}</span><b>${SZ_TYPE[t][1]}</b><small>${SZ_TYPE[t][2]}</small></button>`).join('')+'</div>';
   h+='<div class="szCards">'+labels.filter(l=>l.endsWith(szType)).map(l=>{
     const d=szDims(l)||[1,1],w=Math.round(60*d[0]/maxL),hh=Math.round(60*d[1]/maxL);
-    return `<button type="button" class="szCard${l===cur?' on':''}" data-l="${esc(l)}"${dis}><span class="szShape"><i style="width:${w}px;height:${hh}px"></i></span><span class="szTxt"><b>${esc(l.slice(0,-1))} 號</b><small>${esc(CM[l]||'')} cm・${esc(szA3(l))}</small></span><span class="szPrice">${$$(price(r,l))}</span></button>`}).join('')+'</div>';
+    return `<button type="button" class="szCard${l===cur?' on':''}" data-l="${esc(l)}"${dis}><span class="szShape"><i style="width:${w}px;height:${hh}px"></i></span><span class="szTxt"><b>${esc(l.slice(0,-1))} 號</b><small>${esc(CM[l]||'')} cm</small><small>${esc(szA3(l))}</small></span><span class="szPrice">${price(r,l)?$$(price(r,l)):'報價中'}</span></button>`}).join('')+'</div>';
   box.innerHTML=h;
 }
 document.addEventListener('click',e=>{
