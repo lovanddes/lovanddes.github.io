@@ -58,6 +58,20 @@ button.danger{color:var(--danger)}
 .step span{min-width:1.6em;text-align:center;font-variant-numeric:tabular-nums}
 .line .amt{min-width:4.5em;text-align:right}
 .empty{color:var(--muted);padding:6px 0}
+.szTypes{display:flex;gap:8px;margin-bottom:10px}
+.szType{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 4px;border:1.5px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);font:inherit;cursor:pointer;line-height:1.3}
+.szType b{font-size:15px}.szType small{color:var(--muted);font-size:12px}
+.szType.on{border-color:var(--accent);background:var(--soft);box-shadow:0 0 0 1px var(--accent) inset}
+.szCards{display:flex;flex-direction:column;gap:8px}
+.szCard{display:flex;align-items:center;gap:12px;padding:8px 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);font:inherit;text-align:left;cursor:pointer;width:100%}
+.szCard.on{border-color:var(--accent);background:var(--soft);box-shadow:0 0 0 1px var(--accent) inset}
+.szCard:disabled,.szType:disabled{opacity:.55}
+.szShape{flex:none;width:64px;height:64px;display:flex;align-items:center;justify-content:center}
+.szShape i{display:block;background:var(--accent);opacity:.35;border:2px solid var(--accent);border-radius:2px}
+.szCard.on .szShape i{opacity:.6}
+.szTxt{flex:1;min-width:0}.szTxt b{font-size:16px}.szTxt small{display:block;color:var(--muted);font-size:13px}
+.szPrice{font-weight:700;font-size:17px;font-variant-numeric:tabular-nums}
+.szLegend{color:var(--muted);font-size:12.5px;margin:0 0 6px}
 .tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .tbl td,.tbl th{padding:7px 4px;border-bottom:1px solid var(--line);text-align:left}
 .tbl th{font-size:12px;color:var(--muted);font-weight:500}
@@ -137,7 +151,8 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
           <input id="myPw" type="password" autocomplete="off" placeholder="第一次登記請設一個,之後改/刪自己的登記要用" maxlength="40">
           <small class="hint" id="pwHint"></small>
         </label>
-        <label>尺寸
+        <div class="full" id="sizePick"></div>
+        <label id="sizeLbl" hidden>尺寸
           <select id="size"></select>
         </label>
         <label>片數
@@ -2615,6 +2630,35 @@ let room=null, adminHash='', isAdmin=false, rounds=[], cur=null, orders=[], unsu
 const R=()=>rounds.find(r=>r.id===cur)||null;
 const oq=o=>Math.max(0,Math.floor(Number(o.qty))||0);
 const price=(r,l)=>r?(+(r.prices||{})[l]||0):0;
+
+/* 尺寸選擇卡(先生 11/4):先選形狀(F/P/M),再選號數;卡片畫等比例長方形。真正的值仍放在隱藏的 #size,其餘程式不用改 */
+const SZ_TYPE={F:['🧑','人物 F','比較方正'],P:['🏞','風景 P','比較扁'],M:['🌊','海景 M','最扁長']};
+let szType=null;
+function szDims(l){const p=(CM[l]||'').split('×').map(Number);return p.length===2&&p[0]&&p[1]?p:null}
+function szA3(l){const d=szDims(l);if(!d)return '';const k=d[0]*d[1]/(42*29.7);return k<0.8?'約 A4 的 '+(d[0]*d[1]/(29.7*21)).toFixed(1).replace(/\.0$/,'')+' 倍':(k<1.15?'約 A3 大小':'約 A3 的 '+k.toFixed(1)+' 倍')}
+function drawSizePick(r){
+  const box=$('sizePick');if(!box)return;
+  const labels=Array.from($('size').options).map(o=>o.value);
+  if(!labels.length){box.innerHTML='';return}
+  const cur=$('size').value,types=['F','P','M'].filter(t=>labels.some(l=>l.endsWith(t)));
+  if(!szType||!types.includes(szType))szType=types.includes(cur.slice(-1))?cur.slice(-1):types[0];
+  const dis=$('size').disabled?' disabled':'';
+  const maxL=Math.max(...labels.map(l=>(szDims(l)||[1])[0]));
+  let h='<div class="szLegend">① 先選畫面形狀 ② 再選號數(方塊是大小的等比例示意)</div>';
+  if(types.length>1)h+='<div class="szTypes">'+types.map(t=>`<button type="button" class="szType${t===szType?' on':''}" data-t="${t}"${dis}><span>${SZ_TYPE[t][0]}</span><b>${SZ_TYPE[t][1]}</b><small>${SZ_TYPE[t][2]}</small></button>`).join('')+'</div>';
+  h+='<div class="szCards">'+labels.filter(l=>l.endsWith(szType)).map(l=>{
+    const d=szDims(l)||[1,1],w=Math.round(60*d[0]/maxL),hh=Math.round(60*d[1]/maxL);
+    return `<button type="button" class="szCard${l===cur?' on':''}" data-l="${esc(l)}"${dis}><span class="szShape"><i style="width:${w}px;height:${hh}px"></i></span><span class="szTxt"><b>${esc(l.slice(0,-1))} 號</b><small>${esc(CM[l]||'')} cm・${esc(szA3(l))}</small></span><span class="szPrice">${$$(price(r,l))}</span></button>`}).join('')+'</div>';
+  box.innerHTML=h;
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest&&e.target.closest('#sizePick button');if(!b||b.disabled)return;
+  const box=$('sizePick');
+  if(b.dataset.t){szType=b.dataset.t;
+    const first=Array.from($('size').options).map(o=>o.value).find(l=>l.endsWith(szType));if(first)$('size').value=first}
+  else if(b.dataset.l){$('size').value=b.dataset.l}
+  drawSizePick(R&&R());
+});
 const roomRef=()=>db.collection('rooms').doc(room);
 const roundRef=id=>roomRef().collection('rounds').doc(id);
 const ordersCol=id=>roundRef(id).collection('orders');
@@ -2753,6 +2797,7 @@ function render(){
   const sel=$('size').value;
   $('size').innerHTML=labels.filter(l=>price(r,l)>0).map(l=>`<option value="${esc(l)}">${esc(l)}(${esc(CM[l]||'')}) ${$$(price(r,l))}</option>`).join('');
   if(labels.includes(sel))$('size').value=sel;
+  drawSizePick(r);
   const noPrice=labels.filter(l=>!price(r,l));
   $('hint').textContent=!$('size').options.length?'班長還沒填單價,暫時不能登記。':(isAdmin&&noPrice.length?'還沒填單價:'+noPrice.join('、'):'');
 
