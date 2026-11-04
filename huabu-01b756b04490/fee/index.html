@@ -4259,6 +4259,7 @@ gateAndBoot_();
 
 
 
+
 <!--EXTRAS--><script>
 /* ═══ 11/4 加:改密碼 ═══ */
 function hex_(buf) { return Array.prototype.map.call(new Uint8Array(buf), function (x) { return ('0' + x.toString(16)).slice(-2); }).join(''); }
@@ -4311,11 +4312,13 @@ async function feeRescueReset_(room, code, newPw) {
   try { sd = await col.doc('k_slots').get(); hdoc = await col.doc('k_hash').get(); } catch (e) { throw new Error('找不到這個班級暗號'); }
   if (!sd.exists || !hdoc.exists) throw new Error('這個班還沒有設定救援碼');
   var slots = slotsOf_(sd.data()), kek = await kek_(room, normCode_(code)), raw = null;
-  for (var n of ['rescue', 'owner']) if (slots[n]) { try { raw = await unwrap_(slots[n], kek); break; } catch (e) {} }
+  var used = '';
+  for (var n of ['rescue', 'owner']) if (slots[n]) { try { raw = await unwrap_(slots[n], kek); used = n; break; } catch (e) {} }
   if (!raw) throw new Error('救援碼不對');
   FEE.room = room; FEE.dk = raw; FEE.key = await dkKey_(raw);
   FEE.hash = (await dec_(hdoc.data())).hash;
   await feeSetPw_(newPw);
+  return used === 'rescue' ? await feeNewCode_('rescue') : null;   // 救援碼用過就作廢,回傳新的
 }
 function openPwDialog() {
   openDialog('<h2>🔑 改管理密碼</h2>' +
@@ -4349,15 +4352,22 @@ renderHome = function () {
 function feeLogout_() { location.reload(); }
 async function openRescueDialog() {
   openDialog('<h2>🆘 救援碼</h2><div class="hint">救援碼是「忘記管理密碼」時的備用鑰匙,用它可以重設密碼,<b>資料不會丟</b>。<br>按下產生後,<b>請立刻拍照或抄下來</b>放在安全的地方;只會顯示這一次。重新產生會讓舊的救援碼失效。</div>' +
-    '<div id="rcBox"></div><div class="actions"><button class="cancel" onclick="closeDialog()">關閉</button><button class="ok" id="rcGo" onclick="doNewRescue()">產生新的救援碼</button></div>');
+    '<div class="field"><label>目前的管理密碼(確認是您本人)</label><input type="password" id="rcPw" autocomplete="current-password"></div><div id="rcBox"></div><div class="actions"><button class="cancel" onclick="closeDialog()">關閉</button><button class="ok" id="rcGo" onclick="doNewRescue()">產生新的救援碼</button></div>');
 }
 async function doNewRescue() {
   $('rcGo').disabled = true;
   try {
+    if (hex_(await pbk_(FEE.room, $('rcPw').value, 'huabu:', 256)) !== FEE.hash) throw new Error('管理密碼不對');
     var code = await feeNewCode_('rescue');
+    showCode_(code);
+  } catch (e) { $('rcGo').disabled = false; toast('沒成功:' + ((e && e.message) || e)); }
+}
+function showCode_(code) {
+  if (!$('rcBox')) openDialog('<h2>🆘 新的救援碼</h2><div id="rcBox"></div><div class="actions"><button class="ok" onclick="closeDialog()">我已記下</button></div>');
+  try {
     $('rcBox').innerHTML = '<div style="font-size:26px;font-weight:700;letter-spacing:1px;text-align:center;padding:14px;margin:10px 0;border:2px dashed var(--ochre);border-radius:12px;word-break:break-all">' + esc(code) + '</div>' +
       '<button class="bigbtn ghost" onclick="gbCopy_(' + jsq(code) + ',\'救援碼已複製\')">複製救援碼</button><div class="hint" style="color:var(--red)">請現在就拍照或抄下來。關掉這個視窗就看不到了。</div>';
-  } catch (e) { $('rcGo').disabled = false; toast('沒成功:' + ((e && e.message) || e)); }
+  } catch (e) { toast('顯示失敗'); }
 }
 /* 閒置 15 分鐘自動登出(登入後才計時) */
 (function () {
@@ -4383,7 +4393,7 @@ function addForgot_() {
     var r = $('fgRoom').value.trim(), c = $('fgCode').value, n = $('fgNew').value, m = $('fgMsg'); m.textContent = '';
     if (!r || !c || n.length < 6) { m.textContent = '請填暗號、救援碼,新密碼至少 6 個字'; return; }
     $('fgReset').disabled = true; m.style.color = 'var(--muted)'; m.textContent = '處理中…';
-    try { await feeRescueReset_(r, c, n); try { localStorage.setItem('fee-room', r); } catch (e) {} g.remove(); bootData_(); toast('密碼已重設'); }
+    try { var nc = await feeRescueReset_(r, c, n); try { localStorage.setItem('fee-room', r); } catch (e) {} g.remove(); bootData_(); toast('密碼已重設'); if (nc) showCode_(nc); }
     catch (e) { $('fgReset').disabled = false; m.style.color = '#c33'; m.textContent = (e && e.message) || '失敗'; }
   };
 };
