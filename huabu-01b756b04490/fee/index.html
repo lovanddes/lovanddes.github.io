@@ -4478,12 +4478,18 @@ function gbCalc_(round, orders, pay) {
   });
   Object.keys(pay.paid).forEach(function (n) { if (!people[n] && Number(pay.paid[n]) > 0) people[n] = { name: n, items: {}, due: 0, pieces: 0 }; });
   var list = Object.keys(people).sort().map(function (n) { var p = people[n]; p.paid = Number(pay.paid[n]) || 0; return p; });
-  var t = { due: 0, paid: 0, full: 0, cnt: list.length, pieces: 0, noPrice: [] };
+  /* 運費:按片數平均分(最大餘數法,加總剛好等於總額),計入每人應收 */
+  var ship = Math.max(0, Math.round(Number(round.ship) || 0)), totPcs = list.reduce(function (a, p) { return a + p.pieces; }, 0), used = 0, rem = [];
+  list.forEach(function (p) { p.goods = p.due; p.ship = 0; if (ship && totPcs) { var x = ship * p.pieces / totPcs; p.ship = Math.floor(x); used += p.ship; rem.push([p, x - p.ship]); } });
+  rem.sort(function (a, b) { return b[1] - a[1]; });
+  for (var i = 0; i < ship - used && i < rem.length; i++) rem[i][0].ship++;
+  list.forEach(function (p) { p.due += p.ship; });
+  var t = { due: 0, paid: 0, full: 0, cnt: list.length, pieces: 0, noPrice: [], ship: totPcs ? ship : 0 };
   list.forEach(function (p) { t.due += p.due; t.paid += p.paid; t.pieces += p.pieces; if (p.due > 0 && p.paid >= p.due) t.full++; });
   orders.forEach(function (o) { if (!(Number(round.prices[o.size]) > 0) && t.noPrice.indexOf(o.size) < 0) t.noPrice.push(o.size); });
   t.list = list; return t;
 }
-function gbItemsTxt_(p) { return Object.keys(p.items).sort(gbSizeSort_).map(function (s) { return s + '×' + p.items[s]; }).join('、') || '(沒有訂購)'; }
+function gbItemsTxt_(p) { return (Object.keys(p.items).sort(gbSizeSort_).map(function (s) { return s + '×' + p.items[s]; }).join('、') || '(沒有訂購)') + (p.ship ? '(含運費 ' + money(p.ship) + ')' : ''); }
 function gbUnwatch_() { if (G.unsub) { G.unsub(); G.unsub = null; } }
 function gbCopy_(text, msg) {
   function ok() { toast(msg || '已複製'); }
@@ -4549,6 +4555,9 @@ function gbDrawRound_() {
     }).join('') + '</div></details>';
   h += '<div class="card" style="padding:12px 16px"><div class="smear-wrap" style="margin:0"><div class="smear-label"><span>全收 <b>' + t.full + '</b> / ' + t.cnt + ' 人</span><span>已收 <b>' + money(t.paid) + '</b> / 應收 ' + money(t.due) + '</span></div><div class="smear"><i style="width:' + pct + '%"></i></div></div></div>';
   var adv = pay.advance, diff = adv - t.paid;
+  h += '<div class="card"><h4 style="margin:0 0 6px">🚚 運費 / 報價狀態</h4><div class="editrow"><input type="number" class="price" inputmode="numeric" value="' + (Number(r.ship) || '') + '" placeholder="運費總額" onchange="gbSetShip(this.value)" style="flex:1 1 120px"><span style="color:var(--muted)">元,按片數平均分</span></div>' +
+    '<label class="editrow" style="margin-top:8px;gap:8px"><input type="checkbox" ' + (r.quoting ? 'checked ' : '') + 'onchange="gbSetQuoting(this.checked)" style="width:24px;height:24px"><span>報價中:沒填單價的尺寸也先讓同學選</span></label>' +
+    '<div class="hint" style="margin:6px 0 0">' + (t.ship ? '目前運費 ' + money(t.ship) + ',已含在每人應收裡。' : '沒有運費就留空。') + '</div></div>';
   h += '<div class="card"><h4 style="margin:0 0 6px">班長墊付給店家</h4><div class="editrow"><input type="number" class="price" inputmode="numeric" value="' + (adv || '') + '" placeholder="金額" onchange="gbSetAdvance(this.value)" style="flex:1 1 120px;max-width:none"></div>' +
     '<div class="hint" style="margin:6px 0 0">' + (!adv ? '填了就會幫你算還差多少才回本。' : (diff > 0 ? '已收 ' + money(t.paid) + ',<b style="color:var(--red)">還差 ' + money(diff) + ' 才回本</b>' : '已收 ' + money(t.paid) + ',<b style="color:var(--vir-deep)">已回本' + (diff < 0 ? ',多收 ' + money(-diff) : '') + '</b>')) + '</div></div>';
   if (!t.list.length) h += '<div class="empty">還沒有同學登記。<br>把上面的網址貼到 LINE 群組吧!</div>';
@@ -4609,6 +4618,14 @@ async function gbSetPrice(size, v) {
   var r = gbRound_(), pr = JSON.parse(JSON.stringify(r.prices)); pr[size] = Math.max(0, Number(v) || 0);
   try { await feeBatch_(function (b) { b.update(gbRoundsCol_().doc(r.id), { prices: pr }); }); r.prices = pr; gbDrawRound_(); } catch (e) { toast('沒存成:' + ((e && e.message) || e)); }
 }
+async function gbSetShip(v) {
+  var r = gbRound_(), n = Math.min(100000, Math.max(0, Math.round(Number(v) || 0)));
+  try { await feeBatch_(function (b) { b.update(gbRoundsCol_().doc(r.id), { ship: n }); }); r.ship = n; gbDrawRound_(); toast(n ? '運費已存 ' + money(n) : '已清除運費'); } catch (e) { toast('沒存成:' + ((e && e.message) || e)); }
+}
+async function gbSetQuoting(on) {
+  var r = gbRound_();
+  try { await feeBatch_(function (b) { b.update(gbRoundsCol_().doc(r.id), { quoting: !!on }); }); r.quoting = !!on; gbDrawRound_(); toast(on ? '已開啟報價中' : '已關閉報價中'); } catch (e) { toast('沒存成:' + ((e && e.message) || e)); gbDrawRound_(); }
+}
 async function gbToggleClosed() {
   var r = gbRound_();
   try { await feeBatch_(function (b) { b.update(gbRoundsCol_().doc(r.id), { closed: !r.closed }); }); r.closed = !r.closed; gbDrawRound_(); toast(r.closed ? '已結單' : '已重新開放'); } catch (e) { toast('沒成功:' + ((e && e.message) || e)); }
@@ -4624,6 +4641,7 @@ function gbStat_(p) { return p.due <= 0 && p.paid <= 0 ? '—' : (p.paid >= p.du
 function gbExportText() {
   var d = gbExportData_(), r = d.r, t = d.t, L = [];
   L.push('【' + r.name + ' 訂購及繳費情形】(' + (r.closed ? '已結單' : '登記中') + ')');
+  if (t.ship) L.push('(應收已含運費 ' + money(t.ship) + ',按片數平均分)');
   L.push('共 ' + t.cnt + ' 人、' + t.pieces + ' 片;應收 ' + money(t.due) + ',已收 ' + money(t.paid) + ',未收 ' + money(Math.max(0, t.due - t.paid)));
   if (d.pay.advance) L.push('班長墊付 ' + money(d.pay.advance) + ',' + (d.pay.advance - t.paid > 0 ? '還差 ' + money(d.pay.advance - t.paid) + ' 才回本' : '已回本'));
   L.push('');
@@ -4641,12 +4659,12 @@ function gbCell_(c) {
 }
 function gbTableRows_() {
   var d = gbExportData_(), t = d.t, rows = [];
-  rows.push(['姓名'].concat(d.sizes, ['總片數', '應收', '已收', '未收', '狀態']));
+  rows.push(['姓名'].concat(d.sizes, ['總片數'], t.ship ? ['運費'] : [], ['應收', '已收', '未收', '狀態']));
   t.list.forEach(function (p) {
-    rows.push([p.name].concat(d.sizes.map(function (k) { return p.items[k] || ''; }), [p.pieces, p.due, p.paid, Math.max(0, p.due - p.paid), gbStat_(p)]));
+    rows.push([p.name].concat(d.sizes.map(function (k) { return p.items[k] || ''; }), [p.pieces], t.ship ? [p.ship] : [], [p.due, p.paid, Math.max(0, p.due - p.paid), gbStat_(p)]));
   });
   var sum = d.sizes.map(function (k) { return t.list.reduce(function (a, p) { return a + (p.items[k] || 0); }, 0) || ''; });
-  rows.push(['合計'].concat(sum, [t.pieces, t.due, t.paid, Math.max(0, t.due - t.paid), '']));
+  rows.push(['合計'].concat(sum, [t.pieces], t.ship ? [t.ship] : [], [t.due, t.paid, Math.max(0, t.due - t.paid), '']));
   return rows.map(function (row) { return row.map(gbCell_); });
 }
 function gbExportTable() {
@@ -4664,13 +4682,13 @@ function gbExportCsv() {
 /* 複製成圖片(先生 11/4):把訂購及繳費表畫成一張 PNG(固定淺色白底,LINE 裡看最清楚),放進剪貼簿;不支援就跳出圖,可分享/長按存圖 */
 function gbDrawImage_() {
   var d = gbExportData_(), t = d.t, r = d.r, S2 = 2, PAD = 14, RH = 38, FS = 20, FONT = '"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
-  var head = ['姓名'].concat(d.sizes, ['片數', '應收', '已收', '未收', '狀態']);
+  var head = ['姓名'].concat(d.sizes, ['片數'], t.ship ? ['運費'] : [], ['應收', '已收', '未收', '狀態']);
   var body = t.list.map(function (p) {
     var left = Math.max(0, p.due - p.paid);
-    return { st: gbStat_(p), cells: [p.name].concat(d.sizes.map(function (k) { return p.items[k] ? String(p.items[k]) : ''; }), [String(p.pieces), money(p.due), money(p.paid), left ? money(left) : '', gbStat_(p)]) };
+    return { st: gbStat_(p), cells: [p.name].concat(d.sizes.map(function (k) { return p.items[k] ? String(p.items[k]) : ''; }), [String(p.pieces)], t.ship ? [money(p.ship)] : [], [money(p.due), money(p.paid), left ? money(left) : '', gbStat_(p)]) };
   });
   var sum = d.sizes.map(function (k) { return String(t.list.reduce(function (a, p) { return a + (p.items[k] || 0); }, 0) || ''); });
-  var foot = ['合計'].concat(sum, [String(t.pieces), money(t.due), money(t.paid), money(Math.max(0, t.due - t.paid)), '']);
+  var foot = ['合計'].concat(sum, [String(t.pieces)], t.ship ? [money(t.ship)] : [], [money(t.due), money(t.paid), money(Math.max(0, t.due - t.paid)), '']);
   var rows = [head].concat(body.map(function (b) { return b.cells; }), [foot]);
   var m = document.createElement('canvas').getContext('2d'); m.font = '600 ' + FS + 'px ' + FONT;
   var W = head.map(function (_, c) { return Math.max.apply(null, rows.map(function (row) { return m.measureText(row[c]).width; })) + 22; });
