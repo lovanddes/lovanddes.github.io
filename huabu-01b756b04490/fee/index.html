@@ -4634,9 +4634,9 @@ function gbExportText() {
 }
 /* 文字儲存格防公式注入:名字是同學自己輸入的,=、+、-、@ 開頭貼進試算表會被當公式 → 前面補單引號;Tab/換行換成空格 */
 function gbCell_(c) {
-  if (typeof c !== 'string') return c;
-  c = c.replace(/[\t\r\n]+/g, ' ');
-  return /^[\s]*[=+\-@]/.test(c) ? "'" + c : c;
+  if (typeof c === 'number') return c;
+  c = String(c).replace(/[\t\r\n]+/g, ' ');
+  return /^[\s"'＂＇]*[=+\-@＝＋－＠]/.test(c) ? "'" + c : c;
 }
 function gbTableRows_() {
   var d = gbExportData_(), t = d.t, rows = [];
