@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>油畫班收費表(新版測試)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --linen:#E3EAD8;        /* 護眼豆沙綠底 */
+  --card:#FBFCF4;
+  --ink:#2B2620;
+  --muted:#6E6754;
+  --line:#D6DAC2;
+  --vir:#1E6B58;          /* 鉻綠(主色) */
+  --vir-deep:#14503F;
+  --vir-soft:#E1EEE7;
+  --ochre:#B07A22;        /* 土黃 */
+  --ochre-soft:#F4E8CF;
+  --red:#AF4A3A;
+  --red-soft:#F6E3DE;
+  --daub:14px 18px 15px 19px; /* 顏料塊圓角 */
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html,body{margin:0;padding:0}
+body{
+  background:var(--linen);
+  color:var(--ink);
+  font-family:'Noto Sans TC',system-ui,sans-serif;
+  font-size:21px;
+  line-height:1.55;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+h1,h2,.serif{font-family:'Noto Serif TC',serif}
+button{font-family:inherit;font-size:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:21px;color:var(--ink)}
+input[type=number]{-moz-appearance:textfield}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+
+
+/* ── 版面骨架 ── */
+#app{max-width:720px;margin:0 auto;padding:0 14px 40px}
+.topbar{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 2px 10px;position:sticky;top:0;z-index:20;
+  background:var(--linen);
+  box-shadow:0 8px 14px -10px rgba(90,75,50,.25);
+}
+.topbar h1{font-size:29px;font-weight:900;margin:0;flex:1;line-height:1.2;min-width:0}
+.home-head{padding:16px 2px 6px}
+.home-head h1{font-size:42px;font-weight:900;margin:0;line-height:1.25}
+.subline{font-size:22px;color:var(--muted);margin:3px 0 12px}
+.navbtns{display:flex;gap:8px}
+.navbtns .iconbtn{flex:1;justify-content:center;font-size:27px;height:66px;font-weight:700}
+.clstabs{display:flex;gap:4px;background:#EAE5D9;border-radius:14px;padding:4px;margin:0 0 12px}
+.clstab{flex:1;padding:16px 0;border-radius:11px;font-weight:700;font-size:28px;color:var(--muted)}
+.clstab.on{background:var(--card);color:var(--vir-deep);box-shadow:0 1px 4px rgba(90,75,50,.2)}
+.clstab:active{transform:scale(.97)}
+.stag{font-size:16px;padding:2px 9px;border-radius:99px;font-weight:700;flex-shrink:0}
+.stag-請假{background:var(--ochre-soft);color:#7A5514}
+.stag-不參加{background:var(--red-soft);color:var(--red)}
+.topbar .sub{font-size:17px;color:var(--muted);font-weight:400;display:block;font-family:'Noto Sans TC'}
+.phead{font-size:21px;color:var(--muted);padding:8px 2px 0;line-height:1.5}
+.phead-dates{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:2px}
+.phead-dates span{white-space:nowrap;font-variant-numeric:tabular-nums}
+.iconbtn{
+  min-width:56px;height:56px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--card);border:1px solid var(--line);
+  font-size:20px;font-weight:500;padding:0 12px;gap:4px;white-space:nowrap;
+}
+.iconbtn:active{transform:scale(.96)}
+
+
+/* ── 卡片 ── */
+.card{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--daub);
+  padding:16px;margin:12px 0;
+  box-shadow:0 1px 3px rgba(90,75,50,.07);
+}
+.period-card{border-left:7px solid var(--vir);padding:14px 16px}
+.period-card:active{transform:scale(.99)}
+.period-card .row1{display:flex;align-items:baseline;gap:10px}
+.period-card .pno{font-size:31px;font-weight:900}
+.period-card .dates{font-size:22px;color:var(--muted);margin-top:8px;line-height:1.4}
+.period-card .row2{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:18px}
+.badge{font-size:16px;padding:3px 10px;border-radius:99px;font-weight:500}
+.badge.open{background:var(--vir-soft);color:var(--vir-deep)}
+.badge.closed{background:#EAE5D9;color:var(--muted)}
+
+
+/* ── 顏料進度條 ── */
+.smear-wrap{margin-top:10px}
+.smear-label{display:flex;justify-content:space-between;font-size:20px;color:var(--muted);margin-bottom:4px}
+.smear-label b{color:var(--vir-deep)}
+.smear{height:18px;background:#EDE7D8;border-radius:4px 10px 10px 4px;overflow:hidden}
+.smear>i{
+  display:block;height:100%;
+  background:linear-gradient(90deg,var(--vir-deep),var(--vir) 70%,#3E8A72);
+  border-radius:4px 12px 14px 4px;
+  transition:width .35s ease;
+  min-width:0;
+}
+
+
+/* ── 大按鈕 ── */
+.bigbtn{
+  width:100%;padding:19px;border-radius:var(--daub);
+  background:var(--vir);color:#fff;font-size:29px;font-weight:700;
+  box-shadow:0 2px 6px rgba(20,80,63,.25);margin:14px 0;
+}
+.bigbtn:active{transform:scale(.98)}
+.bigbtn.ghost{background:var(--card);color:var(--vir-deep);border:1.5px dashed var(--vir);box-shadow:none}
+
+
+/* ── 學員列 ── */
+.stu{background:var(--card);border:1px solid var(--line);border-radius:var(--daub);margin:10px 0;overflow:hidden}
+.stu.paid-on{border-color:var(--vir);background:linear-gradient(0deg,var(--vir-soft) 0%,var(--card) 55%)}
+.stu-top{display:flex;align-items:center;gap:8px;padding:14px 12px 8px;cursor:pointer;flex-wrap:wrap}
+.stu-name{font-size:28px;font-weight:700;flex:1 1 100%;display:flex;align-items:center;gap:8px}
+.stu-name .caret{font-size:16px;color:var(--muted);transition:transform .2s}
+.stu.expanded .caret{transform:rotate(180deg)}
+.stu-total{font-size:27px;font-weight:700;font-variant-numeric:tabular-nums;flex:1}
+.stu-total.zero{color:var(--muted);font-weight:400}
+.paid-btn{
+  min-width:96px;height:56px;border-radius:14px;font-weight:700;font-size:20px;
+  background:#F0EBDD;color:var(--muted);border:1.5px solid var(--line);
+}
+.paid-btn.on{background:var(--vir);color:#fff;border-color:var(--vir-deep)}
+.paid-btn:active{transform:scale(.94)}
+.chips{display:flex;gap:6px;padding:0 12px 12px}
+.chip{
+  flex:1;height:54px;border-radius:12px;font-size:20px;font-weight:500;
+  background:#F0EBDD;color:var(--muted);border:1.5px solid transparent;
+}
+.chip.sel-上課{background:var(--vir-soft);color:var(--vir-deep);border-color:var(--vir);font-weight:700}
+.chip.sel-請假{background:var(--ochre-soft);color:#7A5514;border-color:var(--ochre);font-weight:700}
+.chip.sel-不參加{background:var(--red-soft);color:var(--red);border-color:var(--red);font-weight:700}
+.paychips{display:flex;gap:6px;padding:0 12px 12px;flex-wrap:wrap}
+.pay{
+  flex:1;min-width:124px;height:58px;border-radius:12px;font-size:21px;font-weight:500;
+  background:#F0EBDD;color:var(--muted);border:1.5px dashed var(--line);white-space:nowrap;
+}
+.pay.on{background:var(--vir-soft);color:var(--vir-deep);border:1.5px solid var(--vir);font-weight:700}
+.stu.paid-part{border-color:var(--ochre);background:linear-gradient(0deg,var(--ochre-soft) 0%,var(--card) 60%)}
+.paid-btn.part{background:var(--ochre-soft);color:#7A5514;border-color:var(--ochre)}
+.lockbtn{min-width:56px;height:56px;border-radius:14px;font-size:26px;background:#EDEFE2;border:1.5px solid var(--line);flex-shrink:0}
+.lockbtn.open{background:var(--ochre-soft);border-color:var(--ochre)}
+.paychips.lockdim .pay{opacity:.55}
+.ratechips{display:flex;gap:6px;align-items:center;margin:2px 0 4px;flex-wrap:wrap}
+.ratechips .chip{flex:0 0 auto;height:50px;padding:0 16px}
+.ratechips input.price{width:112px;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;text-align:right}
+.rateamt{margin-left:auto;font-size:18px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.stu-detail{border-top:1px dashed var(--line);padding:12px;background:rgba(245,241,232,.5)}
+.field{display:flex;align-items:center;gap:10px;margin:8px 0}
+.field label{width:96px;font-size:19px;color:var(--muted);flex-shrink:0}
+.field input[type=number],.field input[type=text]{
+  flex:1;min-width:0;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff;
+}
+.mats{margin:10px 0 4px}
+.mats h4{margin:0 0 6px;font-size:19px;color:var(--muted);font-weight:500}
+.mat{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px dotted var(--line)}
+.mat:last-child{border-bottom:none}
+.mat .mname{flex:1;font-size:20px}
+.mat .mprice{font-size:18px;color:var(--muted);font-variant-numeric:tabular-nums}
+.step{display:flex;align-items:center;gap:2px}
+.step button{
+  width:58px;height:52px;border-radius:12px;background:#F0EBDD;
+  font-size:26px;font-weight:700;color:var(--vir-deep);
+}
+.step button:active{transform:scale(.92)}
+.step b{min-width:48px;text-align:center;font-size:22px;font-variant-numeric:tabular-nums}
+.step b.zero{color:#C9C0AC}
+.removebtn{color:var(--red);font-size:19px;padding:10px 0 2px;display:block}
+
+
+/* ── 結算卡 ── */
+.sumcard{border-left:7px solid var(--ochre)}
+.sumcard table{width:100%;border-collapse:collapse;font-size:20px}
+.sumcard td{padding:5px 0}
+.sumcard td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.sumcard tr.grand td{border-top:1.5px solid var(--line);padding-top:9px;font-size:23px}
+.sumcard .who{color:var(--muted);font-size:17px;font-weight:400}
+
+
+/* ── 儲存狀態 ── */
+#saveDot{font-size:17px;color:var(--muted);white-space:nowrap;padding:6px 4px}
+#saveDot.saving{color:var(--ochre)}
+#saveDot.err{color:var(--red);font-weight:700;cursor:pointer}
+#saveDot.done{color:var(--vir)}
+
+
+/* ── 鎖定橫幅 ── */
+.lockbar{
+  display:flex;align-items:center;gap:10px;background:var(--ochre-soft);
+  border:1px solid var(--ochre);border-radius:12px;padding:10px 14px;margin:10px 0;font-size:19px;
+}
+.lockbar button{color:var(--ochre);font-weight:700;text-decoration:underline}
+.locked-area{pointer-events:none;opacity:.75}
+
+
+/* ── 設定頁列 ── */
+.editrow{display:flex;align-items:center;gap:8px;margin:8px 0;flex-wrap:wrap}
+.editrow input[type=text]{flex:1 1 180px;min-width:0;padding:14px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.editrow input.price{flex:0 0 110px;min-width:0;padding:14px;border:1px solid var(--line);border-radius:10px;background:#fff;text-align:right}
+.editrow input[type=date]{min-width:0}
+.editrow .del{width:54px;height:54px;border-radius:10px;background:var(--red-soft);color:var(--red);font-size:22px;flex-shrink:0}
+.switch{
+  flex:0 0 88px;height:52px;border-radius:99px;font-size:18px;font-weight:700;
+  background:#EAE5D9;color:var(--muted);
+}
+.switch.on{background:var(--vir-soft);color:var(--vir-deep);border:1.5px solid var(--vir)}
+.hint{font-size:18px;color:var(--muted);line-height:1.6;margin:8px 2px}
+.roster-item{border:1.5px solid var(--line);border-radius:16px;padding:12px;margin:12px 0;background:#fff}
+.setfield label{width:auto;flex:1;font-size:24px;font-weight:700;color:var(--ink)}
+.setfield input[type=number]{flex:0 0 150px;margin-left:auto;text-align:right}
+.setfield select{flex:0 0 auto !important;min-width:180px;margin-left:auto}
+
+
+/* ── 對話框 ── */
+.overlay{position:fixed;inset:0;background:rgba(43,38,32,.45);z-index:50;display:flex;align-items:flex-end;justify-content:center}
+@media(min-width:600px){.overlay{align-items:center}}
+.dialog{
+  background:var(--card);border-radius:20px 20px 0 0;width:100%;max-width:560px;
+  padding:20px 18px calc(20px + env(safe-area-inset-bottom));max-height:88vh;overflow:auto;
+}
+@media(min-width:600px){.dialog{border-radius:20px}}
+.dialog h2{margin:0 0 14px;font-size:26px}
+.dialog .actions{display:flex;gap:10px;margin-top:18px}
+.dialog .actions button{flex:1;padding:18px;border-radius:12px;font-size:22px;font-weight:700}
+.dialog .actions .ok{background:var(--vir);color:#fff}
+.dialog .actions .cancel{background:#EFEADC;color:var(--muted)}
+.dialog .danger{color:var(--red);font-size:19px;margin-top:16px;text-align:center;display:block;width:100%}
+.datefield{display:flex;align-items:center;gap:10px;margin:8px 0}
+.datefield label{width:108px;color:var(--muted);font-size:19px}
+.datefield input{flex:1;padding:14px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.checkline{display:flex;align-items:center;gap:8px;margin:14px 0 0;font-size:20px}
+.checkline input{width:30px;height:30px}
+
+
+/* ── 加人面板 ── */
+.pickwrap{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.pick{
+  padding:14px 20px;border-radius:99px;background:#F0EBDD;font-size:20px;
+  border:1.5px solid var(--line);font-weight:500;
+}
+.pick:active{background:var(--vir-soft)}
+
+
+/* ── 明細表(仿 Excel,可列印)── */
+.report-sheet{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 10px;overflow-x:auto}
+.report-title{text-align:center;font-size:22px;font-weight:900;margin:2px 0 10px;font-family:'Noto Serif TC'}
+.rtable{width:100%;border-collapse:collapse;font-size:18px;min-width:540px}
+.rtable th,.rtable td{border:1px solid #999;padding:5px 6px;text-align:center}
+.rtable th{background:#F3EFE4;font-weight:700}
+.rtable td.name{font-weight:700}
+.rtable td.num{text-align:right;font-variant-numeric:tabular-nums}
+.rtable td.note{color:var(--red);text-align:left;font-size:16px}
+.rtable td.mat{text-align:left;font-size:16px}
+.rtable tr.totalrow td{font-weight:700;background:#FAF7EE}
+.rtable .split{color:var(--red);text-align:left;font-size:16px}
+.paidmark{color:var(--vir);font-weight:900}
+.unpaidmark{color:var(--red);font-size:16px}
+#reportActions{display:flex;gap:10px;margin:12px 0}
+#reportActions button{flex:1;padding:17px;border-radius:12px;font-weight:700;background:var(--card);border:1px solid var(--line)}
+
+
+@media print{
+  body{background:#fff}
+  body *{visibility:hidden}
+  #printZone,#printZone *{visibility:visible}
+  #printZone{position:absolute;left:0;top:0;width:100%}
+  .report-sheet{border:none;padding:0}
+  .rtable{min-width:0}
+}
+
+
+/* ── 載入畫面 ── */
+#loading{display:flex;flex-direction:column;align-items:center;gap:14px;padding:80px 20px;color:var(--muted)}
+.palette-spin{font-size:44px;animation:spin 1.6s linear infinite;display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.palette-spin{animation:none}.smear>i{transition:none}}
+.footer{color:#B9B09B;font-size:16px;text-align:center;margin-top:30px}
+.footer a{color:#B9B09B}
+.toast{
+  position:fixed;left:50%;bottom:30px;transform:translateX(-50%);
+  background:var(--ink);color:#fff;padding:10px 20px;border-radius:99px;
+  font-size:19px;z-index:99;opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;
+}
+.toast.show{opacity:.94}
+.toast button{color:#FFD98A;font-weight:700;text-decoration:underline;margin-left:12px;font-size:19px}
+.empty{color:var(--muted);text-align:center;padding:28px 10px;font-size:20px;line-height:1.7}
+/* ── 班費帳本 ── */
+.balance{font-size:49px;font-weight:900;text-align:center;margin:6px 0 2px;font-variant-numeric:tabular-nums}
+.balance.neg{color:var(--red)}
+.bal-sub{display:flex;justify-content:center;gap:14px;font-size:18px;color:var(--muted);flex-wrap:wrap}
+.fundrow{display:flex;align-items:center;gap:8px;padding:12px 0;border-bottom:1px dotted var(--line);font-size:21px}
+.fundrow:last-child{border-bottom:none}
+.fundrow .fdate{flex:0 0 92px;color:var(--muted);font-size:20px;font-variant-numeric:tabular-nums}
+.fundrow .fitem{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.fundrow .famt{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fundrow .famt.in{color:var(--vir-deep)}
+.fundrow .famt.out{color:var(--red)}
+.fundrow .del{width:52px;height:52px;border-radius:9px;background:var(--red-soft);color:var(--red);flex-shrink:0}
+.typebtn{flex:0 0 84px;height:56px;border-radius:10px;font-weight:700;font-size:20px}
+.typebtn.in{background:var(--vir-soft);color:var(--vir-deep);border:1.5px solid var(--vir)}
+.typebtn.out{background:var(--red-soft);color:var(--red);border:1.5px solid var(--red)}
+/* ── 公告板 ── */
+.postcard{border-left:7px solid var(--ochre)}
+.post{padding:10px 0;border-bottom:1px dotted var(--line);display:flex;gap:8px;align-items:flex-start}
+.post:last-child{border-bottom:none}
+.post .pbody{flex:1;min-width:0}
+.post .pdate{font-size:16px;color:var(--muted);margin-bottom:2px}
+.post .ptext{font-size:20px;line-height:1.6;white-space:pre-wrap;word-break:break-word}
+.post .del{width:48px;height:48px;border-radius:9px;background:var(--red-soft);color:var(--red);flex-shrink:0;font-size:18px}
+.postadd textarea{width:100%;min-height:88px;padding:14px;border:1px solid var(--line);border-radius:10px;background:#fff;resize:vertical;font-size:20px;box-sizing:border-box}
+.field select{flex:1;min-width:0;padding:14px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:21px}
+
+
+/* ── 深色模式 ── */
+html.dark{
+  --linen:#20251E;
+  --card:#2B3127;
+  --ink:#EAE7DB;
+  --muted:#B5AF9C;
+  --line:#4A5142;
+  --vir:#3E9C7F;
+  --vir-deep:#8FD4B8;
+  --vir-soft:#294A3D;
+  --ochre:#D8A44E;
+  --ochre-soft:#4A3D1F;
+  --red:#E8846E;
+  --red-soft:#4E2A22;
+}
+html.dark input,html.dark select,html.dark textarea{background:#343B30 !important;color:var(--ink);border-color:var(--line) !important}
+html.dark .chip,html.dark .paid-btn,html.dark .pay,html.dark .step button,html.dark .switch,html.dark .typebtn,html.dark .pick,html.dark .lockbtn,html.dark .dialog .actions .cancel,html.dark .clstabs{background:#3A4136;color:var(--muted)}
+html.dark .clstab.on{background:#586250;color:var(--vir-deep)}
+html.dark .step button{color:var(--vir-deep)}
+html.dark .stag-請假,html.dark .chip.sel-請假,html.dark .paid-btn.part{color:#EBC57C}
+html.dark .roster-item{background:var(--card)}
+html.dark .smear{background:#3A4136}
+html.dark .footer,html.dark .footer a{color:#8B8778}
+html.dark .rtable th{background:#E8E4D6}
+html.dark .toast{background:#000}
+.report-sheet{color:#2B2620}
+.report-sheet .rtable td.name,.report-sheet .rtable th{color:#2B2620}
+.darkbtn{position:absolute;top:14px;right:0;min-width:56px;height:56px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-size:28px}
+.home-head{position:relative}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="loading"><span class="palette-spin">🎨</span><span>調色中,資料載入…</span></div>
+  <div id="view"></div>
+</div>
+<div id="toast" class="toast"></div>
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+/* ═══════════════ 全域狀態 ═══════════════ */
+var APP_VERSION = 'v0.8.7';
+function isDark_() { return document.documentElement.classList.contains('dark'); }
+function toggleDark() {
+  document.documentElement.classList.toggle('dark');
+  try { localStorage.setItem('oilDark', isDark_() ? '1' : '0'); } catch (e) {}
+  renderHome();
+}
+try { if (localStorage.getItem('oilDark') === '1') document.documentElement.classList.add('dark'); } catch (e) {}
+var CLS_LIST = ['假日班', '平日班'];
+var S = {
+  all: null,           // {假日班:{...}, 平日班:{...}}
+  cls: '假日班',       // 目前班別
+  sheetUrl: '',
+  data: null,          // 目前班別的 {settings, materials, roster, periods, records, fund}
+  cur: null,           // 目前開啟的期數 no
+  dirty: false,
+  saveTimer: null,
+  saving: false,
+  draft: null,
+  postAddOpen: false,
+  fundType: '支出',
+  showPay: true,
+  addPanelOpen: false,
+  payUnlock: {}          // 全繳上鎖後,本次手動解鎖的名單
+};
+
+
+/* ═══════════════ 後端呼叫:Firebase 版(取代 Apps Script)═══════════════
+   資料用班長密碼加密(AES-GCM)後存 rooms/<班級暗號>/fees/<文件>,別人讀到只有亂碼。
+   寫入附「班長證明」(與團購同一套),規則驗證密碼雜湊。 */
+firebase.initializeApp({
+  apiKey:"AIzaSyBVwRQZ8huWsmrVtl8quD6z_BjYNFWAM48",
+  authDomain:"huabu-groupbuy.firebaseapp.com",
+  projectId:"huabu-groupbuy",
+  storageBucket:"huabu-groupbuy.firebasestorage.app",
+  messagingSenderId:"156535837517",
+  appId:"1:156535837517:web:48ee56a55a4a0f5bc05d04"
+});
+var FDB = firebase.firestore(), FV = firebase.firestore.FieldValue;
+var FEE = { room: '', hash: '', key: null, cache: {} };
+function b64e_(buf) { var s = '', a = new Uint8Array(buf); for (var i = 0; i < a.length; i++) s += String.fromCharCode(a[i]); return btoa(s); }
+function b64d_(s) { var b = atob(s), a = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) a[i] = b.charCodeAt(i); return a; }
+async function pbk_(room, pw, tag, bits) {
+  var k = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveBits']);
+  return crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: new TextEncoder().encode(tag + room), iterations: 150000 }, k, bits);
+}
+async function feeLogin_(room, pw) {
+  // 與團購相同的雜湊(salt = huabu:<暗號>);AES 金鑰另用 salt 以免互通
+  var h = await pbk_(room, pw, 'huabu:', 256);
+  var hash = Array.prototype.map.call(new Uint8Array(h), function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
+  var key = await crypto.subtle.importKey('raw', await pbk_(room, pw, 'huabufee:', 256), 'AES-GCM', false, ['encrypt', 'decrypt']);
+  var meta = await FDB.collection('rooms').doc(room).collection('meta').doc('room').get();
+  if (!meta.exists) throw new Error('找不到這個班級暗號');
+  FEE.room = room; FEE.hash = hash; FEE.key = key;
+  try { await feeBatch_(function () {}); } catch (e) { FEE.hash = ''; throw new Error('管理密碼不對'); }
+}
+function feeCol_() { return FDB.collection('rooms').doc(FEE.room).collection('fees'); }
+async function feeBatch_(fn) {
+  var b = FDB.batch();
+  b.set(FDB.collection('rooms').doc(FEE.room).collection('proofs').doc('p'), { hash: FEE.hash, t: FV.serverTimestamp() });
+  fn(b); await b.commit();
+}
+async function enc_(obj) {
+  var iv = crypto.getRandomValues(new Uint8Array(12));
+  var ct = await crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, FEE.key, new TextEncoder().encode(JSON.stringify(obj)));
+  return { c: b64e_(ct), iv: b64e_(iv) };
+}
+async function dec_(d) {
+  var pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64d_(d.iv) }, FEE.key, b64d_(d.c));
+  return JSON.parse(new TextDecoder().decode(pt));
+}
+async function feePut_(id, obj) {
+  var e = await enc_(obj);
+  await feeBatch_(function (b) { b.set(feeCol_().doc(id), e); });
+  FEE.cache[id] = obj;
+}
+var BLANK_CLS = function () { return { settings: { normal: 800, disc: 400, classFee: 50, collector: '' }, materials: [], roster: [], periods: [], records: {}, fund: [] }; };
+async function feeApi_(fn, p) {
+  var cls = p && p.cls;
+  if (fn === 'apiLoad') {
+    var snap = await feeCol_().get(), classes = {};
+    CLS_LIST.forEach(function (c) { classes[c] = BLANK_CLS(); });
+    FEE.cache = {};
+    for (var i = 0; i < snap.docs.length; i++) {
+      var d = snap.docs[i], o = await dec_(d.data()); FEE.cache[d.id] = o;
+      var m = /^([a-z])_([^_]+)(?:_(\d+))?$/.exec(d.id); if (!m || !classes[m[2]]) continue;
+      var c = classes[m[2]];
+      if (m[1] === 's') c.settings = o; else if (m[1] === 'm') c.materials = o; else if (m[1] === 'r') c.roster = o; else if (m[1] === 'f') c.fund = o;
+      else if (m[1] === 'p') { c.periods.push({ no: o.no, dates: o.dates || [], status: o.status || '進行中', posts: o.posts || [] }); c.records[String(o.no)] = o.rows || []; }
+    }
+    CLS_LIST.forEach(function (c) { classes[c].periods.sort(function (a, b) { return a.no - b.no; }); });
+    return { classes: classes, sheetUrl: '' };
+  }
+  if (fn === 'apiSavePeriod') return feePut_('p_' + cls + '_' + p.no, { no: p.no, dates: p.dates, status: p.status, posts: p.posts || [], rows: p.rows || [] });
+  if (fn === 'apiDeletePeriod') { await feeBatch_(function (b) { b.delete(feeCol_().doc('p_' + cls + '_' + p.no)); }); delete FEE.cache['p_' + cls + '_' + p.no]; return null; }
+  if (fn === 'apiSaveMaterials') return feePut_('m_' + cls, p.list || []);
+  if (fn === 'apiSaveRoster') return feePut_('r_' + cls, p.list || []);
+  if (fn === 'apiSaveFund') return feePut_('f_' + cls, p.list || []);
+  if (fn === 'apiSaveSettings') return feePut_('s_' + cls, { normal: p.normal, disc: p.disc, classFee: p.classFee, collector: p.collector });
+  if (fn === 'apiRenameStudent') {
+    var rid = 'r_' + cls, ros = FEE.cache[rid];
+    if (ros) { ros.forEach(function (r) { if (r.name === p.from) r.name = p.to; }); await feePut_(rid, ros); }
+    var ids = Object.keys(FEE.cache).filter(function (k) { return k.indexOf('p_' + cls + '_') === 0; });
+    for (var j = 0; j < ids.length; j++) {
+      var po = FEE.cache[ids[j]], ch = false;
+      (po.rows || []).forEach(function (r) { if (r.name === p.from) { r.name = p.to; ch = true; } });
+      if (ch) await feePut_(ids[j], po);
+    }
+    return null;
+  }
+  throw new Error('未知的 API:' + fn);
+}
+function api(fn, payload) {
+  return feeApi_(fn, payload).catch(function (e) { throw (e && e.code === 'permission-denied') ? '沒有權限(密碼不對或班級不存在)' : ((e && e.message) || String(e)); });
+}
+/* 登入畫面:班級暗號+管理密碼 */
+function gateAndBoot_() {
+  var g = document.createElement('div'); g.id = 'feegate';
+  g.style.cssText = 'position:fixed;inset:0;z-index:99;background:var(--bg,#f6f1e9);display:flex;align-items:center;justify-content:center;padding:20px';
+  g.innerHTML = '<div style="max-width:360px;width:100%"><h1 style="font-size:26px;margin:0 0 6px">🎨 油畫班收費表</h1>' +
+    '<div style="color:#888;margin-bottom:14px">新版(測試中)・班長登入</div>' +
+    '<input id="fgRoom" placeholder="班級暗號" style="width:100%;font-size:20px;padding:12px;margin-bottom:10px;box-sizing:border-box">' +
+    '<input id="fgPw" type="password" placeholder="管理密碼" style="width:100%;font-size:20px;padding:12px;margin-bottom:10px;box-sizing:border-box">' +
+    '<button id="fgGo" class="bigbtn" style="width:100%">進入</button><div id="fgMsg" style="color:#c33;margin-top:10px"></div></div>';
+  document.body.appendChild(g);
+  var room = ''; try { room = localStorage.getItem('fee-room') || ''; } catch (e) {}
+  $('fgRoom').value = room;
+  function go() {
+    var r = $('fgRoom').value.trim(), pw = $('fgPw').value; $('fgMsg').textContent = '';
+    if (!r || !pw) { $('fgMsg').textContent = '請輸入暗號與密碼'; return; }
+    $('fgGo').disabled = true;
+    feeLogin_(r, pw).then(function () {
+      try { localStorage.setItem('fee-room', r); } catch (e) {}
+      g.remove(); bootData_();
+    }).catch(function (e) { $('fgGo').disabled = false; $('fgMsg').textContent = (e && e.message) || '登入失敗'; });
+  }
+  $('fgGo').onclick = go; $('fgPw').onkeydown = function (e) { if (e.key === 'Enter') go(); };
+}
+
+
+/* ═══════════════ 小工具 ═══════════════ */
+function $(id) { return document.getElementById(id); }
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function money(n) { return '$' + Number(n || 0).toLocaleString('en-US'); }
+function toast(msg) {
+  var t = $('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm = setTimeout(function () { t.classList.remove('show'); }, 2200);
+}
+/* 西元 'YYYY/MM/DD' → 民國 '115/07/18' */
+function roc(d) {
+  var p = String(d).split('/');
+  if (p.length !== 3) return d;
+  return (Number(p[0]) - 1911) + '/' + p[1] + '/' + p[2];
+}
+/* 期數日期區間:'115/07/18~08/08(4次)' */
+function rocRange(dates) {
+  if (!dates.length) return '';
+  if (dates.length === 1) return roc(dates[0]);
+  var last = String(dates[dates.length - 1]).split('/');
+  return roc(dates[0]) + '~' + (last.length === 3 ? last[1] + '/' + last[2] : dates[dates.length - 1]) + '(' + dates.length + '次)';
+}
+/* 期數日期列:'115/07/18、07/25、08/01、08/08' */
+function rocDates(dates) {
+  return dates.map(function (d, i) {
+    if (i === 0) return roc(d);
+    var p = String(d).split('/');
+    return p.length === 3 ? p[1] + '/' + p[2] : d;
+  }).join('、');
+}
+function rowsOf(no) {
+  var k = String(no);
+  if (!S.data.records[k]) S.data.records[k] = [];
+  return S.data.records[k];
+}
+function findPeriod(no) {
+  for (var i = 0; i < S.data.periods.length; i++)
+    if (S.data.periods[i].no === no) return S.data.periods[i];
+  return null;
+}
+function matPrice(name) {
+  for (var i = 0; i < S.data.materials.length; i++)
+    if (S.data.materials[i].name === name) return S.data.materials[i].price;
+  return 0;
+}
+function rosterOf(name) {
+  for (var i = 0; i < S.data.roster.length; i++)
+    if (S.data.roster[i].name === name) return S.data.roster[i];
+  return null;
+}
+function tuitionOfEntry(r) {
+  if (!r) return S.data.settings.normal;
+  if (r.rate === '優惠') return S.data.settings.disc;
+  if (r.rate === '自訂') return Number(r.custom) || 0;
+  return S.data.settings.normal;
+}
+function tuitionOf(name) { return tuitionOfEntry(rosterOf(name)); }
+/* 繳費狀態:'full' 全繳|'part' 部分|'none' 未繳|'na' 金額0 */
+function payState(r) {
+  var buckets = [[r.fee, r.paidFee], [r.classFee, r.paidClass], [r.matSubtotal, r.paidMat]]
+    .filter(function (b) { return Number(b[0]) > 0; });
+  if (!buckets.length) return 'na';
+  var paid = buckets.filter(function (b) { return b[1]; }).length;
+  return paid === buckets.length ? 'full' : (paid > 0 ? 'part' : 'none');
+}
+function paidAmount(r) {
+  return (r.paidFee ? Number(r.fee || 0) : 0) +
+         (r.paidClass ? Number(r.classFee || 0) : 0) +
+         (r.paidMat ? r.matSubtotal : 0);
+}
+/* 重算某列的材料小計/明細/合計 */
+function recalcRow(r) {
+  var sub = 0, parts = [];
+  Object.keys(r.mats || {}).forEach(function (k) {
+    var q = Number(r.mats[k] || 0);
+    if (q > 0) { sub += q * matPrice(k); parts.push(k + '×' + q); }
+  });
+  r.matSubtotal = sub;
+  r.matText = parts.join('、');
+  r.total = Number(r.fee || 0) + Number(r.classFee || 0) + sub;
+}
+function summary(no) {
+  var rows = rowsOf(no), s = { due: 0, paidCnt: 0, sumDue: 0, sumPaid: 0, tuition: 0, classFee: 0, mat: 0, total: 0 };
+  rows.forEach(function (r) {
+    recalcRow(r);
+    s.tuition += Number(r.fee || 0);
+    s.classFee += Number(r.classFee || 0);
+    s.mat += r.matSubtotal;
+    s.total += r.total;
+    if (r.total > 0) {
+      s.due++; s.sumDue += r.total;
+      s.sumPaid += paidAmount(r);
+      if (payState(r) === 'full') s.paidCnt++;
+    }
+  });
+  return s;
+}
+
+
+/* ═══════════════ 自動存檔 ═══════════════ */
+function markDirty() {
+  S.dirty = true;
+  setSaveDot('儲存中…', 'saving');
+  clearTimeout(S.saveTimer);
+  S.saveTimer = setTimeout(flushSave, 1200);
+}
+function flushSave() {
+  clearTimeout(S.saveTimer);
+  if (!S.dirty || S.cur === null || S.saving) return;
+  var p = findPeriod(S.cur);
+  if (!p) return;
+  S.saving = true;
+  S.dirty = false;
+  var rows = rowsOf(S.cur);
+  rows.forEach(recalcRow);
+  api('apiSavePeriod', { cls: S.cls, no: p.no, dates: p.dates, status: p.status, posts: p.posts || [], rows: rows })
+    .then(function () {
+      S.saving = false;
+      if (S.dirty) { flushSave(); return; }
+      var t = new Date();
+      setSaveDot('已儲存 ✓ ' + ('0' + t.getHours()).slice(-2) + ':' + ('0' + t.getMinutes()).slice(-2), 'done');
+    })
+    .catch(function (e) {
+      S.saving = false; S.dirty = true;
+      setSaveDot('❗儲存失敗,點此重試', 'err');
+      console.error(e);
+    });
+}
+function setSaveDot(text, cls) {
+  var d = $('saveDot');
+  if (!d) return;
+  d.textContent = text;
+  d.className = cls || '';
+}
+document.addEventListener('visibilitychange', function () {
+  if (document.visibilityState === 'hidden' && S.dirty) flushSave();
+});
+window.addEventListener('beforeunload', function (e) {
+  if (S.dirty) { flushSave(); e.preventDefault(); e.returnValue = ''; }
+});
+
+
+/* ═══════════════ 啟動 ═══════════════ */
+function bootData_() {
+  api('apiLoad').then(function (data) {
+    S.all = data.classes;
+    S.sheetUrl = data.sheetUrl || '';
+    if (!S.all[S.cls]) S.cls = CLS_LIST[0];
+    S.data = S.all[S.cls];
+    $('loading').style.display = 'none';
+    renderHome();
+  }).catch(function (e) {
+    $('loading').innerHTML = '<div class="empty">😵 載入失敗:' + esc(e) +
+      '<br><br><button class="bigbtn" onclick="location.reload()">重新載入</button></div>';
+  });
+}
+
+
+/* ═══════════════ 首頁:期數列表 ═══════════════ */
+function renderHome() {
+  S.cur = null; S.addPanelOpen = false;
+  var d = S.data;
+  var list = d.periods.slice().sort(function (a, b) { return b.no - a.no; });
+  var h = '<div class="home-head"><button class="darkbtn" onclick="toggleDark()" title="深色模式">' + (isDark_() ? '☀️' : '🌙') + '</button>' +
+    '<h1 class="serif">🎨 油畫班收費表</h1>' +
+    '<div class="subline">' + esc(S.cls) + '・收費管理</div>' +
+    '<div class="clstabs">' + CLS_LIST.map(function (c) {
+      return '<button class="clstab' + (c === S.cls ? ' on' : '') + '" onclick="switchClass(\'' + c + '\')">' + esc(c) + '</button>';
+    }).join('') + '</div>' +
+    '<div class="navbtns">' +
+    '<button class="iconbtn" onclick="renderFund()">💰 班費</button>' +
+    '<button class="iconbtn" onclick="renderMaterials()">🧰 材料</button>' +
+    '<button class="iconbtn" onclick="renderRoster()">👥 名單</button></div></div>';
+
+
+  h += '<button class="bigbtn" onclick="openNewPeriod()">＋ 新增期數</button>';
+
+
+  if (!list.length) {
+    h += '<div class="empty">還沒有任何期數。<br>點上面「新增期數」開始第一期!</div>';
+  }
+  list.forEach(function (p) {
+    var s = summary(p.no);
+    var pct = s.sumDue > 0 ? Math.round(s.sumPaid / s.sumDue * 100) : 0;
+    h += '<div class="card period-card" onclick="openPeriod(' + p.no + ')">' +
+      '<div class="row1"><span class="pno serif">第' + p.no + '期</span><span style="flex:1"></span>' +
+      '<span class="badge ' + (p.status === '已結束' ? 'closed">已結束' : 'open">進行中') + '</span></div>' +
+      '<div class="dates">' + esc(rocRange(p.dates)) + '</div>' +
+      '<div class="smear-wrap"><div class="smear-label">' +
+      '<span>全繳 <b>' + s.paidCnt + '</b> / ' + s.due + ' 人</span>' +
+      '<span><b>' + money(s.sumPaid) + '</b> / ' + money(s.sumDue) + '</span></div>' +
+      '<div class="smear"><i style="width:' + pct + '%"></i></div></div></div>';
+  });
+
+
+  h += '<div class="footer">油畫班收費表 ' + APP_VERSION +
+    (S.sheetUrl && S.sheetUrl !== '#' ? ' ・ <a href="' + esc(S.sheetUrl) + '" target="_blank">開啟資料試算表</a>' : '') +
+    '</div>';
+  $('view').innerHTML = h;
+  window.scrollTo(0, 0);
+}
+function switchClass(cls) {
+  if (cls === S.cls || !S.all[cls]) return;
+  if (S.dirty) flushSave();          // 先把目前班別未存的資料送出(payload 已鎖定舊班別)
+  S.cls = cls;
+  S.data = S.all[cls];
+  S.cur = null;
+  renderHome();
+  toast('已切換到' + cls);
+}
+
+
+/* ═══════════════ 新增期數 ═══════════════ */
+function openNewPeriod() {
+  var maxNo = 0;
+  S.data.periods.forEach(function (p) { if (p.no > maxNo) maxNo = p.no; });
+  var h = '<h2>新增期數</h2>' +
+    '<div class="datefield"><label>期數</label><input type="number" id="npNo" value="' + (maxNo + 1) + '"></div>' +
+    '<div class="datefield"><label>第 1 次上課</label><input type="date" id="npD0" onchange="autoDates()"></div>' +
+    '<div class="datefield"><label>第 2 次</label><input type="date" id="npD1"></div>' +
+    '<div class="datefield"><label>第 3 次</label><input type="date" id="npD2"></div>' +
+    '<div class="datefield"><label>第 4 次</label><input type="date" id="npD3"></div>' +
+    '<div class="hint">選好第 1 次上課日,後面三次自動往後排一週(可再手動改)。</div>' +
+    '<label class="checkline"><input type="checkbox" id="npCopy" checked> 帶入學員名單(' +
+    S.data.roster.filter(function (r) { return r.active; }).length + ' 人)</label>' +
+    '<div class="actions"><button class="cancel" onclick="closeDialog()">取消</button>' +
+    '<button class="ok" onclick="createPeriod()">建立</button></div>';
+  openDialog(h);
+}
+function autoDates() {
+  var v = $('npD0').value;
+  if (!v) return;
+  for (var i = 1; i <= 3; i++) {
+    var d = new Date(v + 'T12:00:00');
+    d.setDate(d.getDate() + 7 * i);
+    $('npD' + i).value = d.toISOString().slice(0, 10);
+  }
+}
+function createPeriod() {
+  var no = Number($('npNo').value);
+  if (!no || no < 1) { toast('期數要填正整數喔'); return; }
+  if (findPeriod(no)) { toast('第' + no + '期已經存在'); return; }
+  var dates = [];
+  for (var i = 0; i < 4; i++) {
+    var v = $('npD' + i).value;
+    if (v) dates.push(v.replace(/-/g, '/'));
+  }
+  if (!dates.length) { toast('至少選第 1 次上課日'); return; }
+  var p = { no: no, dates: dates, status: '進行中', posts: [] };
+  S.data.periods.push(p);
+  var rows = [];
+  if ($('npCopy').checked) {
+    S.data.roster.forEach(function (r) {
+      if (r.active) rows.push(newRow(r.name));
+    });
+  }
+  S.data.records[String(no)] = rows;
+  closeDialog();
+  openPeriod(no);
+  markDirty();
+}
+function newRow(name) {
+  var r = {
+    name: name, status: '上課',
+    fee: tuitionOf(name), classFee: S.data.settings.classFee,
+    mats: {}, matText: '', matSubtotal: 0, total: 0,
+    paidFee: false, paidClass: false, paidMat: false, note: ''
+  };
+  recalcRow(r);
+  return r;
+}
+
+
+/* ═══════════════ 期數內頁 ═══════════════ */
+function openPeriod(no) {
+  S.cur = no; S.addPanelOpen = false; S.postAddOpen = false;
+  renderPeriod();
+  window.scrollTo(0, 0);
+}
+function postBoardHtml(p, locked) {
+  var posts = p.posts || [];
+  var h = '<div class="card postcard" style="padding:12px 16px"><h4 style="margin:0 0 2px">📌 公告</h4>';
+  if (!posts.length) h += '<div class="hint" style="margin:4px 0">還沒有公告。老師在 LINE 發的注意事項可以貼過來,大家看這裡就清楚。</div>';
+  posts.forEach(function (po, i) {
+    h += '<div class="post"><div class="pbody"><div class="pdate">' + esc(roc(po.date)) + '</div>' +
+      '<div class="ptext">' + esc(po.text) + '</div></div>' +
+      (locked ? '' : '<button class="del" onclick="postDel(' + i + ')">✕</button>') + '</div>';
+  });
+  if (!locked) {
+    if (S.postAddOpen) {
+      h += '<div class="postadd" style="margin-top:8px"><textarea id="postText" placeholder="貼上或輸入公告內容…"></textarea>' +
+        '<div class="actions" style="margin-top:8px"><button class="cancel" style="flex:1;padding:11px;border-radius:10px" onclick="S.postAddOpen=false;renderPeriod()">取消</button>' +
+        '<button class="ok" style="flex:1;padding:11px;border-radius:10px;background:var(--ochre);color:#fff" onclick="postAdd()">張貼</button></div></div>';
+    } else {
+      h += '<button class="removebtn" style="color:var(--ochre);font-weight:700" onclick="S.postAddOpen=true;renderPeriod()">＋ 新增公告</button>';
+    }
+  }
+  return h + '</div>';
+}
+function postAdd() {
+  var t = ($('postText').value || '').trim();
+  if (!t) { toast('公告內容不能空白'); return; }
+  var p = findPeriod(S.cur);
+  if (!p.posts) p.posts = [];
+  var d = new Date();
+  var ds = d.getFullYear() + '/' + ('0' + (d.getMonth() + 1)).slice(-2) + '/' + ('0' + d.getDate()).slice(-2);
+  p.posts.push({ date: ds, text: t });
+  S.postAddOpen = false;
+  markDirty(); renderPeriod();
+}
+function postDel(i) {
+  var p = findPeriod(S.cur);
+  if (!confirm('刪除這則公告?')) return;
+  p.posts.splice(i, 1);
+  markDirty(); renderPeriod();
+}
+
+
+function renderPeriod() {
+  var p = findPeriod(S.cur);
+  if (!p) { renderHome(); return; }
+  var rows = rowsOf(p.no);
+  rows.forEach(recalcRow);
+  var s = summary(p.no);
+  var locked = p.status === '已結束';
+  var pct = s.sumDue > 0 ? Math.round(s.sumPaid / s.sumDue * 100) : 0;
+
+
+  var h = '<div class="topbar">' +
+    '<button class="iconbtn" onclick="renderHome()">←</button>' +
+    '<h1>' + esc(S.cls) + ' 第' + p.no + '期</h1>' +
+    '<span id="saveDot" onclick="flushSave()">已同步 ✓</span></div>' +
+    '<div class="phead"><div>上課日期 <a href="javascript:void(0)" onclick="openDatesDialog()" style="text-decoration:none">✎</a></div>' +
+    '<div class="phead-dates">' + rocDates(p.dates).split('、').map(function (d) { return '<span>' + esc(d) + '</span>'; }).join('') + '</div></div>';
+
+
+  if (locked) {
+    h += '<div class="lockbar">🔒 本期已結束,鎖定唯讀 <button onclick="toggleLock()">解鎖編輯</button></div>';
+  }
+
+
+  h += postBoardHtml(p, locked);
+
+
+  h += '<div class="card" style="padding:12px 16px"><div class="smear-wrap" style="margin:0">' +
+    '<div class="smear-label"><span>全繳 <b>' + s.paidCnt + '</b> / ' + s.due + ' 人</span>' +
+    '<span>已收 <b>' + money(s.sumPaid) + '</b> / 應收 ' + money(s.sumDue) + '</span></div>' +
+    '<div class="smear"><i style="width:' + pct + '%"></i></div></div></div>';
+
+
+  h += '<div class="' + (locked ? 'locked-area' : '') + '" id="stuList">';
+  rows.forEach(function (r, i) { h += stuHtml(r, i); });
+  h += '</div>';
+
+
+  if (!locked) {
+    if (S.addPanelOpen) h += addPanelHtml();
+    else h += '<button class="bigbtn ghost" onclick="S.addPanelOpen=true;renderPeriod()">＋ 加入學員</button>';
+  }
+
+
+  h += '<div class="card sumcard"><table>' +
+    '<tr><td>學費合計 <span class="who">→ 老師</span></td><td>' + money(s.tuition) + '</td></tr>' +
+    '<tr><td>班費合計' + (S.data.settings.collector ? ' <span class="who">→ ' + esc(S.data.settings.collector) + '收</span>' : '') + '</td><td>' + money(s.classFee) + '</td></tr>' +
+    '<tr><td>材料合計</td><td>' + money(s.mat) + '</td></tr>' +
+    '<tr class="grand"><td>總計</td><td>' + money(s.total) + '</td></tr></table></div>';
+
+
+  h += '<button class="bigbtn" style="background:var(--ochre)" onclick="renderReport()">📄 明細表(可列印)</button>';
+  h += '<button class="bigbtn ghost" onclick="toggleLock()">' + (locked ? '🔓 重新開啟本期' : '🔒 結束本期(鎖定)') + '</button>';
+  h += '<div class="footer">油畫班收費表 ' + APP_VERSION + '</div>';
+
+
+  $('view').innerHTML = h;
+}
+function stuHtml(r, i) {
+  var st = payState(r);
+  var lk = (st === 'full' && !S.payUnlock[lockKey_(r)]);
+  var btnCls = st === 'full' ? ' on' : (st === 'part' ? ' part' : '');
+  var btnTxt = st === 'full' ? '✓ 全繳' : (st === 'part' ? '部分' : (st === 'na' ? '—' : '未繳'));
+  var h = '<div class="stu' + (st === 'full' ? ' paid-on' : (st === 'part' ? ' paid-part' : '')) + '">' +
+    '<div class="stu-top" onclick="openStuCard(' + i + ')">' +
+    '<span class="stu-name">' + esc(r.name) +
+    (r.status !== '上課' ? '<span class="stag stag-' + r.status + '">' + r.status + '</span>' : '') +
+    '<span class="caret">✎</span></span>' +
+    '<span class="stu-total' + (r.total === 0 ? ' zero' : '') + '">' + money(r.total) + '</span>' +
+    '<button class="paid-btn' + btnCls + '" onclick="togglePayAll(' + i + ',event)">' + btnTxt + '</button>' +
+    (st === 'full' ? '<button class="lockbtn' + (lk ? '' : ' open') + '" onclick="toggleStuLock(' + i + ',event)" title="防誤觸鎖">' + (lk ? '🔒' : '🔓') + '</button>' : '') +
+    '</div>';
+  var pays = [];
+  if (Number(r.fee) > 0) pays.push(['paidFee', '學費 ' + money(r.fee), r.paidFee]);
+  if (Number(r.classFee) > 0) pays.push(['paidClass', '班費 ' + money(r.classFee), r.paidClass]);
+  if (r.matSubtotal > 0) pays.push(['paidMat', '材料 ' + money(r.matSubtotal), r.paidMat]);
+  if (pays.length) {
+    h += '<div class="paychips' + (lk ? ' lockdim' : '') + '">' + pays.map(function (p) {
+      return '<button class="pay' + (p[2] ? ' on' : '') + '" onclick="togglePay(' + i + ',\'' + p[0] + '\',event)">' +
+        (p[2] ? '✓ ' : '') + p[1] + '</button>';
+    }).join('') + '</div>';
+  }
+  return h + '</div>';
+}
+var UNDO = null; // {no, idx, snap}
+function pushUndo(i) {
+  UNDO = { no: S.cur, idx: i, snap: JSON.parse(JSON.stringify(rowsOf(S.cur)[i])) };
+}
+function doUndo() {
+  if (!UNDO) return;
+  if (S.cur !== UNDO.no) { toast('已離開該期,無法復原'); UNDO = null; return; }
+  rowsOf(UNDO.no)[UNDO.idx] = UNDO.snap;
+  UNDO = null;
+  var t = $('toast'); t.classList.remove('show'); t.style.pointerEvents = 'none';
+  markDirty(); renderPeriod();
+  toast('已復原 ↩');
+}
+function toastUndo(msg) {
+  var t = $('toast');
+  t.innerHTML = esc(msg) + '<button onclick="doUndo()">復原</button>';
+  t.classList.add('show');
+  t.style.pointerEvents = 'auto';
+  clearTimeout(t._tm);
+  t._tm = setTimeout(function () { t.classList.remove('show'); t.style.pointerEvents = 'none'; }, 5000);
+}
+var PAY_LABEL = { paidFee: '學費', paidClass: '班費', paidMat: '材料' };
+function lockKey_(r) { return S.cls + '|' + S.cur + '|' + r.name; }
+function toggleStuLock(i, ev) {
+  if (ev) ev.stopPropagation();
+  var r = rowsOf(S.cur)[i], k = lockKey_(r);
+  if (S.payUnlock[k]) { delete S.payUnlock[k]; toast('🔒 已上鎖'); }
+  else { S.payUnlock[k] = true; toast('🔓 已解鎖,可修改繳費'); }
+  renderPeriod();
+}
+function togglePay(i, key, ev) {
+  if (ev) ev.stopPropagation();
+  var r = rowsOf(S.cur)[i];
+  if (payState(r) === 'full' && !S.payUnlock[lockKey_(r)]) { toast('🔒 已全繳上鎖,點鎖頭解鎖才能改'); return; }
+  pushUndo(i);
+  r[key] = !r[key];
+  if (payState(r) === 'full') delete S.payUnlock[lockKey_(r)];
+  markDirty(); renderPeriod();
+  toastUndo(r.name + ' ' + PAY_LABEL[key] + (r[key] ? '已繳 ✓' : '改回未繳'));
+}
+function togglePayAll(i, ev) {
+  if (ev) ev.stopPropagation();
+  var r = rowsOf(S.cur)[i];
+  recalcRow(r);
+  if (r.total === 0) { toast(r.name + ' 這期金額是 0,不用繳費'); return; }
+  if (payState(r) === 'full' && !S.payUnlock[lockKey_(r)]) { toast('🔒 已全繳上鎖,點鎖頭解鎖才能改'); return; }
+  pushUndo(i);
+  var v = payState(r) !== 'full';   // 未全繳→全勾;已全繳→全取消
+  if (Number(r.fee) > 0) r.paidFee = v; else r.paidFee = false;
+  if (Number(r.classFee) > 0) r.paidClass = v; else r.paidClass = false;
+  if (r.matSubtotal > 0) r.paidMat = v; else r.paidMat = false;
+  if (payState(r) === 'full') delete S.payUnlock[lockKey_(r)];
+  markDirty(); renderPeriod();
+  toastUndo(r.name + (v ? ' 全繳 ✓' : ' 全部改回未繳'));
+}
+var AUTO_NOTES = { '請假': '請假', '不參加': '這期不參加' };
+function isAutoNote_(n) { return n === '' || n === '請假' || n === '這期不參加'; }
+
+
+/* ═══════════════ 學員卡片(新增/編輯共用)═══════════════ */
+function openStuCard(i) {
+  var r = rowsOf(S.cur)[i];
+  var re = rosterOf(r.name);
+  S.draft = {
+    idx: i, isNew: false, name: r.name, origName: r.name, status: r.status,
+    rate: re ? re.rate : '一般', custom: re ? (Number(re.custom) || 0) : 0,
+    classFee: (r.status === '上課' ? (Number(r.classFee) || 0) : S.data.settings.classFee),
+    mats: JSON.parse(JSON.stringify(r.mats || {})), note: r.note
+  };
+  renderStuCard();
+}
+function startAddStu(name) {
+  name = String(name || '').trim();
+  if (!name) { toast('先輸入姓名'); return; }
+  if (rowsOf(S.cur).some(function (r) { return r.name === name; })) { toast(name + ' 已在本期'); return; }
+  var re = rosterOf(name);
+  S.draft = {
+    idx: -1, isNew: true, name: name, origName: '', status: '上課',
+    rate: re ? re.rate : '一般', custom: re ? (Number(re.custom) || 0) : 0,
+    classFee: S.data.settings.classFee,
+    mats: {}, note: ''
+  };
+  renderStuCard();
+}
+function draftTuition() {
+  var d = S.draft;
+  if (d.rate === '優惠') return S.data.settings.disc;
+  if (d.rate === '自訂') return Number(d.custom) || 0;
+  return S.data.settings.normal;
+}
+function draftSums() {
+  var d = S.draft, mat = 0;
+  Object.keys(d.mats).forEach(function (k) { mat += Number(d.mats[k] || 0) * matPrice(k); });
+  var on = d.status === '上課';
+  var fee = on ? draftTuition() : 0;
+  var cf = on ? (Number(d.classFee) || 0) : 0;
+  return { fee: fee, cf: cf, mat: mat, total: fee + cf + mat };
+}
+function unpaidPreview(s) {
+  var d = S.draft;
+  if (d.isNew) return s.total;
+  var r = rowsOf(S.cur)[d.idx], u = 0;
+  if (s.fee > 0 && !r.paidFee) u += s.fee;
+  if (s.cf > 0 && !r.paidClass) u += s.cf;
+  if (s.mat > 0 && !r.paidMat) u += s.mat;
+  return u;
+}
+function renderStuCard() {
+  var d = S.draft, s = draftSums();
+  var h = '<h2>' + (d.isNew ? '加入學員' : esc(d.origName)) + '</h2>';
+  h += '<div class="field"><label>姓名</label><input type="text" value="' + esc(d.name) + '" onchange="S.draft.name=this.value.trim()"></div>';
+  h += '<div class="mats"><h4>本期狀態</h4><div class="chips" style="padding:0">' +
+    ['上課', '請假', '不參加'].map(function (stt) {
+      return '<button class="chip' + (d.status === stt ? ' sel-' + stt : '') + '" onclick="draftStatus(\'' + stt + '\')">' + stt + '</button>';
+    }).join('') + '</div>' +
+    (d.status !== '上課' ? '<div class="hint" style="margin:6px 0 0">狀態「' + esc(d.status) + '」:學費班費不計,材料照算</div>' : '') +
+    '</div>';
+  h += '<div class="mats"><h4>學費費率(會記到名單,之後每期沿用)</h4><div class="ratechips">' +
+    ['一般', '優惠', '自訂'].map(function (rt) {
+      var amt = rt === '一般' ? S.data.settings.normal : (rt === '優惠' ? S.data.settings.disc : null);
+      return '<button class="chip' + (d.rate === rt ? ' sel-上課' : '') + '" onclick="draftRate(\'' + rt + '\')">' +
+        rt + (amt !== null ? ' $' + amt : '') + '</button>';
+    }).join('') +
+    (d.rate === '自訂' ? '<input type="number" class="price" inputmode="numeric" value="' + (d.custom || 0) + '" onchange="draftCustom(this.value)">' : '') +
+    '</div></div>';
+  h += '<div class="field"><label>班費</label><input type="number" inputmode="numeric" value="' + d.classFee + '" onchange="draftClassFee(this.value)"' + (d.status === '上課' ? '' : ' disabled') + '></div>';
+  h += '<div class="mats"><h4>代購材料</h4>' +
+    S.data.materials.map(function (m) {
+      var q = Number(d.mats[m.name] || 0);
+      var nm = esc(m.name).replace(/'/g, "\\'");
+      return '<div class="mat"><span class="mname">' + esc(m.name) + '</span>' +
+        '<span class="mprice">' + money(m.price) + '</span>' +
+        '<div class="step"><button onclick="draftMat(\'' + nm + '\',-1)">−</button>' +
+        '<b class="' + (q === 0 ? 'zero' : '') + '">' + q + '</b>' +
+        '<button onclick="draftMat(\'' + nm + '\',1)">＋</button></div></div>';
+    }).join('') + '</div>';
+  h += '<div class="field"><label>備註</label><input type="text" value="' + esc(d.note) + '" onchange="S.draft.note=this.value"></div>';
+  h += '<div class="card sumcard" style="margin:14px 0 0"><table>' +
+    '<tr><td>學費</td><td>' + money(s.fee) + '</td></tr>' +
+    '<tr><td>班費</td><td>' + money(s.cf) + '</td></tr>' +
+    '<tr><td>材料</td><td>' + money(s.mat) + '</td></tr>' +
+    '<tr class="grand"><td>應繳合計</td><td>' + money(s.total) + '</td></tr>' +
+    '<tr><td>目前未繳</td><td style="color:var(--red)">' + money(unpaidPreview(s)) + '</td></tr>' +
+    '</table></div>';
+  h += '<div class="actions"><button class="cancel" onclick="closeDialog()">取消</button>' +
+    '<button class="ok" onclick="saveStuCard()">' + (d.isNew ? '加入' : '儲存') + '</button></div>';
+  if (!d.isNew) h += '<button class="danger" onclick="removeStu(' + d.idx + ')">✕ 從本期移除這位學員</button>';
+  openDialog(h);
+}
+function draftStatus(st) { S.draft.status = st; renderStuCard(); }
+function draftRate(rt) {
+  S.draft.rate = rt;
+  if (rt === '自訂' && !S.draft.custom) S.draft.custom = S.data.settings.normal;
+  renderStuCard();
+}
+function draftCustom(v) { S.draft.custom = Number(v) || 0; renderStuCard(); }
+function draftClassFee(v) { S.draft.classFee = Number(v) || 0; renderStuCard(); }
+function draftMat(name, dq) {
+  var q = Math.max(0, Number(S.draft.mats[name] || 0) + dq);
+  if (q === 0) delete S.draft.mats[name]; else S.draft.mats[name] = q;
+  renderStuCard();
+}
+function saveStuCard() {
+  var d = S.draft, rows = rowsOf(S.cur), r;
+  var newName = String(d.name || '').trim();
+  if (!newName) { toast('姓名不能空白'); return; }
+  var dup = rows.some(function (x, idx) { return x.name === newName && idx !== d.idx; });
+  if (dup) { toast('本期已有「' + newName + '」'); return; }
+  if (!d.isNew && d.origName !== newName) {
+    if (rosterOf(newName)) { toast('名單已有「' + newName + '」'); return; }
+    renameLocal(d.origName, newName);
+    api('apiRenameStudent', { cls: S.cls, from: d.origName, to: newName })
+      .then(function () { toast('已改名,所有期數同步更新 ✓'); })
+      .catch(function (e) { toast('改名同步失敗:' + e); });
+  }
+  d.name = newName;
+  if (d.isNew) {
+    r = { name: newName, status: '上課', fee: 0, classFee: 0, mats: {}, matText: '',
+          matSubtotal: 0, total: 0, paidFee: false, paidClass: false, paidMat: false, note: '' };
+    rows.push(r);
+  } else {
+    r = rows[d.idx];
+  }
+  if (d.status !== r.status && isAutoNote_(d.note)) {
+    d.note = (d.status === '上課') ? '' : AUTO_NOTES[d.status];
+  }
+  r.status = d.status;
+  if (d.status === '上課') {
+    r.fee = draftTuition();
+    r.classFee = Number(d.classFee) || 0;
+  } else {
+    r.fee = 0; r.classFee = 0;
+    r.paidFee = false; r.paidClass = false;
+  }
+  r.mats = d.mats;
+  r.note = d.note;
+  recalcRow(r);
+  syncRosterFromDraft();
+  closeDialog();
+  S.addPanelOpen = false;
+  markDirty(); renderPeriod();
+}
+function renameLocal(from, to) {
+  var re = rosterOf(from);
+  if (re) re.name = to;
+  Object.keys(S.data.records).forEach(function (k) {
+    S.data.records[k].forEach(function (r) { if (r.name === from) r.name = to; });
+  });
+}
+function syncRosterFromDraft() {
+  var d = S.draft;
+  var re = rosterOf(d.name);
+  var changed = false;
+  if (!re) {
+    S.data.roster.push({ name: d.name, active: true, rate: d.rate, custom: Number(d.custom) || 0 });
+    changed = true;
+  } else if (re.rate !== d.rate || (Number(re.custom) || 0) !== (Number(d.custom) || 0)) {
+    re.rate = d.rate;
+    re.custom = Number(d.custom) || 0;
+    changed = true;
+  }
+  if (changed) api('apiSaveRoster', { cls: S.cls, list: S.data.roster }).catch(function () { toast('名單同步失敗,稍後再試'); });
+}
+function removeStu(i) {
+  var r = rowsOf(S.cur)[i];
+  if (!confirm('把「' + r.name + '」從本期移除?\n(名單裡的人不受影響)')) return;
+  rowsOf(S.cur).splice(i, 1);
+  closeDialog();
+  markDirty(); renderPeriod();
+}
+function addPanelHtml() {
+  var inPeriod = {};
+  rowsOf(S.cur).forEach(function (r) { inPeriod[r.name] = 1; });
+  var avail = S.data.roster.filter(function (r) { return r.active && !inPeriod[r.name]; });
+  var h = '<div class="card"><h4 style="margin:0 0 4px">加入學員</h4>';
+  if (avail.length) {
+    h += '<div class="hint">點名字,設定費率和材料後加入:</div><div class="pickwrap">' +
+      avail.map(function (r) {
+        return '<button class="pick" onclick="startAddStu(\'' + esc(r.name).replace(/'/g, "\\'") + '\')">' + esc(r.name) + '</button>';
+      }).join('') + '</div>';
+  }
+  h += '<div class="editrow"><input type="text" id="newStuName" placeholder="或輸入新學員姓名">' +
+    '<button class="iconbtn" style="background:var(--vir);color:#fff;border:none" onclick="startAddStu($(\'newStuName\').value)">下一步</button></div>' +
+    '<button class="removebtn" style="color:var(--muted)" onclick="S.addPanelOpen=false;renderPeriod()">收合</button></div>';
+  return h;
+}
+function toggleLock() {
+  var p = findPeriod(S.cur);
+  p.status = (p.status === '已結束' ? '進行中' : '已結束');
+  markDirty(); renderPeriod();
+  toast(p.status === '已結束' ? '本期已鎖定' : '已解鎖,可以編輯');
+}
+
+
+/* ── 修改上課日期 / 刪除本期 ── */
+function openDatesDialog() {
+  var p = findPeriod(S.cur);
+  var h = '<h2>第' + p.no + '期・上課日期</h2>';
+  for (var i = 0; i < 4; i++) {
+    var v = (p.dates[i] || '').replace(/\//g, '-');
+    h += '<div class="datefield"><label>第 ' + (i + 1) + ' 次</label><input type="date" id="edD' + i + '" value="' + v + '"></div>';
+  }
+  h += '<div class="actions"><button class="cancel" onclick="closeDialog()">取消</button>' +
+    '<button class="ok" onclick="saveDates()">儲存</button></div>' +
+    '<button class="danger" onclick="deletePeriod()">🗑 刪除整期(含收費紀錄)</button>';
+  openDialog(h);
+}
+function saveDates() {
+  var p = findPeriod(S.cur), dates = [];
+  for (var i = 0; i < 4; i++) {
+    var v = $('edD' + i).value;
+    if (v) dates.push(v.replace(/-/g, '/'));
+  }
+  if (!dates.length) { toast('至少留一個日期'); return; }
+  p.dates = dates;
+  closeDialog(); markDirty(); renderPeriod();
+}
+function deletePeriod() {
+  var p = findPeriod(S.cur);
+  if (!confirm('確定刪除第' + p.no + '期?\n這期的收費紀錄會一起消失,無法復原。')) return;
+  api('apiDeletePeriod', { cls: S.cls, no: p.no })
+    .then(function () {
+      S.data.periods = S.data.periods.filter(function (x) { return x.no !== p.no; });
+      delete S.data.records[String(p.no)];
+      S.dirty = false;
+      closeDialog(); renderHome(); toast('已刪除第' + p.no + '期');
+    })
+    .catch(function (e) { toast('刪除失敗:' + e); });
+}
+
+
+/* ═══════════════ 明細表 ═══════════════ */
+function payCellHtml(r) {
+  var st = payState(r);
+  if (st === 'na') return '—';
+  if (st === 'full') return '<span class="paidmark">✓</span>';
+  if (st === 'none') return '<span class="unpaidmark">未繳</span>';
+  var miss = [];
+  if (Number(r.fee) > 0 && !r.paidFee) miss.push('學費');
+  if (Number(r.classFee) > 0 && !r.paidClass) miss.push('班費');
+  if (r.matSubtotal > 0 && !r.paidMat) miss.push('材料');
+  return '<span class="unpaidmark">缺' + miss.join('/') + '</span>';
+}
+function renderReport() {
+  var p = findPeriod(S.cur);
+  var rows = rowsOf(p.no);
+  rows.forEach(recalcRow);
+  var s = summary(p.no);
+  var title = S.cls + ' 第' + p.no + '期(' + rocDates(p.dates) + ')油畫課學員收費明細表';
+
+
+  var h = '<div class="topbar"><button class="iconbtn" onclick="renderPeriod()">←</button>' +
+    '<h1>明細表</h1></div>' +
+    '<label class="checkline" style="margin:0 0 8px"><input type="checkbox"' + (S.showPay ? ' checked' : '') + ' onchange="S.showPay=this.checked;renderReport()"> 顯示繳費狀態(表格與圖檔都適用)</label>' +
+    '<div id="reportActions"><button onclick="window.print()">🖨 列印 / 存PDF</button>' +
+    '<button id="jpgBtn" onclick="genJpg()">🖼 輸出圖檔</button></div>' +
+    '<div id="printZone"><div class="report-sheet">' +
+    '<div class="report-title">' + esc(title) + '</div>' +
+    '<table class="rtable"><tr><th>編號</th><th>姓名</th><th>學費</th><th>班費</th><th>材料</th><th>合計</th>' +
+    (S.showPay ? '<th>繳</th>' : '') + '<th>備註</th></tr>';
+
+
+  rows.forEach(function (r, i) {
+    h += '<tr><td>' + (i + 1) + '</td><td class="name">' + esc(r.name) + '</td>' +
+      '<td class="num">' + (r.fee || 0) + '</td><td class="num">' + (r.classFee || 0) + '</td>' +
+      '<td class="mat">' + esc(r.matText) + (r.matSubtotal ? ' =' + r.matSubtotal : '') + '</td>' +
+      '<td class="num"><b>' + r.total + '</b></td>' +
+      (S.showPay ? '<td>' + payCellHtml(r) + '</td>' : '') +
+      '<td class="note">' + esc(r.note) + '</td></tr>';
+  });
+
+
+  var splitTxt = '老師' + s.tuition.toLocaleString() +
+    (S.data.settings.collector ? '・' + esc(S.data.settings.collector) + s.classFee.toLocaleString() + '(班費)' : '・班費' + s.classFee.toLocaleString()) +
+    (s.mat ? '・材料' + s.mat.toLocaleString() : '') +
+    '<br>合計 ' + s.total.toLocaleString() + ' 元';
+
+
+  h += '<tr class="totalrow"><td colspan="2">總計</td>' +
+    '<td class="num">' + s.tuition.toLocaleString() + '</td>' +
+    '<td class="num">' + s.classFee.toLocaleString() + '</td>' +
+    '<td class="num">' + s.mat.toLocaleString() + '</td>' +
+    '<td class="num">' + s.total.toLocaleString() + '</td>' +
+    '<td colspan="' + (S.showPay ? 2 : 1) + '" class="split">' + splitTxt + '</td></tr>' +
+    '</table></div></div>' +
+    '<div id="jpgResult"></div>' +
+    '<div class="footer">「輸出圖檔」給手機貼群組;「列印」給電腦印紙本或存 PDF</div>';
+
+
+  $('view').innerHTML = h;
+  window.scrollTo(0, 0);
+}
+
+
+/* ═══════════════ 輸出圖檔(手機直式版面) ═══════════════ */
+function roundRect_(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+function genJpg() {
+  var btn = $('jpgBtn');
+  if (btn) { btn.textContent = '產生中…'; btn.disabled = true; }
+  var go = function () {
+    try {
+      var p = findPeriod(S.cur);
+      var url = drawReportJpg();
+      $('jpgResult').innerHTML =
+        '<div class="card" style="padding:12px">' +
+        '<div class="hint" style="margin:0 0 8px">✅ 圖檔完成!<b>手機長按圖片</b>即可儲存或分享到 LINE;電腦用下方按鈕下載。</div>' +
+        '<img src="' + url + '" style="width:100%;border:1px solid var(--line);border-radius:8px;display:block" alt="收費明細圖">' +
+        '<a href="' + url + '" download="' + S.cls + '第' + p.no + '期收費明細.jpg" class="bigbtn" style="display:block;text-align:center;text-decoration:none;box-sizing:border-box;margin:10px 0 0">⬇ 下載圖檔</a></div>';
+      var el = $('jpgResult');
+      if (el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth' });
+    } catch (e) {
+      toast('圖檔產生失敗:' + e);
+    }
+    if (btn) { btn.textContent = '🖼 輸出圖檔'; btn.disabled = false; }
+  };
+  if (document.fonts && document.fonts.ready && document.fonts.ready.then) document.fonts.ready.then(go);
+  else go();
+}
+function drawReportJpg() {
+  var p = findPeriod(S.cur);
+  var rows = rowsOf(p.no);
+  rows.forEach(recalcRow);
+  var sm = summary(p.no);
+  var W = 1080, M = 48, innerW = W - M * 2;
+  var C = { ink: '#2B2620', muted: '#8B8271', faint: '#B9B09B', vir: '#1E6B58', virD: '#14503F',
+            ochre: '#B07A22', red: '#AF4A3A', line: '#E3DAC6', bg: '#FFFDF8',
+            ochreS: '#F4E8CF', redS: '#F6E3DE', totBg: '#F3EFE4' };
+  var F = function (px, bold, serif) {
+    return (bold ? '700 ' : '400 ') + Math.round(px * 1.25) + 'px ' + (serif ? '"Noto Serif TC",serif' : '"Noto Sans TC",sans-serif');
+  };
+  var cv = document.createElement('canvas');
+  cv.width = W; cv.height = 200; // 暫定,先量字
+  var ctx = cv.getContext('2d');
+  if (!ctx) throw '此瀏覽器不支援 canvas';
+  var wrap = function (text, font, maxW) {
+    ctx.font = font;
+    var out = [], line = '';
+    for (var i = 0; i < text.length; i++) {
+      var t = line + text[i];
+      if (ctx.measureText(t).width > maxW && line) { out.push(line); line = text[i]; }
+      else line = t;
+    }
+    if (line) out.push(line);
+    return out;
+  };
+  var detailFont = F(26, false);
+  var meta = rows.map(function (r) {
+    var parts = [];
+    if (Number(r.fee)) parts.push('學費' + r.fee);
+    if (Number(r.classFee)) parts.push('班費' + r.classFee);
+    if (r.matText) parts.push(r.matText + (r.matSubtotal ? '=' + r.matSubtotal : ''));
+    if (r.note) parts.push('備註:' + r.note);
+    var maxW = innerW - (S.showPay ? 215 : 0);
+    var lines = parts.length ? wrap(parts.join('・'), detailFont, maxW) : [];
+    var slots = Math.max(lines.length, (S.showPay && r.total > 0) ? 1 : 0);
+    return { lines: lines, h: 70 + slots * 44 + 20 };
+  });
+  var headerH = 210;
+  var totalsH = 276 + (S.showPay ? 54 : 0);
+  var footerH = 76;
+  var H = headerH + meta.reduce(function (a, b) { return a + b.h; }, 0) + totalsH + footerH;
+  cv.width = W; cv.height = H;
+  ctx = cv.getContext('2d');
+  ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = C.vir; ctx.fillRect(0, 0, W, 10);
+  ctx.fillStyle = C.ink; ctx.textAlign = 'center';
+  ctx.font = F(40, true, true);
+  ctx.fillText(S.cls + ' 第' + p.no + '期 收費明細表', W / 2, 92);
+  ctx.font = F(26, false); ctx.fillStyle = C.muted;
+  ctx.fillText('上課日期:' + rocDates(p.dates), W / 2, 142);
+  ctx.strokeStyle = C.ink; ctx.lineWidth = 2.5;
+  ctx.beginPath(); ctx.moveTo(M, 176); ctx.lineTo(W - M, 176); ctx.stroke();
+
+
+  var y = headerH;
+  rows.forEach(function (r, i) {
+    var mt = meta[i], top = y;
+    ctx.textAlign = 'left';
+    ctx.fillStyle = C.ink; ctx.font = F(32, true);
+    var nameStr = (i + 1) + '. ' + r.name;
+    ctx.fillText(nameStr, M, top + 46);
+    if (r.status !== '上課') {
+      var nx = M + ctx.measureText(nameStr).width + 14;
+      ctx.font = F(22, true);
+      var tw = ctx.measureText(r.status).width + 32;
+      ctx.fillStyle = (r.status === '請假') ? C.ochreS : C.redS;
+      roundRect_(ctx, nx, top + 14, tw, 42, 21); ctx.fill();
+      ctx.fillStyle = (r.status === '請假') ? '#7A5514' : C.red;
+      ctx.fillText(r.status, nx + 16, top + 45);
+    }
+    ctx.textAlign = 'right'; ctx.font = F(32, true);
+    ctx.fillStyle = r.total === 0 ? C.faint : C.ink;
+    ctx.fillText(money(r.total), W - M, top + 46);
+    var dy = top + 70 + 32;
+    ctx.textAlign = 'left'; ctx.font = detailFont; ctx.fillStyle = C.muted;
+    mt.lines.forEach(function (l) { ctx.fillText(l, M, dy); dy += 44; });
+    if (S.showPay && r.total > 0) {
+      var st = payState(r), txt, col;
+      if (st === 'full') { txt = '✓ 已繳清'; col = C.vir; }
+      else if (st === 'part') {
+        var miss = [];
+        if (Number(r.fee) > 0 && !r.paidFee) miss.push('學費');
+        if (Number(r.classFee) > 0 && !r.paidClass) miss.push('班費');
+        if (r.matSubtotal > 0 && !r.paidMat) miss.push('材料');
+        txt = '缺' + miss.join('/'); col = C.ochre;
+      } else { txt = '未繳'; col = C.red; }
+      ctx.textAlign = 'right'; ctx.font = F(25, true); ctx.fillStyle = col;
+      ctx.fillText(txt, W - M, top + 70 + 32);
+    }
+    y = top + mt.h;
+    ctx.strokeStyle = C.line; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(M, y - 1); ctx.lineTo(W - M, y - 1); ctx.stroke();
+  });
+
+
+  // 總計區
+  y += 18;
+  var boxH = totalsH - 36;
+  ctx.fillStyle = C.totBg;
+  roundRect_(ctx, M - 12, y, innerW + 24, boxH, 16); ctx.fill();
+  var ty = y + 56;
+  ctx.font = F(27, false);
+  var line2 = function (label, val, valColor) {
+    ctx.textAlign = 'left'; ctx.fillStyle = C.muted;
+    ctx.fillText(label, M + 10, ty);
+    ctx.textAlign = 'right'; ctx.fillStyle = valColor || C.ink;
+    ctx.font = F(27, true);
+    ctx.fillText(val, W - M - 10, ty);
+    ctx.font = F(27, false);
+    ty += 52;
+  };
+  var collector = S.data.settings.collector;
+  line2('學費合計 → 老師', money(sm.tuition));
+  line2('班費合計' + (collector ? ' → ' + collector : ''), money(sm.classFee));
+  line2('材料合計', money(sm.mat));
+  ctx.strokeStyle = C.line; ctx.beginPath(); ctx.moveTo(M + 10, ty - 32); ctx.lineTo(W - M - 10, ty - 32); ctx.stroke();
+  ctx.font = F(32, true);
+  ctx.textAlign = 'left'; ctx.fillStyle = C.ink; ctx.fillText('總計', M + 10, ty + 12);
+  ctx.textAlign = 'right'; ctx.fillText(money(sm.total), W - M - 10, ty + 12);
+  if (S.showPay) {
+    ty += 62;
+    ctx.font = F(25, true); ctx.textAlign = 'right';
+    ctx.fillStyle = C.vir;
+    var unpaidTxt = '已收 ' + money(sm.sumPaid);
+    ctx.fillText(unpaidTxt + (sm.sumDue - sm.sumPaid > 0 ? '' : ''), W - M - 10 - (sm.sumDue - sm.sumPaid > 0 ? ctx.measureText('・未收 ' + money(sm.sumDue - sm.sumPaid)).width + 8 : 0), ty);
+    if (sm.sumDue - sm.sumPaid > 0) {
+      ctx.fillStyle = C.red;
+      ctx.fillText('・未收 ' + money(sm.sumDue - sm.sumPaid), W - M - 10, ty);
+    }
+  }
+  // 頁尾
+  var d = new Date();
+  var stamp = (d.getFullYear() - 1911) + '/' + ('0' + (d.getMonth() + 1)).slice(-2) + '/' + ('0' + d.getDate()).slice(-2) +
+    ' ' + ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2);
+  ctx.font = F(21, false); ctx.fillStyle = C.faint; ctx.textAlign = 'center';
+  ctx.fillText('產生於 ' + stamp + '・油畫班收費表 ' + APP_VERSION, W / 2, H - 32);
+  return cv.toDataURL('image/jpeg', 0.92);
+}
+
+
+/* ═══════════════ 班費帳本 ═══════════════ */
+function fundStats() {
+  var duePer = [], dueSum = 0, paidSum = 0;
+  S.data.periods.slice().sort(function (a, b) { return b.no - a.no; }).forEach(function (p) {
+    var due = 0, paid = 0;
+    rowsOf(p.no).forEach(function (r) {
+      var cf = Number(r.classFee) || 0;
+      due += cf;
+      if (r.paidClass) paid += cf;
+    });
+    duePer.push({ no: p.no, due: due, paid: paid });
+    dueSum += due; paidSum += paid;
+  });
+  var manIn = 0, manOut = 0;
+  (S.data.fund || []).forEach(function (f) {
+    if (f.type === '收入') manIn += Number(f.amount) || 0; else manOut += Number(f.amount) || 0;
+  });
+  return { duePer: duePer, dueSum: dueSum, paidSum: paidSum, manIn: manIn, manOut: manOut,
+           balance: paidSum + manIn - manOut };
+}
+function renderFund() {
+  S.cur = null;
+  var st = fundStats();
+  var collector = S.data.settings.collector;
+  var h = '<div class="topbar"><button class="iconbtn" onclick="renderHome()">←</button>' +
+    '<h1>💰 班費帳本<span class="sub">' + esc(S.cls) + '・' + (collector ? '班長:' + esc(collector) + ' 保管' : '尚未設定班長(到材料頁選)') + '</span></h1></div>';
+
+
+  h += '<div class="card sumcard"><div class="balance serif' + (st.balance < 0 ? ' neg' : '') + '">' + money(st.balance) + '</div>' +
+    '<div style="text-align:center;color:var(--muted);font-size:18px;margin-bottom:6px">目前結餘 = 已收班費 + 手動收入 − 支出</div>' +
+    '<div class="bal-sub"><span>班費應收 ' + money(st.dueSum) + '</span><span>已收 <b style="color:var(--vir-deep)">' + money(st.paidSum) + '</b></span>' +
+    '<span>未收 <b style="color:var(--red)">' + money(st.dueSum - st.paidSum) + '</b></span></div></div>';
+
+
+  h += '<div class="card"><h4 style="margin:0 0 4px">各期班費(自動統計)</h4>';
+  if (!st.duePer.length) h += '<div class="hint">還沒有期數。</div>';
+  st.duePer.forEach(function (d) {
+    h += '<div class="fundrow"><span class="fdate">第' + d.no + '期</span>' +
+      '<span class="fitem">應收 ' + money(d.due) + '</span>' +
+      '<span class="famt in">已收 ' + money(d.paid) + '</span></div>';
+  });
+  h += '<div class="hint">未收的部分在各期學員的「班費」繳費包上,收到錢去那邊點勾。</div></div>';
+
+
+  h += '<div class="card"><h4 style="margin:0 0 4px">手動收支(捐助、購物…)</h4>' +
+    '<div class="editrow"><input type="date" id="fDate" style="flex:1;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff"></div>' +
+    '<div class="editrow"><input type="text" id="fItem" placeholder="項目,例:老師捐助/買茶水" style="flex:1 1 100%"></div>' +
+    '<div class="editrow"><button class="typebtn ' + (S.fundType === '收入' ? 'in' : 'out') + '" id="fType" onclick="fundTypeToggle()">' + (S.fundType === '收入' ? '收入' : '支出') + '</button>' +
+    '<input type="number" class="price" id="fAmt" inputmode="numeric" placeholder="金額" style="flex:1 1 120px;max-width:none"></div>' +
+    '<button class="bigbtn" style="margin:10px 0 4px" onclick="fundAdd()">✚ 記一筆</button>';
+
+
+  var list = S.data.fund || [];
+  if (list.length) {
+    list.forEach(function (f, i) {
+      h += '<div class="fundrow"><span class="fdate">' + esc(roc(f.date)) + '</span>' +
+        '<span class="fitem">' + esc(f.item) + '</span>' +
+        '<span class="famt ' + (f.type === '收入' ? 'in">+' : 'out">−') + money(f.amount).slice(1) + '</span>' +
+        '<button class="del" onclick="fundDel(' + i + ')">✕</button></div>';
+    });
+    h += '<div class="fundrow" style="border-top:1.5px solid var(--line)"><span class="fitem" style="font-weight:700">手動小計</span>' +
+      '<span class="famt' + (st.manIn - st.manOut < 0 ? ' out' : ' in') + '">' + (st.manIn - st.manOut < 0 ? '−' : '+') + money(Math.abs(st.manIn - st.manOut)).slice(1) + '</span></div>';
+  } else {
+    h += '<div class="hint">還沒有手動紀錄。老師捐班費、買東西的支出都記在這。</div>';
+  }
+  h += '</div>';
+  h += '<button class="bigbtn" style="background:var(--ochre)" onclick="renderFundReport()">📄 帳本明細表(可列印)</button>';
+  h += '<div class="footer">油畫班收費表 ' + APP_VERSION + '</div>';
+  $('view').innerHTML = h;
+  var fd = $('fDate');
+  if (fd && !fd.value) {
+    var d = new Date();
+    fd.value = d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+  }
+  window.scrollTo(0, 0);
+}
+function fundTypeToggle() {
+  S.fundType = (S.fundType === '收入' ? '支出' : '收入');
+  var b = $('fType');
+  if (b) { b.textContent = S.fundType; b.className = 'typebtn ' + (S.fundType === '收入' ? 'in' : 'out'); }
+}
+function fundAdd() {
+  var date = ($('fDate').value || '').replace(/-/g, '/');
+  var item = ($('fItem').value || '').trim();
+  var amt = Number($('fAmt').value) || 0;
+  if (!item) { toast('先填項目'); return; }
+  if (amt <= 0) { toast('金額要大於 0'); return; }
+  if (!S.data.fund) S.data.fund = [];
+  S.data.fund.push({ date: date, item: item, type: S.fundType === '收入' ? '收入' : '支出', amount: amt });
+  saveFund(); renderFund();
+}
+function fundDel(i) {
+  var f = S.data.fund[i];
+  if (!confirm('刪除「' + f.item + '」這筆' + f.type + '?')) return;
+  S.data.fund.splice(i, 1);
+  saveFund(); renderFund();
+}
+function saveFund() {
+  api('apiSaveFund', { cls: S.cls, list: S.data.fund })
+    .then(function () { toast('帳本已儲存 ✓'); })
+    .catch(function (e) { toast('儲存失敗:' + e); });
+}
+
+
+/* ═══════════════ 班費帳本明細表 ═══════════════ */
+/* 把「各期已收班費」與「手動收支」合併成一本流水帳(依日期排序、含累計結餘) */
+function fundLedger() {
+  var entries = [];
+  S.data.periods.slice().sort(function (a, b) { return a.no - b.no; }).forEach(function (p) {
+    var due = 0, paid = 0;
+    rowsOf(p.no).forEach(function (r) {
+      var cf = Number(r.classFee) || 0;
+      due += cf;
+      if (r.paidClass) paid += cf;
+    });
+    if (due === 0 && paid === 0) return;
+    entries.push({ date: p.dates[0] || '', item: '第' + p.no + '期班費(已收)', inAmt: paid, outAmt: 0 });
+  });
+  (S.data.fund || []).forEach(function (f) {
+    var amt = Number(f.amount) || 0;
+    entries.push({
+      date: f.date, item: f.item,
+      inAmt: f.type === '收入' ? amt : 0,
+      outAmt: f.type === '支出' ? amt : 0
+    });
+  });
+  entries.sort(function (a, b) {
+    return String(a.date) < String(b.date) ? -1 : (String(a.date) > String(b.date) ? 1 : 0);
+  });
+  var bal = 0;
+  entries.forEach(function (e) { bal += e.inAmt - e.outAmt; e.bal = bal; });
+  return entries;
+}
+function rocToday_() {
+  var d = new Date();
+  return (d.getFullYear() - 1911) + '/' + ('0' + (d.getMonth() + 1)).slice(-2) + '/' + ('0' + d.getDate()).slice(-2);
+}
+function renderFundReport() {
+  var st = fundStats();
+  var entries = fundLedger();
+  var collector = S.data.settings.collector;
+  var unpaid = st.dueSum - st.paidSum;
+  var title = S.cls + ' 班費帳本明細表';
+
+
+  var h = '<div class="topbar"><button class="iconbtn" onclick="renderFund()">←</button>' +
+    '<h1>帳本明細表</h1></div>' +
+    '<div id="reportActions"><button onclick="window.print()">🖨 列印 / 存PDF</button>' +
+    '<button id="fundJpgBtn" onclick="genFundJpg()">🖼 輸出圖檔</button></div>' +
+    '<div id="printZone"><div class="report-sheet">' +
+    '<div class="report-title">' + esc(title) + '</div>' +
+    '<div style="text-align:center;font-size:16px;color:var(--muted);margin:-6px 0 10px">' +
+    (collector ? '班長:' + esc(collector) + '・' : '') + '統計至 ' + rocToday_() + '</div>' +
+    '<table class="rtable"><tr><th>日期</th><th>項目</th><th>收入</th><th>支出</th><th>結餘</th></tr>';
+
+
+  if (!entries.length) {
+    h += '<tr><td colspan="5" style="color:var(--muted)">還沒有任何收支紀錄</td></tr>';
+  }
+  entries.forEach(function (e) {
+    h += '<tr><td>' + esc(roc(e.date)) + '</td>' +
+      '<td class="mat">' + esc(e.item) + '</td>' +
+      '<td class="num">' + (e.inAmt ? e.inAmt.toLocaleString() : '') + '</td>' +
+      '<td class="num" style="color:var(--red)">' + (e.outAmt ? e.outAmt.toLocaleString() : '') + '</td>' +
+      '<td class="num"><b>' + e.bal.toLocaleString() + '</b></td></tr>';
+  });
+  h += '<tr class="totalrow"><td colspan="2">合計</td>' +
+    '<td class="num">' + (st.paidSum + st.manIn).toLocaleString() + '</td>' +
+    '<td class="num" style="color:var(--red)">' + st.manOut.toLocaleString() + '</td>' +
+    '<td class="num">' + st.balance.toLocaleString() + '</td></tr>' +
+    '</table>' +
+    (unpaid > 0 ? '<div style="font-size:16px;color:var(--red);margin-top:6px">※ 班費未收 ' + money(unpaid) + '(收到後才列入結餘)</div>' : '') +
+    '</div></div>' +
+    '<div id="fundJpgResult"></div>' +
+    '<div class="footer">「輸出圖檔」給手機貼群組;「列印」給電腦印紙本或存 PDF</div>';
+
+
+  $('view').innerHTML = h;
+  window.scrollTo(0, 0);
+}
+function genFundJpg() {
+  var btn = $('fundJpgBtn');
+  if (btn) { btn.textContent = '產生中…'; btn.disabled = true; }
+  var go = function () {
+    try {
+      var url = drawFundJpg();
+      $('fundJpgResult').innerHTML =
+        '<div class="card" style="padding:12px">' +
+        '<div class="hint" style="margin:0 0 8px">✅ 圖檔完成!<b>手機長按圖片</b>即可儲存或分享到 LINE;電腦用下方按鈕下載。</div>' +
+        '<img src="' + url + '" style="width:100%;border:1px solid var(--line);border-radius:8px;display:block" alt="班費帳本明細圖">' +
+        '<a href="' + url + '" download="' + S.cls + '班費帳本明細.jpg" class="bigbtn" style="display:block;text-align:center;text-decoration:none;box-sizing:border-box;margin:10px 0 0">⬇ 下載圖檔</a></div>';
+      var el = $('fundJpgResult');
+      if (el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth' });
+    } catch (e) {
+      toast('圖檔產生失敗:' + e);
+    }
+    if (btn) { btn.textContent = '🖼 輸出圖檔'; btn.disabled = false; }
+  };
+  if (document.fonts && document.fonts.ready && document.fonts.ready.then) document.fonts.ready.then(go);
+  else go();
+}
+function drawFundJpg() {
+  var st = fundStats();
+  var entries = fundLedger();
+  var collector = S.data.settings.collector;
+  var unpaid = st.dueSum - st.paidSum;
+  var W = 1080, M = 48, innerW = W - M * 2;
+  var C = { ink: '#2B2620', muted: '#8B8271', faint: '#B9B09B', vir: '#1E6B58', virD: '#14503F',
+            ochre: '#B07A22', red: '#AF4A3A', line: '#E3DAC6', bg: '#FFFDF8', totBg: '#F3EFE4' };
+  var F = function (px, bold, serif) {
+    return (bold ? '700 ' : '400 ') + Math.round(px * 1.25) + 'px ' + (serif ? '"Noto Serif TC",serif' : '"Noto Sans TC",sans-serif');
+  };
+  var cv = document.createElement('canvas');
+  cv.width = W; cv.height = 200; // 暫定,先量字
+  var ctx = cv.getContext('2d');
+  if (!ctx) throw '此瀏覽器不支援 canvas';
+  var wrap = function (text, font, maxW) {
+    ctx.font = font;
+    var out = [], line = '';
+    for (var i = 0; i < text.length; i++) {
+      var t = line + text[i];
+      if (ctx.measureText(t).width > maxW && line) { out.push(line); line = text[i]; }
+      else line = t;
+    }
+    if (line) out.push(line);
+    return out;
+  };
+  var itemFont = F(30, true);
+  var meta = entries.map(function (e) {
+    var lines = wrap(e.item, itemFont, innerW - 310);
+    return { lines: lines, h: 62 + (lines.length - 1) * 48 + 44 + 18 };
+  });
+  var headerH = 210;
+  var emptyH = entries.length ? 0 : 96;
+  var totalsH = 264 + 56 + (unpaid > 0 ? 52 : 0);
+  var footerH = 76;
+  var H = headerH + meta.reduce(function (a, b) { return a + b.h; }, 0) + emptyH + totalsH + footerH;
+  cv.width = W; cv.height = H;
+  ctx = cv.getContext('2d');
+  ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = C.ochre; ctx.fillRect(0, 0, W, 10);
+  ctx.fillStyle = C.ink; ctx.textAlign = 'center';
+  ctx.font = F(40, true, true);
+  ctx.fillText(S.cls + ' 班費帳本明細表', W / 2, 92);
+  ctx.font = F(26, false); ctx.fillStyle = C.muted;
+  ctx.fillText((collector ? '班長:' + collector + '・' : '') + '統計至 ' + rocToday_(), W / 2, 142);
+  ctx.strokeStyle = C.ink; ctx.lineWidth = 2.5;
+  ctx.beginPath(); ctx.moveTo(M, 176); ctx.lineTo(W - M, 176); ctx.stroke();
+
+
+  var y = headerH;
+  if (!entries.length) {
+    ctx.font = F(26, false); ctx.fillStyle = C.faint; ctx.textAlign = 'center';
+    ctx.fillText('(還沒有任何收支紀錄)', W / 2, y + 50);
+    y += emptyH;
+  }
+  entries.forEach(function (e, i) {
+    var mt = meta[i], top = y;
+    // 第一行:項目(可換行)+ 金額
+    ctx.textAlign = 'left'; ctx.font = itemFont; ctx.fillStyle = C.ink;
+    var ly = top + 44;
+    mt.lines.forEach(function (l) { ctx.fillText(l, M, ly); ly += 48; });
+    ctx.textAlign = 'right'; ctx.font = F(30, true);
+    if (e.inAmt) { ctx.fillStyle = C.virD; ctx.fillText('+' + money(e.inAmt).slice(1), W - M, top + 44); }
+    else { ctx.fillStyle = C.red; ctx.fillText('−' + money(e.outAmt).slice(1), W - M, top + 44); }
+    // 第二行:日期 + 結餘
+    var dy = ly - 48 + 42;
+    ctx.textAlign = 'left'; ctx.font = F(24, false); ctx.fillStyle = C.muted;
+    ctx.fillText(roc(e.date), M, dy);
+    ctx.textAlign = 'right';
+    ctx.fillText('結餘 ' + money(e.bal), W - M, dy);
+    y = top + mt.h;
+    ctx.strokeStyle = C.line; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(M, y - 1); ctx.lineTo(W - M, y - 1); ctx.stroke();
+  });
+
+
+  // 總計區
+  y += 18;
+  var boxH = totalsH - 36;
+  ctx.fillStyle = C.totBg;
+  roundRect_(ctx, M - 12, y, innerW + 24, boxH, 16); ctx.fill();
+  var ty = y + 56;
+  ctx.font = F(27, false);
+  var line2 = function (label, val, valColor) {
+    ctx.textAlign = 'left'; ctx.fillStyle = C.muted;
+    ctx.fillText(label, M + 10, ty);
+    ctx.textAlign = 'right'; ctx.fillStyle = valColor || C.ink;
+    ctx.font = F(27, true);
+    ctx.fillText(val, W - M - 10, ty);
+    ctx.font = F(27, false);
+    ty += 52;
+  };
+  line2('已收班費', '+' + money(st.paidSum).slice(1), C.virD);
+  line2('手動收入(捐助…)', '+' + money(st.manIn).slice(1), C.virD);
+  line2('支出', '−' + money(st.manOut).slice(1), C.red);
+  ctx.strokeStyle = C.line; ctx.beginPath(); ctx.moveTo(M + 10, ty - 32); ctx.lineTo(W - M - 10, ty - 32); ctx.stroke();
+  ctx.font = F(34, true);
+  ctx.textAlign = 'left'; ctx.fillStyle = C.ink; ctx.fillText('目前結餘', M + 10, ty + 16);
+  ctx.textAlign = 'right'; ctx.fillStyle = (st.balance < 0 ? C.red : C.ink);
+  ctx.fillText(money(st.balance), W - M - 10, ty + 16);
+  if (unpaid > 0) {
+    ty += 68;
+    ctx.font = F(24, false); ctx.fillStyle = C.red; ctx.textAlign = 'right';
+    ctx.fillText('※ 班費未收 ' + money(unpaid) + '(收到後才列入)', W - M - 10, ty);
+  }
+  // 頁尾
+  var d = new Date();
+  var stamp = (d.getFullYear() - 1911) + '/' + ('0' + (d.getMonth() + 1)).slice(-2) + '/' + ('0' + d.getDate()).slice(-2) +
+    ' ' + ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2);
+  ctx.font = F(21, false); ctx.fillStyle = C.faint; ctx.textAlign = 'center';
+  ctx.fillText('產生於 ' + stamp + '・油畫班收費表 ' + APP_VERSION, W / 2, H - 32);
+  return cv.toDataURL('image/jpeg', 0.92);
+}
+
+
+/* ═══════════════ 材料庫 + 預設值設定 ═══════════════ */
+function renderMaterials() {
+  S.cur = null;
+  var d = S.data;
+  var h = '<div class="topbar"><button class="iconbtn" onclick="renderHome()">←</button>' +
+    '<h1>🧰 材料庫<span class="sub">' + esc(S.cls) + '・品項與單價,新的一期會自動帶入</span></h1></div><div class="card">' +
+    '<div class="editrow" style="flex-wrap:nowrap;margin:0 0 2px;font-size:20px;font-weight:700">' +
+    '<span style="flex:1">品項名稱</span><span style="flex:0 0 110px;text-align:right">單價(元)</span><span style="flex:0 0 54px"></span></div>';
+  d.materials.forEach(function (m, i) {
+    h += '<div class="editrow" style="flex-wrap:nowrap">' +
+      '<input type="text" value="' + esc(m.name) + '" onchange="matEdit(' + i + ',\'name\',this.value)" style="flex:1;min-width:0">' +
+      '<input type="number" class="price" inputmode="numeric" value="' + m.price + '" onchange="matEdit(' + i + ',\'price\',this.value)" style="flex:0 0 110px;min-width:0">' +
+      '<button class="del" onclick="matDel(' + i + ')">✕</button></div>';
+  });
+  h += '<button class="bigbtn ghost" style="margin:10px 0 0" onclick="matAdd()">＋ 新增品項</button></div>';
+
+
+  h += '<div class="card sumcard"><h4 style="margin:0 0 8px">預設值</h4>' +
+    '<div class="field setfield"><label>一般學費</label><input type="number" inputmode="numeric" value="' + d.settings.normal + '" onchange="setEdit(\'normal\',this.value)"></div>' +
+    '<div class="field setfield"><label>優惠學費</label><input type="number" inputmode="numeric" value="' + d.settings.disc + '" onchange="setEdit(\'disc\',this.value)"></div>' +
+    '<div class="field setfield"><label>班費</label><input type="number" inputmode="numeric" value="' + d.settings.classFee + '" onchange="setEdit(\'classFee\',this.value)"></div>' +
+    '<div class="field setfield"><label>班長</label><select onchange="setEdit(\'collector\',this.value)">' + collectorOptions() + '</select></div>' +
+    '<div class="hint">誰用一般、誰用優惠,到「名單」頁替每位學員設定。改預設值只影響之後新增的資料,不會動到已填好的期。</div></div>' +
+    '<div class="footer">油畫班收費表 ' + APP_VERSION + '</div>';
+  $('view').innerHTML = h;
+  window.scrollTo(0, 0);
+}
+function collectorOptions() {
+  var cur = S.data.settings.collector || '';
+  var names = S.data.roster.map(function (r) { return r.name; });
+  var opts = '<option value=""' + (cur === '' ? ' selected' : '') + '>(未設定)</option>';
+  if (cur && names.indexOf(cur) === -1) {
+    opts += '<option value="' + esc(cur) + '" selected>' + esc(cur) + '(不在名單)</option>';
+  }
+  names.forEach(function (n) {
+    if (!n) return;
+    opts += '<option value="' + esc(n) + '"' + (n === cur ? ' selected' : '') + '>' + esc(n) + '</option>';
+  });
+  return opts;
+}
+function saveMaterials() {
+  api('apiSaveMaterials', { cls: S.cls, list: S.data.materials })
+    .then(function () { toast('材料庫已儲存 ✓'); })
+    .catch(function (e) { toast('儲存失敗:' + e); });
+}
+function matEdit(i, k, v) {
+  S.data.materials[i][k] = (k === 'price' ? (Number(v) || 0) : String(v).trim());
+  saveMaterials();
+}
+function matDel(i) {
+  if (!confirm('刪除品項「' + S.data.materials[i].name + '」?\n(不影響已填好的舊資料)')) return;
+  S.data.materials.splice(i, 1);
+  saveMaterials(); renderMaterials();
+}
+function matAdd() {
+  S.data.materials.push({ name: '', price: 0 });
+  renderMaterials();
+  var inputs = document.querySelectorAll('.editrow input[type=text]');
+  if (inputs.length) inputs[inputs.length - 1].focus();
+}
+function setEdit(k, v) {
+  S.data.settings[k] = (k === 'collector' ? String(v).trim() : (Number(v) || 0));
+  api('apiSaveSettings', { cls: S.cls, normal: S.data.settings.normal, disc: S.data.settings.disc, classFee: S.data.settings.classFee, collector: S.data.settings.collector })
+    .then(function () { toast('設定已儲存 ✓'); })
+    .catch(function (e) { toast('儲存失敗:' + e); });
+}
+
+
+/* ═══════════════ 名單 ═══════════════ */
+function renderRoster() {
+  S.cur = null;
+  var h = '<div class="topbar"><button class="iconbtn" onclick="renderHome()">←</button>' +
+    '<h1>👥 學員名單<span class="sub">' + esc(S.cls) + '・費率決定每期自動帶入的學費</span></h1></div><div class="card">';
+  S.data.roster.forEach(function (r, i) {
+    h += '<div class="roster-item">' +
+      '<div class="editrow" style="margin:0;flex-wrap:nowrap">' +
+      '<input type="text" value="' + esc(r.name) + '" onchange="rosEdit(' + i + ',this.value)" style="flex:1;min-width:0;font-size:27px;font-weight:700">' +
+      '<button class="switch' + (r.active ? ' on' : '') + '" onclick="rosToggle(' + i + ')">' + (r.active ? '啟用' : '停用') + '</button>' +
+      '<button class="del" onclick="rosDel(' + i + ')">✕</button></div>' +
+      '<div class="ratechips">' +
+      ['一般', '優惠', '自訂'].map(function (rt) {
+        return '<button class="chip' + (r.rate === rt ? ' sel-上課' : '') + '" onclick="rosRate(' + i + ',\'' + rt + '\')">' + rt + '</button>';
+      }).join('') +
+      (r.rate === '自訂'
+        ? '<input type="number" class="price" inputmode="numeric" value="' + (r.custom || 0) + '" onchange="rosCustom(' + i + ',this.value)">'
+        : '') +
+      '<span class="rateamt" style="font-size:22px;color:var(--ink);font-weight:700">學費 ' + money(tuitionOfEntry(r)) + '</span></div>' +
+      '</div>';
+  });
+  h += '<button class="bigbtn ghost" style="margin:10px 0 0" onclick="rosAdd()">＋ 新增學員</button></div>' +
+    '<div class="hint">停用或刪除都不會影響過去期數已填的紀錄。</div>' +
+    '<div class="footer">油畫班收費表 ' + APP_VERSION + '</div>';
+  $('view').innerHTML = h;
+  window.scrollTo(0, 0);
+}
+function saveRoster() {
+  api('apiSaveRoster', { cls: S.cls, list: S.data.roster })
+    .then(function () { toast('名單已儲存 ✓'); })
+    .catch(function (e) { toast('儲存失敗:' + e); });
+}
+function rosEdit(i, v) {
+  var r = S.data.roster[i];
+  var from = r.name, to = String(v).trim();
+  if (from === to) return;
+  if (!to) { toast('姓名不能空白'); renderRoster(); return; }
+  if (S.data.roster.some(function (x, j) { return j !== i && x.name === to; })) {
+    toast('名單已有「' + to + '」'); renderRoster(); return;
+  }
+  if (from === '') { r.name = to; saveRoster(); renderRoster(); return; }  // 新列首次命名
+  if (!confirm('把「' + from + '」改名為「' + to + '」?\n所有期數的紀錄會一起更名。')) { renderRoster(); return; }
+  renameLocal(from, to);
+  api('apiRenameStudent', { cls: S.cls, from: from, to: to })
+    .then(function () { toast('已改名,所有期數同步更新 ✓'); })
+    .catch(function (e) { toast('改名同步失敗:' + e); });
+  renderRoster();
+}
+function rosRate(i, rt) {
+  var r = S.data.roster[i];
+  r.rate = rt;
+  if (rt === '自訂' && !r.custom) r.custom = S.data.settings.normal;
+  saveRoster(); renderRoster();
+}
+function rosCustom(i, v) { S.data.roster[i].custom = Number(v) || 0; saveRoster(); renderRoster(); }
+function rosToggle(i) { S.data.roster[i].active = !S.data.roster[i].active; saveRoster(); renderRoster(); }
+function rosDel(i) {
+  if (!confirm('把「' + S.data.roster[i].name + '」從名單刪除?')) return;
+  S.data.roster.splice(i, 1);
+  saveRoster(); renderRoster();
+}
+function rosAdd() {
+  S.data.roster.push({ name: '', active: true, rate: '一般', custom: 0 });
+  renderRoster();
+  var inputs = document.querySelectorAll('.editrow input[type=text]');
+  if (inputs.length) inputs[inputs.length - 1].focus();
+}
+
+
+/* ═══════════════ 對話框 ═══════════════ */
+function openDialog(inner) {
+  closeDialog();
+  var ov = document.createElement('div');
+  ov.className = 'overlay';
+  ov.id = 'overlay';
+  ov.innerHTML = '<div class="dialog">' + inner + '</div>';
+  ov.addEventListener('click', function (e) { if (e.target === ov) closeDialog(); });
+  document.body.appendChild(ov);
+}
+function closeDialog() {
+  var ov = $('overlay');
+  if (ov) ov.remove();
+}
+
+
+gateAndBoot_();
+</script>
+</body>
+</html>
