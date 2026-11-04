@@ -4632,6 +4632,12 @@ function gbExportText() {
   if (!t.list.length) L.push('(還沒有人登記)');
   gbCopy_(L.join('\n'), '已複製文字,可貼到 LINE 或記事本');
 }
+/* 文字儲存格防公式注入:名字是同學自己輸入的,=、+、-、@ 開頭貼進試算表會被當公式 → 前面補單引號;Tab/換行換成空格 */
+function gbCell_(c) {
+  if (typeof c !== 'string') return c;
+  c = c.replace(/[\t\r\n]+/g, ' ');
+  return /^[\s]*[=+\-@]/.test(c) ? "'" + c : c;
+}
 function gbTableRows_() {
   var d = gbExportData_(), t = d.t, rows = [];
   rows.push(['姓名'].concat(d.sizes, ['總片數', '應收', '已收', '未收', '狀態']));
@@ -4640,14 +4646,14 @@ function gbTableRows_() {
   });
   var sum = d.sizes.map(function (k) { return t.list.reduce(function (a, p) { return a + (p.items[k] || 0); }, 0) || ''; });
   rows.push(['合計'].concat(sum, [t.pieces, t.due, t.paid, Math.max(0, t.due - t.paid), '']));
-  return rows;
+  return rows.map(function (row) { return row.map(gbCell_); });
 }
 function gbExportTable() {
   gbCopy_(gbTableRows_().map(function (r) { return r.join('\t'); }).join('\n'), '已複製表格,到 Excel / Google 試算表按貼上');
 }
 function gbExportCsv() {
   var r = gbRound_();
-  var csv = gbTableRows_().map(function (row) { return row.map(function (c) { c = String(c); return /[",\n]/.test(c) ? '"' + c.replace(/"/g, '""') + '"' : c; }).join(','); }).join('\r\n');
+  var csv = gbTableRows_().map(function (row) { return row.map(function (c) { c = String(c); return /[",\r\n]/.test(c) ? '"' + c.replace(/"/g, '""') + '"' : c; }).join(','); }).join('\r\n');
   var a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' }));
   a.download = (r.name || '團購') + '_訂購及繳費.csv';
