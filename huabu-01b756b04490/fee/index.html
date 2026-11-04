@@ -2818,7 +2818,7 @@ function gateAndBoot_() {
     '<input id="fgRoom" placeholder="班級暗號" style="width:100%;font-size:20px;padding:12px;margin-bottom:10px;box-sizing:border-box">' +
     '<div style="display:flex;align-items:center;margin-bottom:10px"><input id="fgPw" type="password" placeholder="管理密碼" style="flex:1;min-width:0;font-size:20px;padding:12px;box-sizing:border-box"></div>' +
     '<button id="fgGo" class="bigbtn" style="width:100%">進入</button><div id="fgMsg" style="color:#c33;margin-top:10px"></div></div>';
-  document.body.appendChild(g); shareBlock_(g.firstChild, '分享這個網頁給班長');
+  document.body.appendChild(g); shareBlock_(g.firstChild, '分享給班長(開這頁讓她掃)');
   var room = ''; try { room = localStorage.getItem('fee-room') || ''; } catch (e) {}
   $('fgRoom').value = room;
   function go() {
@@ -4255,6 +4255,7 @@ gateAndBoot_();
 </script>
 
 
+
 <!--EXTRAS--><script>
 /* ═══ 11/4 加:改密碼 ═══ */
 function hex_(buf) { return Array.prototype.map.call(new Uint8Array(buf), function (x) { return ('0' + x.toString(16)).slice(-2); }).join(''); }
@@ -4323,9 +4324,10 @@ function gbSizeSort_(a, b) { var pa = parseInt(a), pb = parseInt(b); if (pa !== 
 function gbCalc_(round, orders, pay) {
   var people = {};
   orders.forEach(function (o) {
+    var q = Math.max(0, Math.floor(Number(o.qty)) || 0);
     var p = people[o.person] || (people[o.person] = { name: o.person, items: {}, due: 0, pieces: 0 });
-    p.items[o.size] = (p.items[o.size] || 0) + o.qty;
-    p.due += (Number(round.prices[o.size]) || 0) * o.qty; p.pieces += o.qty;
+    p.items[o.size] = (p.items[o.size] || 0) + q;
+    p.due += (Number(round.prices[o.size]) || 0) * q; p.pieces += q;
   });
   Object.keys(pay.paid).forEach(function (n) { if (!people[n] && Number(pay.paid[n]) > 0) people[n] = { name: n, items: {}, due: 0, pieces: 0 }; });
   var list = Object.keys(people).sort().map(function (n) { var p = people[n]; p.paid = Number(pay.paid[n]) || 0; return p; });
