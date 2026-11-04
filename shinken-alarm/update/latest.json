@@ -2,11 +2,11 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 48,
-    "versionName": "1.18.2",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.18.2.apk",
-    "sha256": "a7d9921da62a9f1a70037296b42b9055af89bb15949fb37688d484d7497af682",
-    "notes": "連上車藍牙後的診斷紀錄會記下連上/斷開事件,方便查開車橫幅為何沒出現\n手動開車的提示說明約 3 小時自動解除,到站請按「我下車了」\n回報問題的冷卻改成真的寄出(回到 App)才開始計時\n修正 🔒🔔 等符號偶爾被拆壞變亂碼",
+    "versionCode": 49,
+    "versionName": "1.18.3",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.18.3.apk",
+    "sha256": "3aa5e19c45c891e064aa2dcf7059ca9c86b5388c9c31995e14b6df89ef5989f2",
+    "notes": "連上車藍牙後的診斷紀錄會記下連上/斷開事件,方便查開車橫幅為何沒出現(不記車名)\n手動開車的提示說明約 3 小時自動解除,到站請按「我下車了」\n回報問題的冷卻改成真的寄出(回到 App)才開始計時\n修正 🔒🔔 等符號偶爾被拆壞變亂碼",
     "date": "2026-11-04"
   },
   "windows": {
