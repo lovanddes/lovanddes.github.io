@@ -1,90 +1,93 @@
 {
- "date": "2026-11-04",
- "one_line": "企業轉攻務實開源AI防風險，美以軍援轉向與北極安全框架拍板定案。",
+ "date": "2026-11-05",
+ "one_line": "美國期中翻盤重塑經貿局勢，科技巨頭加速整併與AI落地應用。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "OpenAI推日常基準LifeVal",
+     "title": "高通攜手星鏈推全美5G",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "OpenAI 於 11 月 2 日正式公開全新評測基準「LifeVal」，專注衡量 AI 處理日常生活實際雜務的能力。該基準涵蓋托育安排、線上報稅報帳、修改食譜與預約政府流程等高頻需求，標誌著評測重心從解題考試轉向能實際替人辦事的自主代理人（AI Agent）。官方也透露目前每週活躍用戶已跨過 10 億人大關。"
+       "text": "SpaceX 宣布選定晶片大廠高通（Qualcomm）的 Dragonwing 基礎設施平台，作為 Starlink Mobile 地面基地台的核心架構。這項合作將結合高通的大規模多天線傳輸技術與高效能處理晶片，預計於 2027 年全面啟動全美衛星行動 5G 網路的大規模部署。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這代表 AI 不再只比拼高深演算法，而是看誰能解決一般上班族的家務與行政瑣事，未來手機助理將更具實質替你跑腿的實用性。"
+       "text": "低軌衛星與地面行動通訊正在加速接軌，未來就算人在偏遠山區或訊號死角，一般手機也能隨時直連衛星享受高速 5G 網路。"
       }
      ],
      "sources": [
-      "https://openai.com/index/lifeval/",
-      "https://openai.com/index/lifeval"
+      "https://www.qualcomm.com/news/releases/2026/11/spacex-selects-qualcomm-to-accelerate-starlink-mobile-s-nationwi",
+      "https://killtheai.com/news/top-10-ai-news-today-november-4-2026/"
      ]
     },
     {
-     "title": "戴爾攜微驅推AI原生防護",
+     "title": "搜尋量達谷歌兩成 OpenAI爆發",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "伺服器巨頭戴爾與資安大廠 CrowdStrike 於 Fal.Con 歐洲大會宣布深度合作，將後者的 Falcon 平台直接整合進搭載輝達架構的 Dell AI 工廠硬體。該架構能在企業部署大型模型與自主代理人時，提供從底層算力晶片到上層應用的原生威脅偵測與防禦機制（AIDR）。"
+       "text": "OpenAI 消費端主管披露，目前透過 ChatGPT 觸發聯網查詢的搜尋量已相當於 Google 全球搜尋量的 20%，且 ChatGPT 每週活躍用戶在短短兩個月內從 10 億成長至 12 億人。 這項數據顯示對話式 AI 正在實質侵蝕傳統搜尋引擎二十年來的護城河。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "企業導入 AI 最怕機密外洩或代理人遭黑客越獄，資安出廠即內建（Built-in）正在成為高階伺服器採購的新標配。"
+       "text": "上班族與一般大眾的查資料習慣，正快速從「在瀏覽器打關鍵字找連結」轉向「直接請 AI 整合答案」，正深刻改寫網路流量與數位廣告的獲利規則。"
       }
      ],
      "sources": [
-      "https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-and-dell-technologies-announce-integrated-ai"
+      "https://killtheai.com/news/top-10-ai-news-today-november-4-2026/",
+      "https://emergent.sh/news/occ-releases-ai-supervisory-framework-banks"
      ]
     },
     {
-     "title": "微軟結盟Lumen攻企業AI網",
+     "title": "美監管機構立新規 規範銀行AI",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "微軟與光纖網路巨頭 Lumen Technologies 宣布擴大聯合銷售計畫，專攻解決企業在公有雲與自有資料中心之間搬運 AI 海量資料的傳輸瓶頸。雙方將 Azure 雲端服務與高頻寬企業專網整合，替下一代高度仰賴多節點通訊的自主式 AI 代理人鋪路。"
+       "text": "美國貨幣監理署（OCC）正式發布全美首套針對銀行部署人工智慧的監管指引框架。 新規嚴格要求金融機構在借貸審核、防範詐欺與風險控制中導入 AI 時，必須具備人為審查機制、完整的稽核軌跡以及防範演算法偏見的修正程序。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "隨著 AI 應用從簡單對話走向大型跨系統協同，網路延遲將決定運算效率，雲網一體化服務將左右企業數位轉型成本。"
+       "text": "金融機構未來不能再把拒貸或風控責任推給無法解釋的「演算法黑盒子」，這項政策將成為跨國金融體系規範 AI 的重要指標。"
       }
      ],
      "sources": [
-      "https://news.microsoft.com/source/2026/11/02/lumen-and-microsoft-expand-collaboration-to-co-sell-enterprise-ai-ready-networks/"
+      "https://emergent.sh/news/occ-releases-ai-supervisory-framework-banks",
+      "https://www.prnewswire.com/news-releases/cognex-reports-third-quarter-2026-results-302929644.html"
      ]
     },
     {
-     "title": "Gartner示警AI策略誤判風險",
+     "title": "康耐視收購實體AI鏡頭廠",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "調研機構 Gartner 發布 2026 年第三季新興風險報告，指出「AI 策略誤判」與「AI 競爭性淘汰」首度強勢擠進全球企業風險前五名。調查顯示，300 多位企業風控長最焦慮的已非單純技術缺陷，而是組織在商業模式尚未明朗前過度激進投資，導致巨額資本支出打了水漂。"
+       "text": "工業機器視覺領導廠商康耐視（Cognex）宣布以全現金方式收購機器人感知與實體人工智慧（Physical AI）深度感測技術大廠 RealSense。 同時，該公司也發表了專為半導體晶圓與面板辨識量身打造的次世代光學辨識系統 In-Sight 1750。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這給盲目跟風推動 AI 的企業敲響警鐘，提醒主管在編列高額 AI 預算前，必須以具體投資報酬率（ROI）取代焦慮驅動的採購。"
+       "text": "工業自動化正與空間感知、人形機器人快速整合，這項收購展示了工廠智慧化對高精度 3D 視覺的剛性需求，也牽動台灣半導體封裝產線的升級節奏。"
       }
      ],
      "sources": [
-      "https://www.gartner.com/en/newsroom/press-releases/2026-11-02-gartner-survey-finds-two-new-ai-related-risks-emerge-in-3q26",
-      "https://www.gartner.com/en/newsroom/press-releases/2026-11-02-gartner-survey-finds-two-new-ai-related-risks-emerge"
+      "https://www.prnewswire.com/news-releases/cognex-reports-third-quarter-2026-results-302929644.html",
+      "https://futurumgroup.com/insights/crowdstrike-buys-fiddler-and-dreadnode-to-test-watch-and-stop-ai-agents/"
      ]
     },
     {
-     "title": "Revolut換開源AI降九成成本",
+     "title": "阻AI失控 眾安推緊急斷路器",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "歐洲大型金融科技獨角獸 Revolut 證實，團隊在內部軟體開發中全面導入開源權重（open-weight）的 GLM 模型，取代昂貴的閉源商用 AI API。這項架構轉換使該公司在維持程式碼生成品質的同時，一舉將 AI 輔助寫程式的營運支出大砍了 90%。"
+       "text": "資安大廠 CrowdStrike 宣布收購兩家 AI 可觀測性與自動化測試新創 Fiddler AI 及 Dreadnode，並於防護平台推出「AI 代理人終止開關（Kill Switch）」。 該技術能讓企業在自主執行的 AI 代理人出現邏輯走偏、越權讀取機密或遭惡意指令劫持時，即時中斷其程序並撤回權限。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這顯示大型科技團隊正加速從盲目租用頂級商用雲端模型，轉向自建私有化開源模型，軟體工程的成本天花板正在被大幅壓低。"
+       "text": "企業正從「會聊天的 AI」升級至「能直接幫你操作軟體辦事的 AI 代理人」，建立能即時斷電的「AI 保險絲」將成為企業導入自動化時不可或缺的防護配備。"
       }
      ],
      "sources": [
-      "https://www.trendingtopics.eu/revolut-glm-open-weight-coding-costs/"
+      "https://futurumgroup.com/insights/crowdstrike-buys-fiddler-and-dreadnode-to-test-watch-and-stop-ai-agents/",
+      "https://energynow.ca/2026/11/a-blue-tsunami-democrats-seize-control-of-u-s-congress-what-the-election-sweep-means-for-trumps-energy-agenda-and-canadian-oil-and-gas/"
      ]
     }
    ]
@@ -93,54 +96,53 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "美2027年起停供以國無償軍援",
+     "title": "美期中選舉翻盤 民主黨掌國會",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國總統於 11 月 3 日受訪時宣布，美國將於 2027 年正式中止每年向以色列提供約 40 億美元的無償軍事援助款項。華府未來將改採純商業軍售模式，強調以色列經濟實力早已具備自購武器能力，不應繼續由美國納稅人買單。"
+       "text": "美國 2026 年期中選舉結果揭曉，選民因通膨負擔、高物價與涉外軍事衝突升溫，以選票釋放強烈信號，民主黨成功逆轉奪下聯邦參議院與眾議院的控制權。 這代表川普總統在剩餘兩年任期內將面臨國會的預算審查與調查權牽制，形成「分立政府」局面。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這標誌著華府數十年中東盟友政策的歷史性轉向，結束無條件安全兜底模式，全球地緣盟友的軍備採購恐將面臨全盤商業化重整。"
+       "text": "美國政局再度陷入府會分治，單方面擴大關稅與能源補貼等強硬政策將在國會遭遇龐大阻力，全球經貿環境短期內雖因不確定性落地而迎來股市反彈，但後續政策角力將拉長。"
       }
      ],
      "sources": [
-      "https://580wksk.com/ap-news-november-3-2026/",
-      "https://apnews.com/article/trump-israel-aid-military-sales-2026"
+      "https://energynow.ca/2026/11/a-blue-tsunami-democrats-seize-control-of-u-s-congress-what-the-election-sweep-means-for-trumps-energy-agenda-and-canadian-oil-and-gas/",
+      "https://wmbdradio.com/2026/11/04/trump-is-still-in-charge-but-democrats-gain-leverage-in-coming-economic-debate/"
      ]
     },
     {
-     "title": "格陵蘭批准美丹三方安全協議",
+     "title": "歐盟擴大調查 鎖定中資風電補貼",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "格陵蘭國會於 11 月 3 日正式通過與丹麥、美國的三邊安全框架協議，准許美軍在島上增建軍事基地以鞏固北極海域防衛。這項協議在強化北約極地防線的同時，也確認格陵蘭維持在丹麥體系下的自治管轄，化解了此前美方施壓試圖取得控制權的政治僵局。"
+       "text": "歐盟執行委員會正式擴大對綠能市場的保護性調查，依據《外國補貼條例》針對中國大型國營銀行（如工商銀行）對中資企業低價搶攻歐洲風電市場所提供的補貼展開深入追查。 歐盟官員擔憂過度補貼將重創歐洲本土潔淨能源製造體系。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "北極航道解凍與稀土礦產地位日益吃緊，美軍實質重返北極將使西方對中俄極地地緣與能源航運的包圍網更加穩固。"
+       "text": "歐盟的貿易防線正從電動車延伸到電網與風力發電設備，綠能供應鏈的去風險化持續加速，具備非紅供應鏈優勢的零組件廠商將有機會承接歐洲轉單需求。"
       }
      ],
      "sources": [
-      "https://580wksk.com/ap-news-november-3-2026/",
-      "https://apnews.com/article/greenland-denmark-us-arctic-security-deal"
+      "https://www.icij.org/investigations/china-capital/how-banking-giant-icbc-helped-chinese-firms-gain-a-foothold-in-europes-wind-market/"
      ]
     },
     {
-     "title": "俄擴大強制沒收歐洲企業資產",
+     "title": "DoorDash天價併購生鮮龍頭",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "基輔經濟學院（KSE）與跨國倡議團體發布報告，指控俄羅斯當局近期變相沒收與強行接管包括雀巢、歐尚等數十家歐洲在俄外商的工廠與營運資產。莫斯科強索企業資金並轉移經營權，企圖藉此迫使跨國母公司向其母國政府遊說以放寬對俄制裁。"
+       "text": "北美外送平台巨頭 DoorDash 敲定以約 170 億美元（約新台幣 5,440 億元）收購生鮮配送龍頭 Instacart，創下即時零售領域近年規模最大的整併案。 雙方預計將餐飲配送車隊與各大連鎖超市的庫存數據結合，整合成跨品類的即時電商帝國。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這顯示地緣政治惡化下跨國實體資產面臨直接遭沒收的系統性風險，對任何在非民主陣營設廠的全球供應鏈皆是一記嚴厲警訊。"
+       "text": "外送業在疫後進入殘酷整併期，單靠外送餐點利潤微薄，巨頭透過併購獲取家庭生鮮採購客群與零售廣告收入，也將間接重塑全球即時配送服務的收費結構與競爭樣貌。"
       }
      ],
      "sources": [
-      "https://kse.ua/en/news/russia-expands-seizures-of-european-business-assets-to-pressure-eu-governments-over-sanctions-joint-statement-by-kse-institute-and-b4ukraine/",
-      "https://kse.ua/about-the-school/news/russia-expands-seizures-of-european-business-assets-to-pressure-eu-governments-over-sanctions/"
+      "https://www.forbes.com/sites/sharonedelson/2026/11/02/doordashs-17-billion-acquisition-of-instacart-roils-food-industry/",
+      "https://www.theguardian.com/business/2026/oct/29/doordash-buys-instacart-grocery-delivery"
      ]
     }
    ]
