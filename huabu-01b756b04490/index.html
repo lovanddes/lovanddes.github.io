@@ -2820,11 +2820,11 @@ function render(){
 
   const labels=allSizes(r),quo=isQuoting(r);
   const sel=$('size').value;
-  $('size').innerHTML=labels.filter(l=>price(r,l)>0||quo).map(l=>`<option value="${esc(l)}">${esc(l)}(${esc(CM[l]||'')}) ${price(r,l)?$$(price(r,l)):'報價中'}</option>`).join('');
+  $('size').innerHTML=(quo?[...new Set([...labels,...SIZES.map(x=>x.label)])].sort(sortSize):labels.filter(l=>price(r,l)>0)).map(l=>`<option value="${esc(l)}">${esc(l)}(${esc(CM[l]||'')}) ${price(r,l)?$$(price(r,l)):'報價中'}</option>`).join('');
   if(labels.includes(sel))$('size').value=sel;
   drawSizePick(r);
   const noPrice=labels.filter(l=>!price(r,l));
-  $('hint').textContent=!$('size').options.length?'目前沒有可選的尺寸,請找班長。':(isAdmin&&noPrice.length?'還沒填單價:'+noPrice.join('、'):(quo&&noPrice.length?'有些尺寸還在報價中,先選沒關係,價錢出來後金額會自動更新。':''));
+  $('hint').textContent=!$('size').options.length?'目前沒有可選的尺寸,請找班長。':(isAdmin&&noPrice.length?'還沒填單價:'+noPrice.join('、'):(quo&&noPrice.length?'報價中:任何尺寸都能選,選了班長那邊的單價表會自動出現,價錢出來後金額會自動更新。':''));
 
   const me=$('who').value.trim();
   const has=!!myPws()[me];
