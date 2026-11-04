@@ -2937,7 +2937,12 @@ function recalcRow(r) {
   var sub = 0, parts = [];
   Object.keys(r.mats || {}).forEach(function (k) {
     var q = Number(r.mats[k] || 0);
-    if (q > 0) { sub += q * matPrice(k); parts.push(k + '×' + q); }
+    if (q > 0) {
+      /* 單價以「這一期當時」為準:第一次算到就記進這一列(r.mp),之後材料庫漲價/改名/刪除都不影響舊期(先生 11/4:價錢會漲,半年前的帳不能變) */
+      if (!r.mp) r.mp = {};
+      if (r.mp[k] === undefined) r.mp[k] = matPrice(k);
+      sub += q * r.mp[k]; parts.push(k + '×' + q);
+    }
   });
   r.matSubtotal = sub;
   r.matText = parts.join('、');
@@ -3007,6 +3012,23 @@ window.addEventListener('beforeunload', function (e) {
 
 
 /* ═══════════════ 啟動 ═══════════════ */
+/* 舊資料(還沒記單價的各期)登入時一次把「現在的單價」記進去並存檔,之後材料庫改價就不會動到它們 */
+async function freezeOldPrices_() {
+  try {
+    for (var ci = 0; ci < CLS_LIST.length; ci++) {
+      var c = CLS_LIST[ci], cd = S.all[c]; if (!cd) continue;
+      var price = function (n) { for (var i = 0; i < cd.materials.length; i++) if (cd.materials[i].name === n) return cd.materials[i].price; return 0; };
+      for (var pi = 0; pi < cd.periods.length; pi++) {
+        var p = cd.periods[pi], rows = cd.records[String(p.no)] || [], ch = false;
+        rows.forEach(function (r) {
+          var need = Object.keys(r.mats || {}).filter(function (k) { return Number(r.mats[k] || 0) > 0 && !(r.mp && r.mp[k] !== undefined); });
+          if (need.length) { r.mp = r.mp || {}; need.forEach(function (k) { r.mp[k] = price(k); }); ch = true; }
+        });
+        if (ch) await api('apiSavePeriod', { cls: c, no: p.no, dates: p.dates, status: p.status, posts: p.posts || [], rows: rows });
+      }
+    }
+  } catch (e) { console.warn('凍結舊期單價失敗(下次登入會再試)', e); }
+}
 function bootData_() {
   api('apiLoad').then(function (data) {
     S.all = data.classes;
@@ -3015,6 +3037,7 @@ function bootData_() {
     S.data = S.all[S.cls];
     $('loading').style.display = 'none';
     renderHome();
+    freezeOldPrices_();
   }).catch(function (e) {
     $('loading').innerHTML = '<div class="empty">😵 載入失敗:' + esc(e) +
       '<br><br><button class="bigbtn" onclick="location.reload()">重新載入</button></div>';
@@ -3358,7 +3381,8 @@ function draftTuition() {
 }
 function draftSums() {
   var d = S.draft, mat = 0;
-  Object.keys(d.mats).forEach(function (k) { mat += Number(d.mats[k] || 0) * matPrice(k); });
+  var mp = (!d.isNew && rowsOf(S.cur)[d.idx] || {}).mp || {};
+  Object.keys(d.mats).forEach(function (k) { mat += Number(d.mats[k] || 0) * (mp[k] !== undefined ? mp[k] : matPrice(k)); });
   var on = d.status === '上課';
   var fee = on ? draftTuition() : 0;
   var cf = on ? (Number(d.classFee) || 0) : 0;
@@ -4502,7 +4526,7 @@ async function renderGroupRound(id) {
   gbUnwatch_(); G.cur = id;
   if (!G.rounds.some(function (r) { return r.id === id; })) await gbLoadRounds_();
   G.unsub = gbRoundsCol_().doc(id).collection('orders').onSnapshot(function (snap) {
-    G.orders = snap.docs.map(function (d) { return d.data(); });
+    G.orders = snap.docs.map(function (d) { var o = d.data(); o._id = d.id; return o; });
     var a = document.activeElement; if (a && a.tagName === 'INPUT' && $('view').contains(a)) return;
     gbDrawRound_();
   }, function () { toast('連線失敗,請重新整理'); });
@@ -4529,7 +4553,8 @@ function gbDrawRound_() {
       '<span class="stu-name">' + esc(p.name) + '</span><span class="stu-total' + (p.due === 0 ? ' zero' : '') + '">' + money(p.due) + '</span>' +
       '<button class="paid-btn' + (st === 'full' ? ' on' : (st === 'part' ? ' part' : '')) + '" onclick="gbTogglePaid(' + i + ')">' + (st === 'full' ? '✓ 已收' : (st === 'part' ? '部分' : '未收')) + '</button></div>' +
       '<div class="paychips" style="align-items:center"><span style="flex:1;color:var(--muted);font-size:18px">' + esc(gbItemsTxt_(p)) + '</span><span style="color:var(--muted);font-size:18px">已收</span>' +
-      '<input type="number" class="price" inputmode="numeric" value="' + (p.paid || '') + '" placeholder="0" onchange="gbSetPaid(' + i + ',this.value)" style="width:96px;flex:none"></div></div>';
+      '<input type="number" class="price" inputmode="numeric" value="' + (p.paid || '') + '" placeholder="0" onchange="gbSetPaid(' + i + ',this.value)" style="width:96px;flex:none"></div>' +
+      '<div style="margin-top:6px"><button class="iconbtn" onclick="gbRename(' + i + ')">✏️ 改名/合併</button></div></div>';
   });
   h += '<button class="bigbtn ghost" style="margin-top:14px" onclick="gbCopyRemind()">📋 複製「收款提醒」文字</button>';
   h += '<button class="bigbtn ghost" onclick="gbToggleClosed()">' + (r.closed ? '🔓 重新開放登記' : '🔒 結單(同學不能再改)') + '</button>';
@@ -4541,6 +4566,33 @@ async function gbSavePay_(pay) {
   var r = gbRound_(); var q = (window.GB_Q || Promise.resolve()).catch(function () {}).then(function () { return feePut_('g_' + r.id, pay); }); window.GB_Q = q; await q; gbDrawRound_();   // 排隊寫入,後送的不會被先送的蓋掉
 }
 function gbSetPaid(i, v) { var r = gbRound_(), p = gbPay_(r.id), n = window.G_LIST[i].name; v = Math.max(0, Number(v) || 0); if (v > 0) p.paid[n] = v; else delete p.paid[n]; gbSavePay_(p).catch(function (e) { toast('沒存成:' + ((e && e.message) || e)); }); }
+/* 班長改名/合併:這個人的所有登記搬到新名字(新名字已有同尺寸就數量相加,上限 99),已收金額一起搬,舊名字的密碼鎖刪掉(Grok 審查 #9) */
+async function gbRename(i) {
+  var r = gbRound_(), from = window.G_LIST[i].name;
+  var to = (window.prompt('把「' + from + '」改成(或合併到)哪個名字?', from) || '').trim().slice(0, 40);
+  if (!to || to === from) return;
+  if (to.indexOf('/') >= 0) { toast('名字不能有 / 符號'); return; }
+  var mine = G.orders.filter(function (o) { return o.person === from; });
+  var pay = gbPay_(r.id);
+  try {
+    await feeBatch_(function (b) {
+      var col = gbRoundsCol_().doc(r.id).collection('orders');
+      mine.forEach(function (o) {
+        var nid = o.size + '|' + to, ex = G.orders.filter(function (x) { return x._id === nid; })[0];
+        var q = Math.min(99, (Number(o.qty) || 0) + (ex ? Number(ex.qty) || 0 : 0));
+        b.set(col.doc(nid), { person: to, size: o.size, qty: q, t: Date.now() });
+        b.delete(col.doc(o._id));
+      });
+      b.delete(gbRoundsCol_().doc(r.id).collection('keys').doc(from));
+    });
+    var pf = Number(pay.paid[from]) || 0;
+    if (pf > 0) { pay.paid[to] = (Number(pay.paid[to]) || 0) + pf; }
+    delete pay.paid[from];
+    G.orders = G.orders.filter(function (o) { return o.person !== from; });
+    await gbSavePay_(pay);
+    toast('已把「' + from + '」改成「' + to + '」,已收金額一起搬過去');
+  } catch (e) { toast('改名沒成功:' + ((e && e.message) || e)); }
+}
 function gbTogglePaid(i) { var it = window.G_LIST[i]; gbSetPaid(i, it.paid >= it.due && it.due > 0 ? 0 : it.due); }
 function gbSetAdvance(v) { var r = gbRound_(), p = gbPay_(r.id); p.advance = Math.max(0, Number(v) || 0); gbSavePay_(p).catch(function (e) { toast('沒存成:' + ((e && e.message) || e)); }); }
 async function gbSetPrice(size, v) {
