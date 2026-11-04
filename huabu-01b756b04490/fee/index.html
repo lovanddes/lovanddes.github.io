@@ -2766,6 +2766,22 @@ async function dec_(d) {
   var pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64d_(d.iv) }, FEE.key, b64d_(d.c));
   return JSON.parse(new TextDecoder().decode(pt));
 }
+/* 各期每位學員「這台上次看到的樣子」,存檔時用來分辨哪些列是我改的、哪些是別台改的(Grok 審查 #7) */
+function baseOf_(rows) { var m = {}; (rows || []).forEach(function (r) { m[r.name] = JSON.stringify(r); }); return m; }
+async function mergePeriodRemote_(id, rows) {
+  try {
+    var base = FEE.base && FEE.base[id]; if (!base) return;
+    var sd = await feeCol_().doc(id).get(); if (!sd.exists) return;
+    var rem = await dec_(sd.data()), remBy = {}, locBy = {};
+    (rem.rows || []).forEach(function (r) { remBy[r.name] = r; });
+    rows.forEach(function (r) {
+      locBy[r.name] = 1; var rr = remBy[r.name]; if (!rr) return;
+      var b = base[r.name], mine = JSON.stringify(r) !== b, theirs = JSON.stringify(rr) !== b;
+      if (!mine && theirs) { Object.keys(r).forEach(function (k) { delete r[k]; }); Object.assign(r, JSON.parse(JSON.stringify(rr))); }   // 只有別台改過這位 → 採用別台的
+    });
+    (rem.rows || []).forEach(function (r) { if (!locBy[r.name] && base[r.name] === undefined) rows.push(JSON.parse(JSON.stringify(r))); });   // 別台新增的學員
+  } catch (e) { console.warn('合併別台修改失敗,照本機存', e); }
+}
 async function feePut_(id, obj) {
   var e = await enc_(obj);
   await feeBatch_(function (b) { b.set(feeCol_().doc(id), e); });
@@ -2777,18 +2793,23 @@ async function feeApi_(fn, p) {
   if (fn === 'apiLoad') {
     var snap = await feeCol_().get(), classes = {};
     CLS_LIST.forEach(function (c) { classes[c] = BLANK_CLS(); });
-    FEE.cache = {};
+    FEE.cache = {}; FEE.base = {};
     for (var i = 0; i < snap.docs.length; i++) {
       var d = snap.docs[i]; if (d.id === 'k_slots') continue; var o = await dec_(d.data()); FEE.cache[d.id] = o;
       var m = /^([a-z])_([^_]+)(?:_(\d+))?$/.exec(d.id); if (!m || !classes[m[2]]) continue;
       var c = classes[m[2]];
       if (m[1] === 's') c.settings = o; else if (m[1] === 'm') c.materials = o; else if (m[1] === 'r') c.roster = o; else if (m[1] === 'f') c.fund = o;
-      else if (m[1] === 'p') { c.periods.push({ no: o.no, dates: o.dates || [], status: o.status || '進行中', posts: o.posts || [] }); c.records[String(o.no)] = o.rows || []; }
+      else if (m[1] === 'p') { FEE.base[d.id] = baseOf_(o.rows); c.periods.push({ no: o.no, dates: o.dates || [], status: o.status || '進行中', posts: o.posts || [] }); c.records[String(o.no)] = o.rows || []; }
     }
     CLS_LIST.forEach(function (c) { classes[c].periods.sort(function (a, b) { return a.no - b.no; }); });
     return { classes: classes, sheetUrl: '' };
   }
-  if (fn === 'apiSavePeriod') return feePut_('p_' + cls + '_' + p.no, { no: p.no, dates: p.dates, status: p.status, posts: p.posts || [], rows: p.rows || [] });
+  if (fn === 'apiSavePeriod') {
+    var pid = 'p_' + cls + '_' + p.no, prow = p.rows || [];
+    await mergePeriodRemote_(pid, prow);
+    await feePut_(pid, { no: p.no, dates: p.dates, status: p.status, posts: p.posts || [], rows: prow });
+    (FEE.base = FEE.base || {})[pid] = baseOf_(prow); return null;
+  }
   if (fn === 'apiDeletePeriod') { await feeBatch_(function (b) { b.delete(feeCol_().doc('p_' + cls + '_' + p.no)); }); delete FEE.cache['p_' + cls + '_' + p.no]; return null; }
   if (fn === 'apiSaveMaterials') return feePut_('m_' + cls, p.list || []);
   if (fn === 'apiSaveRoster') return feePut_('r_' + cls, p.list || []);
@@ -2800,7 +2821,8 @@ async function feeApi_(fn, p) {
     var ids = Object.keys(FEE.cache).filter(function (k) { return k.indexOf('p_' + cls + '_') === 0; });
     for (var j = 0; j < ids.length; j++) {
       var po = FEE.cache[ids[j]], ch = false;
-      (po.rows || []).forEach(function (r) { if (r.name === p.from) { r.name = p.to; ch = true; } });
+      // 載入時各期 rows 與畫面是同一個陣列,renameLocal 已先改過 → 舊名、新名都要算「有這個人」(Grok 審查 #4)
+      (po.rows || []).forEach(function (r) { if (r.name === p.from) r.name = p.to; if (r.name === p.to) ch = true; });
       if (ch) await feePut_(ids[j], po);
     }
     return null;
@@ -2941,19 +2963,21 @@ function summary(no) {
 
 /* ═══════════════ 自動存檔 ═══════════════ */
 function markDirty() {
-  S.dirty = true;
+  if (S.dirty && S.dirtyCur != null && S.dirtyCur !== S.cur) flushSave();   // 換期數前先把上一期送出
+  S.dirty = true; S.dirtyCur = S.cur;
   setSaveDot('儲存中…', 'saving');
   clearTimeout(S.saveTimer);
   S.saveTimer = setTimeout(flushSave, 1200);
 }
 function flushSave() {
   clearTimeout(S.saveTimer);
-  if (!S.dirty || S.cur === null || S.saving) return;
-  var p = findPeriod(S.cur);
-  if (!p) return;
+  var cur = (S.dirtyCur != null) ? S.dirtyCur : S.cur;   // 按返回後 S.cur 變 null,仍要存剛剛那一期(Grok 審查 #6)
+  if (!S.dirty || cur === null || S.saving) return;
+  var p = findPeriod(cur);
+  if (!p) { S.dirty = false; return; }
   S.saving = true;
   S.dirty = false;
-  var rows = rowsOf(S.cur);
+  var rows = rowsOf(cur);
   rows.forEach(recalcRow);
   api('apiSavePeriod', { cls: S.cls, no: p.no, dates: p.dates, status: p.status, posts: p.posts || [], rows: rows })
     .then(function () {
@@ -3000,6 +3024,7 @@ function bootData_() {
 
 /* ═══════════════ 首頁:期數列表 ═══════════════ */
 function renderHome() {
+  if (S.dirty && S.cur !== null) flushSave();
   S.cur = null; S.addPanelOpen = false;
   var d = S.data;
   var list = d.periods.slice().sort(function (a, b) { return b.no - a.no; });
@@ -3080,7 +3105,7 @@ function autoDates() {
 }
 function createPeriod() {
   var no = Number($('npNo').value);
-  if (!no || no < 1) { toast('期數要填正整數喔'); return; }
+  if (!no || no < 1 || no % 1 !== 0) { toast('期數要填正整數喔'); return; }
   if (findPeriod(no)) { toast('第' + no + '期已經存在'); return; }
   var dates = [];
   for (var i = 0; i < 4; i++) {
@@ -3521,6 +3546,7 @@ function saveDates() {
 function deletePeriod() {
   var p = findPeriod(S.cur);
   if (!confirm('確定刪除第' + p.no + '期?\n這期的收費紀錄會一起消失,無法復原。')) return;
+  clearTimeout(S.saveTimer); S.dirty = false;   // 取消這期排隊中的自動存檔,免得刪掉又被寫回(Grok 審查 #10)
   api('apiDeletePeriod', { cls: S.cls, no: p.no })
     .then(function () {
       S.data.periods = S.data.periods.filter(function (x) { return x.no !== p.no; });
@@ -4406,7 +4432,7 @@ var G = { rounds: [], cur: null, orders: [], unsub: null, justCreated: null };
 var GB_SIZES_ = { '6F': 0, '8F': 0, '10F': 0, '12F': 0, '12P': 0, '15F': 0 };
 function gbLink_(rid) { return GB_BASE_ + '#' + encodeURIComponent(FEE.room) + (rid ? '&r=' + rid : ''); }
 function gbRoundsCol_() { return FDB.collection('rooms').doc(FEE.room).collection('rounds'); }
-function gbPay_(id) { var p = FEE.cache['g_' + id] || {}; return { paid: p.paid || {}, advance: Number(p.advance) || 0 }; }
+function gbPay_(id) { var p = FEE.cache['g_' + id] || (FEE.cache['g_' + id] = {}); if (!p.paid) p.paid = {}; p.advance = Number(p.advance) || 0; return p; }   // 回傳快取本身:連點兩位時第二次看得到第一次(Grok 審查 #8)
 async function gbLoadRounds_() {
   var snap = await gbRoundsCol_().orderBy('created').get();
   G.rounds = snap.docs.map(function (d) { var o = d.data(); o.id = d.id; return o; }).filter(function (r) { return !r.archived; });
@@ -4512,7 +4538,7 @@ function gbDrawRound_() {
   window.G_LIST = t.list;
 }
 async function gbSavePay_(pay) {
-  var r = gbRound_(); await feePut_('g_' + r.id, pay); gbDrawRound_();
+  var r = gbRound_(); var q = (window.GB_Q || Promise.resolve()).catch(function () {}).then(function () { return feePut_('g_' + r.id, pay); }); window.GB_Q = q; await q; gbDrawRound_();   // 排隊寫入,後送的不會被先送的蓋掉
 }
 function gbSetPaid(i, v) { var r = gbRound_(), p = gbPay_(r.id), n = window.G_LIST[i].name; v = Math.max(0, Number(v) || 0); if (v > 0) p.paid[n] = v; else delete p.paid[n]; gbSavePay_(p).catch(function (e) { toast('沒存成:' + ((e && e.message) || e)); }); }
 function gbTogglePaid(i) { var it = window.G_LIST[i]; gbSetPaid(i, it.paid >= it.due && it.due > 0 ? 0 : it.due); }
