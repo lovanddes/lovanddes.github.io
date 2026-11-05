@@ -1,20 +1,20 @@
 {
- "date": "2026-11-05",
+ "date": "2026-11-06",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "微軟效能分級要16G才算AI",
+     "title": "AI秤斤啃了五百噸書",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "微軟內部流出一份AI PC效能分級圖，將16GB記憶體列為AI快速回應的低標，8GB則被歸為一般文書規格。在記憶體成本持續攀升的當下，引發民眾與上班族對於新舊電腦硬體門檻再度被拉高的熱烈討論。"
+       "text": "立法院質詢揭露外國 AI 公司為訓練繁中語料，自台灣採購出口逾 563 公噸、約 180 萬本書籍進行拆解掃描。文化部對此表示文化創作不應被免費取用，正研議建立補償機制與修法保障創作者。"
       },
       {
        "label": "新跪的角度:",
-       "text": "「我低頭看著公司發的那台8GB舊筆電，突然釋懷了，原來不是我反應遲鈍，是微軟早就認定我這種規格只配在旁邊發呆。」"
+       "text": "我買了一年的專業書連封膜都還沒拆，AI 卻已經用公噸為單位把整座圖書館都吞進去了。"
       },
       {
        "label": "建議欄目:",
@@ -22,40 +22,20 @@
       }
      ],
      "sources": [
-      "https://www.ettoday.net/news/20261104/3265959.htm"
+      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEoKtGsYRlk1B-bgnJtvvlOLCcO14hUuQsdsAfvrT3bbPABDgGPzX8qfs-ydXSYgSKKFCJye-xSE2ka1MinGJC2Cfma9vKCNIkqsMYdRYIdhFaAqb2MdLyVkwFMCFf-kf66",
+      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGr7LrsNnwMgl6U7wYYbHqJ66fHf9CgrA6myd8tP_STdp4QOjQlp_kq7rCDxkxloTPbmaQHuSAFwolavc1ZiS1UswBiwk1Ua4SRFEPU03k_SwgZIT-lP2AxMTG6Rl1WHm3acIapAknRPXd5aj_XpII="
      ]
     },
     {
-     "title": "台企瘋AI資料就緒率僅9趴",
+     "title": "遮雨棚棉被比我還能撐",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "美商鄧白氏公布2026年第四季台灣企業AI動能指數，調查顯示近八成台灣企業已導入或試行AI，部署速度領先全球。然而企業內部資料完全就緒的比例僅有9%，多數企業因底層資料紊亂導致AI投資回報指數明顯下滑。"
+       "text": "台灣網友持續記錄鄰居遮雨棚上一條掛了超過 900 天沒掉下的棉被，累積千萬瀏覽量成為現象級話題。連 Threads 全球負責人日前也公開發文關注其動態，引發全台社群熱烈討論。"
       },
       {
        "label": "新跪的角度:",
-       "text": "「我天天被主管追著要交AI轉型成果，看著螢幕上那個名為『最終版_真的不要再改了』的資料夾，我連自己十年前存在哪都想不起來。」"
-      },
-      {
-       "label": "建議欄目:",
-       "text": "【欸唉新跪的生存週報】"
-      }
-     ],
-     "sources": [
-      "https://finance.ettoday.net/news/3266328",
-      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHU3F0VGCitJuTf5wQmFgGXCaSW9tH887I6xuSwkzkMB-muMmsNaVun7M6crOdY8t93cGZeobqzJ6oKVJ7AS4hjpMX24thpXKWJ7C-SLf9dCjOfSKqc5Y7NwqMJWiTBMp91fct31rKu4g=="
-     ]
-    },
-    {
-     "title": "外送基本運費調至47元",
-     "body": [
-      {
-       "label": "為什麼熱:",
-       "text": "配合2027年最低工資調漲，勞動部正式公告外送員每筆訂單最低保障金額將自明年元旦起從45元調升至47.1元，為外送專法施行後首度調整。該調整不僅引發外送從業人員關注，也讓高度依賴外送的上班族討論起未來的餐飲與外送成本。"
-      },
-      {
-       "label": "新跪的角度:",
-       "text": "「我看著外送結帳頁面多跳出來的幾塊錢，默默縮回了準備點手搖飲的手，原來在演算法和專法底下，我和外送員一樣都在等著被這個世界加薪。」"
+       "text": "我每天上班都覺得自己快要撐不住掉下去了，抬頭看著那條風吹雨打九百天的棉被，突然發現我連當條廢布都沒它有毅力。"
       },
       {
        "label": "建議欄目:",
@@ -63,7 +43,29 @@
       }
      ],
      "sources": [
-      "https://www.ettoday.net/news/20261104/3265962.htm"
+      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGr7LrsNnwMgl6U7wYYbHqJ66fHf9CgrA6myd8tP_STdp4QOjQlp_kq7rCDxkxloTPbmaQHuSAFwolavc1ZiS1UswBiwk1Ua4SRFEPU03k_SwgZIT-lP2AxMTG6Rl1WHm3acIapAknRPXd5aj_XpII=",
+      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEoKtGsYRlk1B-bgnJtvvlOLCcO14hUuQsdsAfvrT3bbPABDgGPzX8qfs-ydXSYgSKKFCJye-xSE2ka1MinGJC2Cfma9vKCNIkqsMYdRYIdhFaAqb2MdLyVkwFMCFf-kf66"
+     ]
+    },
+    {
+     "title": "千萬發票充公但我還在省外送費",
+     "body": [
+      {
+       "label": "為什麼熱:",
+       "text": "財政部統計 5、6 月期統一發票於 11 月 5 日截止兌領，仍有 4 張千萬特別獎與 5 張百萬雲端發票未領，合計 5300 萬元充公。其中包含花 10 元買飲品中 200 萬、花 18 元外送費中 100 萬的得主皆未現身。"
+      },
+      {
+       "label": "新跪的角度:",
+       "text": "我中午點外送還在精打細算湊兩塊錢免運，看到有人花十八塊外送費中百萬卻忘了領，才懂真正的鬆弛感是連發票都懶得對。"
+      },
+      {
+       "label": "建議欄目:",
+       "text": "【欸唉新跪的生存週報】"
+      }
+     ],
+     "sources": [
+      "https://finance.ettoday.net/news/3266725",
+      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEoKtGsYRlk1B-bgnJtvvlOLCcO14hUuQsdsAfvrT3bbPABDgGPzX8qfs-ydXSYgSKKFCJye-xSE2ka1MinGJC2Cfma9vKCNIkqsMYdRYIdhFaAqb2MdLyVkwFMCFf-kf66"
      ]
     }
    ]
