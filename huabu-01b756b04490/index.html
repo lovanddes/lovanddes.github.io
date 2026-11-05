@@ -239,7 +239,6 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
           <div class="row" style="margin-top:14px">
             <button id="closeBtn">結單</button>
             <button id="renameBtn">改名</button>
-            <button id="delRound" class="danger">隱藏這一場</button>
             <button id="adminOut" class="ghost">登出班長</button>
           </div>
         </div>
@@ -3021,13 +3020,6 @@ $('renameBtn').onclick=()=>{
   let done=false;const fin=async()=>{if(done)return;done=true;const v=inp.value.trim();inp.replaceWith(el);
     if(v&&v!==r.name){try{await adminBatch(b=>b.update(roundRef(cur),{name:v}))}catch(e){toast(errMsg(e))}}};
   inp.onblur=fin;inp.onkeydown=ev=>{if(ev.key==='Enter')inp.blur()};
-};
-let confirmDel=0;
-$('delRound').onclick=async()=>{
-  const b=$('delRound');
-  if(!confirmDel){confirmDel=1;b.textContent='再按一次確認隱藏';setTimeout(()=>{confirmDel=0;b.textContent='隱藏這一場'},3000);return}
-  confirmDel=0;b.textContent='隱藏這一場';
-  try{await adminBatch(bt=>bt.update(roundRef(cur),{archived:true}));cur=null;toast('已隱藏這一場')}catch(e){toast(errMsg(e))}
 };
 
 // 表格輸出
