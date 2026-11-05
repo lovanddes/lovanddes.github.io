@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 41,
-    "versionName": "1.1.38",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.38.apk",
-    "sha256": "db44087b82d407ceaeceb4d364f5ead8aecd1696fdb0cd9dfd25fd87be8e59e7",
-    "notes": "通話記錄、聯絡人、最愛、群組:點進聯絡人詳情或切換分頁後再回來,不會再跳回最上面,停在原本捲到的位置\n聯絡人分頁選的字母索引、群組分頁展開的群組,返回後也會保留",
-    "date": "2026-11-04"
+    "versionCode": 42,
+    "versionName": "1.1.39",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.39.apk",
+    "sha256": "3878e4d2ca687d7ace4fbe8e8b53bb74f296653167067f22548b6fdcb9e61fa4",
+    "notes": "點未接來電通知,一定回到「通話紀錄」並只看未接,不會停在別的分頁\n黑名單加 886* 不再擋掉所有台灣號碼;110、119 等緊急電話來電一律放行\n通話中又有陌生人插播:黃色提醒改寫在插播卡片上,不再畫在正在講的人身上\n通話中開數字鍵盤、字放很大時,掛斷鈕不會被擠不見",
+    "date": "2026-11-05"
   }
 }
