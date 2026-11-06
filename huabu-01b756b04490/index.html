@@ -2845,7 +2845,7 @@ $('create').onclick=async()=>{
 };
 $('leave').onclick=()=>{
   if(unsubR)unsubR();if(unsubO)unsubO();if(unsubM)unsubM();unsubR=unsubO=unsubM=null;roster=[];
-  lsDel('hb-room');room=null;rounds=[];orders=[];cur=null;isAdmin=false;
+  lsDel('hb-room');room=null;rounds=[];orders=[];cur=null;watching=null;isAdmin=false;
   try{history.replaceState(null,'','#')}catch(e){}
   $('app').hidden=true;$('gate').hidden=false;$('code').value='';
 };
