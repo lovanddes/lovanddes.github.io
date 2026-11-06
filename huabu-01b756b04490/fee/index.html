@@ -2669,8 +2669,8 @@ var qrcode = function() {
 function shareBlock_(parent, title, url, bare) {
   url = url || (location.origin + location.pathname);
   var box = document.createElement('div');
-  box.style.cssText = bare ? 'text-align:center' : 'margin-top:22px;padding-top:16px;border-top:1px solid rgba(128,128,128,.35);text-align:center';
-  box.innerHTML = '<div style="font-size:14px;opacity:.75;margin-bottom:8px">' + (title || '分享這個網頁給同學') + '</div>' +
+  box.style.cssText = bare ? 'text-align:center' : 'margin-top:22px;padding-top:16px;padding-bottom:calc(48px + env(safe-area-inset-bottom));border-top:1px solid rgba(128,128,128,.35);text-align:center';
+  box.innerHTML = '<div style="font-size:15px;opacity:1;font-weight:600;margin-bottom:8px">' + (title || '分享這個網頁給同學') + '</div>' +
     '<div class="shareUrl" style="font-size:13px;word-break:break-all;margin-bottom:8px"></div>' +
     '<button type="button" class="shareCopy" style="font-size:15px;padding:8px 16px;margin-bottom:12px">複製網址</button>' +
     '<div><canvas class="shareQr" style="border-radius:8px;max-width:100%"></canvas></div>';
