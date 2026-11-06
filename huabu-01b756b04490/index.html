@@ -231,6 +231,17 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
         </div>
         <div id="adminOn" hidden>
           <h2>班長功能</h2>
+          <details style="margin-bottom:14px"><summary>教學影片(每支約 1 分鐘)</summary>
+            <div class="hint" style="margin:8px 0">貼到班群,同學點開就能看怎麼登記;不開聲音也看得懂。</div>
+            <div class="row">
+              <button id="vidStu" class="primary">複製:同學教學影片網址</button>
+              <a href="help/?v=student" target="_blank" rel="noopener"><button type="button">看同學版</button></a>
+            </div>
+            <div class="row" style="margin-top:8px">
+              <button id="vidAdm">複製:班長教學影片網址</button>
+              <a href="help/?v=admin" target="_blank" rel="noopener"><button type="button">看班長版</button></a>
+            </div>
+          </details>
           <label style="display:flex;flex-direction:column;gap:4px;font-size:18px;color:var(--muted);margin-bottom:12px">同學名單(一行一個名字,或用逗號隔開;建好後同學用選的,不用打字)
             <textarea id="rosterIn" style="min-height:70px" placeholder="王小美&#10;陳大華"></textarea>
           </label>
@@ -3110,6 +3121,9 @@ function lineBrief(){
   });
   out.push('','總計 '+$$(grand));return out.join('\n');
 }
+const helpUrl=v=>location.href.split('#')[0].replace(/[^\/]*$/,'')+'help/?v='+v;
+$('vidStu').onclick=()=>copyText('油畫班畫布團購怎麼登記(1 分鐘教學影片):\n'+helpUrl('student'),'已複製,貼到 LINE');
+$('vidAdm').onclick=()=>copyText(helpUrl('admin'),'已複製班長教學影片網址');
 $('lineBrief').onclick=()=>{if(R())copyText(lineBrief(),'已複製,到 LINE 貼上')};
 $('xlsMats').onclick=()=>{if(R())copyRows(sheetMats(),'已複製,可對照收費表的材料欄')};
 $('xlsDetail').onclick=()=>{if(R())copyRows(sheetDetail(),'已複製,到 Excel 貼上')};
