@@ -2858,13 +2858,15 @@ function startRoster(){
     roster=n.map(x=>String(x).slice(0,40)).filter(Boolean);renderRoster();render();
   },e=>{});
 }
+let typingName=false;   // 有名單時,同學選「不在名單裡」就改成自己打名字
 function renderRoster(){
   const sel=$('whoSel'),inp=$('who'),use=roster.length>0;
-  sel.hidden=!use;inp.hidden=use;
+  sel.hidden=!use;inp.hidden=use&&!typingName;
   if(use){
     const saved=inp.value.trim()||lsGet('hb-me')||'';
-    sel.innerHTML='<option value="">— 請選你的名字 —</option>'+roster.map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('');
-    sel.value=roster.includes(saved)?saved:'';inp.value=sel.value;
+    sel.innerHTML='<option value="">— 請選你的名字 —</option>'+roster.map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('')+'<option value="__other__">✏️ 自訂姓名(我不在名單裡)</option>';
+    if(typingName){sel.value='__other__'}
+    else{sel.value=roster.includes(saved)?saved:'';inp.value=sel.value}
   }
   $('rosterList').innerHTML=roster.length?roster.map(n=>`<span class="chip">${esc(n)}<button class="ghost danger" data-rn="${esc(n)}" aria-label="從名單移除 ${esc(n)}">✕</button></span>`).join(''):'<span class="hint">還沒建名單,同學目前是自己打名字。</span>';
 }
@@ -2957,7 +2959,9 @@ function render(){
   drawCommon(r);
 }
 $('who').oninput=()=>{lsSet('hb-me',$('who').value.trim());render()};
-$('whoSel').onchange=()=>{$('who').value=$('whoSel').value;lsSet('hb-me',$('who').value);render()};
+$('whoSel').onchange=()=>{
+  if($('whoSel').value==='__other__'){typingName=true;$('who').value='';renderRoster();$('who').focus();return}
+  typingName=false;$('who').hidden=true;$('who').value=$('whoSel').value;lsSet('hb-me',$('who').value);render()};
 async function saveRoster(names){
   await adminBatch(b=>b.set(roomRef().collection('roster').doc('list'),{names}));
 }
