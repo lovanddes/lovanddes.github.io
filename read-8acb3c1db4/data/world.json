@@ -1,92 +1,93 @@
 {
- "date": "2026-11-06",
- "one_line": "AI在資安攻防與地方基建遇轉折，巴拉圭與巴爾幹政局同步劇變。",
+ "date": "2026-11-07",
+ "one_line": "AI軟硬體併購加速，航太衝刺交付與中東能源咽喉現關鍵轉折。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "OpenAI自研模型修復近千系統漏洞",
+     "title": "OpenAI推資安專用模型",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "OpenAI 於 11 月 5 日公布最新資安實驗成果，其開發中的資安專用 AI 模型在 30 小時內自主分析了 Linux 核心（多數伺服器與 Android 手機的底層心臟），成功重現並驗證 948 個能取得最高控制權（Root 權限）的提權漏洞，並產出對應修補程式。整趟自動化流程花費約 120 萬美元 API 算力，平均每個重大漏洞修補成本僅約 1,279 美元。"
+       "text": "OpenAI 正式發表名為「GPT-6 Cyber」的專門資安模型，專精於自動偵測軟體漏洞、驗證攻擊路徑並協助工程師撰寫修補程式。該模型在專業滲透測試 ExploitGym 取得 48.5% 的防護評分，OpenAI 將其能力評定為內部準備度框架中的關鍵等級，初期僅開放給特定紅隊資安機構進行封測。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "過去需要頂尖資安專家耗時數月的漏洞挖掘與修補，如今 AI 幾十小時就能批量完成。這大幅提升了開源系統的安全性，但同時也敲響警鐘：若同等技術被黑客掌握，尋找「零日漏洞」（尚未被公開修補的弱點）將變得極度廉價且致命。"
+       "text": "AI 挖掘軟體弱點的速度已大幅超越人類團隊修補的能量，企業與政府未來必須加速引進自動化防護工具，否則資安漏洞修復速度將徹底落後。"
       }
      ],
      "sources": [
-      "https://thehackernews.com/2026/11/openai-ai-pipeline-generates-948-linux.html",
-      "https://cybersecuritynews.com/openai-uncovers-948-linux-kernel-vulnerabilities/"
+      "https://medium.com/ai-briefing-room/most-significant-ai-news-post-of-the-day-6-november-2026-95fcd5fc310d",
+      "https://www.eqs-news.com/de/news/corporate/new-un-guide-keeps-people-in-charge-of-ai-in-smart-cities/057f8e3e-7464-4e78-85b9-8a00a9a4d1c8_en"
      ]
     },
     {
-     "title": "太空站完成最後一組太陽能板部署",
+     "title": "聯合國推智慧城市AI指引",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "11 月 5 日，NASA 太空人 Anil Menon 與加拿大太空人 Joshua Kutryk 執行了國際太空站（ISS）第 101 次美方艙外太空漫步，耗時逾 6 小時順利安裝並展開第八組、也是最後一組捲軸式太陽能電池陣列（IROSA）。這項工程宣告太空站歷時數年的全站電力擴充計畫正式完工。"
+       "text": "聯合國國際電信聯盟（ITU）與人居署在巴塞隆納智慧城市大會上，正式發布首套「人本智慧城市 AI 工具箱」。這套指引針對市政聊天機器人、路面維修排序演算法等日常應用，明定公部門必須保留公務員的最終決策權與問責機制，禁止全權交給演算法處理。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "額外電力不僅能支援更多軌道科學實驗與微重力技術研發，更為這座已服役超過四分之一個世紀的太空站儲備關鍵動力，確保未來幾年能平穩運作，並在退役時執行受控且安全的墜海軌道脫離。"
+       "text": "各國城市正加速用演算法接手市民陳情與違規告發，這套規範確立了「機器不能替公權力背書」，保障一般民眾不受演算法偏見侵害。"
       }
      ],
      "sources": [
-      "https://www.nasa.gov/blogs/spacestation/2026/11/05/astronauts-suit-up-for-final-power-upgrade-spacewalk/"
+      "https://www.eqs-news.com/de/news/corporate/new-un-guide-keeps-people-in-charge-of-ai-in-smart-cities/057f8e3e-7464-4e78-85b9-8a00a9a4d1c8_en",
+      "https://www.gov.uk/government/publications/statement-on-the-global-cybersecurity-labelling-initiative"
      ]
     },
     {
-     "title": "韋伯望遠鏡揭熔岩行星熱流動之謎",
+     "title": "歐盟加入全球物聯網資安標籤",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "加拿大滑鐵盧大學研究團隊於 11 月 5 日發表成果，利用韋伯太空望遠鏡（JWST）對極端熔岩行星 TOI-561 b 進行了長達 37 小時的連續觀測，完整記錄近四次公轉。光譜與熱訊號分析顯示，該行星表面反射了大量恆星光，且熱能正顯著傳導至背陽面，顛覆了過去對超高溫岩石行星背光面必定極端冰凍的認知。"
+       "text": "英國政府在倫敦「全球資安標籤倡議」（GCLI）會議後發表聲明，宣布歐盟正式加入成為會員。該倡議旨在制定全球連網產品的共通資安標準，推動「安全源於設計」（Secure by Design）與漏洞通報機制，讓各國資安認證標籤能夠跨國互通。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這項發現為天文學家提供了極端環境下岩漿洋對流和大氣熱循環的第一手觀測證據，讓人類更加理解系外岩石行星的演化機制，也是韋伯望遠鏡深空解析力的最新展現。"
+       "text": "台灣身為智慧家電與物聯網裝置的製造大國，美歐英規範趨於統一，代表台廠未來只需符合一套資安標章標準即可行銷全球。"
       }
      ],
      "sources": [
-      "https://uwaterloo.ca/daily-bulletin/2026-11-05",
-      "https://ballotpedia.org/Data_center-related_ballot_measures,_2026?utm_source=Sailthru&utm_medium=Newsletter&utm_campaign=Reuters-AI&utm_term=110426&lctg=69bc3adc447ac6fd7b0efe00"
+      "https://www.gov.uk/government/publications/statement-on-the-global-cybersecurity-labelling-initiative",
+      "https://www.gov.uk/government/publications/statement-on-the-global-cybersecurity-labelling-initiative/statement-on-the-london-conference-of-the-global-cybersecurity-labelling-initiative"
      ]
     },
     {
-     "title": "美多州公投掀反彈 限制資料中心",
+     "title": "雲端大廠收購Tigris攻AI",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "根據政治百科 Ballotpedia 於 11 月 5 日統計，伴隨美國大選落幕，全美 13 個州出現了至少 50 項針對「超大規模資料中心」（提供 AI 算力的大型伺服器廠房）的公民投票，其中高達 46 項公投最終由反對擴建或支持嚴格限制的選民勝出。地方選民主要對資料中心吞噬大量水電資源、推升居民電價以及噪音問題表達強烈不滿。"
+       "text": "雲端儲存大廠 Dropbox 宣布以 3.5 億美元收購分散式儲存服務商 Tigris Data，創下該公司歷來最大規模的併購紀錄。Tigris 主打分散式物件儲存與極低延遲架構，能為大型 AI 模型的訓練資料讀取與即時推論提供高速傳輸支援。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這意味著 AI 算力基礎設施正從「科技投資熱潮」撞上「地方民意鐵壁」。未來算力中心的審批與電力取得門檻大增，勢必拖慢科技巨頭的資料中心落地進度，也將連帶影響台灣伺服器供應鏈的出貨節奏。"
+       "text": "這顯示老牌雲端硬碟業者正快速轉型，從消費級檔案備份全力跨入企業級 AI 運算架構的基礎設施競爭。"
       }
      ],
      "sources": [
-      "https://ballotpedia.org/Data_center-related_ballot_measures,_2026?utm_source=Sailthru&utm_medium=Newsletter&utm_campaign=Reuters-AI&utm_term=110426&lctg=69bc3adc447ac6fd7b0efe00",
-      "https://explainx.ai/blog/ai-stocks-crash-nov-5-2026-nvidia-micron-amd-coreweave-why-data-center-midterm-fears-bubble-2026"
+      "https://news.crunchbase.com/ai/challenging-monopolies-semiconductors-anand-tensordyn/",
+      "https://migflug.com/afterburner/category/news/"
      ]
     },
     {
-     "title": "OpenSSH修補高危險密碼繞過漏洞",
+     "title": "國防AI獨角獸砸百億買雷達",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "伺服器遠端管理標準工具 OpenSSH 於 11 月 5 日緊急釋出 10.6p2 版本，修補一項名為「sshole」的重大安全漏洞（CVE-2026-123158）。攻擊者在連線特定 Linux 系統（如廣泛用於 Docker 容器的 Alpine Linux）時，只需傳送 257 到 1024 位元組的任意超長密碼，就能繞過身分驗證，登入未設置密碼的帳號。"
+       "text": "打造全自動戰鬥無人機的防衛科技巨頭 Shield AI 宣布以 53 億美元收購雷達科技業者 Echodyne。Echodyne 研發的微型超材料雷達將直接整合至 Shield AI 旗下的 X-BAT 戰機與垂直起降無人機，提升其超視距自主探測與防空攔截能力。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "Alpine Linux 是全球雲端容器最常採用的基礎系統，許多台灣企業與工程團隊的雲端服務皆建構其上。官方維護者更透露，因 AI 工具能極快重新找出漏洞，他們已放棄長時間保密期，呼籲各界立即升級防禦。"
+       "text": "現代空戰正加速邁向 AI 自主編隊與無人化，高精密度邊緣感測技術與 AI 飛控系統的深度整合已是國防科技的核心戰場。"
       }
      ],
      "sources": [
-      "https://www.ox.security/blog/openssh-authentication-bypass-cve-2026-123158/",
-      "https://cycode.com/blog/sshole-cve-2026-123158-openssh-alpine-linux-vulnerability/"
+      "https://migflug.com/afterburner/category/news/",
+      "https://migflug.com/afterburner/fr/bataille-de-developpement-du-kansas-b-29/"
      ]
     }
    ]
@@ -95,54 +96,54 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "塞爾維亞學運歷史勝選終結舊政權",
+     "title": "空巴十月訂單飆破兩百架",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "塞爾維亞選舉委員會於 11 月 5 日正式宣告國會選舉最終計票結果，由學生運動領銜的反對派陣營贏得歷史性多數，終結了總統武契奇（Aleksandar Vucic）領導的右翼「塞爾維亞前進黨」長達十餘年的執政。首都貝爾格勒爆發大規模慶祝活動，青年政壇領袖已著手啟動跨黨派聯合政府籌組。"
+       "text": "空中巴士（Airbus）公布 10 月民航客機新訂單達 202 架，其中租機公司就包辦 185 架，單月完成 74 架飛機交付。執行長 Guillaume Faury 表示庫存充裕，將在年底最後兩個月全力衝刺交付 249 架客機，力爭達成全年 870 架的歷史新紀錄。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "塞爾維亞地處巴爾幹戰略要衝，長期在中俄與西方勢力之間周旋。學生運動組閣象徵該國政治板塊可能全面轉向親歐盟立場，巴爾幹半島的地緣安全格局與能源版圖預料將迎來重大洗牌。"
+       "text": "全球航空客運需求持續高漲，空巴年底產能衝刺的穩定度將牽動國際航線機隊調度，並影響未來半年的機票票價走勢。"
       }
      ],
      "sources": [
-      "https://apnews.com/article/serbia-election-results-parliament-6313af42f5226c09827d1eac8bb21b6c",
-      "https://apnews.com/photo-gallery/f1-driver-makes-history-mexico-city-grand-prix-other-top-photos-latin-america-caribbean-33623e654e914e2abe25063fbdfdce61"
+      "https://migflug.com/afterburner/airbus-october-orders-202-jets-74-deliveries-2026/",
+      "https://www.justsecurity.org/163619/early-edition-november-6-2026/"
      ]
     },
     {
-     "title": "金融暴雷引發民怨 巴拉圭總統請辭",
+     "title": "伊朗開七條件遞交美核提案",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "台灣在南美洲唯一的邦交國巴拉圭，近日因主要商業機構 Ueno 銀行爆發資不抵債危機遭央行緊急接管、高層涉貪被捕，引發全境大規模擠兌潮與抗議癱瘓首都。面對街頭激憤與嚴重的政治金融危機，巴拉圭總統潘尼亞（Santiago Peña）已於 11 月 4 日晚間正式宣布辭職下台。"
+       "text": "伊朗資深官員向路透社證實，已透過卡達向美國遞交核協議談判提案，但要求美方必須先滿足解除經濟制裁、解凍資產等七項要求，否則絕不重開荷姆茲海峽。美國總統川普則公開表示，將在審視局勢後定奪是否重啟打擊行動。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "巴拉圭政局突然劇變與金融陷入混亂，直接衝擊台巴外交關係。新領導層若面對巨額財政缺口，極可能重估國際外交策略，台灣在南美的最後邦交重鎮面臨劇烈的外交拉防戰。"
+       "text": "荷姆茲海峽是全球原油運輸的心臟地帶，美伊角力牽動國際能源供應鏈，任何談判破裂都可能再度引發原油價格劇烈波動。"
       }
      ],
      "sources": [
-      "https://apnews.com/video/israeli-president-accepts-election-results-ahead-of-talks-on-new-government-5ba71b85f66f44939a4dae00d2fcecb7",
-      "https://apnews.com/hub/latin-america"
+      "https://www.justsecurity.org/163619/early-edition-november-6-2026/",
+      "https://tribune.com.pk/story/2638949/trump-warns-that-iran-could-face-destruction-saying-youll-know-soon-enough-about-his-next-move"
      ]
     },
     {
-     "title": "以色列認證大選結果 啟動組閣協商",
+     "title": "荷航大裁千人急刪購機計畫",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "以色列總統赫佐格（Isaac Herzog）於 11 月 4 日正式接受國會選舉的認證結果，並自 5 日起依序接見各黨派代表展開組閣協商。此次大選結果呈現零碎化，不僅各保守與世俗黨派互不相讓，阿拉伯政黨領袖亦首度公開表態願與猶太政黨結盟，尋求替換長期執政的總理納坦雅胡。"
+       "text": "荷蘭皇家航空（KLM）宣布實施深層組織重組，預計裁減約 15% 員工（約一千個職位），並將大量地面運營外包。為緩解財務與維修延宕壓力，荷航同時決定取消空中巴士 A320neo 新機引進排程，縮減機隊規模以求生存。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "以色列新內閣的走向直接牽動整個中東的局勢、停火談判與加薩重建機制；若政局持續難產或走向激進化，國際油價與紅海海運的長期風險將居高不下。"
+       "text": "歐洲傳統航空公司正承受地勤缺工、供應鏈零組件延宕與環保規費上漲的三重夾擊，歐洲航網可能面臨班次縮減的結構性調整。"
       }
      ],
      "sources": [
-      "https://apnews.com/video/2026-the-summer-of-domhnall-gleeson-31ba0264efdd4c27ac3f33730d4a43a9",
-      "https://apnews.com/video/israeli-president-accepts-election-results-ahead-of-talks-on-new-government-5ba71b85f66f44939a4dae00d2fcecb7"
+      "https://migflug.com/afterburner/es/autor/fortuneleroy/",
+      "https://migflug.com/afterburner/category/aviation-world/page/2/"
      ]
     }
    ]
