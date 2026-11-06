@@ -18,11 +18,13 @@ a{color:var(--accent)}
 <p class="hint">每支約 1 分鐘,可以不開聲音,看畫面上的字就懂。</p>
 <section class="card" id="vs"><h2>同學怎麼登記</h2><video controls playsinline preload="metadata" poster="student.jpg" src="student.mp4"></video></section>
 <section class="card" id="va"><h2>班長怎麼管團購</h2><video controls playsinline preload="metadata" poster="admin.jpg" src="admin.mp4"></video></section>
+<section class="card" id="vf"><h2>班長怎麼用收費表(約 2 分半)</h2><video controls playsinline preload="metadata" poster="fee.jpg" src="fee.mp4"></video></section>
 <p class="hint"><a href="../">回到畫布團購</a></p>
 </div>
 <script>
 // ?v=student 或 ?v=admin 只顯示其中一支(複製給同學的網址用)
 try{var v=new URLSearchParams(location.search).get('v');
-if(v==='student')document.getElementById('va').hidden=true;
-if(v==='admin')document.getElementById('vs').hidden=true;}catch(e){}
+if(v==='student'){document.getElementById('va').hidden=true;document.getElementById('vf').hidden=true;}
+if(v==='admin'){document.getElementById('vs').hidden=true;document.getElementById('vf').hidden=true;}
+if(v==='fee'){document.getElementById('vs').hidden=true;document.getElementById('va').hidden=true;}}catch(e){}
 </script></body></html>
