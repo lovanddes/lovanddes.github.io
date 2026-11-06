@@ -283,8 +283,8 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
           <details style="margin-top:8px"><summary>預覽表格</summary><div style="overflow-x:auto"><div id="sheetPrev"></div></div></details>
           </div>
           <div class="row" style="margin-top:14px">
-            <button id="closeBtn">結單</button>
-            <button id="renameBtn">改名</button>
+            <button id="closeBtn">本次團購結單</button>
+            <button id="renameBtn">本次團購改名</button>
             <button id="adminOut" class="ghost">登出班長</button>
           </div>
         </div>
@@ -2911,7 +2911,7 @@ function render(){
   const closed=!!r.closed;
   $('formBox').hidden=false;
   $('closedBanner').hidden=!closed;$('stateTxt').textContent=closed?'已結單':'進行中';
-  $('closeBtn').textContent=closed?'重新開放':'結單';
+  $('closeBtn').textContent=closed?'本次團購重新開放':'本次團購結單';
   ['who','whoSel','size','qty','qm','qp','add'].forEach(i=>$(i).disabled=closed);
   $('roundName').textContent=(r.name||'')+' 總計';
   const g=groups();let grand=0,pieces=0;
