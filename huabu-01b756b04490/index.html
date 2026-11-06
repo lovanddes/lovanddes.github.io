@@ -2947,7 +2947,7 @@ function render(){
 
   const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+oq(o));
   const ks=Object.keys(bs).sort(sortSize);
-  $('bysize').innerHTML=ks.length?`<table class="tbl"><tr><th>尺寸</th><th>單價</th><th>片數</th><th>金額</th></tr>`+ks.map(k=>`<tr><td><b>${esc(k)}</b> <span class="hint">${esc(CM[k]||'')}</span></td><td>${price(r,k)?$$(price(r,k)):'待報價'}</td><td>${bs[k]}</td><td class="money">${price(r,k)?$$(price(r,k)*bs[k]):'—'}</td></tr>`).join('')+(ship?`<tr><td colspan="3"><b>運費</b> <span class="hint">依片數平均分</span></td><td class="money">${$$(ship)}</td></tr>`:'')+`</table>`:'<div class="empty">登記後這裡會列出每種尺寸總共幾片。</div>';
+  $('bysize').innerHTML=ks.length?`<table class="tbl"><tr><th>尺寸</th><th>單價</th><th>片數</th><th>金額</th></tr>`+ks.map(k=>`<tr><td><b>${esc(k)}</b> <span class="hint">${esc(CM[k]||'')}</span></td><td>${price(r,k)?$$(price(r,k)):'待報價'}</td><td>${bs[k]}</td><td class="money">${price(r,k)?$$(price(r,k)*bs[k]):'—'}</td></tr>`).join('')+(ship?`<tr><td colspan="3"><b>運費</b> <span class="hint">依片數平均分</span></td><td class="money">${$$(ship)}</td></tr>`:'')+`<tr class="tot"><td colspan="2"><b>合計</b></td><td><b>${ks.reduce((t,k)=>t+bs[k],0)}</b></td><td class="money"><b>${$$(ks.reduce((t,k)=>t+(price(r,k)?price(r,k)*bs[k]:0),0)+(ship||0))}</b></td></tr></table>`:'<div class="empty">登記後這裡會列出每種尺寸總共幾片。</div>';
 
   if(isAdmin)renderSheetPrev();
   const act=document.activeElement&&document.activeElement.dataset&&document.activeElement.dataset.p;
