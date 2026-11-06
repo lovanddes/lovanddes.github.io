@@ -87,6 +87,14 @@ button.danger{color:var(--danger)}
 .tbl th{font-size:20px;color:var(--muted);font-weight:500;white-space:nowrap}
 .tbl td:last-child,.tbl th:last-child{text-align:right}
 .tbl input{width:5.5em;text-align:right}
+/* 手機寬度:表格不能撐破卡片(尺寸說明換行、單價框縮小、按鈕不折字) */
+.panel{overflow-x:auto}
+.tbl td:first-child .hint{display:block;font-size:17px}
+.tbl th{white-space:normal}
+.tbl td,.tbl th{padding:7px 3px}
+.tbl input{width:3.8em;padding:8px 5px}
+.tbl button{white-space:nowrap;padding:6px 8px}
+.tbl td.money{white-space:nowrap}
 details summary{cursor:pointer;font-weight:700;font-size:23px;letter-spacing:.05em;color:var(--muted)}
 details[open] summary{margin-bottom:10px}
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
