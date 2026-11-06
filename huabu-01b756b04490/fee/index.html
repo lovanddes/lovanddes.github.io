@@ -4462,7 +4462,11 @@ function addForgot_() {
 var GB_BASE_ = 'https://lovanddes.github.io/huabu-01b756b04490/';
 var G = { rounds: [], cur: null, orders: [], unsub: null, justCreated: null };
 var GB_SIZES_ = { '6F': 0, '8F': 0, '10F': 0, '12F': 0, '12P': 0, '15F': 0 };
-function gbLink_(rid) { return GB_BASE_ + '#' + encodeURIComponent(FEE.room) + (rid ? '&r=' + rid : ''); }
+/* 分享連結:只有「最新那一批」就不帶 &r=(網址乾淨、貼完不會被改寫);要指定較舊的一批才帶 */
+function gbLink_(rid) {
+  var last = G.rounds && G.rounds.length ? G.rounds[G.rounds.length - 1].id : null;
+  return GB_BASE_ + '#' + encodeURIComponent(FEE.room) + (rid && rid !== last ? '&r=' + rid : '');
+}
 function gbRoundsCol_() { return FDB.collection('rooms').doc(FEE.room).collection('rounds'); }
 function gbPay_(id) { var p = FEE.cache['g_' + id] || (FEE.cache['g_' + id] = {}); if (!p.paid) p.paid = {}; p.advance = Number(p.advance) || 0; return p; }   // 回傳快取本身:連點兩位時第二次看得到第一次(Grok 審查 #8)
 async function gbLoadRounds_() {
