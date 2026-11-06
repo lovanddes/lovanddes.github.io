@@ -1,20 +1,20 @@
 {
- "date": "2026-11-06",
+ "date": "2026-11-07",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "AI秤斤啃了五百噸書",
+     "title": "花圈悠遊卡成職場嘴替",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "立法院質詢揭露外國 AI 公司為訓練繁中語料，自台灣採購出口逾 563 公噸、約 180 萬本書籍進行拆解掃描。文化部對此表示文化創作不應被免費取用，正研議建立補償機制與修法保障創作者。"
+       "text": "文創平台推出縮小版「寶島花圈超級悠遊卡」並附贈多款趣味嘴替標語貼紙，於11月5日在社群平台Threads引發熱烈轉發與討論。許多上班族紛紛將其二創為職場生存迷因，笑稱是面對高壓工作與主管時最合適的隨身符。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我買了一年的專業書連封膜都還沒拆，AI 卻已經用公噸為單位把整座圖書館都吞進去了。"
+       "text": "我看著那張被搶翻的花圈悠遊卡，突然覺得每天勉強打卡進公司的自己，確實很需要一組莊嚴的嘴替。"
       },
       {
        "label": "建議欄目:",
@@ -22,20 +22,20 @@
       }
      ],
      "sources": [
-      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEoKtGsYRlk1B-bgnJtvvlOLCcO14hUuQsdsAfvrT3bbPABDgGPzX8qfs-ydXSYgSKKFCJye-xSE2ka1MinGJC2Cfma9vKCNIkqsMYdRYIdhFaAqb2MdLyVkwFMCFf-kf66",
-      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGr7LrsNnwMgl6U7wYYbHqJ66fHf9CgrA6myd8tP_STdp4QOjQlp_kq7rCDxkxloTPbmaQHuSAFwolavc1ZiS1UswBiwk1Ua4SRFEPU03k_SwgZIT-lP2AxMTG6Rl1WHm3acIapAknRPXd5aj_XpII="
+      "https://udn.com/news/story/7934/9119616",
+      "https://pronews.tw/news/464528"
      ]
     },
     {
-     "title": "遮雨棚棉被比我還能撐",
+     "title": "老闆下令別像機器人說話",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "台灣網友持續記錄鄰居遮雨棚上一條掛了超過 900 天沒掉下的棉被，累積千萬瀏覽量成為現象級話題。連 Threads 全球負責人日前也公開發文關注其動態，引發全台社群熱烈討論。"
+       "text": "外媒與商業媒體報導企業內部「工作垃圾」問題惡化，員工高度仰賴AI生成看似完整卻內容空洞的訊息。部分企業主管與執行長近期下達新規範，要求員工在內部溝通時停止複製貼上AI生成的罐頭語氣，別再像機器人般說話。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我每天上班都覺得自己快要撐不住掉下去了，抬頭看著那條風吹雨打九百天的棉被，突然發現我連當條廢布都沒它有毅力。"
+       "text": "我每天花時間把AI產生的客套話改得更像真人，才發現自己早就快被工作馴化成只會附和的機器。"
       },
       {
        "label": "建議欄目:",
@@ -43,20 +43,19 @@
       }
      ],
      "sources": [
-      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGr7LrsNnwMgl6U7wYYbHqJ66fHf9CgrA6myd8tP_STdp4QOjQlp_kq7rCDxkxloTPbmaQHuSAFwolavc1ZiS1UswBiwk1Ua4SRFEPU03k_SwgZIT-lP2AxMTG6Rl1WHm3acIapAknRPXd5aj_XpII=",
-      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEoKtGsYRlk1B-bgnJtvvlOLCcO14hUuQsdsAfvrT3bbPABDgGPzX8qfs-ydXSYgSKKFCJye-xSE2ka1MinGJC2Cfma9vKCNIkqsMYdRYIdhFaAqb2MdLyVkwFMCFf-kf66"
+      "https://www.businessinsider.tw/2026-11-05-workslop-bosses-ai-claude/"
      ]
     },
     {
-     "title": "千萬發票充公但我還在省外送費",
+     "title": "家長認學AI重要性追平英數",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "財政部統計 5、6 月期統一發票於 11 月 5 日截止兌領，仍有 4 張千萬特別獎與 5 張百萬雲端發票未領，合計 5300 萬元充公。其中包含花 10 元買飲品中 200 萬、花 18 元外送費中 100 萬的得主皆未現身。"
+       "text": "Google於11月5日公布最新AI人才培育調查，數據顯示高達89%的台灣家長認為讓孩子學習安全且有效使用AI，已經與學習數學和英文同等重要。相關計畫正從高中向下扎根，擴大推動全民AI實戰力與素養培訓。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我中午點外送還在精打細算湊兩塊錢免運，看到有人花十八塊外送費中百萬卻忘了領，才懂真正的鬆弛感是連發票都懶得對。"
+       "text": "我看到連學生都把學AI當成國數主科在拚，轉頭看著自己還在對對話框發呆，跟不上的焦慮突然具象化了。"
       },
       {
        "label": "建議欄目:",
@@ -64,8 +63,7 @@
       }
      ],
      "sources": [
-      "https://finance.ettoday.net/news/3266725",
-      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEoKtGsYRlk1B-bgnJtvvlOLCcO14hUuQsdsAfvrT3bbPABDgGPzX8qfs-ydXSYgSKKFCJye-xSE2ka1MinGJC2Cfma9vKCNIkqsMYdRYIdhFaAqb2MdLyVkwFMCFf-kf66"
+      "https://www.taisounds.com/news/content/76/156004"
      ]
     }
    ]
