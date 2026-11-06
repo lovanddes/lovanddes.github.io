@@ -2931,7 +2931,7 @@ function render(){
       const del=can?`<button class="ghost danger" data-a="del" data-id="${esc(o.id)}" aria-label="刪除這筆">✕</button>`:'';
       return `<div class="line"><div class="nm"><b>${esc(o.size)}</b><small>${esc(CM[o.size]||'')}</small></div>${ctl}<div class="amt money">${price(r,o.size)?$$(a):'待報價'}</div>${del}</div>`}).join('');
     const shipLine=ship?`<div class="line"><div class="nm"><small>運費分攤(${pcsBy[n]} 片)</small></div><div class="amt money">${$$(sh[n]||0)}</div></div>`:'';
-    return `<div class="person${mine?' me':''}"><div class="phead"><b>${esc(n)}${mine?'(我)':''}</b><span class="money sub">小計 ${$$(sub+(sh[n]||0))}</span>${isAdmin?`<button class="ghost" data-a="resetpw" data-pn="${esc(n)}">重設密碼</button>`:''}</div>${lines}${shipLine}</div>`;
+    return `<div class="person${mine?' me':''}"><div class="phead"><b>${esc(n)}${mine?'(我)':''}</b><span class="money sub">小計 ${$$(sub+(sh[n]||0))}</span>${isAdmin?`<button class="ghost" data-a="renamep" data-pn="${esc(n)}">改名字</button><button class="ghost" data-a="resetpw" data-pn="${esc(n)}">重設密碼</button>`:''}</div>${lines}${shipLine}</div>`;
   }).join(''):'<div class="empty">還沒有人登記。填名字、選尺寸、按「加入」。</div>';
 
   const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+oq(o));
@@ -2985,6 +2985,24 @@ $('add').onclick=async()=>{
 };
 $('people').onclick=async e=>{
   const b=e.target.closest('button[data-a]');if(!b)return;
+  if(b.dataset.a==='renamep'){
+    if(!isAdmin)return;const n=b.dataset.pn;
+    const v=(window.prompt('把「'+n+'」改成:',n)||'').trim().slice(0,40);
+    if(!v||v===n)return;
+    if(v.indexOf('/')>=0){toast('名字不能有 / 符號');return}
+    const mine=orders.filter(o=>o.person===n);if(!mine.length)return;
+    const exist=orders.some(o=>o.person===v);
+    if(exist&&!window.confirm('「'+v+'」已經有登記了,會把兩邊的片數加在一起。確定?'))return;
+    try{
+      await adminBatch(bt=>mine.forEach(o=>{
+        const ref=ordersCol(cur).doc((o.size+'|'+v).replace(/\//g,'／'));
+        bt.set(ref,{person:v,size:o.size,qty:FV.increment(oq(o)),t:Date.now()},{merge:true});
+        bt.delete(ordersCol(cur).doc(o.id));
+      }));
+      toast('已把「'+n+'」改成「'+v+'」');
+    }catch(er){toast(errMsg(er))}
+    return;
+  }
   if(b.dataset.a==='resetpw'){
     if(!isAdmin)return;const n=b.dataset.pn;
     if(!window.confirm('重設「'+n+'」的密碼?他下次登記時重新設一個。'))return;
