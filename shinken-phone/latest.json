@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 42,
-    "versionName": "1.1.39",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.39.apk",
-    "sha256": "3878e4d2ca687d7ace4fbe8e8b53bb74f296653167067f22548b6fdcb9e61fa4",
-    "notes": "點未接來電通知,一定回到「通話紀錄」並只看未接,不會停在別的分頁\n黑名單加 886* 不再擋掉所有台灣號碼;110、119 等緊急電話來電一律放行\n通話中又有陌生人插播:黃色提醒改寫在插播卡片上,不再畫在正在講的人身上\n通話中開數字鍵盤、字放很大時,掛斷鈕不會被擠不見",
-    "date": "2026-11-05"
+    "versionCode": 43,
+    "versionName": "1.1.40",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.40.apk",
+    "sha256": "b529bf31e64beb7438b8c361f6fde10884a9a3e5e0ba2674808cd16940ad9c34",
+    "notes": "未接來電通知點進去,會清掉撥號欄和聯絡人卡,直接看到未接清單\n接聽鍵只接正在響鈴的電話,不會誤接到通話中的那通\n緊急電話(110、119)就算電信加了 +886 國碼回撥,也一律放行不被擋\n系統字體放大又選大字時不再變成兩倍大,撥號鍵、號碼列、分頁列不會被切掉",
+    "date": "2026-11-07"
   }
 }
