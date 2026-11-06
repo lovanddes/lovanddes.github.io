@@ -2673,9 +2673,10 @@ function shareBlock_(parent, title, url, bare) {
   box.style.cssText = bare ? 'text-align:center' : 'margin-top:22px;padding-top:16px;padding-bottom:calc(48px + env(safe-area-inset-bottom));border-top:1px solid rgba(128,128,128,.35);text-align:center';
   box.innerHTML = '<div style="font-size:15px;opacity:1;font-weight:600;margin-bottom:8px">' + (title || '分享這個網頁給同學') + '</div>' +
     '<div class="shareUrl" style="font-size:13px;word-break:break-all;margin-bottom:8px"></div>' +
+    '<a class="shareOpen" target="_blank" rel="noopener" style="display:inline-block;font-size:15px;padding:8px 16px;margin:0 8px 12px 0;border:1px solid currentColor;border-radius:8px;text-decoration:none;color:inherit">▶ 直接開啟</a>' +
     '<button type="button" class="shareCopy" style="font-size:15px;padding:8px 16px;margin-bottom:12px">複製網址</button>' +
     '<div><canvas class="shareQr" style="border-radius:8px;max-width:100%"></canvas></div>';
-  box.querySelector('.shareUrl').textContent = url;
+  box.querySelector('.shareUrl').textContent = url; box.querySelector('.shareOpen').href = url;
   var btn = box.querySelector('.shareCopy');
   btn.onclick = function () {
     function ok() { btn.textContent = '已複製 ✓'; setTimeout(function () { btn.textContent = '複製網址'; }, 1800); }
@@ -2846,7 +2847,8 @@ function gateAndBoot_() {
     '<div style="color:#888;margin-bottom:14px">新版(測試中)・班長登入</div>' +
     '<input id="fgRoom" placeholder="班級暗號" style="width:100%;font-size:20px;padding:12px;margin-bottom:10px;box-sizing:border-box">' +
     '<div style="display:flex;align-items:center;margin-bottom:10px"><input id="fgPw" type="password" placeholder="管理密碼" style="flex:1;min-width:0;font-size:20px;padding:12px;box-sizing:border-box"></div>' +
-    '<button id="fgGo" class="bigbtn" style="width:100%">進入</button><div id="fgMsg" style="color:#c33;margin-top:10px"></div></div>';
+    '<button id="fgGo" class="bigbtn" style="width:100%">進入</button><div id="fgMsg" style="color:#c33;margin-top:10px"></div>' +
+    '<div style="text-align:center;margin-top:18px"><div style="font-weight:700;margin-bottom:8px">▶ 教學影片(點一下直接看)</div><a href="../help/?v=student" target="_blank" rel="noopener" style="display:block;margin:0 0 8px;padding:12px;border:1px solid rgba(128,128,128,.5);border-radius:12px;text-decoration:none;font-weight:700;color:inherit">同學怎麼登記(1 分鐘)</a><a href="../help/?v=admin" target="_blank" rel="noopener" style="display:block;margin:0 0 8px;padding:12px;border:1px solid rgba(128,128,128,.5);border-radius:12px;text-decoration:none;font-weight:700;color:inherit">班長怎麼管團購(1 分鐘)</a><a href="../help/?v=fee" target="_blank" rel="noopener" style="display:block;margin:0 0 8px;padding:12px;border:1px solid rgba(128,128,128,.5);border-radius:12px;text-decoration:none;font-weight:700;color:inherit">班長怎麼用收費表(2 分半)</a></div>' + '</div>';
   document.body.appendChild(g); shareBlock_(g.firstChild, '分享給班長(開這頁讓她掃)');
   var room = ''; try { room = localStorage.getItem('fee-room') || ''; } catch (e) {}
   $('fgRoom').value = room;
