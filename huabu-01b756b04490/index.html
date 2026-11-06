@@ -111,6 +111,17 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
 #sheetPrev .tbl{min-width:max-content;font-size:17px}
 #sheetPrev .tbl td,#sheetPrev .tbl th{white-space:nowrap;padding:5px 8px;text-align:right}
 #sheetPrev .tbl td:first-child,#sheetPrev .tbl th:first-child{text-align:left}
+#sheetOv{position:fixed;inset:0;z-index:40;background:var(--bg);overflow:auto;padding:14px max(16px,env(safe-area-inset-left)) 40px}
+#sheetOv[hidden]{display:none}
+.ovbar{display:flex;align-items:center;gap:12px;font-size:22px}
+.ovbar button{padding:6px 14px}
+.report{background:#fff;color:#2b2620;border:1px solid #d7dbe3;border-radius:8px;padding:12px 8px}
+.report h3{margin:0 0 10px;text-align:center;font-size:20px;color:#2b2620}
+.rt{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;color:#2b2620}
+.rt th,.rt td{border:1px solid #aaa;padding:6px 6px;text-align:center;font-size:17px;white-space:nowrap}
+.rt th{background:#e8e2d0}.rt td:first-child{text-align:left;font-weight:700}
+.rt tr.sum td{font-weight:700;background:#f3efe4}
+@media print{body{background:#fff}body *{visibility:hidden}#sheetPrint,#sheetPrint *{visibility:visible}#sheetPrint{position:absolute;left:0;top:0;width:100%}.report{border:none}}
 </style>
 
 <div class="wrap">
@@ -249,15 +260,20 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
           </label>
           <div class="row" style="margin-bottom:8px"><button id="rosterAdd">加入名單</button></div>
           <div id="rosterList" class="chips"></div>
-          <h2 style="margin-top:14px">輸出成表格(貼到 Excel / Google 試算表)</h2>
+          <h2 style="margin-top:14px">輸出</h2>
+          <div class="row">
+            <button class="primary" id="sheetBtn">📄 明細表(PDF / 圖檔)</button>
+            <button id="lineBrief">複製:LINE 文字(一人一行)</button>
+          </div>
+          <div hidden>
           <div class="row">
             <button class="primary" id="xlsMatrix">複製:每人 × 尺寸表</button>
             <button id="xlsDetail">複製:明細清單</button>
-            <button id="lineBrief">複製:LINE 文字(一人一行)</button>
             <button id="xlsMats">複製:收費表材料格式</button>
             <button id="csvDl">下載 CSV</button>
           </div>
           <details style="margin-top:8px"><summary>預覽表格</summary><div style="overflow-x:auto"><div id="sheetPrev"></div></div></details>
+          </div>
           <div class="row" style="margin-top:14px">
             <button id="closeBtn">結單</button>
             <button id="renameBtn">改名</button>
@@ -268,6 +284,13 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
       <p class="hint" style="margin-top:12px">班級:<span id="roomShow"></span> <button class="ghost" id="leave">換班級</button></p>
     </section>
   </div>
+</div>
+<div id="sheetOv" hidden>
+  <div class="ovbar"><button id="ovBack" aria-label="返回">←</button><b id="ovTitle">明細表</b></div>
+  <div class="row" style="margin:10px 0"><button class="primary" id="ovPrint">🖨 列印 / 存 PDF</button><button id="ovImg">🖼 輸出圖檔</button></div>
+  <div id="ovImgOut"></div>
+  <div id="sheetPrint"><div class="report"><h3 id="ovH"></h3><div style="overflow-x:auto"><table id="ovTbl" class="rt"></table></div></div></div>
+  <p class="hint">「輸出圖檔」給手機貼群組;「列印」給電腦印紙本或存 PDF。</p>
 </div>
 <div class="toast" id="toast" hidden></div>
 
@@ -3110,6 +3133,57 @@ function sheetMats(){
   });
   return rows;
 }
+// 明細表:列印/存 PDF/輸出圖檔(和收費表的明細表同一套用法)
+function sheetFmt(ri,ci,v,rows){
+  if(v===''||v==null)return '';
+  const last=rows[0].length-1,money=(ri===1&&ci>0&&ci<last-1)||ci===last||(ri===rows.length-1);
+  return (money&&typeof v==='number'&&v>0)?'$'+v.toLocaleString('en-US'):String(v);
+}
+function sheetTitle(){const r=R();return r.name+' 訂購明細表'}
+function openSheet(){
+  if(!R())return;const rows=sheetMatrix();
+  $('ovH').textContent=sheetTitle();$('ovTitle').textContent='明細表';$('ovImgOut').innerHTML='';
+  $('ovTbl').innerHTML=rows.map((r,ri)=>'<tr'+(ri>=rows.length-2?' class="sum"':'')+'>'+r.map((v,ci)=>(ri===0?'<th>':'<td>')+(ri===0?esc(String(v)).replace(/\((.*)\)$/,'<br><small>$1</small>'):esc(sheetFmt(ri,ci,v,rows)))+(ri===0?'</th>':'</td>')).join('')+'</tr>').join('');
+  $('sheetOv').hidden=false;$('sheetOv').scrollTop=0;
+}
+$('sheetBtn').onclick=openSheet;
+$('ovBack').onclick=()=>{$('sheetOv').hidden=true};
+$('ovPrint').onclick=()=>window.print();
+function drawSheetCanvas(){
+  const rows=sheetMatrix(),n=rows[0].length,M=36,W=1080,tw=W-M*2,rh=76,th=110;
+  const nameW=Math.max(200,Math.min(300,tw*0.26)),cw=(tw-nameW)/(n-1);
+  const cv=document.createElement('canvas');cv.width=W;cv.height=th+rows.length*rh+M+30;
+  const x=cv.getContext('2d');if(!x)throw '此瀏覽器不支援 canvas';
+  x.fillStyle='#fffdf8';x.fillRect(0,0,cv.width,cv.height);
+  const FONT='"Noto Sans TC",sans-serif';
+  x.fillStyle='#2b2620';x.font='700 44px '+FONT;x.textAlign='center';x.textBaseline='middle';x.fillText(sheetTitle(),W/2,th/2+6);
+  rows.forEach((r,ri)=>{
+    const y=th+ri*rh,sum=ri>=rows.length-2;
+    x.fillStyle=ri===0?'#e8e2d0':sum?'#f3efe4':'#fffdf8';x.fillRect(M,y,tw,rh);
+    r.forEach((v,ci)=>{
+      const cx=ci===0?M:M+nameW+(ci-1)*cw,w=ci===0?nameW:cw,t=ri===0?String(v).replace(/\(.*\)$/,''):sheetFmt(ri,ci,v,rows);
+      x.strokeStyle='#aaa';x.lineWidth=2;x.strokeRect(cx,y,w,rh);
+      x.fillStyle='#2b2620';x.font=((ri===0||sum||ci===0)?'700 ':'400 ')+(ri===0&&n>6?26:34)+'px '+FONT;
+      x.textAlign=ci===0?'left':'center';
+      let s=t;while(x.measureText(s).width>w-16&&s.length>1)s=s.slice(0,-1);
+      x.fillText(s,ci===0?cx+14:cx+w/2,y+rh/2+2);
+    });
+  });
+  return cv;
+}
+$('ovImg').onclick=async()=>{
+  const btn=$('ovImg');btn.disabled=true;btn.textContent='產生中…';
+  try{
+    if(document.fonts&&document.fonts.ready)await document.fonts.ready;
+    const cv=drawSheetCanvas(),blob=await new Promise((ok,no)=>cv.toBlob(b=>b?ok(b):no(new Error('toBlob')),'image/png'));
+    const url=URL.createObjectURL(blob),name=(R().name||'團購')+'_訂購明細.png';
+    const can=navigator.canShare&&navigator.canShare({files:[new File([blob],name,{type:'image/png'})]});
+    $('ovImgOut').innerHTML='<div class="panel" style="margin-bottom:12px"><div class="hint" style="margin:0 0 8px">✅ 圖檔完成!<b>手機長按圖片</b>可儲存或分享到 LINE。</div><img src="'+url+'" style="width:100%;border:1px solid var(--line);border-radius:8px;display:block" alt="訂購明細圖"><div class="row" style="margin-top:10px">'+(can?'<button class="primary" id="ovShare">📤 分享(選 LINE)</button>':'')+'<a href="'+url+'" download="'+esc(name)+'"><button type="button">⬇ 下載圖檔</button></a></div></div>';
+    const sb=$('ovShare');if(sb)sb.onclick=()=>navigator.share({files:[new File([blob],name,{type:'image/png'})],title:name}).catch(()=>{});
+    $('ovImgOut').scrollIntoView({behavior:'smooth'});
+  }catch(e){toast('圖檔沒做成功:'+((e&&e.message)||e))}
+  btn.disabled=false;btn.textContent='🖼 輸出圖檔';
+};
 // LINE 不能貼表格,所以另給純文字:各尺寸片數+一人一行
 function lineBrief(){
   const r=R(),g=groups();let grand=0;const out=['【'+r.name+'】'+(r.closed?'(已結單)':'')];
