@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 45,
-    "versionName": "1.1.42",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.42.apk",
-    "sha256": "fefaeebd58095f9c693877fca39341270fa2bb89d4cf70c7b501daffe27d0e5b",
-    "notes": "修好撥號鍵:上一版撥號盤只剩 1 2 3 三條長條,4~9 和 *0# 看不到,已恢復成正常的 4x3 數字鍵\n未接來電通知的回撥改走 App 自己的接收器\n聯絡人字母篩選、撥號搜尋從詳情返回不再捲回最上面\n去系統設定開通訊錄權限回來會自動重讀",
+    "versionCode": 46,
+    "versionName": "1.1.43",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.43.apk",
+    "sha256": "5b9a4561877afc7400a8e36a2d915c9e2159d23e6b95936cc684a340c8efd562",
+    "notes": "橫向時撥號盤 *0# 那排不再被切掉\n轉橫向不會再跳回通話紀錄,停在原本的分頁\n輸入號碼後按下面撥出鍵,會直接撥最符合的第一位聯絡人(打的剛好是完整號碼才撥打的數字)\n搜尋結果:點頭像開聯絡人卡,點其他地方只把號碼填進撥號欄,再按撥出才打\n撥號中畫面:有照片時頭像改成正方形置中,臉不再被切成一條",
     "date": "2026-11-07"
   }
 }
