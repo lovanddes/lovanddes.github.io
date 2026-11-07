@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 43,
-    "versionName": "1.1.40",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.40.apk",
-    "sha256": "b529bf31e64beb7438b8c361f6fde10884a9a3e5e0ba2674808cd16940ad9c34",
-    "notes": "未接來電通知點進去,會清掉撥號欄和聯絡人卡,直接看到未接清單\n接聽鍵只接正在響鈴的電話,不會誤接到通話中的那通\n緊急電話(110、119)就算電信加了 +886 國碼回撥,也一律放行不被擋\n系統字體放大又選大字時不再變成兩倍大,撥號鍵、號碼列、分頁列不會被切掉",
+    "versionCode": 45,
+    "versionName": "1.1.42",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.42.apk",
+    "sha256": "fefaeebd58095f9c693877fca39341270fa2bb89d4cf70c7b501daffe27d0e5b",
+    "notes": "修好撥號鍵:上一版撥號盤只剩 1 2 3 三條長條,4~9 和 *0# 看不到,已恢復成正常的 4x3 數字鍵\n未接來電通知的回撥改走 App 自己的接收器\n聯絡人字母篩選、撥號搜尋從詳情返回不再捲回最上面\n去系統設定開通訊錄權限回來會自動重讀",
     "date": "2026-11-07"
   }
 }
