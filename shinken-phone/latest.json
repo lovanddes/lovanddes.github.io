@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 47,
-    "versionName": "1.1.44",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.44.apk",
-    "sha256": "756f54b6125748653cf590ec57df888b0662b8b26406a30305ebf111e9bb982f",
-    "notes": "新增「開車模式」:設定裡可手動開,或連著藍牙喇叭時自動開;通話一接通就用手機喇叭,不搶走藍牙放的音樂\n開車時可選「來電自動接聽」(預設關,響 3/5/8/12 秒),緊急號碼、黑名單、詐騙警示不會自動接\n撥出鈕:110、119 等短碼和完整號碼一律撥畫面上的數字,不會被換成聯絡人\n橫向撥號盤的數字在大字下不再被裁",
-    "date": "2026-11-07"
+    "versionCode": 48,
+    "versionName": "1.1.45",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.45.apk",
+    "sha256": "998beec8812cb8a3b7eebf90c870d63fa09a295e5510b2aeb6580926a62bfdc6",
+    "notes": "新功能:不熟的人可以『註記這是誰的電話』,只記在 App 裡、不會存進通訊錄(LINE 不會自動加好友)。\n在通話紀錄長按陌生號碼,按『註記是誰』;來電、通話紀錄、未接通知都會顯示這個名字。\n備份匯出/匯入也會帶著註記。",
+    "date": "2026-11-08"
   }
 }
