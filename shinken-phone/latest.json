@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 50,
-    "versionName": "1.1.47",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.47.apk",
-    "sha256": "5f0da173f752c59076e4f833afd240bc7acaf6c1655fcb5501f25a4081ef3767",
-    "notes": "新功能1:通話紀錄裡,註記的人名字旁會有小標籤『註記』,跟通訊錄的人分得出來。\n新功能2:聯絡人頁長按多選後,多了『轉註記』鈕,可把不想當聯絡人的人批次轉成註記(轉之前會先在 App 內存一份備份檔)。\n新功能3:設定→開車模式新增『開車時來電用語音報名字』(預設關),鈴聲照響、另外念出聯絡人/註記名字或陌生號碼。",
+    "versionCode": 51,
+    "versionName": "1.1.48",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.48.apk",
+    "sha256": "685cd4181de25f0cd8cc4adcfc1cefc17a383dd0ee914cd6ae564d93191b6021",
+    "notes": "修正1:『轉成註記』更安全了。聯絡人在 SIM 卡或其他帳號上的號碼也會一起存進註記,而且確定存好才會從通訊錄刪掉,有任何一步沒成功就不刪。\n修正2:開車模式報來電名字時,接起或掛斷後不會再繼續念;疑似詐騙來電會確實念出警告。\n修正3:語音引擎出問題時,不會再讓來電畫面當掉。\n修正4:已經有註記名字的人來電,不會再跳黃色『陌生號碼』警告。",
     "date": "2026-11-08"
   }
 }
