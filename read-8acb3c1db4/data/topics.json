@@ -1,20 +1,20 @@
 {
- "date": "2026-11-08",
+ "date": "2026-11-09",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "微軟搜尋不強塞Copilot",
+     "title": "摺疊機展開後傳貼圖要先折上",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "微軟確認 Windows 11 將改版系統搜尋界面，一改過往強制常駐 Copilot 的作法，轉為讓用戶自主選擇是否開啟 AI 助手。官方表示此舉是為了降低系統冗餘與提升用戶體驗，給予使用者更多主控權。該項改動在科技社群引發討論。"
+       "text": "蘋果宣布逾10萬款App已完成iPhone Duo摺疊機大螢幕最佳化，但台灣用戶最依賴的LINE展開後畫面仍縮在中央且貼圖選單無法點擊。不少使用者回報傳貼圖時得先把手機闔上或微折才能送出，引發社群熱烈討論。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我終於拿回了把 AI 關掉的自主權，結果連按下關閉按鈕都怕自己徹底跟不上時代。"
+       "text": "「我以為換了展開視野的頂級摺疊機人生就能跟著開闊，結果在主管面前回個收到，還得先把手機折起來才能點到貼圖。」"
       },
       {
        "label": "建議欄目:",
@@ -22,20 +22,19 @@
       }
      ],
      "sources": [
-      "https://news.cnyes.com/news/id/6651601",
-      "https://today.line.me/tw/v3/article/vXL81pm"
+      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtQIRdDR6FCY3tT-_8I3CevV_6AauZGQuwD2bVWdrhDfUMWG9KPG0advUwngS2QDFCBMMud4MUvewtMlOqYmOIDUZZ6da3aYgrsp8wEw2gEYGoXW9CAt6Hxw=="
      ]
     },
     {
-     "title": "職場心理安全感僅兩成八",
+     "title": "被AI取代後找工作多等五週",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "最新發布的《2026台灣多元職場趨勢報告》指出，台灣職場工作者的心理安全感滿意度僅有28.1%，且有高達七成職場衝突未被妥善解決。調查亦提到在 AI 全面導入各項工作流程的同時，員工的情緒內耗與溝通壓力反而大幅攀升。"
+       "text": "高盛最新發布的研究顯示，因受AI衝擊而失業的勞工重返職場的時間平均比其他失業者多花一個月，35歲以上勞工更要多等約五週。報告指出這類勞工失業滿一年仍未就業的機率高出10個百分點，重新就業也多半只能轉入AI風險相近的崗位。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我以為有了 AI 回信可以客氣十倍，結果我還是那個連在群組發個貼圖都要深呼吸三次的人。"
+       "text": "「高盛說被 AI 取代的人要多花五週才找得到下一份工作，我低頭看了一眼存摺，發現自己連五天沒有薪水進帳都撐不起。」"
       },
       {
        "label": "建議欄目:",
@@ -43,20 +42,19 @@
       }
      ],
      "sources": [
-      "https://today.line.me/tw/v3/article/vXL81pm",
-      "https://www.aiposthub.com/elon-musk-ai-work-money-purpose/"
+      "https://technews.tw/2026/11/07/goldman-sachs-says-ai-displaced-employees-face-a-harder-path-back-to-work/"
      ]
     },
     {
-     "title": "馬斯克稱AI將終結工作",
+     "title": "奧特曼喊話年輕人別追流行",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "馬斯克在訪談中推測，隨著 AI 與機器人技術成熟，人類大部分工作未來將逐漸不再必要，連傳統貨幣地位都可能被重構。這段言論近日在社群與職場論壇引發熱烈討論，不少上班族自嘲現實中根本還沒被解放，工作反而越來越雜。"
+       "text": "OpenAI執行長奧特曼在史丹佛大學座談時直言，對年輕人總想做五年前很酷的事感到失望，呼籲別再盲目模仿或追逐OpenAI，應利用既有AI技術打造規模更大、更重要的全新事業。現場主持人隨即幽默吐槽「但現在最酷的不就是AI嗎」，引發科技圈廣泛轉發與熱議。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我看著馬斯克規劃不用上班的未來，手裡卻還在為了明天週一九點的例會報告抓破頭。"
+       "text": "「科技巨頭在台上勸年輕人別追流行、要創立更偉大的事業，我半夜卻還在偷偷拜託他的模型幫我把週報措辭修得成熟一點。」"
       },
       {
        "label": "建議欄目:",
@@ -64,8 +62,7 @@
       }
      ],
      "sources": [
-      "https://www.aiposthub.com/elon-musk-ai-work-money-purpose/",
-      "https://today.line.me/tw/v3/article/vXL81pm"
+      "https://technews.tw/2026/11/08/openai-ceo-slams-mba-programs-disappointment-students-5-year-old-trends/"
      ]
     }
    ]
