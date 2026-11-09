@@ -1,93 +1,93 @@
 {
- "date": "2026-11-09",
- "one_line": "中東能源基建受襲推升運力焦慮，科技業則加速代理AI與太空布建。",
+ "date": "2026-11-10",
+ "one_line": "AI密碼外洩與基礎設施化成焦點，歐亞政經迎關稅與預算新局。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "輝達調查黃仁勳疑似遭外國情報鎖定案",
+     "title": "Claude Code爆金鑰外洩危機",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "輝達（NVIDIA）董事會宣布成立由獨立董事組成的特別委員會，並在外部獨立律師協助下展開調查，以釐清創辦人兼執行長黃仁勳疑遭外國情報機構鎖定一事。董事會強調目前並無證據顯示國家安全或公司商業機密遭到外洩，黃仁勳本人亦全力支持並配合審查。"
+       "text": "資安業者 Apiiro 最新調查發現，開發者在 Anthropic 的 AI 程式寫作工具 Claude Code 中若勾選「不再詢問」授權選項，系統會將包含完整帳號密碼與 API 金鑰的指令寫入專案本地設定檔中。這導致許多程式設計師在提交代碼時，無意間將敏感憑證上傳至 GitHub 公開儲存庫。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "輝達身為全球人工智慧（AI）晶片龍頭與地緣科技戰的核心，高層安全與情報滲透風險將直接牽動全球半導體板塊與台灣伺服器代工供應鏈的穩定性。"
+       "text": "越來越多企業與工程師依賴 AI 自動化寫程式，若忽略設定檔安全警覺，企業內部權限與私鑰恐全網暴露。"
       }
      ],
      "sources": [
-      "https://nvidianews.nvidia.com/news/statement-from-nvidia-board-of-directors",
-      "https://www.macrumors.com/2026/11/08/siri-ai-rumored-to-become-more-agentic/"
+      "https://mlq.ai/news/claude-codes-dont-ask-again-approvals-have-leaked-passwords-and-api-keys-into-public-github-repos-apiiro-finds/",
+      "https://mobility.techcrunch.com/p/the-cybertruck-experiment-is-over"
      ]
     },
     {
-     "title": "彭博爆蘋果加速推代理人化Siri",
+     "title": "亞馬遜Prime攜Uber Eats搶外送",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "彭博知名科技記者報導，蘋果執行長 John Ternus 在內部閉門會議要求加速軟體時程，計畫最快明年為 Siri 導入具備自主行動能力的「AI 代理人」（Agent，指能理解目標並主動替用戶執行一連串複雜步驟的智慧程式）架構。新版 Siri 將擺脫過往單純一問一答的被動模式，能在背景跨 App 自主操作並持續追蹤任務進度。"
+       "text": "亞馬遜正式宣布將 Uber Eats 選為全美 Prime 會員的官方餐廳外送合作夥伴，並同時終止與 Grubhub 長達多年的專屬合作協議。未來全美 Prime 會員將可享有免外送費及專屬消費折扣優惠。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "若 iPhone 語音助理真正具備跨 App 自主代理能力，一般用戶的生活代辦與手機操作習慣將產生結構性轉變，加速人機互動從「手動點按」走向全自動化。"
+       "text": "科技巨頭與外送平台加速整合訂閱體系，顯示在消費疲軟時期，鎖定高忠誠度付費會員已成外送市場競爭關鍵。"
       }
      ],
      "sources": [
-      "https://www.macrumors.com/2026/11/08/siri-ai-rumored-to-become-more-agentic/",
-      "https://aiweekly.co/alerts/apple-may-ship-agentic-siri-as-early-as-next-year-gurman"
+      "https://mobility.techcrunch.com/p/the-cybertruck-experiment-is-over",
+      "https://gothenburg.china-consulate.gov.cn/eng/fyrth/202611/t20261109_12056171.htm"
      ]
     },
     {
-     "title": "星艦本週第15次試飛挑戰首次雙回收",
+     "title": "巴基斯坦太空人將登中國太空站",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "SpaceX 預計於 11 月 13 日展開 Starship 第 15 次試飛，本次任務預計繞行地球約 14 圈、航程超過 22 小時。最關鍵的突破是團隊將首度嘗試在發射場利用發射塔機械手臂，同時「抓捕回收」第一級超重型助推器與第二級星艦飛船本體。"
+       "text": "中國官方證實，巴基斯坦首位太空人將作為載荷專家參與神舟二十四號任務，登上中國天宮太空站進行短期軌道科學實驗。該名太空人預計隨後搭乘神舟二十三號返回地球。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "若第二級太空船也能在陸地完整回收再利用，將實現軌道運載火箭的完全重複使用，大幅削減發射成本，加速低軌衛星通訊普及與未來深空商業運輸。"
+       "text": "這代表中國「一帶一路」合作深化至載人航天領域，在全球太空探索與高科技地緣戰略中搶占新據點。"
       }
      ],
      "sources": [
-      "https://spacepolicyonline.com/news/whats-happening-in-space-policy-november-8-14-2026/",
-      "https://www.teslarati.com/spacex-perform-starship-double-catch-attempt-flight-15/"
+      "https://gothenburg.china-consulate.gov.cn/eng/fyrth/202611/t20261109_12056171.htm",
+      "https://www.fmprc.gov.cn/eng/xwfx_665395/syrbfyrbt_665398/202611/t20261109_11749877.html"
      ]
     },
     {
-     "title": "日系家電大廠遭駭洩770萬筆個資",
+     "title": "LazyAI獲融資攻企業IT自動化",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "日本知名生活用品與家電大廠愛麗思歐雅瑪（Iris Ohyama）證實，其線上購物平台所租用的第三方雲端服務遭到未授權存取。調查顯示約 770 萬名會員的姓名、住址、電話號碼及加密密碼等個資恐已外洩，官方已緊急暫停電商與維修到府等線上系統進行清查。"
+       "text": "專注於企業 IT 維運自動化的 AI 新創公司 LazyAI 宣布完成 63.1 萬美元融資，由 JAFCO 領投。該公司開發的自主 AI Agent 旨在自動監控、排除故障並執行企業內部的 IT 營運任務。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "許多台灣民眾常跨境網購或委託代購日系生活電器，此事件反映企業串接外部雲端供應商的資安盲區，消費者需提防後續可能出現的客製化釣魚詐騙電話。"
+       "text": "企業 AI 應用正從對話問答轉向能獨立執行維運動作的代理工具，加速降低企業資訊技術維運成本。"
       }
      ],
      "sources": [
-      "https://www.bleepingcomputer.com/news/security/iris-ohyama-data-cloud-breach-exposes-info-of-77-million-customers/",
-      "https://nasawatch.com/2026/11/08/nasa-moon-base-contracts-landers-rover/"
+      "https://dealroom.co/news/170655-lazyai-raises-631k-from-jafco-to-put-ai-agents-into-enterprise-it-operat/",
+      "https://www.retresco.de/en/blog/ai-information-infrastructure-reuters-report-2026/"
      ]
     },
     {
-     "title": "NASA釋百億登月單首造核動力月球車",
+     "title": "路透報告：AI升格日常資訊基建",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國太空總署（NASA）啟動為期十年、總額 100 億美元的商業月球酬載服務第二階段（CLPS 2），選定 SpaceX、Blue Origin 等 8 家太空企業競逐未來的月球運送合約。官方同時宣布交由噴射推進實驗室打造名為 PROMISE 的核動力探測車，預計 2028 年底發射，在月球嚴苛極區展開長達 18 個月的長期科學探索。"
+       "text": "牛津大學路透新聞研究所發布 2026 生成式 AI 最新調查，顯示主要國家每週使用 AI 搜尋資訊的比例攀升至 38%，每日使用率達 28%。報告指出生成式 AI 已從單一工具轉變為民眾取得資訊的日常基礎設施。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "月球開發正由單次任務轉向長期基地建置與核能續航實戰，龐大的商業訂單將帶動全球航太精密零組件與深空探測供應鏈的長期需求。"
+       "text": "當大眾獲取新聞與知識的入口從傳統搜尋引擎轉移至 AI 平台，全球內容出版商與媒體流量結構將面臨全面洗牌。"
       }
      ],
      "sources": [
-      "https://nasawatch.com/2026/11/08/nasa-moon-base-contracts-landers-rover/",
-      "https://www.thehindu.com/news/international/iraq-khor-mor-gas-field-drone-attack-november-9-2026/article71681223.ece"
+      "https://www.retresco.de/en/blog/ai-information-infrastructure-reuters-report-2026/",
+      "https://opinary.com/reader-engagement-for-publishers-3-problems-the-2026-reuters-report-reveals-and-how-polls-solve-them/"
      ]
     }
    ]
@@ -96,54 +96,54 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "伊拉克大天然氣田遇襲引大火被迫停產",
+     "title": "德國通牒要求歐盟長援烏克蘭",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "伊拉克庫德自治區最大天然氣田之一的科爾莫爾（Khor Mor）8 日遭到武裝無人機攻擊，擊中液化石油氣儲槽並引發大火，全廠緊急關閉並疏散人員避難。該氣田是當地發電廠的核心燃料來源，停產直接導致區域電網瞬間短缺近 2,800 百萬瓦（MW）發電量。"
+       "text": "德國總理梅爾茨發信給歐洲理事會主席表示，若歐盟成員國未能共同承諾填補烏克蘭 2027 年起的長期財政缺口，德國將否決歐盟下一個七年預算案。烏克蘭預估明年將面臨高達 783 億美元的資金需求。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "中東戰事外溢持續衝擊關鍵能源基礎設施，若關鍵產區因無人機威脅持續中斷生產，將在北半球即將入冬之際進一步加劇全球天然氣供應鏈的不確定性。"
+       "text": "德國拿歐盟核心預算作槓桿，凸顯歐洲各國在美國地緣政策變動之際，承擔烏克蘭防衛與經濟援助的龐大財政壓力。"
       }
      ],
      "sources": [
-      "https://www.boursorama.com/bourse/actualites/la-production-aurait-ete-suspendue-sur-le-gisement-de-gaz-de-khor-mor-en-irak-a-la-suite-d-une-attaque-de-drone-selon-certaines-sources-6d7cea6e1b1f6852afaf79bd560fb5a4",
-      "https://www.iranintl.com/en/202611086475"
+      "https://united24media.com/world/merz-uses-eu-budget-talks-to-secure-long-term-funding-for-ukraine-24213",
+      "https://www.ft.com/content/581955a2-852b-44d8-8a0b-7ad5d7d0cd7e"
      ]
     },
     {
-     "title": "能源巨頭洽商美放行影子油輪抑運費",
+     "title": "中美延長關稅停火期至明年初",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "彭博社報導，托克（Trafigura）、維多（Vitol）等全球頂級大宗商品貿易商正向美國政府爭取特別許可，希望獲准租賃或購買遭制裁列入黑名單的原油油輪。目前全球有近 13 億桶原油因物流緊張受困海上，海運運費暴漲至占原油成本的三成以上，能源業者期盼透過解禁閒置船隻以紓解嚴峻船荒。"
+       "text": "中國國務院關稅稅則委員會宣布，將原定對美國部分進口商品加徵 24% 報復性關稅的暫緩措施延長兩個月至 2027 年 1 月，僅維持 10% 基準稅率。此決定落實了雙方領袖延長貿易休戰的最新共識。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "航運瓶頸是近期推升燃料價格與物價的重要變數；若受制裁油輪能重回正規市場增加運力，將有助於壓低原油運價，減輕全球通膨再度抬頭的壓力。"
+       "text": "在中美雙邊貿易談判進行期間，延長關稅停火能暫時降低供應鏈衝擊，為全球跨國企業爭取緩衝時間。"
       }
      ],
      "sources": [
-      "https://247wallst.com/investing/2026/11/08/a-record-1-28-billion-barrels-of-oil-are-stuck-at-sea-and-that-could-mean-higher-gas-prices/",
-      "https://gcaptain.com/oil-traders-in-talks-with-us-to-get-sanctioned-ships-back-to-sea/"
+      "https://www.mayberryinv.com/overseas-headlines-november-9-2026/",
+      "https://www.bloomberg.com/news/articles/2026-11-09/china-extends-pause-on-24-us-tariffs-to-january-keeps-10-rate"
      ]
     },
     {
-     "title": "土耳其軍事養老基金插旗利比亞石油",
+     "title": "法國調升最低工資平息物價抗議",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "彭博社披露，管理資產達 340 億美元的土耳其軍隊養老基金（OYAK）已正式涉足利比亞原油貿易。這象徵安卡拉當局在長期向利比亞提供軍事與外交奧援後，開始由具備軍方背景的龐大資本實體直接切入北非實體能源流通，鞏固其在地中海能源版圖的話語權。"
+       "text": "法國總理勒科爾尼宣布，政府將自 12 月 1 日起把全職勞工的稅後月最低工資調升 1.6% 至 1,502 歐元。此舉旨在回應因高生活成本引發的全國抗議，同時避免對脆弱的公共財政造成過度負擔。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "軍事影響力與實體能源交易結合，凸顯地緣政治勢力正重新劃分北非與南歐的油氣命脈，對歐洲多元化能源進口策略與區域安全平衡帶來深遠影響。"
+       "text": "通膨與物價居高不下正持續考驗歐洲政府的財政平衡，工資調整動向反映了勞資爭端與經濟下行的雙重威脅。"
       }
      ],
      "sources": [
-      "https://turkishsourcing.com/turkey-logistics-infrastructure-aiib-railway-loan-dp-world/",
-      "https://kompromatmedia.com/site/article.php?id=302937"
+      "https://www.mayberryinv.com/overseas-headlines-november-9-2026/",
+      "https://www.bloomberg.com/news/articles/2026-11-09/french-government-boosts-minimum-wage-in-response-to-protests"
      ]
     }
    ]
