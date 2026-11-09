@@ -1,40 +1,20 @@
 {
- "date": "2026-11-09",
+ "date": "2026-11-10",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "摺疊機展開後傳貼圖要先折上",
+     "title": "職場大凍結職缺直接蒸發",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "蘋果宣布逾10萬款App已完成iPhone Duo摺疊機大螢幕最佳化，但台灣用戶最依賴的LINE展開後畫面仍縮在中央且貼圖選單無法點擊。不少使用者回報傳貼圖時得先把手機闔上或微折才能送出，引發社群熱烈討論。"
+       "text": "耶魯大學與 Anthropic 最新勞工研究在台引發廣泛轉載討論，揭露企業受 AI 影響後不再是大規模裁員，而是採取遇缺不補的「大凍結」策略。初階職缺刊登數腰斬，讓職場新鮮人與基層求職成功率顯著下跌。"
       },
       {
        "label": "新跪的角度:",
-       "text": "「我以為換了展開視野的頂級摺疊機人生就能跟著開闊，結果在主管面前回個收到，還得先把手機折起來才能點到貼圖。」"
-      },
-      {
-       "label": "建議欄目:",
-       "text": "【頭上的龍蝦又重了】"
-      }
-     ],
-     "sources": [
-      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtQIRdDR6FCY3tT-_8I3CevV_6AauZGQuwD2bVWdrhDfUMWG9KPG0advUwngS2QDFCBMMud4MUvewtMlOqYmOIDUZZ6da3aYgrsp8wEw2gEYGoXW9CAt6Hxw=="
-     ]
-    },
-    {
-     "title": "被AI取代後找工作多等五週",
-     "body": [
-      {
-       "label": "為什麼熱:",
-       "text": "高盛最新發布的研究顯示，因受AI衝擊而失業的勞工重返職場的時間平均比其他失業者多花一個月，35歲以上勞工更要多等約五週。報告指出這類勞工失業滿一年仍未就業的機率高出10個百分點，重新就業也多半只能轉入AI風險相近的崗位。"
-      },
-      {
-       "label": "新跪的角度:",
-       "text": "「高盛說被 AI 取代的人要多花五週才找得到下一份工作，我低頭看了一眼存摺，發現自己連五天沒有薪水進帳都撐不起。」"
+       "text": "我每天提心吊膽等著被 AI 裁員，原來公司根本連資遣費都懶得算，只要等我自己離職就把位子整張撤掉換成伺服器。"
       },
       {
        "label": "建議欄目:",
@@ -42,19 +22,39 @@
       }
      ],
      "sources": [
-      "https://technews.tw/2026/11/07/goldman-sachs-says-ai-displaced-employees-face-a-harder-path-back-to-work/"
+      "https://www.bnext.com.tw/article/92967/ai-hiring-freeze-entry-level-jobs-wages"
      ]
     },
     {
-     "title": "奧特曼喊話年輕人別追流行",
+     "title": "AI搜尋推薦席次只剩四席",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "OpenAI執行長奧特曼在史丹佛大學座談時直言，對年輕人總想做五年前很酷的事感到失望，呼籲別再盲目模仿或追逐OpenAI，應利用既有AI技術打造規模更大、更重要的全新事業。現場主持人隨即幽默吐槽「但現在最酷的不就是AI嗎」，引發科技圈廣泛轉發與熱議。"
+       "text": "台灣最新發布的生成式引擎優化（GEO）實測報告指出，主流 AI 搜尋回答中推薦品牌的數量中位數僅有 4 個，逾四成回答甚至只推薦 1 到 3 個。品牌曝光從過去爭奪搜尋引擎第一頁，轉變成搶奪少數推薦席次的窄門淘汰賽。"
       },
       {
        "label": "新跪的角度:",
-       "text": "「科技巨頭在台上勸年輕人別追流行、要創立更偉大的事業，我半夜卻還在偷偷拜託他的模型幫我把週報措辭修得成熟一點。」"
+       "text": "我還在苦惱網頁關鍵字到底塞得夠不夠多，世界已經進化到只給四個名額，而我連自我介紹都還排不進前三行。"
+      },
+      {
+       "label": "建議欄目:",
+       "text": "【頭上的龍蝦又重了】"
+      }
+     ],
+     "sources": [
+      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHov9T5Ar0Q1uCyNqz-FDNHbmD3tBCxl5Yy3cEsmHhKaKGjf7Sv9-eSBXTcI85npcLshAvNKqZ6F8Z2t1Hw4Gtiw4BeIrBvQxa6EIva7umL96KZwubeuCKPxvwe7-Ym7w=="
+     ]
+    },
+    {
+     "title": "舊AI算力合約到期不續",
+     "body": [
+      {
+       "label": "為什麼熱:",
+       "text": "科技外媒報導微軟近期陸續關閉並決定不再續簽向甲骨文租用的多年期 AI 算力合約，主因是該批舊世代硬體已無法滿足最新大模型的推論規格。科技巨頭開始加速淘汰上一代算力設備，引發業界對 AI 硬體生命週期急遽縮短的熱議。"
+      },
+      {
+       "label": "新跪的角度:",
+       "text": "我看著三年前頂規的 AI 晶片如今因規格跟不上就被退租，低頭摸了摸自己這顆運作了幾十年的老腦袋，很怕下一個被宣布合約到期的是我。"
       },
       {
        "label": "建議欄目:",
@@ -62,7 +62,7 @@
       }
      ],
      "sources": [
-      "https://technews.tw/2026/11/08/openai-ceo-slams-mba-programs-disappointment-students-5-year-old-trends/"
+      "https://www.inside.com.tw/article/42860-microsoft-winds-down-oracle-ai-cloud-capacity-bing"
      ]
     }
    ]
