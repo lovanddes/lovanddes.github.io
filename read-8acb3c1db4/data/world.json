@@ -1,93 +1,93 @@
 {
- "date": "2026-11-10",
- "one_line": "AI密碼外洩與基礎設施化成焦點，歐亞政經迎關稅與預算新局。",
+ "date": "2026-11-11",
+ "one_line": "科技巨頭卡位AI生態系，產業正面臨算力成本與就業轉型衝擊。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "Claude Code爆金鑰外洩危機",
+     "title": "台積電擬砸十億美元入股AI大廠",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "資安業者 Apiiro 最新調查發現，開發者在 Anthropic 的 AI 程式寫作工具 Claude Code 中若勾選「不再詢問」授權選項，系統會將包含完整帳號密碼與 API 金鑰的指令寫入專案本地設定檔中。這導致許多程式設計師在提交代碼時，無意間將敏感憑證上傳至 GitHub 公開儲存庫。"
+       "text": "台積電董事會於 11 月 10 日通過決議，預計分別撥出最多 5 億美元，參與 Anthropic 的股票上市（IPO）認購，以及 OpenAI 的特別股投資。這代表晶片代工龍頭不只幫兩大 AI 巨頭代工生產晶片，更進一步直接持有其股權。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "越來越多企業與工程師依賴 AI 自動化寫程式，若忽略設定檔安全警覺，企業內部權限與私鑰恐全網暴露。"
+       "text": "這項投資凸顯台積電在全球 AI 產業鏈中不可或缺的地位，透過股權綁定核心客戶，能確保未來先進製程訂單的長期穩定度。"
       }
      ],
      "sources": [
-      "https://mlq.ai/news/claude-codes-dont-ask-again-approvals-have-leaked-passwords-and-api-keys-into-public-github-repos-apiiro-finds/",
-      "https://mobility.techcrunch.com/p/the-cybertruck-experiment-is-over"
+      "https://aiweekly.co/alerts/tsmc-board-clears-500m-each-for-anthropic-ipo-openai-stock",
+      "https://news.microsoft.com/source/2026/11/10/ibm-and-microsoft-announce-a-new-ai-agent-platform-designed-for-industry-specific-transformation/"
      ]
     },
     {
-     "title": "亞馬遜Prime攜Uber Eats搶外送",
+     "title": "微軟攜IBM推企業級AI代理平台",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "亞馬遜正式宣布將 Uber Eats 選為全美 Prime 會員的官方餐廳外送合作夥伴，並同時終止與 Grubhub 長達多年的專屬合作協議。未來全美 Prime 會員將可享有免外送費及專屬消費折扣優惠。"
+       "text": "微軟與 IBM 於 11 月 10 日發布聯合平台「Imagine Enterprise」，整合了 IBM 研發的 6,000 多個預建 AI 代理（能自主執行特定任務的軟體程式）與微軟的雲端資安技術。該平台專為金融、保險等高法規審查行業打造，協助企業自動化處理跨部門業務。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "科技巨頭與外送平台加速整合訂閱體系，顯示在消費疲軟時期，鎖定高忠誠度付費會員已成外送市場競爭關鍵。"
+       "text": "這標誌著企業 AI 應用正式從單純聊天轉向自主代理辦公，未來上班族的例行追蹤與審查流程將大幅被自動化取代。"
       }
      ],
      "sources": [
-      "https://mobility.techcrunch.com/p/the-cybertruck-experiment-is-over",
-      "https://gothenburg.china-consulate.gov.cn/eng/fyrth/202611/t20261109_12056171.htm"
+      "https://redmondmag.com/articles/2026/11/10/microsoft-and-ibm-launch-ai-agent-platform.aspx",
+      "https://www.tradingview.com/news/gurufocus:43934c93e094b:0-microsoft-and-ibm-unite-for-a-giant-ai-agent-push/"
      ]
     },
     {
-     "title": "巴基斯坦太空人將登中國太空站",
+     "title": "Google發布Gemini 4 Carbon",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "中國官方證實，巴基斯坦首位太空人將作為載荷專家參與神舟二十四號任務，登上中國天宮太空站進行短期軌道科學實驗。該名太空人預計隨後搭乘神舟二十三號返回地球。"
+       "text": "Google 於 11 月 10 日推出最新旗艦級 AI 模型 Gemini 4 Carbon，主打強大的深度推理與自動化工程處理能力。該模型在回答複雜問題前會自動進行多輪思考與邊界條件測試，並已開放給開發者與企業用戶測試。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這代表中國「一帶一路」合作深化至載人航天領域，在全球太空探索與高科技地緣戰略中搶占新據點。"
+       "text": "隨著 Google 將強大推理模型下放至開發者工具與 Android 生態，一般用戶未來使用的手機與雲端工具將具備更聰明、更能解決複雜任務的 AI 能力。"
       }
      ],
      "sources": [
-      "https://gothenburg.china-consulate.gov.cn/eng/fyrth/202611/t20261109_12056171.htm",
-      "https://www.fmprc.gov.cn/eng/xwfx_665395/syrbfyrbt_665398/202611/t20261109_11749877.html"
+      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+      "https://aistudio.google.com/docs/whats-new-gemini-4-carbon"
      ]
     },
     {
-     "title": "LazyAI獲融資攻企業IT自動化",
+     "title": "智慧戒Oura收購AI醫療新創",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "專注於企業 IT 維運自動化的 AI 新創公司 LazyAI 宣布完成 63.1 萬美元融資，由 JAFCO 領投。該公司開發的自主 AI Agent 旨在自動監控、排除故障並執行企業內部的 IT 營運任務。"
+       "text": "智慧戒指品牌 Oura 於 11 月 10 日宣布以 6.25 億美元現金收購 AI 初級照護平台 Counsel Health。未來 Oura 將把 AI 臨床對話與線上真人醫師服務直接內建於 App 中，讓使用者在發現生理數據異常時能立即諮詢 AI 與醫師。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "企業 AI 應用正從對話問答轉向能獨立執行維運動作的代理工具，加速降低企業資訊技術維運成本。"
+       "text": "穿戴式裝置正從單純的健康數據監測，升級為 24 小時隨身 AI 線上診所，未來一般人管理個人健康與線上看診將更加無縫銜接。"
       }
      ],
      "sources": [
-      "https://dealroom.co/news/170655-lazyai-raises-631k-from-jafco-to-put-ai-agents-into-enterprise-it-operat/",
-      "https://www.retresco.de/en/blog/ai-information-infrastructure-reuters-report-2026/"
+      "https://explainx.ai/blog/oura-counsel-health-625-million-ai-primary-care-acquisition-november-2026",
+      "https://shiftdelete.net/en/oura-counsel-health"
      ]
     },
     {
-     "title": "路透報告：AI升格日常資訊基建",
+     "title": "毫米波技術讓前臂變手錶觸控板",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "牛津大學路透新聞研究所發布 2026 生成式 AI 最新調查，顯示主要國家每週使用 AI 搜尋資訊的比例攀升至 38%，每日使用率達 28%。報告指出生成式 AI 已從單一工具轉變為民眾取得資訊的日常基礎設施。"
+       "text": "美國北卡羅來納州立大學團隊於 11 月 10 日發表名為「EpiPad」的新技術，利用手腕上的毫米波感測陣列，將使用者的前臂皮膚直接變身為智慧手錶的擴充觸控板。使用者只要在自己手臂上滑動或按壓，就能對手錶進行縮放、捲動與選取操作。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "當大眾獲取新聞與知識的入口從傳統搜尋引擎轉移至 AI 平台，全球內容出版商與媒體流量結構將面臨全面洗牌。"
+       "text": "這項突破解決了智慧手錶螢幕過小、不易進行精準手勢操作的痛點，未來穿戴裝置的互動體驗將大為提升。"
       }
      ],
      "sources": [
-      "https://www.retresco.de/en/blog/ai-information-infrastructure-reuters-report-2026/",
-      "https://opinary.com/reader-engagement-for-publishers-3-problems-the-2026-reuters-report-reveals-and-how-polls-solve-them/"
+      "https://news.ncsu.edu/2026/11/forearm-trackpad/",
+      "https://english.cw.com.tw/article/article.action?id=5120"
      ]
     }
    ]
@@ -96,54 +96,37 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "德國通牒要求歐盟長援烏克蘭",
+     "title": "Gartner預測AI將淨增百萬職缺",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "德國總理梅爾茨發信給歐洲理事會主席表示，若歐盟成員國未能共同承諾填補烏克蘭 2027 年起的長期財政缺口，德國將否決歐盟下一個七年預算案。烏克蘭預估明年將面臨高達 783 億美元的資金需求。"
+       "text": "研究機構 Gartner 於 11 月 10 日發表全球就業預估，指出雖然到 2030 年 AI 會淘汰全球約 890 萬個工作，但也會創造 1,060 萬個新職缺，淨增加 170 萬個工作。不過，全球將有超過兩成（4.35 億名）員工的工作內容與權責受到顯著轉型。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "德國拿歐盟核心預算作槓桿，凸顯歐洲各國在美國地緣政策變動之際，承擔烏克蘭防衛與經濟援助的龐大財政壓力。"
+       "text": "報告提醒 AI 對職場的衝擊並非單純「消滅人力」，而是「重塑工作模式」，上班族需積極提升跨領域能力與 AI 工具協同技能。"
       }
      ],
      "sources": [
-      "https://united24media.com/world/merz-uses-eu-budget-talks-to-secure-long-term-funding-for-ukraine-24213",
-      "https://www.ft.com/content/581955a2-852b-44d8-8a0b-7ad5d7d0cd7e"
+      "https://www.gartner.com/en/newsroom/press-releases/2026-11-10-gartner-forecasts-artificial-intelligence-will-drive-a-net-increase-of-1-7-million-jobs-by-2030",
+      "https://nationalcioreview.com/articles-insights/extra-bytes/gartner-predicts-ai-will-create-more-jobs-than-it-eliminates-by-2030/"
      ]
     },
     {
-     "title": "中美延長關稅停火期至明年初",
+     "title": "伊朗啟用女性志願軍事訓練中心",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "中國國務院關稅稅則委員會宣布，將原定對美國部分進口商品加徵 24% 報復性關稅的暫緩措施延長兩個月至 2027 年 1 月，僅維持 10% 基準稅率。此決定落實了雙方領袖延長貿易休戰的最新共識。"
+       "text": "伊朗政府於 11 月 10 日在首都德黑蘭的自由廣場啟動全國首座女性志願軍事訓練中心，現場進行索降、步槍與手槍實彈射擊及戰術防守展示。官方表示該中心旨在培訓志願者，以備應對潛在的外部地面軍事威脅。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "在中美雙邊貿易談判進行期間，延長關稅停火能暫時降低供應鏈衝擊，為全球跨國企業爭取緩衝時間。"
+       "text": "這顯示中東地區的地緣政治緊張持續升溫，國防防衛行動進一步擴展至全民動員，可能對中東能源供給與國際供應鏈安全帶來不確定性。"
       }
      ],
      "sources": [
-      "https://www.mayberryinv.com/overseas-headlines-november-9-2026/",
-      "https://www.bloomberg.com/news/articles/2026-11-09/china-extends-pause-on-24-us-tariffs-to-january-keeps-10-rate"
-     ]
-    },
-    {
-     "title": "法國調升最低工資平息物價抗議",
-     "body": [
-      {
-       "label": "發生什麼:",
-       "text": "法國總理勒科爾尼宣布，政府將自 12 月 1 日起把全職勞工的稅後月最低工資調升 1.6% 至 1,502 歐元。此舉旨在回應因高生活成本引發的全國抗議，同時避免對脆弱的公共財政造成過度負擔。"
-      },
-      {
-       "label": "為什麼值得知道:",
-       "text": "通膨與物價居高不下正持續考驗歐洲政府的財政平衡，工資調整動向反映了勞資爭端與經濟下行的雙重威脅。"
-      }
-     ],
-     "sources": [
-      "https://www.mayberryinv.com/overseas-headlines-november-9-2026/",
-      "https://www.bloomberg.com/news/articles/2026-11-09/french-government-boosts-minimum-wage-in-response-to-protests"
+      "https://apnews.com/photo-gallery/photos-new-military-training-center-women-iran-7f7f71aa683140ab9af1b5fea8acc3a3",
+      "https://apnews.com/article/iran-women-military-training-center-tehran-2026-11-10"
      ]
     }
    ]
