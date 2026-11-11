@@ -2,11 +2,11 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 51,
-    "versionName": "1.18.5",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.18.5.apk",
-    "sha256": "8a478b74a6b189e363333f3589c36bf7b3805fe6f958d4f5a64fee3cf01c0a1c",
-    "notes": "沒在開車卻被當成開車:鬧鐘到點前會實際確認車用藍牙還連不連著,沒連就照常響。\n響鈴畫面的「我在開車」按了會先問一次,避免口袋誤觸。",
+    "versionCode": 52,
+    "versionName": "1.18.6",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.18.6.apk",
+    "sha256": "f3b7e2eaa538ff096760c06e8344beb97a52561e4acd3c39fc1a89900bb5fc5c",
+    "notes": "換新圖示:水母抱著鬧鐘(橘色底)。\n沒在開車卻被當成開車:鬧鐘到點前會實際確認車用藍牙還連不連著;響鈴畫面的「我在開車」按了會先問一次。",
     "date": "2026-11-11"
   },
   "windows": {
