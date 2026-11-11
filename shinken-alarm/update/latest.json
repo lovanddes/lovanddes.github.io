@@ -10,10 +10,10 @@
     "date": "2026-11-11"
   },
   "windows": {
-    "version": "1.17.2",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.17.2.zip",
-    "sha256": "5a2519fe6d08b3cc7f298be65486edd64becad7a710a6a5c7b576fccc89c7194",
-    "notes": "電腦版認得手機的「常識題」:存檔、同步不會把它改成算術(電腦響鈴時改出算術題)",
-    "date": "2026-10-26"
+    "version": "1.17.3",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.17.3.zip",
+    "sha256": "aeb950a62de52e61e67c433aba6ced40eb97611d2747ce39e3fcec9408b1ce30",
+    "notes": "「每隔幾天響一次」的鬧鐘:只改名稱、鈴聲或時間按儲存,不會再從今天重新起算(改了間隔天數才會重算)",
+    "date": "2026-11-11"
   }
 }
