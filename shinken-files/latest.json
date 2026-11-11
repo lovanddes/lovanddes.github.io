@@ -2,11 +2,11 @@
   "format": "shinken-files-update",
   "version": 1,
   "android": {
-    "versionCode": 2,
-    "versionName": "0.1.1",
-    "url": "https://lovanddes.github.io/shinken-files/update/shinken-files-0.1.1.apk",
-    "sha256": "627f3a6f4ea262bc9223a16f70077e0a8ae6869953d882e8b949c3e98ab34095",
-    "notes": "第一個正式版:之後可以在設定裡一鍵檢查更新\n修正:底部的按鈕不再被手機導覽列蓋住",
+    "versionCode": 3,
+    "versionName": "0.1.2",
+    "url": "https://lovanddes.github.io/shinken-files/update/shinken-files-0.1.2.apk",
+    "sha256": "f4fb66fcbc5e5e8456d792627ca38ab03e111057207e8ba3bee8282bf7d228cb",
+    "notes": "首次啟動的說明改得更準確(只會連網站檢查新版,不會傳出您的檔案)\n字體放大時,字級選項不再被擠成直排\n下載頁多了網址複製與 QR",
     "date": "2026-11-11"
   }
 }
