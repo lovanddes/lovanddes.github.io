@@ -2,18 +2,18 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 52,
-    "versionName": "1.18.6",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.18.6.apk",
-    "sha256": "f3b7e2eaa538ff096760c06e8344beb97a52561e4acd3c39fc1a89900bb5fc5c",
-    "notes": "換新圖示:水母抱著鬧鐘(橘色底)。\n沒在開車卻被當成開車:鬧鐘到點前會實際確認車用藍牙還連不連著;響鈴畫面的「我在開車」按了會先問一次。",
-    "date": "2026-11-11"
+    "versionCode": 53,
+    "versionName": "1.18.7",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.18.7.apk",
+    "sha256": "4b3b78eb13c9cf6db07852505db179ee01fc49e5671b61ceea10b7eac229f142",
+    "notes": "編輯鬧鐘時,原本的日期已經過了、但今天那個時間還沒到:存檔會直接幫你改成今天(並提示一聲),不再只能設成明天。",
+    "date": "2026-11-12"
   },
   "windows": {
-    "version": "1.17.3",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.17.3.zip",
-    "sha256": "aeb950a62de52e61e67c433aba6ced40eb97611d2747ce39e3fcec9408b1ce30",
-    "notes": "「每隔幾天響一次」的鬧鐘:只改名稱、鈴聲或時間按儲存,不會再從今天重新起算(改了間隔天數才會重算)",
-    "date": "2026-11-11"
+    "version": "1.17.4",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.17.4.zip",
+    "sha256": "a999856e4a7f6714127043cc6fbc86a6b4497b410d96aad7ff883bdf08a31153",
+    "notes": "編輯鬧鐘時,原本的日期已經過了、但今天那個時間還沒到:存檔會直接幫你改成今天(並提示一聲),不再只能設成明天。",
+    "date": "2026-11-12"
   }
 }
