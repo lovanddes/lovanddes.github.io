@@ -1,93 +1,93 @@
 {
- "date": "2026-11-11",
- "one_line": "科技巨頭卡位AI生態系，產業正面臨算力成本與就業轉型衝擊。",
+ "date": "2026-11-13",
+ "one_line": "黃仁勳閃辭重擊AI界，印尼政壇洗牌與馬斯克帝國整併牽動全球。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "台積電擬砸十億美元入股AI大廠",
+     "title": "黃仁勳請辭輝達執行長震動晶片界",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "台積電董事會於 11 月 10 日通過決議，預計分別撥出最多 5 億美元，參與 Anthropic 的股票上市（IPO）認購，以及 OpenAI 的特別股投資。這代表晶片代工龍頭不只幫兩大 AI 巨頭代工生產晶片，更進一步直接持有其股權。"
+       "text": "執掌繪圖晶片龍頭輝達（Nvidia）長達 33 年的創辦人黃仁勳於 12 日正式辭職，主因是近期捲入外國情報外洩與間諜調查爭議。董事會已指派臨時執行長接掌，消息一出震撼矽谷與半導體市場，輝達單日股價重挫近一成。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這項投資凸顯台積電在全球 AI 產業鏈中不可或缺的地位，透過股權綁定核心客戶，能確保未來先進製程訂單的長期穩定度。"
+       "text": "輝達是當前全球人工智慧算力霸主，也是台灣半導體供應鏈最重要的引擎，靈魂人物閃辭將直接衝擊全球 AI 資本支出節奏與台廠訂單信心。"
       }
      ],
      "sources": [
-      "https://aiweekly.co/alerts/tsmc-board-clears-500m-each-for-anthropic-ipo-openai-stock",
-      "https://news.microsoft.com/source/2026/11/10/ibm-and-microsoft-announce-a-new-ai-agent-platform-designed-for-industry-specific-transformation/"
+      "https://www.youtube.com/watch?v=M0ne6mpa_bU",
+      "https://www.youtube.com/watch?v=9KbRk1fo_C8"
      ]
     },
     {
-     "title": "微軟攜IBM推企業級AI代理平台",
+     "title": "LMSYS攜巨頭成立開源推論聯盟",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "微軟與 IBM 於 11 月 10 日發布聯合平台「Imagine Enterprise」，整合了 IBM 研發的 6,000 多個預建 AI 代理（能自主執行特定任務的軟體程式）與微軟的雲端資安技術。該平台專為金融、保險等高法規審查行業打造，協助企業自動化處理跨部門業務。"
+       "text": "推動開源 AI 評測的 LMSYS 組織宣布成立「SGLang 聯盟」，創始成員囊括輝達、超微（AMD）、英特爾、Google 與 Meta 等重量級巨頭。該聯盟將共同制定開源推論引擎（讓 AI 模型執行運算並產出答案的底層軟體）的技術藍圖與硬體最佳化標準。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這標誌著企業 AI 應用正式從單純聊天轉向自主代理辦公，未來上班族的例行追蹤與審查流程將大幅被自動化取代。"
+       "text": "推論已占全球整體 AI 運算需求的三分之二，晶片與雲端大廠聯合押注開源架構，有助於降低企業使用 AI 的伺服器成本，並避免被單一晶片綁定。"
       }
      ],
      "sources": [
-      "https://redmondmag.com/articles/2026/11/10/microsoft-and-ibm-launch-ai-agent-platform.aspx",
-      "https://www.tradingview.com/news/gurufocus:43934c93e094b:0-microsoft-and-ibm-unite-for-a-giant-ai-agent-push/"
+      "https://www.lmsys.org/blog/2026-11-12-sglang-consortium",
+      "https://www.morningstar.com/news/business-wire/20261112052367/lmsys-org-launches-sglang-consortium-with-nvidia-amd-intel-google-meta-cloudflare-modal-and-radixark-to-advance-open-source-ai-inference"
      ]
     },
     {
-     "title": "Google發布Gemini 4 Carbon",
+     "title": "微軟Outlook突發全球大規模當機",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "Google 於 11 月 10 日推出最新旗艦級 AI 模型 Gemini 4 Carbon，主打強大的深度推理與自動化工程處理能力。該模型在回答複雜問題前會自動進行多輪思考與邊界條件測試，並已開放給開發者與企業用戶測試。"
+       "text": "微軟（Microsoft）旗下主流商務郵件服務 Outlook 發生全球性大規模連線中斷，全球大量用戶無法透過網頁版或 App 收發信件。微軟官方確認是多個區域的雲端基礎設施負載異常飆高所致，正緊急分流流量並重啟伺服器修復。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "隨著 Google 將強大推理模型下放至開發者工具與 Android 生態，一般用戶未來使用的手機與雲端工具將具備更聰明、更能解決複雜任務的 AI 能力。"
+       "text": "Outlook 是台灣眾多企業與跨國商務日常溝通的核心骨幹，服務癱瘓不僅衝擊工作效率，也再次凸顯高度依賴單一科技巨頭雲端服務的營運風險。"
       }
      ],
      "sources": [
-      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
-      "https://aistudio.google.com/docs/whats-new-gemini-4-carbon"
+      "https://digg.com/tech/yw6t8r2n",
+      "https://www.961developments.com/news"
      ]
     },
     {
-     "title": "智慧戒Oura收購AI醫療新創",
+     "title": "蘋果將關閉營運廿八年官方論壇",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "智慧戒指品牌 Oura 於 11 月 10 日宣布以 6.25 億美元現金收購 AI 初級照護平台 Counsel Health。未來 Oura 將把 AI 臨床對話與線上真人醫師服務直接內建於 App 中，讓使用者在發現生理數據異常時能立即諮詢 AI 與醫師。"
+       "text": "蘋果公司宣布其營運長達 28 年的「Apple Support Community」官方技術討論區將於 11 月 20 日永久關閉，目前網站已轉為唯讀模式，不再接受任何新提問。官方表示此舉是基於整體支援策略調整，未來將全面引導用戶使用官方客服管道。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "穿戴式裝置正從單純的健康數據監測，升級為 24 小時隨身 AI 線上診所，未來一般人管理個人健康與線上看診將更加無縫銜接。"
+       "text": "這是全球果粉與 IT 人員遭遇 iOS 或 Mac 軟硬體疑難雜症時最常查詢的除錯資料庫，論壇關閉後，許多民間累積的冷門解法恐將佚失。"
       }
      ],
      "sources": [
-      "https://explainx.ai/blog/oura-counsel-health-625-million-ai-primary-care-acquisition-november-2026",
-      "https://shiftdelete.net/en/oura-counsel-health"
+      "https://borncity.com/news/apple-support-community-forum-schliesst-am-20-november-nach-fast-30-jahren/",
+      "https://9to5mac.com/2026/11/10/end-of-an-era-apple-support-community-forums-will-permanently-close-on-november-20/"
      ]
     },
     {
-     "title": "毫米波技術讓前臂變手錶觸控板",
+     "title": "亞馬遜揭AWS模擬器全由AI編寫",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國北卡羅來納州立大學團隊於 11 月 10 日發表名為「EpiPad」的新技術，利用手腕上的毫米波感測陣列，將使用者的前臂皮膚直接變身為智慧手錶的擴充觸控板。使用者只要在自己手臂上滑動或按壓，就能對手錶進行縮放、捲動與選取操作。"
+       "text": "亞馬遜（Amazon）透露其雲端內部核心工具「AWS Emulator」完全由自主 AI 代理人（能獨立理解目標並執行連串任務的 AI 程式）獨立完成編寫。該軟體從架構設計、寫扣到單元測試全由 AI 操刀，交付過程中完全沒有人類工程師進行代碼審查。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這項突破解決了智慧手錶螢幕過小、不易進行精準手勢操作的痛點，未來穿戴裝置的互動體驗將大為提升。"
+       "text": "這象徵 AI 寫軟體已跨過單純輔助工程師的階段，開始邁入「全自動交付」時代，企業未來軟體開發與技術團隊編制將面臨結構性洗牌。"
       }
      ],
      "sources": [
-      "https://news.ncsu.edu/2026/11/forearm-trackpad/",
-      "https://english.cw.com.tw/article/article.action?id=5120"
+      "https://clearintelligence.substack.com/p/daily-circuit-november-12-2026-3f1",
+      "https://international.astroawani.com/politics-news/indonesian-president-says-he-accepts-vice-presidents-resignation"
      ]
     }
    ]
@@ -96,37 +96,54 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "Gartner預測AI將淨增百萬職缺",
+     "title": "印尼副總統吉伯朗因假學歷風波請辭",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "研究機構 Gartner 於 11 月 10 日發表全球就業預估，指出雖然到 2030 年 AI 會淘汰全球約 890 萬個工作，但也會創造 1,060 萬個新職缺，淨增加 170 萬個工作。不過，全球將有超過兩成（4.35 億名）員工的工作內容與權責受到顯著轉型。"
+       "text": "印尼副總統吉伯朗（前總統佐科威之子）因國外學歷同等證明遭最高法院裁定無效而面臨強大質疑，已正式遞交辭呈並獲總統普拉伯沃接受。依印尼憲法規定，人民協商會議必須在 60 天內從總統提名的兩位人選中投票補選出新任副總統。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "報告提醒 AI 對職場的衝擊並非單純「消滅人力」，而是「重塑工作模式」，上班族需積極提升跨領域能力與 AI 工具協同技能。"
+       "text": "印尼是東南亞最大經濟體與台灣新南向重點國，副總統請辭標誌著執政聯盟內部派系決裂，未來幾個月的印尼政局重組將直接牽動印太區域的政策穩定度。"
       }
      ],
      "sources": [
-      "https://www.gartner.com/en/newsroom/press-releases/2026-11-10-gartner-forecasts-artificial-intelligence-will-drive-a-net-increase-of-1-7-million-jobs-by-2030",
-      "https://nationalcioreview.com/articles-insights/extra-bytes/gartner-predicts-ai-will-create-more-jobs-than-it-eliminates-by-2030/"
+      "https://international.astroawani.com/politics-news/indonesian-president-says-he-accepts-vice-presidents-resignation",
+      "https://international.astroawani.com/politics-news/indonesias-vice-president-has-resigned-aide-says-stoking-political-uncertainty"
      ]
     },
     {
-     "title": "伊朗啟用女性志願軍事訓練中心",
+     "title": "彭博爆特斯拉與SpaceX推進合併",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "伊朗政府於 11 月 10 日在首都德黑蘭的自由廣場啟動全國首座女性志願軍事訓練中心，現場進行索降、步槍與手槍實彈射擊及戰術防守展示。官方表示該中心旨在培訓志願者，以備應對潛在的外部地面軍事威脅。"
+       "text": "據彭博社引述知情人士報導，馬斯克旗下的商業航太巨頭 SpaceX 與電動車大廠特斯拉正實質推進合併談判。內部正積極研擬交易架構，這項世紀合併案最快可能在今年 12 月或 2027 年初正式向市場公布。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這顯示中東地區的地緣政治緊張持續升溫，國防防衛行動進一步擴展至全民動員，可能對中東能源供給與國際供應鏈安全帶來不確定性。"
+       "text": "若兩大巨頭正式合體，將誕生橫跨低軌衛星、太空發射、車用與機器人的超級企業，對美股科技板塊、全球航太供應鏈與特斯拉投資人將造成深遠衝擊。"
       }
      ],
      "sources": [
-      "https://apnews.com/photo-gallery/photos-new-military-training-center-women-iran-7f7f71aa683140ab9af1b5fea8acc3a3",
-      "https://apnews.com/article/iran-women-military-training-center-tehran-2026-11-10"
+      "https://ca.investing.com/news/stock-market-news/spacex-tesla-merger-talks-progress-bloomberg-news-reports-4954156",
+      "https://theendworld.com/en/daily/2026-11-12"
+     ]
+    },
+    {
+     "title": "美特使赴莫斯科展開烏俄和平穿梭",
+     "body": [
+      {
+       "label": "發生什麼:",
+       "text": "美國高階特使於 12 日抵達莫斯科，就推動結束烏克蘭戰爭與俄羅斯總統普丁進行面對面會談，隨後將轉往愛爾蘭都柏林會晤烏克蘭總統澤倫斯基。這是戰事陷入僵局之際，美方為推動停火框架展開的最新一輪實質穿梭外交。"
+      },
+      {
+       "label": "為什麼值得知道:",
+       "text": "烏俄戰事牽動全球能源走勢與歐洲地緣安全，此輪穿梭外交是否能促成停火協商，將直接決定接下來幾個月國際大宗商品價格與全球經濟復甦力道。"
+      }
+     ],
+     "sources": [
+      "https://theendworld.com/en/daily/2026-11-12",
+      "https://www.imf.org/en/publications/weo/issues/2026/10/13/world-economic-outlook-october-2026"
      ]
     }
    ]
