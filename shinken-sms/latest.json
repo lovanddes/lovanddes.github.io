@@ -2,11 +2,11 @@
   "format": "shinken-sms-update",
   "version": 1,
   "android": {
-    "versionCode": 1,
-    "versionName": "0.1.0",
-    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.0.apk",
-    "sha256": "429e4da6c0f65494f578359391e5638febbd4c5c23f398bc64cb6338b5b760a9",
-    "notes": "第一版:收發簡訊、可疑簡訊紅黃提醒\n設定頁可檢查更新,之後有新版會自動通知\n換手機時字體大小、防詐提醒開關會跟著 Google 備份回來",
+    "versionCode": 2,
+    "versionName": "0.1.1",
+    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.1.apk",
+    "sha256": "6755080367c0625b6b959f1508e9f47ed0bcdb0a6d1c584c56c7440bb4a60b72",
+    "notes": "1. 對話列表長按：可以標成已讀、置頂、多選刪除\n2. 設定可以選深色模式；字體多了「標準」「小」\n3. 寫簡訊可以直接選聯絡人，也能帶入真劍電話裡的註記\n4. 打開時會先讀完簡訊，不會再先跳「還沒有簡訊」\n5. 正常台灣手機(+886 9 開頭)寄來的簡訊不會再被誤判成詐騙",
     "date": "2026-11-12"
   }
 }
