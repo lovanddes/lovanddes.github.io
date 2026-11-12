@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 51,
-    "versionName": "1.1.48",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.48.apk",
-    "sha256": "685cd4181de25f0cd8cc4adcfc1cefc17a383dd0ee914cd6ae564d93191b6021",
-    "notes": "修正1:『轉成註記』更安全了。聯絡人在 SIM 卡或其他帳號上的號碼也會一起存進註記,而且確定存好才會從通訊錄刪掉,有任何一步沒成功就不刪。\n修正2:開車模式報來電名字時,接起或掛斷後不會再繼續念;疑似詐騙來電會確實念出警告。\n修正3:語音引擎出問題時,不會再讓來電畫面當掉。\n修正4:已經有註記名字的人來電,不會再跳黃色『陌生號碼』警告。",
-    "date": "2026-11-08"
+    "versionCode": 52,
+    "versionName": "1.1.49",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.49.apk",
+    "sha256": "32d172dd67616ea2180c5e7b236bf736a9fdc53f8c1d098f0360e764f2baa52a",
+    "notes": "1. 從 Google 地圖帶過來的電話，現在認得出醫療院所電話簿和您加的註記\n2. 新增「註記」查詢頁，可以用名字或號碼找；通話紀錄長按可以轉成註記，註記可以加備註\n3. 通話時間提醒：通話滿設定的時間會震動提醒(預設關，在設定裡開)\n4. 黑名單、設定、註記會跟著 Google 備份，換新手機第一次開會問要不要還原\n5. 已轉成註記的人打來，不會被「擋國外來電」掛掉\n6. 多項穩定性修正(通訊錄讀不到時仍會顯示詐騙警告、備份不會弄丟當天的檔案)",
+    "date": "2026-11-12"
   }
 }
