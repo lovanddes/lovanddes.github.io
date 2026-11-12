@@ -1,0 +1,12 @@
+{
+  "format": "shinken-sms-update",
+  "version": 1,
+  "android": {
+    "versionCode": 1,
+    "versionName": "0.1.0",
+    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.0.apk",
+    "sha256": "429e4da6c0f65494f578359391e5638febbd4c5c23f398bc64cb6338b5b760a9",
+    "notes": "第一版:收發簡訊、可疑簡訊紅黃提醒\n設定頁可檢查更新,之後有新版會自動通知\n換手機時字體大小、防詐提醒開關會跟著 Google 備份回來",
+    "date": "2026-11-12"
+  }
+}

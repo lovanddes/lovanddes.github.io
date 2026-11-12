@@ -1,0 +1,54 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>真劍簡訊 下載</title><link rel="stylesheet" href="../style.css">
+<style>
+.btn{display:block;text-align:center;padding:16px;margin:12px 0;border-radius:12px;background:#de3e2d;color:#fff !important;font-size:1.25em;font-weight:bold;text-decoration:none}
+.box{border:1px solid #ccc;border-radius:12px;padding:12px 16px;margin:16px 0}
+.warn{display:none;background:#fff3cd;color:#5a4500;border-radius:12px;padding:12px 16px;margin:12px 0;font-weight:bold}
+@media (prefers-color-scheme:dark){.box{border-color:#444}.warn{background:#4a3f12;color:#ffe8a3}}
+.share{text-align:center}.share svg{width:180px;height:180px;border-radius:8px;max-width:100%}.url{display:block;word-break:break-all;font-family:monospace;margin:8px 0}.btn2{font-size:1.1em;padding:12px 20px;border-radius:12px;border:2px solid #de3e2d;background:transparent;color:inherit;font-weight:bold;cursor:pointer}
+</style></head><body>
+<h1>💬 真劍簡訊</h1>
+<p>大字、沒廣告的簡訊 App。字大好讀、可疑簡訊會提醒,簡訊內容只留在手機裡。</p>
+<div class="warn" id="inapp">你現在在 App 內建的瀏覽器裡，這裡沒辦法下載。<br>請點右上角「⋮」或「…」→「用瀏覽器開啟」，或把這頁網址貼到 Chrome。</div>
+<a class="btn" id="dl-android" href="#">📱 下載手機版(Android)</a>
+<p id="ver" style="color:#888"></p>
+<div class="box"><b>安裝步驟</b>
+<ol>
+<li>按上面的「下載手機版」。</li>
+<li>如果跳出「這類檔案可能有害」，按「<b>仍要下載</b>」。</li>
+<li>下載完點開檔案。第一次會問要不要允許「安裝不明應用程式」，照畫面<b>允許</b>，再回來按「安裝」。</li>
+<li>裝好之後打開 App,它會請你把它設成「預設簡訊 App」並允許讀取簡訊、聯絡人,照畫面<b>允許</b>就可以用了。原本的簡訊都還在。</li>
+<li>以後有新版時,App 裡的「檢查更新」會提示你,按一下就能更新,不用再來這裡。</li>
+</ol>
+</div>
+<div class="box share"><b>把這頁傳給家人</b><span class="url" id="shareurl">https://lovanddes.github.io/shinken-sms/</span><button class="btn2" id="copybtn" type="button">📋 複製網址</button><p style="margin:12px 0 4px">或請他用手機相機掃這個:</p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 210" class="segno"><g transform="scale(6)"><path fill="#fff" d="M0 0h35v35h-35z"/><path class="qrline" stroke="#000" d="M3 3.5h7m1 0h1m2 0h1m1 0h1m3 0h1m4 0h7m-29 1h1m5 0h1m1 0h4m2 0h1m1 0h1m2 0h2m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m2 0h5m3 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m4 0h3m1 0h3m1 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h3m1 0h3m2 0h3m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h1m4 0h1m1 0h1m1 0h1m3 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-18 1h1m1 0h1m1 0h2m1 0h2m-20 1h1m2 0h6m1 0h3m1 0h1m1 0h6m2 0h1m1 0h3m-29 1h1m1 0h4m1 0h4m4 0h1m1 0h3m3 0h2m1 0h2m-28 1h2m4 0h2m1 0h3m1 0h4m5 0h1m1 0h1m1 0h1m-26 1h1m1 0h1m3 0h1m2 0h1m1 0h1m1 0h1m2 0h2m4 0h3m2 0h1m-29 1h2m1 0h1m2 0h1m2 0h2m1 0h1m1 0h3m3 0h1m1 0h2m4 0h1m-29 1h1m7 0h1m1 0h3m1 0h5m3 0h7m-29 1h1m1 0h1m3 0h2m6 0h2m2 0h3m1 0h1m3 0h1m1 0h1m-29 1h1m1 0h1m4 0h1m2 0h3m2 0h2m2 0h1m2 0h3m1 0h1m1 0h1m-29 1h3m1 0h1m1 0h2m1 0h2m3 0h1m5 0h1m4 0h1m-26 1h2m2 0h2m1 0h4m1 0h1m2 0h1m2 0h3m3 0h1m1 0h2m-28 1h2m1 0h1m2 0h1m1 0h3m2 0h4m2 0h2m1 0h1m2 0h1m2 0h1m-29 1h2m1 0h3m1 0h1m1 0h1m2 0h5m6 0h1m1 0h2m-27 1h2m1 0h2m1 0h1m4 0h1m1 0h1m2 0h3m1 0h8m-20 1h2m3 0h3m1 0h2m1 0h1m3 0h2m-26 1h7m1 0h1m1 0h4m1 0h2m2 0h2m1 0h1m1 0h2m-26 1h1m5 0h1m1 0h3m2 0h1m2 0h2m2 0h1m3 0h1m3 0h1m-29 1h1m1 0h3m1 0h1m1 0h2m1 0h3m2 0h1m2 0h7m1 0h1m-28 1h1m1 0h3m1 0h1m1 0h3m3 0h3m4 0h1m6 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m2 0h1m2 0h5m1 0h1m1 0h2m1 0h3m-29 1h1m5 0h1m3 0h3m1 0h1m1 0h1m2 0h1m1 0h2m1 0h3m1 0h1m-29 1h7m1 0h1m4 0h2m4 0h2"/></g></svg></div>
+<p style="font-size:.9em;color:#888">目前是試用階段，只在這裡提供下載。請只從這一頁下載，不要安裝別處傳來的檔案。<br><a href="../index.html">欸唉新跪 小工具</a></p>
+<script>
+(function(){
+  var ua=navigator.userAgent||'';
+  var inApp=/Line\/|FBAN|FBAV|Instagram|Messenger|MicroMessenger/i.test(ua);
+  if(/Line\//i.test(ua) && location.search.indexOf('openExternalBrowser=1')<0){
+    location.replace(location.pathname+'?openExternalBrowser=1');return;
+  }
+  if(inApp){
+    document.getElementById('inapp').style.display='block';
+    if(/Android/i.test(ua)){
+      var u='intent://'+location.host+location.pathname+'#Intent;scheme=https;package=com.android.chrome;end';
+      var a=document.createElement('a');a.href=u;a.className='btn';a.textContent='🌐 用 Chrome 開啟這頁';
+      document.getElementById('inapp').appendChild(document.createElement('br'));document.getElementById('inapp').appendChild(a);
+    }
+  }
+  document.getElementById('copybtn').onclick=function(){
+    var b=this,u=document.getElementById('shareurl').textContent;
+    function ok(){b.textContent='✅ 已複製';setTimeout(function(){b.textContent='📋 複製網址'},2000)}
+    function old(){try{var t=document.createElement('textarea');t.value=u;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);ok()}catch(e){b.textContent='請長按上面網址複製'}}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(ok,old)}else{old()}
+  };
+  fetch('latest.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){
+    document.getElementById('dl-android').href=j.android.url;
+    document.getElementById('ver').textContent='最新版：'+j.android.versionName+'（'+j.android.date+'）';
+  }).catch(function(){
+    document.getElementById('ver').textContent='讀不到最新版資訊,請稍後再試。';
+  });
+})();
+</script>
+</body></html>
