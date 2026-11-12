@@ -2,11 +2,11 @@
   "format": "shinken-files-update",
   "version": 1,
   "android": {
-    "versionCode": 3,
-    "versionName": "0.1.2",
-    "url": "https://lovanddes.github.io/shinken-files/update/shinken-files-0.1.2.apk",
-    "sha256": "f4fb66fcbc5e5e8456d792627ca38ab03e111057207e8ba3bee8282bf7d228cb",
-    "notes": "首次啟動的說明改得更準確(只會連網站檢查新版,不會傳出您的檔案)\n字體放大時,字級選項不再被擠成直排\n下載頁多了網址複製與 QR",
-    "date": "2026-11-11"
+    "versionCode": 4,
+    "versionName": "0.1.3",
+    "url": "https://lovanddes.github.io/shinken-files/update/shinken-files-0.1.3.apk",
+    "sha256": "fe81da94d2da417c9eae06cfc8d4c1774dc6410713557c8cf32dfc1332a5cc1b",
+    "notes": "首頁最上面多了搜尋列,點一下就能找檔案\n首頁多了「最近」縮圖,最新的照片直接點開\n相片、影片等分類卡片會顯示佔多少空間\n首頁最下面看得到手機還剩多少空間\n換上新圖示(抱著資料夾的小水母)",
+    "date": "2026-11-12"
   }
 }
