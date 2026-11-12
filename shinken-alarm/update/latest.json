@@ -6,14 +6,14 @@
     "versionName": "1.18.7",
     "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.18.7.apk",
     "sha256": "4b3b78eb13c9cf6db07852505db179ee01fc49e5671b61ceea10b7eac229f142",
-    "notes": "編輯鬧鐘時,原本的日期已經過了、但今天那個時間還沒到:存檔會直接幫你改成今天(並提示一聲),不再只能設成明天。",
+    "notes": "編輯鬧鐘時,原本的日期已經過了、但今天那個時間還沒到:存檔時會問你要不要改成今天,不再只給「明天」這個選項。",
     "date": "2026-11-12"
   },
   "windows": {
     "version": "1.17.4",
     "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-windows-1.17.4.zip",
     "sha256": "a999856e4a7f6714127043cc6fbc86a6b4497b410d96aad7ff883bdf08a31153",
-    "notes": "編輯鬧鐘時,原本的日期已經過了、但今天那個時間還沒到:存檔會直接幫你改成今天(並提示一聲),不再只能設成明天。",
+    "notes": "編輯鬧鐘時,原本的日期已經過了、但今天那個時間還沒到:存檔時會問你要不要改成今天,不再只給「明天」這個選項。",
     "date": "2026-11-12"
   }
 }
