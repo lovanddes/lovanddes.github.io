@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 52,
-    "versionName": "1.1.49",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.49.apk",
-    "sha256": "32d172dd67616ea2180c5e7b236bf736a9fdc53f8c1d098f0360e764f2baa52a",
-    "notes": "1. 從 Google 地圖帶過來的電話，現在認得出醫療院所電話簿和您加的註記\n2. 新增「註記」查詢頁，可以用名字或號碼找；通話紀錄長按可以轉成註記，註記可以加備註\n3. 通話時間提醒：通話滿設定的時間會震動提醒(預設關，在設定裡開)\n4. 黑名單、設定、註記會跟著 Google 備份，換新手機第一次開會問要不要還原\n5. 已轉成註記的人打來，不會被「擋國外來電」掛掉\n6. 多項穩定性修正(通訊錄讀不到時仍會顯示詐騙警告、備份不會弄丟當天的檔案)",
-    "date": "2026-11-12"
+    "versionCode": 53,
+    "versionName": "1.1.50",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.50.apk",
+    "sha256": "dfee570541769b995837fa97e46a6c46b08e0eb25739cae7324b5f7d615d4b7b",
+    "notes": "1. 從 Google 地圖帶進來的號碼，下面認出來的註記/醫療院所那一列：打過電話的，點一下會打開通話歷史，長按會出現跟通話紀錄一樣的選單(註記、黑名單、刪除)",
+    "date": "2026-11-13"
   }
 }
