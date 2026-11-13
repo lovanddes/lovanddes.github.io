@@ -1,40 +1,20 @@
 {
- "date": "2026-11-13",
+ "date": "2026-11-14",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "上班族每週花六小時顧AI",
+     "title": "Claude開會分身進駐視訊",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "企業AI平台Glean旗下研究機構於11月11日發布報告，上班族自認透過AI每週省下約11小時，但平均得花6.4小時替AI補充背景、核驗答案與除錯，形成「AI保母（Botsitting）」現象。調查更指出有41%的受訪者曾交出連自己都無法完整解釋的AI產出成果。"
+       "text": "Anthropic 於 11 月 12 日推出 Claude Meetings 測試版，能讓 AI 以獨立參與者身分加入 Google Meet 視訊會議。它在會議進行時能即時記錄對話並回答問題，會後更能自動產出待辦清單與白板摘要。"
       },
       {
        "label": "新跪的角度:",
-       "text": "「我以為請了數位特助能提早下班，沒想到是在辦公室替它換尿布，交出去的報告連我自己都看不懂。」"
-      },
-      {
-       "label": "建議欄目:",
-       "text": "【水母半夜跟我說的話】"
-      }
-     ],
-     "sources": [
-      "https://www.bnext.com.tw/article/93023/botsitting-ai-babysitting-workers-6-hours"
-     ]
-    },
-    {
-     "title": "加班破紀錄但我還在拉低平均",
-     "body": [
-      {
-       "label": "為什麼熱:",
-       "text": "主計總處11月11日公布最新薪資與工時統計，在AI強勁需求帶動下，9月電子零組件製造業加班工時達28.3小時，創下47年同月新高。然而累計前9月全體受僱員工中，薪資低於平均數的勞工比率仍高達69.97%，續創歷年同期新高。"
-      },
-      {
-       "label": "新跪的角度:",
-       "text": "「我看著新聞說AI熱潮讓加班創了四十七年紀錄、薪資大躍進，低頭發現自己唯一穩定貢獻的只有拉低平均值。」"
+       "text": "我以為派 AI 去開會我就能解脫，結果它在線上比我還積極，回頭把十條待辦全派回我頭上。"
       },
       {
        "label": "建議欄目:",
@@ -42,19 +22,20 @@
       }
      ],
      "sources": [
-      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF5y18Qpy6ekzUEf4mY7momQAqzPm-L-V3-6EUzWJ0M0mZEynlY1qJfI13QqDTqpxtqefGgY0xqu6dq3SU5gSPykHgSnpr1hP96Xo3etVpD10O15u6Wa5HPLkmJL4cqu2XWckVtlHRN"
+      "https://claude.com/ja/resources/articles/claude-meetings",
+      "https://appi.news/articles/claude-meetings-google-meet-workflow/"
      ]
     },
     {
-     "title": "職場掀近三成影子AI風潮",
+     "title": "科技業缺工16萬人放寬門檻",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "科技職場調查於11月12日指出，近三成Z世代員工在工作時私下使用未獲公司授權的「影子AI」。許多上班族雖然藉由個人工具提高產出效率，卻因為害怕主管質疑其本職學能、或擔憂觸犯公司內規而選擇隱瞞。"
+       "text": "1111人力銀行於 11 月 13 日發布調查，指出台灣科技業每月人才缺口達 16.1 萬人，年增 12.6%。其中半導體製造工作機會三年成長 45%，促使近五成企業願意提高薪資並放寬學歷與經歷門檻搶才。"
       },
       {
        "label": "新跪的角度:",
-       "text": "「我連偷用AI替主管潤飾回信都要膽戰心驚地切換視窗，深怕被發現我連一句體面的幹話都生不出來。」"
+       "text": "我看到科技業缺工十六萬人還放寬條件，心動點開職缺說明，才發現自己連當分母的勇氣都湊不齊。"
       },
       {
        "label": "建議欄目:",
@@ -62,7 +43,29 @@
       }
      ],
      "sources": [
-      "https://www.technice.com.tw/experience/enterprise/330645/"
+      "https://money.udn.com/money/story/5612/9876488",
+      "https://claude.com/ja/resources/articles/claude-meetings"
+     ]
+    },
+    {
+     "title": "跨境買3C免紙本切結",
+     "body": [
+      {
+       "label": "為什麼熱:",
+       "text": "電商酷澎於 11 月 13 日宣布導入電子簽章技術，並與關貿網路及 EZ Way 串接。消費者跨境購買藍牙等第二級電信管制器材時，過去繁複易出錯的 NCC 紙本自用切結程序縮短至最快 3 分鐘以手機完成。"
+      },
+      {
+       "label": "新跪的角度:",
+       "text": "我原本靠著繁複的自用切結手續來克制購物慾，現在系統三分鐘就幫我辦妥，只剩下我和空空的荷包面面相覷。"
+      },
+      {
+       "label": "建議欄目:",
+       "text": "【水母半夜跟我說的話】"
+      }
+     ],
+     "sources": [
+      "https://ccc.technews.tw/2026/11/13/coupang-rocket-overseas-expands-its-selection-by-more-than-200-bluetooth-items/",
+      "https://claude.com/ja/resources/articles/claude-meetings"
      ]
     }
    ]
