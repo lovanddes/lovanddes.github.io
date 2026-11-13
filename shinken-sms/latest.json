@@ -2,11 +2,11 @@
   "format": "shinken-sms-update",
   "version": 1,
   "android": {
-    "versionCode": 3,
-    "versionName": "0.1.2",
-    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.2.apk",
-    "sha256": "a6d0e23ce5d38eaef1fe31e16c4867feea76d814332574c243be88a9e28c59da",
-    "notes": "簡訊列表上方可以搜尋(找名字、號碼、簡訊內容)\n長按多選後可以「標成未讀」\n修正:換搜尋字時舊結果不會殘留,避免刪錯對話",
+    "versionCode": 4,
+    "versionName": "0.1.3",
+    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.3.apk",
+    "sha256": "837dd4c7d924ee24cfe306dafe986131f22f49e7f642d4c6abc4c3ae31e992c2",
+    "notes": "左上角水母會提醒有新版\n對話頁不再每則都寫「對方」,輸入框上面多了回覆泡泡\n設定頁新增「分享給朋友」\n搜尋可用全形數字、+886 0 開頭號碼\n標成未讀失敗時說明更清楚",
     "date": "2026-11-13"
   }
 }
