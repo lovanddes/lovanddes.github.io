@@ -2,11 +2,11 @@
   "format": "shinken-files-update",
   "version": 1,
   "android": {
-    "versionCode": 4,
-    "versionName": "0.1.3",
-    "url": "https://lovanddes.github.io/shinken-files/update/shinken-files-0.1.3.apk",
-    "sha256": "fe81da94d2da417c9eae06cfc8d4c1774dc6410713557c8cf32dfc1332a5cc1b",
-    "notes": "首頁最上面多了搜尋列,點一下就能找檔案\n首頁多了「最近」縮圖,最新的照片直接點開\n相片、影片等分類卡片會顯示佔多少空間\n首頁最下面看得到手機還剩多少空間\n換上新圖示(抱著資料夾的小水母)",
-    "date": "2026-11-12"
+    "versionCode": 5,
+    "versionName": "0.1.4",
+    "url": "https://lovanddes.github.io/shinken-files/update/shinken-files-0.1.4.apk",
+    "sha256": "2f839c4b857bbbec659684195138eea7ddad36e26273f5ac4a5747dcbfb2e591",
+    "notes": "修好部分小米手機(國際版)按更新會被擋下來的問題\n更新失敗時直接告訴你去哪個網頁手動下載\n更新沒裝成功的話,再按一次不用重新下載\n檢查更新時網路不通,已經找到的新版提示不會消失",
+    "date": "2026-11-13"
   }
 }
