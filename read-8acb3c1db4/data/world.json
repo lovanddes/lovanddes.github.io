@@ -1,93 +1,89 @@
 {
- "date": "2026-11-13",
- "one_line": "黃仁勳閃辭重擊AI界，印尼政壇洗牌與馬斯克帝國整併牽動全球。",
+ "date": "2026-11-14",
+ "one_line": "AI面臨供應鏈資安與地方抵制，全球綠能及稅改政策亦陷拉鋸。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "黃仁勳請辭輝達執行長震動晶片界",
+     "title": "Uber第三方AI遭駭 數千司機駕照外洩",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "執掌繪圖晶片龍頭輝達（Nvidia）長達 33 年的創辦人黃仁勳於 12 日正式辭職，主因是近期捲入外國情報外洩與間諜調查爭議。董事會已指派臨時執行長接掌，消息一出震撼矽谷與半導體市場，輝達單日股價重挫近一成。"
+       "text": "Uber 證實其配合的外部 AI 運算平台服務商 Fireworks AI 遭駭客入侵，導致 Uber 內部認證憑證外洩，數千名駕駛的駕照與個人資料遭到竊取。Uber 目前已向美國各州主管機關通報並通知受影響司機，在此之前辦公軟體 Notion 也證實受同一起供應商資安事件波及。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "輝達是當前全球人工智慧算力霸主，也是台灣半導體供應鏈最重要的引擎，靈魂人物閃辭將直接衝擊全球 AI 資本支出節奏與台廠訂單信心。"
+       "text": "這凸顯出企業導入外部 AI 模型與工具時嚴重的供應鏈資安漏洞；即使大型企業本身資安嚴密，外包 AI 運算端遭攻破同樣會造成使用者機敏個資流出。"
       }
      ],
      "sources": [
-      "https://www.youtube.com/watch?v=M0ne6mpa_bU",
-      "https://www.youtube.com/watch?v=9KbRk1fo_C8"
+      "https://techcrunch.com/2026/11/13/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/"
      ]
     },
     {
-     "title": "LMSYS攜巨頭成立開源推論聯盟",
+     "title": "研究揭中國頂尖AI 皆用禁運輝達晶片",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "推動開源 AI 評測的 LMSYS 組織宣布成立「SGLang 聯盟」，創始成員囊括輝達、超微（AMD）、英特爾、Google 與 Meta 等重量級巨頭。該聯盟將共同制定開源推論引擎（讓 AI 模型執行運算並產出答案的底層軟體）的技術藍圖與硬體最佳化標準。"
+       "text": "由前 OpenAI 研究員創立的非營利研究機構分析了 DeepSeek、月之暗面與螞蟻集團等中國團隊釋出的開源大模型權重架構，發現其訓練過程廣泛採用了遭美國政府限制出口的輝達高階晶片（如 Blackwell 等系列）。研究指出這些頂尖實驗室能輕易取得受限硬體，顯示晶片禁令存在巨大的走私漏洞。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "推論已占全球整體 AI 運算需求的三分之二，晶片與雲端大廠聯合押注開源架構，有助於降低企業使用 AI 的伺服器成本，並避免被單一晶片綁定。"
+       "text": "這顯示美國現行的出口管制難以完全封堵先進算力流向，後續美方極可能擴大二級制裁並加強審查周邊轉運國，將進一步牽動全球晶片與伺服器供應鏈的合規風險。"
       }
      ],
      "sources": [
-      "https://www.lmsys.org/blog/2026-11-12-sglang-consortium",
-      "https://www.morningstar.com/news/business-wire/20261112052367/lmsys-org-launches-sglang-consortium-with-nvidia-amd-intel-google-meta-cloudflare-modal-and-radixark-to-advance-open-source-ai-inference"
+      "https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/"
      ]
     },
     {
-     "title": "微軟Outlook突發全球大規模當機",
+     "title": "亞馬遜密造產品圖譜 迎擊AI購物代理",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "微軟（Microsoft）旗下主流商務郵件服務 Outlook 發生全球性大規模連線中斷，全球大量用戶無法透過網頁版或 App 收發信件。微軟官方確認是多個區域的雲端基礎設施負載異常飆高所致，正緊急分流流量並重啟伺服器修復。"
+       "text": "路透社取得內部文件揭露，亞馬遜正在研發「世界產品圖譜（World Product Graph）」，無論商品是否在亞馬遜銷售，均透過爬取對手電商網站與結合各大品牌數據來整合全球商品規格。此舉旨在修正自家 AI 購物助理 Rufus 回答錯誤的問題，並防堵外部新興 AI 代理人把顧客帶往其他平台。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "Outlook 是台灣眾多企業與跨國商務日常溝通的核心骨幹，服務癱瘓不僅衝擊工作效率，也再次凸顯高度依賴單一科技巨頭雲端服務的營運風險。"
+       "text": "未來的電商競爭將從單純比價轉變為 AI 購物助理的主導權爭奪；平台巨頭正傾力壟斷底層商品數據，以防在通用型 AI 代理人興起時失去消費者流量入口。"
       }
      ],
      "sources": [
-      "https://digg.com/tech/yw6t8r2n",
-      "https://www.961developments.com/news"
+      "https://mlq.ai/news/amazon-plans-a-world-product-graph-to-own-the-worlds-product-data-and-fend-off-ai-shopping-agents-reuters-reports/"
      ]
     },
     {
-     "title": "蘋果將關閉營運廿八年官方論壇",
+     "title": "邁威爾推新架構 突破AI機櫃頻寬極限",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "蘋果公司宣布其營運長達 28 年的「Apple Support Community」官方技術討論區將於 11 月 20 日永久關閉，目前網站已轉為唯讀模式，不再接受任何新提問。官方表示此舉是基於整體支援策略調整，未來將全面引導用戶使用官方客服管道。"
+       "text": "網通與半導體基礎設施大廠邁威爾在超級運算大會（SC26）展示新架構，將光學互連技術與 CXL 記憶體擴展整合為單一系統。（CXL 是讓多顆處理器高速共享記憶體的互連標準）該技術專為克服 AI 運算模型跨越單一伺服器機櫃時，所面臨的記憶體不足與傳輸頻寬瓶頸。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這是全球果粉與 IT 人員遭遇 iOS 或 Mac 軟硬體疑難雜症時最常查詢的除錯資料庫，論壇關閉後，許多民間累積的冷門解法恐將佚失。"
+       "text": "隨著 AI 運算規模不斷膨脹，資料傳輸的延遲已成為整體效能的最大拖油瓶；光學傳輸與新型記憶體架構的推進，將牽動次世代雲端資料中心與台灣伺服器供應鏈的規格升級。"
       }
      ],
      "sources": [
-      "https://borncity.com/news/apple-support-community-forum-schliesst-am-20-november-nach-fast-30-jahren/",
-      "https://9to5mac.com/2026/11/10/end-of-an-era-apple-support-community-forums-will-permanently-close-on-november-20/"
+      "https://investor.marvell.com/news-events/press-releases/detail/1043/marvell-scales-connectivity-to-address-ai-infrastructures-next-bottleneck-at-supercomputing-2026"
      ]
     },
     {
-     "title": "亞馬遜揭AWS模擬器全由AI編寫",
+     "title": "英特爾推開放平台 攻邊緣與實體AI",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "亞馬遜（Amazon）透露其雲端內部核心工具「AWS Emulator」完全由自主 AI 代理人（能獨立理解目標並執行連串任務的 AI 程式）獨立完成編寫。該軟體從架構設計、寫扣到單元測試全由 AI 操刀，交付過程中完全沒有人類工程師進行代碼審查。"
+       "text": "英特爾在 Web Summit 大會上發表邊緣運算與「實體 AI（Physical AI，指驅動機器人與實體裝置感知、行動的 AI 技術）」開放平台，攜手夥伴展示智慧製造、認知型人型機器人等應用。英特爾表示，AI 產業焦點正從單純的聊天問答轉向如何在真實物理環境中可靠、低延遲且經濟地運作。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這象徵 AI 寫軟體已跨過單純輔助工程師的階段，開始邁入「全自動交付」時代，企業未來軟體開發與技術團隊編制將面臨結構性洗牌。"
+       "text": "AI 正大舉走出雲端螢幕並落地到工廠手臂、人型機器人與智慧城市終端，老牌晶片廠積極制定實體控制標準，也為自動化設備製造業帶來新商機。"
       }
      ],
      "sources": [
-      "https://clearintelligence.substack.com/p/daily-circuit-november-12-2026-3f1",
-      "https://international.astroawani.com/politics-news/indonesian-president-says-he-accepts-vice-presidents-resignation"
+      "https://www.intel.com/content/www/us/en/newsroom/news/artificial-intelligence/intel-on-the-ground-at-web-summit-2026.html",
+      "https://www.intel.com/content/www/us/en/newsroom/news/intel-web-summit-2026.html"
      ]
     }
    ]
@@ -96,54 +92,53 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "印尼副總統吉伯朗因假學歷風波請辭",
+     "title": "美46項地方公投過關 嚴格限制AI資料中心",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "印尼副總統吉伯朗（前總統佐科威之子）因國外學歷同等證明遭最高法院裁定無效而面臨強大質疑，已正式遞交辭呈並獲總統普拉伯沃接受。依印尼憲法規定，人民協商會議必須在 60 天內從總統提名的兩位人選中投票補選出新任副總統。"
+       "text": "美國期中選舉全美 13 個州出現多達 51 項與資料中心建設相關的地方公投，截至 13 日已開票的 47 項中，高達 46 項由地方選民壓倒性投票支持嚴格限制或否決興建計畫。選民普遍擔憂大型 AI 機房消耗巨量水電資源，並導致地方水資源枯竭與一般住宅電費暴漲。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "印尼是東南亞最大經濟體與台灣新南向重點國，副總統請辭標誌著執政聯盟內部派系決裂，未來幾個月的印尼政局重組將直接牽動印太區域的政策穩定度。"
+       "text": "基層居民對科技巨頭用電搶水的反彈已轉化為具體法律限制，地方抵制將拉長資料中心審批時程並推高選址成本，成為科技巨頭擴張 AI 算力基礎設施的最直接障礙。"
       }
      ],
      "sources": [
-      "https://international.astroawani.com/politics-news/indonesian-president-says-he-accepts-vice-presidents-resignation",
-      "https://international.astroawani.com/politics-news/indonesias-vice-president-has-resigned-aide-says-stoking-political-uncertainty"
+      "https://ballotpedia.org/Data_center-related_ballot_measures,_2026?utm_source=Sailthru&utm_medium=Newsletter&utm_campaign=Reuters-AI&utm_term=110426&lctg=69bc3adc447ac6fd7b0efe00"
      ]
     },
     {
-     "title": "彭博爆特斯拉與SpaceX推進合併",
+     "title": "COP31三國注百億 產油國阻淘汰化石燃料",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "據彭博社引述知情人士報導，馬斯克旗下的商業航太巨頭 SpaceX 與電動車大廠特斯拉正實質推進合併談判。內部正積極研擬交易架構，這項世紀合併案最快可能在今年 12 月或 2027 年初正式向市場公布。"
+       "text": "在土耳其舉行的 COP31 氣候峰會進入關鍵談判，英國、挪威與加拿大宣布聯合投入 100 億美元資助新興市場綠能轉型；但各大產油國仍強烈抗拒明文承諾逐步淘汰石油與天然氣，使弱小島國的減排呼籲與融資協議陷入僵局。聯合國秘書長則警告全球氣溫已逼近極限，必須立即大幅減排。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "若兩大巨頭正式合體，將誕生橫跨低軌衛星、太空發射、車用與機器人的超級企業，對美股科技板塊、全球航太供應鏈與特斯拉投資人將造成深遠衝擊。"
+       "text": "在地緣衝突與民生通膨壓力下，富裕國家與產油國在綠能融資與淘汰化石燃料上歧見擴大，將直接影響各國未來幾季的碳定價、碳關稅與能源轉型法規節奏。"
       }
      ],
      "sources": [
-      "https://ca.investing.com/news/stock-market-news/spacex-tesla-merger-talks-progress-bloomberg-news-reports-4954156",
-      "https://theendworld.com/en/daily/2026-11-12"
+      "https://www.al-monitor.com/originals/2026/11/un-chief-urges-drastic-emissions-cuts-cop31-wrestles-fossil-fuels",
+      "https://www.thestar.com.my/news/world/2026/11/13/cop31-talks-face-early-friction-over-future-of-fossil-fuels"
      ]
     },
     {
-     "title": "美特使赴莫斯科展開烏俄和平穿梭",
+     "title": "義擬徵富人出走稅引反彈 財長急踩煞車",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國高階特使於 12 日抵達莫斯科，就推動結束烏克蘭戰爭與俄羅斯總統普丁進行面對面會談，隨後將轉往愛爾蘭都柏林會晤烏克蘭總統澤倫斯基。這是戰事陷入僵局之際，美方為推動停火框架展開的最新一輪實質穿梭外交。"
+       "text": "義大利政府在預算案中針對資產超過 80 萬歐元、欲轉移稅務戶籍至國外的個人，提議課徵 26% 未實現資本利得「離境稅」，引發銀行業與財富管理專家強烈反彈。為避免重創國際招商形象並引發資本出逃，義大利經濟部長 13 日向企業遊說團體鬆口表示正著手擬定修改方案。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "烏俄戰事牽動全球能源走勢與歐洲地緣安全，此輪穿梭外交是否能促成停火協商，將直接決定接下來幾個月國際大宗商品價格與全球經濟復甦力道。"
+       "text": "歐洲各國為縮減財政赤字紛紛瞄準富人課稅，但激進政策極易招致資本外流反噬；義大利的退讓顯示各國在防堵租稅漏洞與維持外資吸引力之間的艱難拉鋸。"
       }
      ],
      "sources": [
-      "https://theendworld.com/en/daily/2026-11-12",
-      "https://www.imf.org/en/publications/weo/issues/2026/10/13/world-economic-outlook-october-2026"
+      "https://malaysia.news.yahoo.com/italy-working-changes-exit-tax-135740902.html",
+      "https://www.reuters.com/markets/wealth/italy-working-changes-exit-tax-economy-minister-tells-industry-lobby-groups-2026-11-13/"
      ]
     }
    ]
