@@ -2,12 +2,12 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 53,
-    "versionName": "1.18.7",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.18.7.apk",
-    "sha256": "4b3b78eb13c9cf6db07852505db179ee01fc49e5671b61ceea10b7eac229f142",
-    "notes": "編輯鬧鐘時,原本的日期已經過了、但今天那個時間還沒到:存檔時會問你要不要改成今天,不再只給「明天」這個選項。",
-    "date": "2026-11-12"
+    "versionCode": 54,
+    "versionName": "1.18.8",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.18.8.apk",
+    "sha256": "dd72db4f604b7a1014903c95389b025cfb42a55d05d8376e2e43a1f48eb111cb",
+    "notes": "各畫面加上水母插圖(響鈴、答題、起床確認、設定、週報、沒鬧鐘時)\n答錯會顯示鼓勵圖;鬧鐘功能與按鈕位置沒變",
+    "date": "2026-11-13"
   },
   "windows": {
     "version": "1.17.4",
