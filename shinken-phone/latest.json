@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 53,
-    "versionName": "1.1.50",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.50.apk",
-    "sha256": "dfee570541769b995837fa97e46a6c46b08e0eb25739cae7324b5f7d615d4b7b",
-    "notes": "1. 從 Google 地圖帶進來的號碼，下面認出來的註記/醫療院所那一列：打過電話的，點一下會打開通話歷史，長按會出現跟通話紀錄一樣的選單(註記、黑名單、刪除)",
+    "versionCode": 54,
+    "versionName": "1.1.51",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.51.apk",
+    "sha256": "3dcff15ab8b6c4df540594a916166bec66ca05fc6062d345bebf09595c2f42d2",
+    "notes": "通話紀錄單筆頁:長名字不再被截斷,最多顯示兩行\n有註記的號碼一定顯示註記名稱和備註全文\n長按通話紀錄跳出的選單:字放大時按鈕不再被切、中間不再有大空白\n名字第一個字是表情符號或罕用字時,頭像不再變亂碼",
     "date": "2026-11-13"
   }
 }
