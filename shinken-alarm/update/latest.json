@@ -2,12 +2,12 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 54,
-    "versionName": "1.18.8",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.18.8.apk",
-    "sha256": "dd72db4f604b7a1014903c95389b025cfb42a55d05d8376e2e43a1f48eb111cb",
-    "notes": "各畫面加上水母插圖(響鈴、答題、起床確認、設定、週報、沒鬧鐘時)\n答錯會顯示鼓勵圖;鬧鐘功能與按鈕位置沒變",
-    "date": "2026-11-13"
+    "versionCode": 55,
+    "versionName": "1.18.9",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.18.9.apk",
+    "sha256": "f2afe13050db201e3e8a0450be1b9cf7a7681ca462552e8864abe9f41b3e83e3",
+    "notes": "常識題從 100 題擴充到 1020 題(國小、國中程度,7 大類)\n設定→響鈴→「關鬧鐘難度」下方新增「常識題範圍」,可勾選程度與類別",
+    "date": "2026-11-14"
   },
   "windows": {
     "version": "1.17.4",
