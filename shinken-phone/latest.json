@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 54,
-    "versionName": "1.1.51",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.51.apk",
-    "sha256": "3dcff15ab8b6c4df540594a916166bec66ca05fc6062d345bebf09595c2f42d2",
-    "notes": "通話紀錄單筆頁:長名字不再被截斷,最多顯示兩行\n有註記的號碼一定顯示註記名稱和備註全文\n長按通話紀錄跳出的選單:字放大時按鈕不再被切、中間不再有大空白\n名字第一個字是表情符號或罕用字時,頭像不再變亂碼",
-    "date": "2026-11-13"
+    "versionCode": 55,
+    "versionName": "1.1.52",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.52.apk",
+    "sha256": "110066b303ab21f1dd75f61966bb3ce21dfef65a3b2e452e4a95ec169539767c",
+    "notes": "設定頁新增「分享給朋友」,一鍵把下載網址傳給家人\n通話記錄「轉成註記」也會預填公開機關名稱(境外偽冒號碼不預填)\n在通話記錄畫面再按一次上方「通話記錄」鈕,可收起/展開撥號鍵盤",
+    "date": "2026-11-14"
   }
 }
