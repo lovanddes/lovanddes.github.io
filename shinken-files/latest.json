@@ -2,11 +2,11 @@
   "format": "shinken-files-update",
   "version": 1,
   "android": {
-    "versionCode": 5,
-    "versionName": "0.1.4",
-    "url": "https://lovanddes.github.io/shinken-files/update/shinken-files-0.1.4.apk",
-    "sha256": "2f839c4b857bbbec659684195138eea7ddad36e26273f5ac4a5747dcbfb2e591",
-    "notes": "修好部分小米手機(國際版)按更新會被擋下來的問題\n更新失敗時直接告訴你去哪個網頁手動下載\n更新沒裝成功的話,再按一次不用重新下載\n檢查更新時網路不通,已經找到的新版提示不會消失",
-    "date": "2026-11-13"
+    "versionCode": 6,
+    "versionName": "0.1.5",
+    "url": "https://lovanddes.github.io/shinken-files/update/shinken-files-0.1.5.apk",
+    "sha256": "3e2cc25f58a621006b1ccc4015d7d57e9bd338d74ac7481f9e77daa6ba1bf56b",
+    "notes": "設定（右上齒輪）新增「分享給朋友」：一鍵把下載網址用 LINE 等傳給家人朋友",
+    "date": "2026-11-14"
   }
 }
