@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 55,
-    "versionName": "1.1.52",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.52.apk",
-    "sha256": "110066b303ab21f1dd75f61966bb3ce21dfef65a3b2e452e4a95ec169539767c",
-    "notes": "設定頁新增「分享給朋友」,一鍵把下載網址傳給家人\n通話記錄「轉成註記」也會預填公開機關名稱(境外偽冒號碼不預填)\n在通話記錄畫面再按一次上方「通話記錄」鈕,可收起/展開撥號鍵盤",
+    "versionCode": 56,
+    "versionName": "1.1.53",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.53.apk",
+    "sha256": "f57d3d68989c9e7cee07a7a9ef7761db716d7c140c56517af0f4957c54bd4563",
+    "notes": "轉成註記失敗時,會寫出擋住的是哪一種隱藏欄位(方便下一版放行)\n自己掛斷電話時,不會再閃一下「未知號碼」",
     "date": "2026-11-14"
   }
 }
