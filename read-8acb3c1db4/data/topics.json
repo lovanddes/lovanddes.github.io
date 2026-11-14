@@ -1,41 +1,20 @@
 {
- "date": "2026-11-14",
+ "date": "2026-11-15",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "Claude開會分身進駐視訊",
+     "title": "本地端AI接管電腦維護",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "Anthropic 於 11 月 12 日推出 Claude Meetings 測試版，能讓 AI 以獨立參與者身分加入 Google Meet 視訊會議。它在會議進行時能即時記錄對話並回答問題，會後更能自動產出待辦清單與白板摘要。"
+       "text": "最新科技實測指出，上班族可透過在個人電腦運行的本地端開源 AI 代理自動接管系統維護，包含排程備份、軟體更新與網路測速診斷。但這類本地代理需要至少 16GB 顯存與 32GB 記憶體等高規格硬體支援，引發技術愛好者與一般上班族的熱烈討論。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我以為派 AI 去開會我就能解脫，結果它在線上比我還積極，回頭把十條待辦全派回我頭上。"
-      },
-      {
-       "label": "建議欄目:",
-       "text": "【欸唉新跪的生存週報】"
-      }
-     ],
-     "sources": [
-      "https://claude.com/ja/resources/articles/claude-meetings",
-      "https://appi.news/articles/claude-meetings-google-meet-workflow/"
-     ]
-    },
-    {
-     "title": "科技業缺工16萬人放寬門檻",
-     "body": [
-      {
-       "label": "為什麼熱:",
-       "text": "1111人力銀行於 11 月 13 日發布調查，指出台灣科技業每月人才缺口達 16.1 萬人，年增 12.6%。其中半導體製造工作機會三年成長 45%，促使近五成企業願意提高薪資並放寬學歷與經歷門檻搶才。"
-      },
-      {
-       "label": "新跪的角度:",
-       "text": "我看到科技業缺工十六萬人還放寬條件，心動點開職缺說明，才發現自己連當分母的勇氣都湊不齊。"
+       "text": "我連自己電腦的桌面雜物都拖延了半年沒清，現在 AI 都能自動排程維護系統了，我只能低頭安撫自己那台動不動就風扇狂轉的舊筆電。"
       },
       {
        "label": "建議欄目:",
@@ -43,20 +22,19 @@
       }
      ],
      "sources": [
-      "https://money.udn.com/money/story/5612/9876488",
-      "https://claude.com/ja/resources/articles/claude-meetings"
+      "https://www.moneyweekly.com.tw/ArticleData/Info/Article/262297"
      ]
     },
     {
-     "title": "跨境買3C免紙本切結",
+     "title": "辦公室算韌性取代算坪數",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "電商酷澎於 11 月 13 日宣布導入電子簽章技術，並與關貿網路及 EZ Way 串接。消費者跨境購買藍牙等第二級電信管制器材時，過去繁複易出錯的 NCC 紙本自用切結程序縮短至最快 3 分鐘以手機完成。"
+       "text": "仲量聯行最新未來辦公趨勢調查顯示，近八成企業高層認為 AI 將重塑辦公空間策略，商辦選址與規劃正從傳統「人頭坪數」轉向「營運韌性」。台灣多家大型金控與商辦也陸續推出彈性專案工位與流動式混合空間，掀起職場空間轉型討論。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我原本靠著繁複的自用切結手續來克制購物慾，現在系統三分鐘就幫我辦妥，只剩下我和空空的荷包面面相覷。"
+       "text": "我聽著高層大談 AI 時代辦公室要追求彈性與韌性，但看著被取消的固定座位，我每天上班第一件事只是焦慮今天會不會連放馬克杯的桌子都搶不到。"
       },
       {
        "label": "建議欄目:",
@@ -64,8 +42,27 @@
       }
      ],
      "sources": [
-      "https://ccc.technews.tw/2026/11/13/coupang-rocket-overseas-expands-its-selection-by-more-than-200-bluetooth-items/",
-      "https://claude.com/ja/resources/articles/claude-meetings"
+      "https://www.storm.mg/article/11181307"
+     ]
+    },
+    {
+     "title": "高層喊AI中階成避震器",
+     "body": [
+      {
+       "label": "為什麼熱:",
+       "text": "全球組織顧問公司 Korn Ferry 最新人才趨勢報告指出，僅 6% 的領導者認為企業高階主管已準備好引導 AI 轉型。面對變革方向不明，中階主管被迫成為吸收基層焦慮與高層目標落差的「組織避震器」，在職場社群引發大量共鳴。"
+      },
+      {
+       "label": "新跪的角度:",
+       "text": "我夾在老闆宏大的 AI 藍圖和同事困惑的眼神中間，明明自己都還在查提示詞怎麼寫，卻得硬著頭皮把那些聽不懂的願景翻譯成明天的待辦清單。"
+      },
+      {
+       "label": "建議欄目:",
+       "text": "【欸唉新跪的生存週報】"
+      }
+     ],
+     "sources": [
+      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG1QF3pXfSNRVscc7ff_MJug1XuW_wZBKpHyYQJMXU29-3YsMaXtOcaqOoyJLnuoH-uc_95byGZNw5ijSY76rszHLklmPu9elwU42TLsMW38NwBXAocE9uD7dkDt4wGsMk3hBP_wuA-uGAnY96uQ1PSc0_O9Vr6XZbwkbbJI0y5ngyfgguSFofKrL4="
      ]
     }
    ]
