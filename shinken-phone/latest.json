@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 56,
-    "versionName": "1.1.53",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.53.apk",
-    "sha256": "f57d3d68989c9e7cee07a7a9ef7761db716d7c140c56517af0f4957c54bd4563",
-    "notes": "轉成註記失敗時,會寫出擋住的是哪一種隱藏欄位(方便下一版放行)\n自己掛斷電話時,不會再閃一下「未知號碼」",
+    "versionCode": 57,
+    "versionName": "1.1.54",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.54.apk",
+    "sha256": "089efa076df513764711291b70c9420e38458393942631029fafea98c2239e1b",
+    "notes": "轉成註記不再被隱藏的「暱稱」欄擋住:暱稱會一起寫進註記備註保存",
     "date": "2026-11-14"
   }
 }
