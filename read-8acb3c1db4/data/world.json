@@ -1,89 +1,93 @@
 {
- "date": "2026-11-14",
- "one_line": "AI面臨供應鏈資安與地方抵制，全球綠能及稅改政策亦陷拉鋸。",
+ "date": "2026-11-15",
+ "one_line": "AI代理商務與支付標準全面落地，老舊航管基建與公衛賭局浮現治理隱憂。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "Uber第三方AI遭駭 數千司機駕照外洩",
+     "title": "AI代理協議Poppy 1.0登場",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "Uber 證實其配合的外部 AI 運算平台服務商 Fireworks AI 遭駭客入侵，導致 Uber 內部認證憑證外洩，數千名駕駛的駕照與個人資料遭到竊取。Uber 目前已向美國各州主管機關通報並通知受影響司機，在此之前辦公軟體 Notion 也證實受同一起供應商資安事件波及。"
+       "text": "企業AI新創Sierra正式發表「個人代理協議」1.0版（代號Poppy），為各家AI代理人制定與電商網站互動的標準通訊規範。知名電商平台Shopify已向旗下所有商家全面預設啟用該協議，Meta新推出的Muse AI代理人也宣布在造訪網站時優先調用此標準。土耳其航空與Mercury等跨國企業亦同步完成部署，允許使用者的AI代為比價甚至申請升等。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這凸顯出企業導入外部 AI 模型與工具時嚴重的供應鏈資安漏洞；即使大型企業本身資安嚴密，外包 AI 運算端遭攻破同樣會造成使用者機敏個資流出。"
+       "text": "過去個人AI幫忙網購時容易被網站當作惡意爬蟲封鎖，或產生帳密外洩風險；這個標準確立後，一般人讓AI跑腿訂票或採買將變得普遍且安全，台灣跨境電商業者也需儘早跟進支援。"
       }
      ],
      "sources": [
-      "https://techcrunch.com/2026/11/13/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/"
+      "https://tldr.tech/story/45b3c6ea-dfa1-4e46-953a-79d8483d1930",
+      "https://www.youtube.com/watch?v=UQmu9y1g-fA"
      ]
     },
     {
-     "title": "研究揭中國頂尖AI 皆用禁運輝達晶片",
+     "title": "OpenAI推代理人錢包代刷結帳",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "由前 OpenAI 研究員創立的非營利研究機構分析了 DeepSeek、月之暗面與螞蟻集團等中國團隊釋出的開源大模型權重架構，發現其訓練過程廣泛採用了遭美國政府限制出口的輝達高階晶片（如 Blackwell 等系列）。研究指出這些頂尖實驗室能輕易取得受限硬體，顯示晶片禁令存在巨大的走私漏洞。"
+       "text": "OpenAI正式向美國部分ChatGPT Pro用戶釋出「ChatGPT Wallet」功能，允許名為dots的AI代理人代替使用者直接完成線上消費結帳。該系統與Visa、Mastercard及美國運通合作，交易時會自動產生虛擬替代代碼（payment token）扣款，因此AI本身與商家都不會經手或看見用戶的真實信用卡號。使用者只需在AI挑選完商品後，透過裝置上的Face ID或指紋辨識確認總金額即可放行。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這顯示美國現行的出口管制難以完全封堵先進算力流向，後續美方極可能擴大二級制裁並加強審查周邊轉運國，將進一步牽動全球晶片與伺服器供應鏈的合規風險。"
+       "text": "這象徵AI應用正式從純文字對話推進到「自主代付」的代理人商務時代；未來日常網購與訂房將大幅簡化，但個人消費防線與生物辨識授權的習慣也必須隨之調整。"
       }
      ],
      "sources": [
-      "https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/"
+      "https://www.youtube.com/watch?v=EJyDl4-I4XE",
+      "https://www.pcmag.com/news/trust-chatgpt-with-your-payments-openai-rolls-out-chatgpt-wallet"
      ]
     },
     {
-     "title": "亞馬遜密造產品圖譜 迎擊AI購物代理",
+     "title": "Gemini串接谷歌錢包理財分析",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "路透社取得內部文件揭露，亞馬遜正在研發「世界產品圖譜（World Product Graph）」，無論商品是否在亞馬遜銷售，均透過爬取對手電商網站與結合各大品牌數據來整合全球商品規格。此舉旨在修正自家 AI 購物助理 Rufus 回答錯誤的問題，並防堵外部新興 AI 代理人把顧客帶往其他平台。"
+       "text": "Google針對美國Gemini用戶推出Google Wallet深度整合功能，並支援透過金融中介平台Plaid串接外部銀行與信用卡帳戶。Gemini能直接讀取消費歷史數據，在聊天室中即時產出現金流圖表、揪出被悄悄調漲的各類訂閱服務，並依往年花費建議節慶預算。官方強調此整合為純讀取權限，Gemini無權擅自調動或轉移帳戶資金。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "未來的電商競爭將從單純比價轉變為 AI 購物助理的主導權爭奪；平台巨頭正傾力壟斷底層商品數據，以防在通用型 AI 代理人興起時失去消費者流量入口。"
+       "text": "個人財務管理正在走向「問一句就自動對帳」的對話式理財；日常零散的串流訂閱和隱形開銷將能被AI自動清查，省去人工逐筆對帳的繁瑣時間。"
       }
      ],
      "sources": [
-      "https://mlq.ai/news/amazon-plans-a-world-product-graph-to-own-the-worlds-product-data-and-fend-off-ai-shopping-agents-reuters-reports/"
+      "https://www.youtube.com/shorts/4QVcFOxpM14?cbrd=1&ucbcb=1",
+      "https://ground.news/article/googles-gemini-can-now-read-your-google-wallet-to-help-you-budget"
      ]
     },
     {
-     "title": "邁威爾推新架構 突破AI機櫃頻寬極限",
+     "title": "Cornelis推800G網卡抗輝達",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "網通與半導體基礎設施大廠邁威爾在超級運算大會（SC26）展示新架構，將光學互連技術與 CXL 記憶體擴展整合為單一系統。（CXL 是讓多顆處理器高速共享記憶體的互連標準）該技術專為克服 AI 運算模型跨越單一伺服器機櫃時，所面臨的記憶體不足與傳輸頻寬瓶頸。"
+       "text": "從英特爾獨立出來的晶片架構商Cornelis Networks發表了名為CN6000的800G網路卡與交換器產品線，全力瞄準大型AI運算叢集。該方案承襲Omni-Path架構技術，官方數據顯示每秒可處理高達16億條訊息，在小型封包傳輸時速度比輝達的InfiniBand快約21%。新硬體預計將於2027年初正式出貨給伺服器合作夥伴。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "隨著 AI 運算規模不斷膨脹，資料傳輸的延遲已成為整體效能的最大拖油瓶；光學傳輸與新型記憶體架構的推進，將牽動次世代雲端資料中心與台灣伺服器供應鏈的規格升級。"
+       "text": "當前AI伺服器擴充常受限於網路晶片的通訊瓶頸與高昂綁定成本；市場出現能正面抗衡輝達專利網路規格的替代品，將加速整體算力中心建置成本的下降。"
       }
      ],
      "sources": [
-      "https://investor.marvell.com/news-events/press-releases/detail/1043/marvell-scales-connectivity-to-address-ai-infrastructures-next-bottleneck-at-supercomputing-2026"
+      "https://daily.dev/posts/cornelis-launches-cn6000-800g-networking-to-rival-nvidia-infiniband-ehr8r6kiv",
+      "https://thenextweb.com/news/cornelis-cn6000-800g-networking-ai-supercomputers"
      ]
     },
     {
-     "title": "英特爾推開放平台 攻邊緣與實體AI",
+     "title": "AI算力商直接買下天然氣田自建電廠",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "英特爾在 Web Summit 大會上發表邊緣運算與「實體 AI（Physical AI，指驅動機器人與實體裝置感知、行動的 AI 技術）」開放平台，攜手夥伴展示智慧製造、認知型人型機器人等應用。英特爾表示，AI 產業焦點正從單純的聊天問答轉向如何在真實物理環境中可靠、低延遲且經濟地運作。"
+       "text": "在美國那斯達克掛牌的GridAI Technologies宣布達成全股票併購協議，正式買下懷俄明州天然氣開採商Pronghorn Resources。GridAI計畫直接在天然氣產區興建自營燃氣發電廠，目標在2027年起為旗下專屬AI資料中心供應300百萬瓦（MW）的獨立電力。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "AI 正大舉走出雲端螢幕並落地到工廠手臂、人型機器人與智慧城市終端，老牌晶片廠積極制定實體控制標準，也為自動化設備製造業帶來新商機。"
+       "text": "公共電網容量吃緊與排隊審批延宕，迫使AI基建公司跳過電力公司、自購化石燃料「產電算力一體化」；這股趨勢將進一步加劇全球科技產業在減碳承諾與運算需求之間的兩難衝突。"
       }
      ],
      "sources": [
-      "https://www.intel.com/content/www/us/en/newsroom/news/artificial-intelligence/intel-on-the-ground-at-web-summit-2026.html",
-      "https://www.intel.com/content/www/us/en/newsroom/news/intel-web-summit-2026.html"
+      "https://thenextweb.com/news/gridai-pronghorn-wyoming-gas-ai-data-centre-power",
+      "https://duffsloft.com/"
      ]
     }
    ]
@@ -92,53 +96,52 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "美46項地方公投過關 嚴格限制AI資料中心",
+     "title": "軟體更新搞砸 FAA全美停飛四小時",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國期中選舉全美 13 個州出現多達 51 項與資料中心建設相關的地方公投，截至 13 日已開票的 47 項中，高達 46 項由地方選民壓倒性投票支持嚴格限制或否決興建計畫。選民普遍擔憂大型 AI 機房消耗巨量水電資源，並導致地方水資源枯竭與一般住宅電費暴漲。"
+       "text": "美國聯邦航空總署（FAA）於11月13日下午因航管通訊系統嚴重故障，對全美發布長達逾四小時的地面停飛令（ground stop），造成近5,000班航班取消、逾萬架次延誤，影響約150萬名旅客。官方與FBI調查初步排除網路攻擊，證實問題出在專用通訊網路進行軟體更新時觸發重開機，導致大量數據瞬間淹沒建於1980年代的老舊銅線網路與路由器。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "基層居民對科技巨頭用電搶水的反彈已轉化為具體法律限制，地方抵制將拉長資料中心審批時程並推高選址成本，成為科技巨頭擴張 AI 算力基礎設施的最直接障礙。"
+       "text": "這起事故暴露了美國民航骨幹仍高度仰賴數十年前過時硬體的致命缺陷；接下來數月美國國會必將啟動聽證並追加龐大基建預算，赴美商務出差的航班調度短期內也仍面臨連鎖延誤風險。"
       }
      ],
      "sources": [
-      "https://ballotpedia.org/Data_center-related_ballot_measures,_2026?utm_source=Sailthru&utm_medium=Newsletter&utm_campaign=Reuters-AI&utm_term=110426&lctg=69bc3adc447ac6fd7b0efe00"
+      "https://www.securityweek.com/no-signs-of-hacking-in-faa-ground-stop-as-fbi-reportedly-probes-software-update/",
+      "https://emeraldbook.org/news/nov-1326-3/"
      ]
     },
     {
-     "title": "COP31三國注百億 產油國阻淘汰化石燃料",
+     "title": "澤倫斯基示警美倡議之歐洲新架構",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "在土耳其舉行的 COP31 氣候峰會進入關鍵談判，英國、挪威與加拿大宣布聯合投入 100 億美元資助新興市場綠能轉型；但各大產油國仍強烈抗拒明文承諾逐步淘汰石油與天然氣，使弱小島國的減排呼籲與融資協議陷入僵局。聯合國秘書長則警告全球氣溫已逼近極限，必須立即大幅減排。"
+       "text": "烏克蘭總統澤倫斯基接受外電訪問時透露，美國特使團在穿梭斡旋停戰過程中，提出了建立戰後「歐洲新安全架構」的構想。澤倫斯基嚴正警告，若美方在談判中把焦點轉向重新討論歐洲整體防衛安排甚至詢問領土退讓，極可能被俄羅斯利用來弱化北約並合法化強改邊界。他強調任何協議必須以停火、終戰及對烏克蘭明確的安全保障為絕對優先前提。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "在地緣衝突與民生通膨壓力下，富裕國家與產油國在綠能融資與淘汰化石燃料上歧見擴大，將直接影響各國未來幾季的碳定價、碳關稅與能源轉型法規節奏。"
+       "text": "這顯示美烏雙方在終戰路線與談判條件上浮現重大分歧；大國若私下試圖重構歐洲安全版圖，將直接影響歐洲盟友未來的防務預算、地緣局勢以及全球對安全保證的信任度。"
       }
      ],
      "sources": [
-      "https://www.al-monitor.com/originals/2026/11/un-chief-urges-drastic-emissions-cuts-cop31-wrestles-fossil-fuels",
-      "https://www.thestar.com.my/news/world/2026/11/13/cop31-talks-face-early-friction-over-future-of-fossil-fuels"
+      "https://www.channel8.com/english/news/1605b0b7-7629-4511-a78a-a193007f3374"
      ]
     },
     {
-     "title": "義擬徵富人出走稅引反彈 財長急踩煞車",
+     "title": "美預測市場開賭公衛疫苗引發倫理反彈",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "義大利政府在預算案中針對資產超過 80 萬歐元、欲轉移稅務戶籍至國外的個人，提議課徵 26% 未實現資本利得「離境稅」，引發銀行業與財富管理專家強烈反彈。為避免重創國際招商形象並引發資本出逃，義大利經濟部長 13 日向企業遊說團體鬆口表示正著手擬定修改方案。"
+       "text": "Polymarket與Kalshi等受歡迎的線上預測市場平台，近期將下注標的擴大至公共衛生與醫療領域，甚至在紐約市小學周邊刊登宣傳廣告。用戶如今可直接就「FDA何時核准特定皮膚癌疫苗」、「CDC是否修改疫苗建議」或「全美麻疹確診數」等議題下注押錢。公衛專家痛批此類合約缺乏實質金融監管，恐誘發為了贏得賭金而刻意散播假訊息、操縱臨床試驗輿論的道德危機。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "歐洲各國為縮減財政赤字紛紛瞄準富人課稅，但激進政策極易招致資本外流反噬；義大利的退讓顯示各國在防堵租稅漏洞與維持外資吸引力之間的艱難拉鋸。"
+       "text": "金融投機一旦侵入醫療審查與公共衛生政策，一般人的醫療信任可能遭到投機資金扭曲；這將迫使美國監管機關在接下來數月迅速祭出跨部會規範。"
       }
      ],
      "sources": [
-      "https://malaysia.news.yahoo.com/italy-working-changes-exit-tax-135740902.html",
-      "https://www.reuters.com/markets/wealth/italy-working-changes-exit-tax-economy-minister-tells-industry-lobby-groups-2026-11-13/"
+      "https://www.theguardian.com/world/2026/nov/14/measles-kalshi-polymarket-betting"
      ]
     }
    ]
