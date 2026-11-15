@@ -1,40 +1,20 @@
 {
- "date": "2026-11-15",
+ "date": "2026-11-16",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "本地端AI接管電腦維護",
+     "title": "LINE無聲訊息轉為付費功能",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "最新科技實測指出，上班族可透過在個人電腦運行的本地端開源 AI 代理自動接管系統維護，包含排程備份、軟體更新與網路測速診斷。但這類本地代理需要至少 16GB 顯存與 32GB 記憶體等高規格硬體支援，引發技術愛好者與一般上班族的熱烈討論。"
+       "text": "LINE宣布在LINE Labs免費提供多年的「無聲訊息」功能，自2026年11月16日起結束試用，正式轉為每月165元的LINE Premium付費會員專屬功能。未訂閱用戶將無法再透過長按傳送鍵送出不響鈴的訊息，在社群與各大論壇引發上班族熱烈討論。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我連自己電腦的桌面雜物都拖延了半年沒清，現在 AI 都能自動排程維護系統了，我只能低頭安撫自己那台動不動就風扇狂轉的舊筆電。"
-      },
-      {
-       "label": "建議欄目:",
-       "text": "【頭上的龍蝦又重了】"
-      }
-     ],
-     "sources": [
-      "https://www.moneyweekly.com.tw/ArticleData/Info/Article/262297"
-     ]
-    },
-    {
-     "title": "辦公室算韌性取代算坪數",
-     "body": [
-      {
-       "label": "為什麼熱:",
-       "text": "仲量聯行最新未來辦公趨勢調查顯示，近八成企業高層認為 AI 將重塑辦公空間策略，商辦選址與規劃正從傳統「人頭坪數」轉向「營運韌性」。台灣多家大型金控與商辦也陸續推出彈性專案工位與流動式混合空間，掀起職場空間轉型討論。"
-      },
-      {
-       "label": "新跪的角度:",
-       "text": "我聽著高層大談 AI 時代辦公室要追求彈性與韌性，但看著被取消的固定座位，我每天上班第一件事只是焦慮今天會不會連放馬克杯的桌子都搶不到。"
+       "text": "我連半夜想體貼別人不跳出通知，現在每個月都得先掏出一百六十五塊了。"
       },
       {
        "label": "建議欄目:",
@@ -42,19 +22,20 @@
       }
      ],
      "sources": [
-      "https://www.storm.mg/article/11181307"
+      "https://www.storm.mg/lifestyle/5273763",
+      "https://www.nownews.com/news/6582967"
      ]
     },
     {
-     "title": "高層喊AI中階成避震器",
+     "title": "重度使用AI工時反增90分",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "全球組織顧問公司 Korn Ferry 最新人才趨勢報告指出，僅 6% 的領導者認為企業高階主管已準備好引導 AI 轉型。面對變革方向不明，中階主管被迫成為吸收基層焦慮與高層目標落差的「組織避震器」，在職場社群引發大量共鳴。"
+       "text": "員工行為分析機構ActivTrak追蹤逾9,000名知識工作者電腦活動發現，每天使用AI逾45分鐘的重度使用者，每日工作時間跨度為8.4至9.1小時，比不使用AI者多出最多90分鐘。調查亦顯示重度使用者下班後處理公事的時間，平均比非使用者多出18分鐘。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我夾在老闆宏大的 AI 藍圖和同事困惑的眼神中間，明明自己都還在查提示詞怎麼寫，卻得硬著頭皮把那些聽不懂的願景翻譯成明天的待辦清單。"
+       "text": "我以為學會用AI能提早下班，結果每天電腦活動時間反而默默被拉長了一個半小時。"
       },
       {
        "label": "建議欄目:",
@@ -62,7 +43,28 @@
       }
      ],
      "sources": [
-      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG1QF3pXfSNRVscc7ff_MJug1XuW_wZBKpHyYQJMXU29-3YsMaXtOcaqOoyJLnuoH-uc_95byGZNw5ijSY76rszHLklmPu9elwU42TLsMW38NwBXAocE9uD7dkDt4wGsMk3hBP_wuA-uGAnY96uQ1PSc0_O9Vr6XZbwkbbJI0y5ngyfgguSFofKrL4="
+      "https://www.managertoday.com.tw/articles/view/71120"
+     ]
+    },
+    {
+     "title": "七年老愛瘋換購價逆勢增值",
+     "body": [
+      {
+       "label": "為什麼熱:",
+       "text": "蘋果官方更新台灣Trade In換購回收估價，在變動的34款機型中有11款逆勢調漲。其中上市已7年的iPhone 11回收價由3,300元調升至3,500元，以6.1%的漲幅成為本次增值冠軍，反觀iPhone 15 Pro Max等較新機種折抵價皆大幅下修。"
+      },
+      {
+       "label": "新跪的角度:",
+       "text": "我看著抽屜裡逆勢增值的七年老手機，默默摸了摸自己逐年貶值的職場年資。"
+      },
+      {
+       "label": "建議欄目:",
+       "text": "【頭上的龍蝦又重了】"
+      }
+     ],
+     "sources": [
+      "https://www.ctee.com.tw/news/20261114700465-431401",
+      "https://finance.ettoday.net/news/2854901"
      ]
     }
    ]
