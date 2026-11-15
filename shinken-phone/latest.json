@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 57,
-    "versionName": "1.1.54",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.54.apk",
-    "sha256": "089efa076df513764711291b70c9420e38458393942631029fafea98c2239e1b",
-    "notes": "轉成註記不再被隱藏的「暱稱」欄擋住:暱稱會一起寫進註記備註保存",
-    "date": "2026-11-14"
+    "versionCode": 58,
+    "versionName": "1.1.55",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.55.apk",
+    "sha256": "7233f28e81195485d8802d7ba97a30ebeaf4d737b8ced6948941e0ddb6b645c7",
+    "notes": "轉註記沒轉成的人,現在可以條列勾選「強制轉」:會列出每個人轉不過去的欄位\n生日、網址、親屬、第二個公司改成文字存進手機裡的備份,大頭照和別的 App(例如 Telegram)塞的連結會丟掉\n預設都不勾,按強制轉前會再確認一次",
+    "date": "2026-11-15"
   }
 }
