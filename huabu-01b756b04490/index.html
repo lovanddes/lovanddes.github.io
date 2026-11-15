@@ -160,10 +160,11 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
 
   <div id="app" hidden>
     <div class="top">
-      <h1>畫布團購</h1>
+      <h1 id="appH1">畫布團購</h1>
       <div class="rounds">
         <select id="roundSel" aria-label="選擇團購場次"></select>
         <button id="newRound" hidden>新增一場</button>
+        <span id="newKind" class="row" hidden><span class="hint" style="width:100%">這一場要團購什麼?</span><button id="nrCanvas">畫布</button><button id="nrMat">油畫材料及顏料</button><button id="nrX" class="ghost">取消</button></span>
       </div>
     </div>
 
@@ -187,10 +188,14 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
           <small class="hint" id="pwHint"></small>
         </label>
         <div class="full" id="sizePick"></div>
+        <div class="full" id="matPick" hidden><div id="matCards"></div>
+          <label id="matInBox" style="margin-top:10px">清單裡沒有?自己打品名
+            <input id="matIn" maxlength="30" autocomplete="off" placeholder="例如:林布蘭 鈦白 40ml">
+          </label></div>
         <label id="sizeLbl" hidden>尺寸
           <select id="size"></select>
         </label>
-        <label>片數
+        <label><span id="qtyLbl">片數</span>
           <div class="qty">
             <button type="button" id="qm" aria-label="減一片">−</button>
             <input id="qty" type="number" inputmode="numeric" min="1" max="99" value="1">
@@ -208,7 +213,7 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
     </section>
 
     <section class="panel" style="margin-top:16px">
-      <h2>各尺寸合計</h2>
+      <h2 id="bysizeH">各尺寸合計</h2>
       <div id="bysize"></div>
     </section>
 
@@ -220,16 +225,20 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
           <label class="row" style="margin-top:10px;gap:8px"><input type="checkbox" id="quotingChk"> 報價中:沒填單價的尺寸也先讓同學選</label>
           <div class="hint" id="quoAuto" hidden>目前沒有任何單價,所以自動當成「報價中」:同學能選常用尺寸,他們選了哪些會自動列在上面的單價表,等你填價。</div>
           <div class="row" style="margin-top:8px"><label>🚚 運費總額 <input id="shipIn" type="number" inputmode="numeric" min="0" placeholder="0" style="width:110px"></label><button id="shipSave">儲存運費</button></div>
-          <div class="hint">運費會按片數平均分給每位同學,同學端看得到。</div>
-          <div style="margin-top:12px"><b>常用號數</b>
+          <div class="hint" id="shipHint">運費會按片數平均分給每位同學,同學端看得到。</div>
+          <div style="margin-top:12px" id="cmBox"><b>常用號數</b>
             <div class="hint">亮起來的號數會直接展開給同學選,其他號數收進「其他尺寸」按鈕。按一下切換,F/P/M 一起套用。</div>
             <div class="cmChips" id="commonChips"></div></div>
-          <div class="row" style="margin-top:10px">
+          <div class="row" style="margin-top:10px" id="matAdmin" hidden>
+            <input id="matNew" maxlength="30" autocomplete="off" placeholder="品名,例如:松節油 250ml" style="flex:1;min-width:10em">
+            <button id="matAddBtn">加到單價表</button>
+          </div>
+          <div class="row" style="margin-top:10px" id="addSizeRow">
             <select id="addSize" aria-label="新增尺寸"></select>
             <button id="addPrice">加到單價表</button>
           </div>
         </div>
-        <p class="hint">F 人物、P 風景、M 海景。單價只有班長能改。</p>
+        <p class="hint" id="fpmHint">F 人物、P 風景、M 海景。單價只有班長能改。</p>
       </details>
     </section>
 
@@ -2681,7 +2690,7 @@ function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
 function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 function lsDel(k){try{localStorage.removeItem(k)}catch(e){}}
 function toast(m){const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,2200)}
-function sortSize(a,b){const pa=parseInt(a),pb=parseInt(b);if(pa!==pb)return pa-pb;return 'FPM'.indexOf(a.slice(-1))-'FPM'.indexOf(b.slice(-1))}
+function sortSize(a,b){if(typeof R==='function'&&isMat(R()))return String(a).localeCompare(String(b),'zh-Hant');const pa=parseInt(a),pb=parseInt(b);if(pa!==pb)return pa-pb;return 'FPM'.indexOf(a.slice(-1))-'FPM'.indexOf(b.slice(-1))}
 async function derive(room,pw){
   const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveBits']);
   const b=await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:new TextEncoder().encode('huabu:'+room),iterations:150000},k,256);
@@ -2703,6 +2712,10 @@ const price=(r,l)=>r?(+(r.prices||{})[l]||0):0;
 /* 運費(先生 11/4):班長填總額,按片數平均分給每人(最大餘數法,加起來剛好等於總額) */
 /* 單價表清空時(先生 11/4):同學選單自動帶常用尺寸、視同「報價中」;有人訂的尺寸即使不在單價表也會列出,方便班長填價 */
 const DEF_SIZES=['6F','8F','10F','12F','12P','15F'];
+/* 油畫材料及顏料(先生 11/15):場次多一個 kind:'mat';品項=班長或同學自己打的品名,存在原本 size 欄,單價走同一張單價表/報價流程 */
+const isMat=r=>!!(r&&r.kind==='mat');
+const unitW=r=>isMat(r)?'件':'片';
+const cleanItem=v=>String(v||'').replace(/\./g,'．').replace(/\//g,'／').replace(/[~*\[\]`\\|]/g,'').replace(/\s+/g,' ').trim().slice(0,30);
 const DEF_COMMON=['8','10','12','15'];
 const commonOf=r=>Array.isArray(r&&r.common)?r.common:DEF_COMMON;
 let szMore=false,szChosen=false;
@@ -2711,7 +2724,7 @@ const autoQuo=r=>!Object.keys((r&&r.prices)||{}).some(l=>price(r,l)>0);
 const isQuoting=r=>!!(r&&r.quoting)||autoQuo(r);
 function allSizes(r){
   const s=new Set(Object.keys(r.prices||{}));orders.forEach(o=>s.add(o.size));
-  if(!Object.keys(r.prices||{}).length)DEF_SIZES.forEach(l=>s.add(l));
+  if(!isMat(r)&&!Object.keys(r.prices||{}).length)DEF_SIZES.forEach(l=>s.add(l));
   return [...s].sort(sortSize);
 }
 const shipOf=r=>Math.max(0,Math.round(+(r&&r.ship)||0));
@@ -2731,6 +2744,7 @@ function szDims(l){const p=(CM[l]||'').split('×').map(Number);return p.length==
 function szA3(l){const d=szDims(l);if(!d)return '';const k=d[0]*d[1]/(42*29.7);return k<0.8?'約 A4 的 '+(d[0]*d[1]/(29.7*21)).toFixed(1).replace(/\.0$/,'')+' 倍':(k<1.15?'約 A3 大小':'約 A3 的 '+k.toFixed(1)+' 倍')}
 function drawSizePick(r){
   const box=$('sizePick');if(!box)return;
+  box.hidden=isMat(r);drawMatPick(r);if(isMat(r))return;
   const labels=Array.from($('size').options).map(o=>o.value);
   if(!labels.length){box.innerHTML='';return}
   if(!szChosen&&!szOk(r,$('size').value)){const f=labels.find(l=>szOk(r,l));if(f)$('size').value=f}
@@ -2888,16 +2902,16 @@ function watchOrders(){
   if(!cur)return;
   unsubO=ordersCol(cur).onSnapshot(snap=>{orders=snap.docs.map(d=>({id:d.id,...d.data()}));render()},e=>toast('連線失敗,請重新整理'));
 }
-async function makeRound(name,prices,common){
+async function makeRound(name,prices,common,extra){
   const ref=roomRef().collection('rounds').doc();
-  await adminBatch(b=>b.set(ref,Object.assign({name,prices,closed:false,created:Date.now()},common?{common}:{})));
+  await adminBatch(b=>b.set(ref,Object.assign({name,prices,closed:false,created:Date.now()},common?{common}:{},extra||{})));
   cur=ref.id;lsSet('hb-round-'+room,cur);watching=null;watchOrders();
 }
 
 // 畫面
 function applyAdmin(){
   $('adminOff').hidden=isAdmin;$('adminOn').hidden=!isAdmin;
-  $('newRound').hidden=!isAdmin;$('priceAdmin').hidden=!isAdmin;
+  $('newRound').hidden=!isAdmin;$('priceAdmin').hidden=!isAdmin;$('newKind').hidden=true;
 }
 function groups(){const g={};orders.forEach(o=>{(g[o.person]=g[o.person]||[]).push(o)});return g}
 function render(){
@@ -2912,22 +2926,29 @@ function render(){
   $('formBox').hidden=false;
   $('closedBanner').hidden=!closed;$('stateTxt').textContent=closed?'已結單':'進行中';
   $('closeBtn').textContent=closed?'本次團購重新開放':'本次團購結單';
-  ['who','whoSel','size','qty','qm','qp','add'].forEach(i=>$(i).disabled=closed);
+  ['who','whoSel','size','qty','qm','qp','add','matIn'].forEach(i=>$(i).disabled=closed);
+  const mat=isMat(r),U=unitW(r);
+  $('appH1').textContent=mat?'油畫材料團購':'畫布團購';$('qtyLbl').textContent=mat?'數量':'片數';
+  $('bysizeH').textContent=mat?'各品項合計':'各尺寸合計';$('shipHint').textContent='運費會按'+(mat?'件數':'片數')+'平均分給每位同學,同學端看得到。';
+  $('cmBox').hidden=mat;$('addSizeRow').hidden=mat;$('matAdmin').hidden=!mat;
+  $('fpmHint').textContent=mat?'單價只有班長能改。同學自己打的品項會自動出現在上面,等你填價。':'F 人物、P 風景、M 海景。單價只有班長能改。';
   $('roundName').textContent=(r.name||'')+' 總計';
   const g=groups();let grand=0,pieces=0;
   orders.forEach(o=>{grand+=price(r,o.size)*oq(o);pieces+=oq(o)});
   const ship=shipOf(r),pcsBy={};Object.keys(g).forEach(n=>pcsBy[n]=g[n].reduce((a,o)=>a+oq(o),0));
   const sh=shipShares(r,pcsBy),unp=orders.some(o=>!price(r,o.size));
   $('grand').textContent=unp?(grand?$$(grand+ship)+' + 待報價':'待報價'):$$(grand+ship);
-  $('cnt').textContent=pieces+' 片 / '+Object.keys(g).length+' 人'+(ship?'(含運費 '+$$(ship)+')':'');
+  $('cnt').textContent=pieces+' '+U+' / '+Object.keys(g).length+' 人'+(ship?'(含運費 '+$$(ship)+')':'');
 
   const labels=allSizes(r),quo=isQuoting(r);
   const sel=$('size').value;
-  $('size').innerHTML=(quo?[...new Set([...labels,...SIZES.map(x=>x.label)])].sort(sortSize):labels.filter(l=>price(r,l)>0)).map(l=>`<option value="${esc(l)}">${esc(l)}(${esc(CM[l]||'')}) ${price(r,l)?$$(price(r,l)):'報價中'}</option>`).join('');
+  if(mat)$('size').innerHTML=labels.map(l=>`<option value="${esc(l)}">${esc(l)} ${price(r,l)?$$(price(r,l)):'報價中'}</option>`).join('');
+  else $('size').innerHTML=(quo?[...new Set([...labels,...SIZES.map(x=>x.label)])].sort(sortSize):labels.filter(l=>price(r,l)>0)).map(l=>`<option value="${esc(l)}">${esc(l)}(${esc(CM[l]||'')}) ${price(r,l)?$$(price(r,l)):'報價中'}</option>`).join('');
   if(labels.includes(sel))$('size').value=sel;
   drawSizePick(r);
   const noPrice=labels.filter(l=>!price(r,l));
-  $('hint').textContent=!$('size').options.length?'目前沒有可選的尺寸,請找班長。':(isAdmin&&noPrice.length?'還沒填單價:'+noPrice.join('、'):(quo&&noPrice.length?'報價中:任何尺寸都能選,選了班長那邊的單價表會自動出現,價錢出來後金額會自動更新。':''));
+  if(mat)$('hint').textContent=isAdmin&&noPrice.length?'還沒填單價:'+noPrice.join('、'):'清單沒有的可以自己打品名(顏色記得寫色號或色名、容量);沒價錢的班長拿到報價後會填,金額會自動更新。';
+  else $('hint').textContent=!$('size').options.length?'目前沒有可選的尺寸,請找班長。':(isAdmin&&noPrice.length?'還沒填單價:'+noPrice.join('、'):(quo&&noPrice.length?'報價中:任何尺寸都能選,選了班長那邊的單價表會自動出現,價錢出來後金額會自動更新。':''));
 
   const me=$('who').value.trim();
   const has=!!myPws()[me];
@@ -2943,18 +2964,18 @@ function render(){
       return `<div class="line"><div class="nm"><b>${esc(o.size)}</b><small>${esc(CM[o.size]||'')}</small></div>${ctl}<div class="amt money">${price(r,o.size)?$$(a):'待報價'}</div>${del}</div>`}).join('');
     const shipLine=ship?`<div class="line"><div class="nm"><small>運費分攤(${pcsBy[n]} 片)</small></div><div class="amt money">${$$(sh[n]||0)}</div></div>`:'';
     return `<div class="person${mine?' me':''}"><div class="phead"><b>${esc(n)}${mine?'(我)':''}</b><span class="money sub">小計 ${$$(sub+(sh[n]||0))}</span>${isAdmin?`<button class="ghost" data-a="renamep" data-pn="${esc(n)}">改名字</button><button class="ghost" data-a="resetpw" data-pn="${esc(n)}">重設密碼</button>`:''}</div>${lines}${shipLine}</div>`;
-  }).join(''):'<div class="empty">還沒有人登記。填名字、選尺寸、按「加入」。</div>';
+  }).join(''):'<div class="empty">還沒有人登記。填名字、選'+(mat?'品項':'尺寸')+'、按「加入」。</div>';
 
   const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+oq(o));
   const ks=Object.keys(bs).sort(sortSize);
-  $('bysize').innerHTML=ks.length?`<table class="tbl"><tr><th>尺寸</th><th>單價</th><th>片數</th><th>金額</th></tr>`+ks.map(k=>`<tr><td><b>${esc(k)}</b> <span class="hint">${esc(CM[k]||'')}</span></td><td>${price(r,k)?$$(price(r,k)):'待報價'}</td><td>${bs[k]}</td><td class="money">${price(r,k)?$$(price(r,k)*bs[k]):'—'}</td></tr>`).join('')+(ship?`<tr><td colspan="3"><b>運費</b> <span class="hint">依片數平均分</span></td><td class="money">${$$(ship)}</td></tr>`:'')+`<tr class="tot"><td colspan="2"><b>合計</b></td><td><b>${ks.reduce((t,k)=>t+bs[k],0)}</b></td><td class="money"><b>${$$(ks.reduce((t,k)=>t+(price(r,k)?price(r,k)*bs[k]:0),0)+(ship||0))}</b></td></tr></table>`:'<div class="empty">登記後這裡會列出每種尺寸總共幾片。</div>';
+  $('bysize').innerHTML=ks.length?`<table class="tbl"><tr><th>${mat?'品項':'尺寸'}</th><th>單價</th><th>${mat?'數量':'片數'}</th><th>金額</th></tr>`+ks.map(k=>`<tr><td><b>${esc(k)}</b> <span class="hint">${esc(CM[k]||'')}</span></td><td>${price(r,k)?$$(price(r,k)):'待報價'}</td><td>${bs[k]}</td><td class="money">${price(r,k)?$$(price(r,k)*bs[k]):'—'}</td></tr>`).join('')+(ship?`<tr><td colspan="3"><b>運費</b> <span class="hint">依片數平均分</span></td><td class="money">${$$(ship)}</td></tr>`:'')+`<tr class="tot"><td colspan="2"><b>合計</b></td><td><b>${ks.reduce((t,k)=>t+bs[k],0)}</b></td><td class="money"><b>${$$(ks.reduce((t,k)=>t+(price(r,k)?price(r,k)*bs[k]:0),0)+(ship||0))}</b></td></tr></table>`:'<div class="empty">登記後這裡會列出每種'+(mat?'品項總共幾件':'尺寸總共幾片')+'。</div>';
 
   if(isAdmin)renderSheetPrev();
   const act=document.activeElement&&document.activeElement.dataset&&document.activeElement.dataset.p;
   if(!act){
-    $('prices').innerHTML=labels.length?`<table class="tbl"><tr><th>尺寸</th><th>單價</th><th></th></tr>`+labels.map(l=>`<tr><td><b>${esc(l)}</b> <span class="hint">${esc(CM[l]||'')}</span></td><td style="text-align:left">${isAdmin?`<input type="number" inputmode="decimal" min="0" data-p="${esc(l)}" value="${price(r,l)||''}" placeholder="0" aria-label="${esc(l)} 單價">`:(price(r,l)?$$(price(r,l)):'未定')}</td><td>${isAdmin&&(l in (r.prices||{}))?`<button class="ghost danger" data-rm="${esc(l)}">移除</button>`:''}</td></tr>`).join('')+`</table>`:'<div class="empty">單價表是空的。</div>';
+    $('prices').innerHTML=labels.length?`<table class="tbl"><tr><th>${mat?'品項':'尺寸'}</th><th>單價</th><th></th></tr>`+labels.map(l=>`<tr><td><b>${esc(l)}</b> <span class="hint">${esc(CM[l]||'')}</span></td><td style="text-align:left">${isAdmin?`<input type="number" inputmode="decimal" min="0" data-p="${esc(l)}" value="${price(r,l)||''}" placeholder="0" aria-label="${esc(l)} 單價">`:(price(r,l)?$$(price(r,l)):'未定')}</td><td>${isAdmin&&(l in (r.prices||{}))?`<button class="ghost danger" data-rm="${esc(l)}">移除</button>`:''}</td></tr>`).join('')+`</table>`:'<div class="empty">單價表是空的。</div>';
   }
-  $('quotingChk').checked=!!r.quoting;$('quoAuto').hidden=!(autoQuo(r)&&!r.quoting);if(document.activeElement!==$('shipIn'))$('shipIn').value=ship||'';
+  $('quotingChk').checked=!!r.quoting;$('quoAuto').hidden=mat||!(autoQuo(r)&&!r.quoting);$('quotingChk').parentElement.hidden=mat;if(document.activeElement!==$('shipIn'))$('shipIn').value=ship||'';
   $('addSize').innerHTML=SIZES.filter(s=>!labels.includes(s.label)).map(s=>`<option value="${s.label}">${s.label}(${s.cm})</option>`).join('');
   drawCommon(r);
 }
@@ -2982,9 +3003,10 @@ $('qm').onclick=()=>{$('qty').value=Math.max(1,(+$('qty').value||1)-1)};
 $('qp').onclick=()=>{$('qty').value=Math.min(99,(+$('qty').value||0)+1)};
 $('add').onclick=async()=>{
   const r=R();if(!r)return;
-  const p=$('who').value.trim().slice(0,40),sz=$('size').value,q=Math.min(99,Math.max(1,parseInt($('qty').value)||1));
+  const typed=isMat(r)?cleanItem($('matIn').value):'';
+  const p=$('who').value.trim().slice(0,40),sz=typed||$('size').value,q=Math.min(99,Math.max(1,parseInt($('qty').value)||1));
   if(!p){toast(roster.length?'先選你的名字':'先填你的名字');return}
-  if(!sz){toast('班長還沒填單價');return}
+  if(!sz){toast(isMat(r)?'先選或打一個品項':'班長還沒填單價');return}
   if(p.indexOf('/')>=0){toast('名字不能有 / 符號');return}
   const pw=myPws()[p]||$('myPw').value;
   if(!goodPw(pw)){toast(myPws()[p]?'':'請先設一個 4 個字以上的密碼(只記在這支手機)');if(!myPws()[p])$('myPw').focus();return}
@@ -2993,7 +3015,7 @@ $('add').onclick=async()=>{
     const ref=ordersCol(cur).doc((sz+'|'+p).replace(/\//g,'／'));
     await personWrite(p,pw,b=>b.set(ref,{person:p,size:sz,qty:FV.increment(q),t:Date.now()},{merge:true}));
     saveMyPw(p,pw);$('myPw').value='';
-    $('qty').value=1;toast(p+' '+sz+' ×'+q+' 已加入');render();
+    $('qty').value=1;$('matIn').value='';toast(p+' '+sz+' ×'+q+' 已加入');render();
   }catch(e){toast(e&&e.code==='permission-denied'?'密碼不對(或這個名字已被別人設過密碼)。忘了請找班長重設':errMsg(e))}
 };
 $('people').onclick=async e=>{
@@ -3082,10 +3104,33 @@ $('adminGo').onclick=async()=>{
   }catch(e){adminHash='';toast(e&&e.code==='permission-denied'?'管理密碼不對':'沒有成功,請檢查網路後再試一次')}
 };
 $('adminOut').onclick=()=>{isAdmin=false;adminHash='';lsDel('hb-admin-'+room);applyAdmin();render()};
-$('newRound').onclick=async()=>{
-  const prev=R();
-  try{await makeRound('第 '+(rounds.length+1)+' 次團購',prev?{...prev.prices}:{},prev&&Array.isArray(prev.common)?prev.common:null);toast('已新增一場,單價與常用號數沿用上一場')}catch(e){toast(errMsg(e))}
+/* 新增一場先選種類(先生 11/15):畫布照舊沿用上一場畫布的單價與常用號數;材料沿用上一場材料的品項單價 */
+const lastOf=mat=>{const c=R();if(c&&isMat(c)===mat)return c;return rounds.filter(x=>isMat(x)===mat).slice(-1)[0]||null};
+const nkShow=v=>{$('newKind').hidden=!v;$('newRound').hidden=v||!isAdmin};
+$('newRound').onclick=()=>nkShow(true);
+$('nrX').onclick=()=>nkShow(false);
+$('nrCanvas').onclick=async()=>{
+  const prev=lastOf(false);nkShow(false);
+  try{await makeRound('第 '+(rounds.length+1)+' 次團購',prev?{...prev.prices}:{},prev&&Array.isArray(prev.common)?prev.common:null);toast(prev?'已新增一場畫布,單價與常用號數沿用上一場':'已新增一場畫布')}catch(e){toast(errMsg(e))}
 };
+$('nrMat').onclick=async()=>{
+  const prev=lastOf(true);nkShow(false);
+  try{await makeRound('第 '+(rounds.length+1)+' 次團購(油畫材料)',prev?{...prev.prices}:{},null,{kind:'mat'});toast(prev?'已新增材料團購,品項單價沿用上一場':'已新增材料團購:同學可以自己打品名,你拿到報價再填價')}catch(e){toast(errMsg(e))}
+};
+$('matAddBtn').onclick=async()=>{
+  const l=cleanItem($('matNew').value);if(!l||!isAdmin||!R())return toast('先打品名');
+  if(l in (R().prices||{}))return toast(l+' 已經在單價表了');
+  try{await adminBatch(b=>b.update(roundRef(cur),{['prices.'+l]:0}));$('matNew').value='';toast(l+' 已加入,請填單價')}catch(er){toast(errMsg(er))}
+};
+/* 材料品項卡:點卡片選;自己打品名時卡片取消反白 */
+function drawMatPick(r){
+  const box=$('matPick');if(!box)return;box.hidden=!isMat(r);if(!isMat(r))return;
+  const labels=Array.from($('size').options).map(o=>o.value),cur=$('size').value,dis=$('size').disabled?' disabled':'',quo=isQuoting(r),typed=$('matIn').value.trim();
+  $('matInBox').hidden=false;
+  $('matCards').innerHTML=(labels.length?'<div class="szLegend">點一下選品項</div>':'')+'<div class="szCards">'+labels.map(l=>`<button type="button" class="szCard${l===cur&&!typed?' on':''}" data-m="${esc(l)}"${dis}><span class="szTxt"><b style="font-size:25px;overflow-wrap:anywhere">${esc(l)}</b></span><span class="szPrice">${price(r,l)?$$(price(r,l)):'報價中'}</span></button>`).join('')+'</div>';
+}
+$('matCards').onclick=e=>{const b=e.target.closest('button[data-m]');if(!b||b.disabled)return;$('size').value=b.dataset.m;$('matIn').value='';drawMatPick(R())};
+$('matIn').oninput=()=>drawMatPick(R());
 $('closeBtn').onclick=async()=>{
   const r=R();if(!r)return;
   try{await adminBatch(b=>b.update(roundRef(cur),{closed:!r.closed}));toast(r.closed?'已重新開放':'已結單')}catch(e){toast(errMsg(e))}
@@ -3103,7 +3148,7 @@ function sheetMatrix(){
   const r=R(),g=groups();
   const sizes=[...new Set(orders.map(o=>o.size))].sort(sortSize);
   const names=Object.keys(g).sort((x,y)=>(roster.indexOf(x)<0)-(roster.indexOf(y)<0)||(roster.indexOf(x)-roster.indexOf(y))||x.localeCompare(y,'zh-Hant'));
-  const rows=[['姓名',...sizes.map(s=>s+'('+(CM[s]||'')+')'),'片數','小計']];
+  const rows=[['姓名',...sizes.map(s=>CM[s]?s+'('+CM[s]+')':s),isMat(r)?'數量':'片數','小計']];
   rows.push(['單價',...sizes.map(s=>price(r,s)),'','']);
   let tp=0,ta=0;const tot=sizes.map(()=>0);
   names.forEach(n=>{
@@ -3112,7 +3157,7 @@ function sheetMatrix(){
     cnt.forEach((c,i)=>tot[i]+=c);tp+=pcs;ta+=amt;
     rows.push([n,...cnt.map(c=>c||''),pcs,amt]);
   });
-  rows.push(['合計片數',...tot,tp,'']);
+  rows.push([isMat(r)?'合計數量':'合計片數',...tot,tp,'']);
   rows.push(['金額',...sizes.map((s,i)=>tot[i]*price(r,s)),'',ta]);
   const ship=shipOf(r);
   if(ship){
@@ -3255,7 +3300,7 @@ function lineText(){
     out.push('  小計 '+$$(sub));grand+=sub;
   });
   const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+oq(o));
-  out.push('','合計片數:'+Object.keys(bs).sort(sortSize).map(k=>k+'×'+bs[k]).join('、'),'總計 '+$$(grand));
+  out.push('',(isMat(r)?'合計數量:':'合計片數:')+Object.keys(bs).sort(sortSize).map(k=>k+'×'+bs[k]).join('、'),'總計 '+$$(grand));
   return out.join('\n');
 }
 async function copyText(t,msg){
