@@ -4519,7 +4519,7 @@ async function renderGroupList() {
       var t = gbCalc_(r, orders, gbPay_(r.id)), pct = t.due > 0 ? Math.min(100, Math.round(t.paid / t.due * 100)) : 0;
       h += '<div class="card period-card" onclick="renderGroupRound(\'' + r.id + '\')">' +
         '<div class="row1"><span class="pno serif">' + esc(r.name) + '</span><span style="flex:1"></span><span class="badge ' + (r.closed ? 'closed">已結單' : 'open">登記中') + '</span></div>' +
-        '<div class="dates">' + t.cnt + ' 人・' + t.pieces + ' 片</div>' +
+        '<div class="dates">' + (r.kind === 'mat' ? '🎨 油畫材料・' : '🖼 畫布・') + t.cnt + ' 人・' + t.pieces + (r.kind === 'mat' ? ' 件' : ' 片') + '</div>' +
         '<div class="smear-wrap"><div class="smear-label"><span>全收 <b>' + t.full + '</b> / ' + t.cnt + ' 人</span><span>已收 <b>' + money(t.paid) + '</b> / ' + money(t.due) + '</span></div><div class="smear"><i style="width:' + pct + '%"></i></div></div></div>';
     });
   } catch (e) { h = '<div class="topbar"><button class="iconbtn" onclick="renderHome()">←</button><h1>🛒 團購收款</h1></div><div class="hint" style="color:var(--red)">讀取失敗:' + esc((e && e.message) || e) + '</div>'; }
@@ -4527,17 +4527,27 @@ async function renderGroupList() {
 }
 function gbNewDialog() {
   var n = G.rounds.length + 1;
-  openDialog('<h2>開新一批團購</h2><div class="field"><label>名稱</label><input type="text" id="gbName" value="第 ' + n + ' 次團購"></div>' +
-    '<div class="hint">單價會沿用上一批,之後可以在這批裡修改。開好會給你網址和 QR 貼給同學。</div>' +
+  /* 團購種類(先生 11/15):畫布 / 油畫材料及顏料,和團購頁同一個 kind 欄位 */
+  window.GB_KIND = 'canvas';
+  openDialog('<h2>開新一批團購</h2>' +
+    '<div style="font-weight:700;margin:0 0 6px">這一批要團購什麼?</div>' +
+    '<div style="display:flex;flex-direction:column;gap:8px;margin:0 0 12px"><button type="button" id="gbK_canvas" class="pay on" style="width:100%;flex:none" onclick="gbPickKind(\'canvas\',' + n + ')">🖼 畫布</button>' +
+    '<button type="button" id="gbK_mat" class="pay" style="width:100%;flex:none" onclick="gbPickKind(\'mat\',' + n + ')">🎨 油畫材料及顏料</button></div>' +
+    '<div class="field"><label>名稱</label><input type="text" id="gbName" value="第 ' + n + ' 次團購"></div>' +
+    '<div class="hint" id="gbKindHint">單價會沿用上一批畫布團,之後可以在這批裡修改。開好會給你網址和 QR 貼給同學。</div>' +
     '<div class="actions"><button class="cancel" onclick="closeDialog()">取消</button><button class="ok" id="gbMk" onclick="gbNewRound()">開始</button></div>');
 }
 async function gbNewRound() {
   var name = ($('gbName').value || '').trim(); if (!name) { toast('先填名稱'); return; }
   $('gbMk').disabled = true;
   try {
-    var last = G.rounds[G.rounds.length - 1], prices = last ? JSON.parse(JSON.stringify(last.prices)) : JSON.parse(JSON.stringify(GB_SIZES_));
+    var mat = window.GB_KIND === 'mat';
+    var same = G.rounds.filter(function (r) { return (r.kind === 'mat') === mat; });
+    var last = same[same.length - 1], prices = last ? JSON.parse(JSON.stringify(last.prices || {})) : (mat ? {} : JSON.parse(JSON.stringify(GB_SIZES_)));
     var ref = gbRoundsCol_().doc();
-    await feeBatch_(function (b) { b.set(ref, { name: name, prices: prices, closed: false, created: Date.now() }); });
+    var doc = { name: name, prices: prices, closed: false, created: Date.now() };
+    if (mat) doc.kind = 'mat';
+    await feeBatch_(function (b) { b.set(ref, doc); });
     closeDialog(); G.justCreated = ref.id; await gbLoadRounds_(); renderGroupRound(ref.id);
   } catch (e) { $('gbMk').disabled = false; toast('沒成功:' + ((e && e.message) || e)); }
 }
@@ -4585,6 +4595,13 @@ function gbDrawRound_() {
     '<button class="bigbtn ghost" onclick="gbExportCsv()">⬇ 下載 CSV 檔</button></div>';
   h += '<button class="bigbtn ghost" style="margin-top:14px" onclick="gbCopyRemind()">📋 複製「收款提醒」文字</button>';
   h += '<button class="bigbtn ghost" onclick="gbToggleClosed()">' + (r.closed ? '🔓 重新開放登記' : '🔒 結單(同學不能再改)') + '</button>';
+  /* 這批的設定(先生 11/15:開錯了要能改/刪):改名、改種類(還沒人登記才能改)、刪除=封存藏起來 */
+  h += '<details class="card" style="margin-top:14px"><summary style="font-weight:700;cursor:pointer">⚙️ 這一批的設定(改名/改種類/刪除)</summary><div style="margin-top:10px">' +
+    '<div style="margin:0 0 10px">種類:<b>' + (r.kind === 'mat' ? '🎨 油畫材料及顏料' : '🖼 畫布') + '</b></div>' +
+    '<button class="bigbtn ghost" style="margin-bottom:8px" onclick="gbRenameRound()">✏️ 改這一批的名稱</button>' +
+    (G.orders.length ? '<div class="hint" style="margin:0 0 8px">已經有同學登記,不能改種類。</div>' :
+      '<button class="bigbtn ghost" style="margin-bottom:8px" onclick="gbSwitchKind()">🔁 改成「' + (r.kind === 'mat' ? '畫布' : '油畫材料及顏料') + '」團購</button>') +
+    '<button class="bigbtn ghost" style="color:var(--red);border-color:var(--red)" onclick="gbArchiveRound()">🗑 刪除這一批</button></div></details>';
   $('view').innerHTML = h;
   shareBlock_($('gbShare'), '貼到 LINE 給同學', gbLink_(r.id), true);
   window.G_LIST = t.list;
@@ -4633,6 +4650,36 @@ async function gbSetShip(v) {
 async function gbSetQuoting(on) {
   var r = gbRound_();
   try { await feeBatch_(function (b) { b.update(gbRoundsCol_().doc(r.id), { quoting: !!on }); }); r.quoting = !!on; gbDrawRound_(); toast(on ? '已開啟報價中' : '已關閉報價中'); } catch (e) { toast('沒存成:' + ((e && e.message) || e)); gbDrawRound_(); }
+}
+function gbPickKind(k, n) {
+  window.GB_KIND = k;
+  $('gbK_canvas').className = 'pay' + (k === 'canvas' ? ' on' : ''); $('gbK_mat').className = 'pay' + (k === 'mat' ? ' on' : '');
+  var nm = $('gbName'), d1 = '第 ' + n + ' 次團購', d2 = '第 ' + n + ' 次團購(油畫材料)';
+  if (nm.value === d1 || nm.value === d2) nm.value = k === 'mat' ? d2 : d1;
+  $('gbKindHint').textContent = k === 'mat'
+    ? '同學可以自己打品名(例如:鈦白 200ml);你拿到報價再填單價。開好會給你網址和 QR 貼給同學。'
+    : '單價會沿用上一批畫布團,之後可以在這批裡修改。開好會給你網址和 QR 貼給同學。';
+}
+async function gbRenameRound() {
+  var r = gbRound_(), to = prompt('這一批的新名稱:', r.name);
+  if (to == null) return; to = to.trim().slice(0, 60); if (!to || to === r.name) return;
+  try { await feeBatch_(function (b) { b.update(gbRoundsCol_().doc(r.id), { name: to }); }); r.name = to; gbDrawRound_(); toast('已改名 ✓'); } catch (e) { toast('沒成功:' + ((e && e.message) || e)); }
+}
+async function gbSwitchKind() {
+  var r = gbRound_(); if (G.orders.length) { toast('已經有人登記,不能改種類'); return; }
+  var toMat = r.kind !== 'mat';
+  if (!confirm('把「' + r.name + '」改成' + (toMat ? '「油畫材料及顏料」' : '「畫布」') + '團購?' + (toMat ? '\n原本的畫布尺寸單價會清掉,同學可以自己打品名。' : '\n會換回畫布尺寸,單價沿用上一批畫布團。'))) return;
+  var prev = G.rounds.filter(function (x) { return x.id !== r.id && (x.kind === 'mat') === toMat; }).pop();
+  var prices = toMat ? {} : (prev ? JSON.parse(JSON.stringify(prev.prices || {})) : JSON.parse(JSON.stringify(GB_SIZES_)));
+  try {
+    await feeBatch_(function (b) { b.update(gbRoundsCol_().doc(r.id), { kind: toMat ? 'mat' : 'canvas', prices: prices }); });
+    r.kind = toMat ? 'mat' : 'canvas'; r.prices = prices; gbDrawRound_(); toast('已改成' + (toMat ? '油畫材料' : '畫布') + '團購 ✓');
+  } catch (e) { toast('沒成功:' + ((e && e.message) || e)); }
+}
+async function gbArchiveRound() {
+  var r = gbRound_();
+  if (!confirm('刪除「' + r.name + '」這一批?' + (G.orders.length ? '\n已經有 ' + G.orders.length + ' 筆同學登記,會一起從清單消失。' : '') + '\n(同學的連結也會打不開這批)')) return;
+  try { await feeBatch_(function (b) { b.update(gbRoundsCol_().doc(r.id), { archived: true }); }); gbUnwatch_(); await gbLoadRounds_(); renderGroupList(); toast('已刪除'); } catch (e) { toast('沒成功:' + ((e && e.message) || e)); }
 }
 async function gbToggleClosed() {
   var r = gbRound_();
