@@ -194,8 +194,8 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
         <div class="full" id="matPick" hidden><div id="matCards"></div>
           <div id="rbBox" style="margin-top:12px"><label>🎨 林布蘭油畫顏料(121 色):打色號或顏色找
             <input id="rbQ" inputmode="search" autocomplete="off" maxlength="30" placeholder="例如:105、white、titan、鈦白"></label>
+            <div class="hint" id="rbHint" style="margin-top:4px">打色號/顏色找,或點下面「全部」/色系展開(再點一次收起)。點顏色後面的 40ml 或 150ml,品名會自動填好,再按下面的加入。</div>
             <div class="rbChips" id="rbChips"></div>
-            <div class="hint" id="rbHint" style="margin-top:4px">打色號/顏色找,或點上面「全部」/色系展開(再點一次收起)。點顏色後面的 40ml 或 150ml,品名會自動填好,再按下面的加入。</div>
             <div id="rbList"></div></div>
           <label id="matInBox" style="margin-top:10px">清單裡沒有?自己打品名
             <input id="matIn" maxlength="30" autocomplete="off" placeholder="例如:林布蘭 鈦白 40ml">
@@ -3145,7 +3145,7 @@ const RB=[["104","鋅白","Zinc white","f2f4f3",1],["117","鋅白(亞麻仁油)"
 const RB_FAM=[['','全部','conic-gradient(#f2f4f3,#fded01,#ea3e3e,#0f4c9c,#00a359,#6f4837,#02191f)'],['1','白','#f1f2f4'],['2','黃橙','#fccc50'],['3','紅','#ea3e3e'],['4','棕','#6f4837'],['5','藍紫','#0f4c9c'],['6','綠','#00a359'],['7','灰黑','#4c5f65'],['8','金屬','#deab5c']];
 let rbFam=null; /* null=收起(預設只搜尋);''=全開;'1'~'8'=色系。再點一次同一顆=收起 */
 function rbChipsDraw(){$('rbChips').innerHTML=RB_FAM.map(f=>`<button type="button" data-fam="${f[0]}" class="${f[0]===rbFam?'on':''}"><i style="background:${f[2]}"></i>${f[1]}${f[0]?'':' '+RB.length+' 色'}</button>`).join('')}
-$('rbChips').onclick=e=>{const b=e.target.closest('button[data-fam]');if(!b)return;rbFam=(rbFam===b.dataset.fam)?null:b.dataset.fam;$('rbQ').value='';rbChipsDraw();rbDraw();$('rbList').scrollTop=0};
+$('rbChips').onclick=e=>{const b=e.target.closest('button[data-fam]');if(!b)return;rbFam=(rbFam===b.dataset.fam)?null:b.dataset.fam;$('rbQ').value='';rbChipsDraw();rbDraw();$('rbList').scrollTop=0;/* 11/16 先生:字型大的手機,清單在畫面外像沒反應 → 展開時捲到清單 */if(rbFam!==null)setTimeout(()=>{const r=$('rbChips').getBoundingClientRect();if(r.bottom>innerHeight*0.45)$('rbChips').scrollIntoView({behavior:'smooth',block:'start'})},30)};
 function rbDraw(){
   const q=$('rbQ').value.trim().toLowerCase(),box=$('rbList');
   if(!q&&rbFam===null){box.innerHTML='';return}
