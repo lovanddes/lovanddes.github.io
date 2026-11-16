@@ -3135,7 +3135,7 @@ function drawMatPick(r){
   const box=$('matPick');if(!box)return;box.hidden=!isMat(r);if(!isMat(r))return;
   const labels=Array.from($('size').options).map(o=>o.value),cur=$('size').value,dis=$('size').disabled?' disabled':'',quo=isQuoting(r),typed=$('matIn').value.trim();
   $('matInBox').hidden=false;
-  $('matCards').innerHTML=(labels.length?'<div class="szLegend">點一下選品項</div>':'')+'<div class="szCards">'+labels.map(l=>`<button type="button" class="szCard${l===cur&&!typed?' on':''}" data-m="${esc(l)}"${dis}><span class="szTxt"><b style="font-size:25px;overflow-wrap:anywhere">${esc(l)}</b></span><span class="szPrice">${price(r,l)?$$(price(r,l)):'報價中'}</span></button>`).join('')+'</div>';
+  $('matCards').innerHTML=(labels.length?'<div class="szLegend">點一下選品項</div>':'')+'<div class="szCards">'+labels.map(l=>`<button type="button" class="szCard${l===cur&&!typed?' on':''}" data-m="${esc(l)}"${dis}><span class="szTxt"><b style="font-size:25px;overflow-wrap:anywhere">${esc(l)}</b>${rbZhOf(l)?`<small style="display:block;font-size:23px;font-weight:700;margin-top:2px;color:inherit">${esc(rbZhOf(l))}</small>`:''}</span><span class="szPrice">${price(r,l)?$$(price(r,l)):'報價中'}</span></button>`).join('')+'</div>';
 }
 $('matCards').onclick=e=>{const b=e.target.closest('button[data-m]');if(!b||b.disabled)return;$('size').value=b.dataset.m;$('matIn').value='';drawMatPick(R())};
 $('matIn').oninput=()=>drawMatPick(R());
@@ -3171,6 +3171,8 @@ function rbSearch(q){
   let r=RB_IX.map(x=>[x.c,sc(x)]).filter(a=>a[1]>0);
   if(!r.length&&toks.length>1)r=RB_IX.map(x=>[x.c,toks.reduce((s,t)=>s+rbTok(x,t),0)]).filter(a=>a[1]>0);
   return r.sort((a,b)=>b[1]-a[1]).map(a=>a[0])}
+/* 11/16 先生:品項卡片只剩英文 → 用色號查回中文名,另起一行顯示(品名本身不改,訂單/單價鍵照舊) */
+function rbZhOf(l){try{const m=String(l).match(/(?:^|林布蘭\s*)(\d{3})\s/);if(!m)return '';const c=RB.find(x=>x[0]===m[1]);if(!c)return '';const k=c[2].toLowerCase().replace(/[^a-z]/g,'').slice(0,5);return String(l).toLowerCase().replace(/[^a-z]/g,'').includes(k)?c[1]:''}catch(e){return ''}}
 function rbName(c,ml){const L=30,en=c[2];for(const s of [`林布蘭 ${c[0]} ${en} ${ml}`,`林布蘭${c[0]} ${en} ${ml}`,`${c[0]} ${en} ${ml}`,`${c[0]} ${en.replace(/\s*\(/,'(').replace(/\.\s+/g,'.')} ${ml}`])if(s.length<=L)return s;return `${c[0]} ${en}`.slice(0,L-ml.length-1)+' '+ml}
 $('rbQ').oninput=()=>{if($('rbQ').value.trim()&&rbFam!==null){rbFam=null;rbChipsDraw()}rbDraw()};
 rbChipsDraw();rbDraw();
