@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 59,
-    "versionName": "1.1.56",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.56.apk",
-    "sha256": "6bf44d07afc6d957cc380fb81f00e0c6d0ca96f4e33a268cc3f4768a9b8adf73",
-    "notes": "修強制轉註記:紀念日不會再被寫成生日,親屬會寫明是配偶、母親等關係\n強制轉時公司部門、地址的城市與郵遞區號也一起存進備份\n通話紀錄的轉註記說明改成「先不轉,結果畫面可以勾選強制轉」",
-    "date": "2026-11-15"
+    "versionCode": 60,
+    "versionName": "1.1.57",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.57.apk",
+    "sha256": "efb52a34e3c49546134bab1b570d8b600e410b86e02aefe042e27331d024cc8c",
+    "notes": "企業客服電話簿:銀行、郵局、電信、物流、電商、超商、健保署共 57 支客服號碼,每支都對照過官網\n企業客服打來時,會多一行黃字提醒「來電顯示可能被偽造,請掛斷自己回撥」\n陌生號碼的通話紀錄多一顆「上網查」按鈕",
+    "date": "2026-11-17"
   }
 }
