@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 60,
-    "versionName": "1.1.57",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.57.apk",
-    "sha256": "efb52a34e3c49546134bab1b570d8b600e410b86e02aefe042e27331d024cc8c",
-    "notes": "企業客服電話簿:銀行、郵局、電信、物流、電商、超商、健保署共 57 支客服號碼,每支都對照過官網\n企業客服打來時,會多一行黃字提醒「來電顯示可能被偽造,請掛斷自己回撥」\n陌生號碼的通話紀錄多一顆「上網查」按鈕",
+    "versionCode": 61,
+    "versionName": "1.1.58",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.58.apk",
+    "sha256": "c735780d8faff62c5c094965a4ef9a92438e8660ddcf7dd7bec1ed1e1c44714e",
+    "notes": "通話中「聲音從哪裡出來」的選單改成大卡片:聽筒、擴音、藍牙各一張,有圖示\n正在使用的那個會框綠框、寫「使用中」",
     "date": "2026-11-17"
   }
 }
