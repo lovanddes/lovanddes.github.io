@@ -1,93 +1,93 @@
 {
- "date": "2026-11-15",
- "one_line": "AI代理商務與支付標準全面落地，老舊航管基建與公衛賭局浮現治理隱憂。",
+ "date": "2026-11-18",
+ "one_line": "今日全球聚焦美對外晶片新管制與北美公衛退步，金融與科技波瀾不斷。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "AI代理協議Poppy 1.0登場",
+     "title": "美管封堵海外資料中心AI算力漏洞",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "企業AI新創Sierra正式發表「個人代理協議」1.0版（代號Poppy），為各家AI代理人制定與電商網站互動的標準通訊規範。知名電商平台Shopify已向旗下所有商家全面預設啟用該協議，Meta新推出的Muse AI代理人也宣布在造訪網站時優先調用此標準。土耳其航空與Mercury等跨國企業亦同步完成部署，允許使用者的AI代為比價甚至申請升等。"
+       "text": "美國工業和安全局（BIS）發布最新管制規則，擴大審查在海外向受限地區提供大算力租賃的資料中心，並對另外五國出貨的高階晶片新增許可要求。此舉旨在防止特定地區開發者透過遠端租用海外雲端算力規避美方出口禁令。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "過去個人AI幫忙網購時容易被網站當作惡意爬蟲封鎖，或產生帳密外洩風險；這個標準確立後，一般人讓AI跑腿訂票或採買將變得普遍且安全，台灣跨境電商業者也需儘早跟進支援。"
+       "text": "台灣作為全球AI硬體與伺服器製造重鎮，海外資料中心合規審查變嚴將直接影響伺服器出貨與雲端夥伴的接單合規流程。"
       }
      ],
      "sources": [
-      "https://tldr.tech/story/45b3c6ea-dfa1-4e46-953a-79d8483d1930",
-      "https://www.youtube.com/watch?v=UQmu9y1g-fA"
+      "https://medium.com/ai-briefing-room/most-significant-ai-news-post-of-the-day-17-november-2026-4235c34d9b19",
+      "https://news.abs-cbn.com/news/technology/2026/11/18/websites-including-bbc-ikea-and-air-france-hit-by-attack-report-0639"
      ]
     },
     {
-     "title": "OpenAI推代理人錢包代刷結帳",
+     "title": "全球近百二大網站遭駭竄改程式碼",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "OpenAI正式向美國部分ChatGPT Pro用戶釋出「ChatGPT Wallet」功能，允許名為dots的AI代理人代替使用者直接完成線上消費結帳。該系統與Visa、Mastercard及美國運通合作，交易時會自動產生虛擬替代代碼（payment token）扣款，因此AI本身與商家都不會經手或看見用戶的真實信用卡號。使用者只需在AI挑選完商品後，透過裝置上的Face ID或指紋辨識確認總金額即可放行。"
+       "text": "數位優化平台Optimizely遭駭客注入惡意JavaScript程式碼，導致全球近178個大型網站受害，包括BBC、IKEA、法航與Zoom等。駭客意圖攔截使用者信用卡號、加密貨幣錢包，並向蘋果設備植入漏洞利用套件。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這象徵AI應用正式從純文字對話推進到「自主代付」的代理人商務時代；未來日常網購與訂房將大幅簡化，但個人消費防線與生物辨識授權的習慣也必須隨之調整。"
+       "text": "即使造訪知名的大型企業官網，第三方軟體組件也可能帶來資安風險，提醒一般使用者與企業對網頁輸入敏感資訊保持警覺。"
       }
      ],
      "sources": [
-      "https://www.youtube.com/watch?v=EJyDl4-I4XE",
-      "https://www.pcmag.com/news/trust-chatgpt-with-your-payments-openai-rolls-out-chatgpt-wallet"
+      "https://news.abs-cbn.com/news/technology/2026/11/18/websites-including-bbc-ikea-and-air-france-hit-by-attack-report-0639",
+      "https://techcrunch.com/2026/11/17/as-decision-model-use-skyrockets-is-customization-is-the-next-frontier/"
      ]
     },
     {
-     "title": "Gemini串接谷歌錢包理財分析",
+     "title": "微軟發布決策模型加速企業自動化",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "Google針對美國Gemini用戶推出Google Wallet深度整合功能，並支援透過金融中介平台Plaid串接外部銀行與信用卡帳戶。Gemini能直接讀取消費歷史數據，在聊天室中即時產出現金流圖表、揪出被悄悄調漲的各類訂閱服務，並依往年花費建議節慶預算。官方強調此整合為純讀取權限，Gemini無權擅自調動或轉移帳戶資金。"
+       "text": "微軟在Azure雲端平台全面上線全新決策模型Microsoft-Decision-1.1。這類模型不同於傳統生成式AI，不輸出長篇文字，而是專注於快速、低成本地在預設選項中作出決策並標示信心指數。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "個人財務管理正在走向「問一句就自動對帳」的對話式理財；日常零散的串流訂閱和隱形開銷將能被AI自動清查，省去人工逐筆對帳的繁瑣時間。"
+       "text": "企業不需要每次都呼叫高成本的大型語言模型，透過專用決策模型即可大幅降低營運成本並提升高頻業務的反應速度。"
       }
      ],
      "sources": [
-      "https://www.youtube.com/shorts/4QVcFOxpM14?cbrd=1&ucbcb=1",
-      "https://ground.news/article/googles-gemini-can-now-read-your-google-wallet-to-help-you-budget"
+      "https://techcrunch.com/2026/11/17/as-decision-model-use-skyrockets-is-customization-is-the-next-frontier/",
+      "https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/"
      ]
     },
     {
-     "title": "Cornelis推800G網卡抗輝達",
+     "title": "印度晶片新創獲資攻AI影像感測",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "從英特爾獨立出來的晶片架構商Cornelis Networks發表了名為CN6000的800G網路卡與交換器產品線，全力瞄準大型AI運算叢集。該方案承襲Omni-Path架構技術，官方數據顯示每秒可處理高達16億條訊息，在小型封包傳輸時速度比輝達的InfiniBand快約21%。新硬體預計將於2027年初正式出貨給伺服器合作夥伴。"
+       "text": "印度半導體新創Bharat Semi完成2400萬美元種子輪融資，專注開發整合影像捕捉與AI計算的感測器晶片。該公司宣稱單晶片設計可減少資料傳輸，比傳統架構降低至少70%系統成本，並已取得美國國防廠商設計訂單。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "當前AI伺服器擴充常受限於網路晶片的通訊瓶頸與高昂綁定成本；市場出現能正面抗衡輝達專利網路規格的替代品，將加速整體算力中心建置成本的下降。"
+       "text": "印度正積極建立本土半導體產業鏈，這顯示終端AI（Edge AI）專用晶片正成為全球供應鏈去中心化的新戰場。"
       }
      ],
      "sources": [
-      "https://daily.dev/posts/cornelis-launches-cn6000-800g-networking-to-rival-nvidia-infiniband-ehr8r6kiv",
-      "https://thenextweb.com/news/cornelis-cn6000-800g-networking-ai-supercomputers"
+      "https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/",
+      "https://techcrunch.com/2026/11/16/tesla-goes-all-in-on-the-cybercab-with-upcoming-e3b-berlin-gigafactory-expansion/"
      ]
     },
     {
-     "title": "AI算力商直接買下天然氣田自建電廠",
+     "title": "特斯拉砸巨資擴建柏林廠產無人車",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "在美國那斯達克掛牌的GridAI Technologies宣布達成全股票併購協議，正式買下懷俄明州天然氣開採商Pronghorn Resources。GridAI計畫直接在天然氣產區興建自營燃氣發電廠，目標在2027年起為旗下專屬AI資料中心供應300百萬瓦（MW）的獨立電力。"
+       "text": "特斯拉宣布將投資30億歐元擴建德國柏林超級工廠，預計2029年開始量產雙座無人駕駛計程車Cybercab。該擴建計畫目標年產能達100萬輛，將成為特斯拉技術最先進的生產基地。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "公共電網容量吃緊與排隊審批延宕，迫使AI基建公司跳過電力公司、自購化石燃料「產電算力一體化」；這股趨勢將進一步加劇全球科技產業在減碳承諾與運算需求之間的兩難衝突。"
+       "text": "這代表特斯拉將營運重心徹底轉向AI與機器人產業，自動駕駛商業化的量產進程正式步入實質建廠階段。"
       }
      ],
      "sources": [
-      "https://thenextweb.com/news/gridai-pronghorn-wyoming-gas-ai-data-centre-power",
-      "https://duffsloft.com/"
+      "https://techcrunch.com/2026/11/16/tesla-goes-all-in-on-the-cybercab-with-upcoming-e3b-berlin-gigafactory-expansion/",
+      "https://apnews.com/article/colby-ukraine-deep-long-nato-strikes-starshield-e570c549277a14f97ad24319f2f1bf7e"
      ]
     }
    ]
@@ -96,52 +96,54 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "軟體更新搞砸 FAA全美停飛四小時",
+     "title": "美警告烏克蘭深打俄境內具反效果",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國聯邦航空總署（FAA）於11月13日下午因航管通訊系統嚴重故障，對全美發布長達逾四小時的地面停飛令（ground stop），造成近5,000班航班取消、逾萬架次延誤，影響約150萬名旅客。官方與FBI調查初步排除網路攻擊，證實問題出在專用通訊網路進行軟體更新時觸發重開機，導致大量數據瞬間淹沒建於1980年代的老舊銅線網路與路由器。"
+       "text": "美國國防部官員在布魯塞爾NATO會議上指出，烏方深入俄羅斯境內的遠程打擊效果有限，反而激化俄國社會對抗意志，敦促盟友將軍援聚焦於前線裝備。德方則當面駁斥美方主張。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這起事故暴露了美國民航骨幹仍高度仰賴數十年前過時硬體的致命缺陷；接下來數月美國國會必將啟動聽證並追加龐大基建預算，赴美商務出差的航班調度短期內也仍面臨連鎖延誤風險。"
+       "text": "美歐對烏克蘭戰略方向的分歧公開化，將直接影響接下來數月西方對烏軍援的項目分配與地緣政治走向。"
       }
      ],
      "sources": [
-      "https://www.securityweek.com/no-signs-of-hacking-in-faa-ground-stop-as-fbi-reportedly-probes-software-update/",
-      "https://emeraldbook.org/news/nov-1326-3/"
+      "https://apnews.com/article/colby-ukraine-deep-long-nato-strikes-starshield-e570c549277a14f97ad24319f2f1bf7e",
+      "https://www.newindianexpress.com/india/2026/Nov/17/us-defence-official-criticises-ukraines-deep-strikes-on-russia-says-they-harden-resolve-to-escalate"
      ]
     },
     {
-     "title": "澤倫斯基示警美倡議之歐洲新架構",
+     "title": "美墨正式喪失麻疹消除國認證",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "烏克蘭總統澤倫斯基接受外電訪問時透露，美國特使團在穿梭斡旋停戰過程中，提出了建立戰後「歐洲新安全架構」的構想。澤倫斯基嚴正警告，若美方在談判中把焦點轉向重新討論歐洲整體防衛安排甚至詢問領土退讓，極可能被俄羅斯利用來弱化北約並合法化強改邊界。他強調任何協議必須以停火、終戰及對烏克蘭明確的安全保障為絕對優先前提。"
+       "text": "泛美衛生組織於11月17日正式宣布，由於疫苗接種率下滑導致疫情持續傳播超過一年，美國與墨西哥已正式失去麻疹消除國的公衛認證。這是美洲近三十年最嚴重的公衛倒退，甚至出現罕見的新生兒先天性麻疹病例。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這顯示美烏雙方在終戰路線與談判條件上浮現重大分歧；大國若私下試圖重構歐洲安全版圖，將直接影響歐洲盟友未來的防務預算、地緣局勢以及全球對安全保證的信任度。"
+       "text": "疫苗猶豫導致傳染病復甦，全球供應鏈與國際商務往來的公衛檢疫風險與成本未來數月恐顯著增加。"
       }
      ],
      "sources": [
-      "https://www.channel8.com/english/news/1605b0b7-7629-4511-a78a-a193007f3374"
+      "https://www.krgv.com/news/measles-is-no-longer-considered-eliminated-in-the-us-and-mexico/",
+      "https://www.pbs.org/newshour/health/doctors-are-raising-concerns-about-u-s-babies-born-with-measles"
      ]
     },
     {
-     "title": "美預測市場開賭公衛疫苗引發倫理反彈",
+     "title": "摩根大通硬體異常致全美交易延遲",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "Polymarket與Kalshi等受歡迎的線上預測市場平台，近期將下注標的擴大至公共衛生與醫療領域，甚至在紐約市小學周邊刊登宣傳廣告。用戶如今可直接就「FDA何時核准特定皮膚癌疫苗」、「CDC是否修改疫苗建議」或「全美麻疹確診數」等議題下注押錢。公衛專家痛批此類合約缺乏實質金融監管，恐誘發為了贏得賭金而刻意散播假訊息、操縱臨床試驗輿論的道德危機。"
+       "text": "美國最大銀行摩根大通因本地硬體系統軟體出錯，導致部分客戶交易處理時間拉長，並波及包含美國銀行、富國銀行等其他金融機構的跨行轉帳與Zelle服務。摩根大通隨後證實並非駭客攻擊，系統已恢復正常。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "金融投機一旦侵入醫療審查與公共衛生政策，一般人的醫療信任可能遭到投機資金扭曲；這將迫使美國監管機關在接下來數月迅速祭出跨部會規範。"
+       "text": "凸顯大型金融機構基礎設施若出現技術障礙，將快速擴散至整體支付網絡，影響一般民眾與跨國商業結算效率。"
       }
      ],
      "sources": [
-      "https://www.theguardian.com/world/2026/nov/14/measles-kalshi-polymarket-betting"
+      "https://timesofindia.indiatimes.com/technology/tech-news/americas-biggest-bank-jpmorgan-reveals-software-bug-behind-us-bank-transaction-delays-rules-out-cyberattack/articleshow/135907674.cms",
+      "https://www.theguardian.com/business/2026/nov/16/us-bank-outage-chase-wells-fargo"
      ]
     }
    ]
