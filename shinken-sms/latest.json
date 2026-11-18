@@ -2,11 +2,11 @@
   "format": "shinken-sms-update",
   "version": 1,
   "android": {
-    "versionCode": 6,
-    "versionName": "0.1.5",
-    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.5.apk",
-    "sha256": "eda0a1620722c61da02e44259bcc6d482bfc1d0d026f54a94e8b7f7b759bb94f",
-    "notes": "簡訊裡的網址如果在 165 公告的詐騙網站名單(約 9.7 萬個網站)裡,會直接標成危險並提醒\n就算是通訊錄裡的人傳來的,只要網址在名單上也一樣會提醒",
+    "versionCode": 7,
+    "versionName": "0.1.6",
+    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.6.apk",
+    "sha256": "3847f441b4a3a8255b24a53ef4a9b9b7727be75bb6f368fc55210f9a619a8df7",
+    "notes": "設定裡「分享給朋友」下面多一顆「給朋友掃 QR 碼」\n按下去會秀出下載頁的 QR 碼，旁邊的人用手機相機一掃就能下載",
     "date": "2026-11-18"
   }
 }
