@@ -2,11 +2,11 @@
   "format": "shinken-sms-update",
   "version": 1,
   "android": {
-    "versionCode": 5,
-    "versionName": "0.1.4",
-    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.4.apk",
-    "sha256": "7c7351383e6f7063eef50a8b77cfa2e74471a8573ac640851089cd2f68d2a7c8",
-    "notes": "對話列表:置頂的對話改用圖釘標示\n未讀改成紅色圓點,多封未讀會顯示數量,都放在號碼後面",
-    "date": "2026-11-14"
+    "versionCode": 6,
+    "versionName": "0.1.5",
+    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.5.apk",
+    "sha256": "eda0a1620722c61da02e44259bcc6d482bfc1d0d026f54a94e8b7f7b759bb94f",
+    "notes": "簡訊裡的網址如果在 165 公告的詐騙網站名單(約 9.7 萬個網站)裡,會直接標成危險並提醒\n就算是通訊錄裡的人傳來的,只要網址在名單上也一樣會提醒",
+    "date": "2026-11-18"
   }
 }
