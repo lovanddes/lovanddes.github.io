@@ -1,93 +1,93 @@
 {
- "date": "2026-11-18",
- "one_line": "今日全球聚焦美對外晶片新管制與北美公衛退步，金融與科技波瀾不斷。",
+ "date": "2026-11-19",
+ "one_line": "美中俄峰會交鋒牽動地緣，科技巨頭則在先進封裝與後量子資安加速築牆。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "美管封堵海外資料中心AI算力漏洞",
+     "title": "Anthropic傳IPO定價83美元",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國工業和安全局（BIS）發布最新管制規則，擴大審查在海外向受限地區提供大算力租賃的資料中心，並對另外五國出貨的高階晶片新增許可要求。此舉旨在防止特定地區開發者透過遠端租用海外雲端算力規避美方出口禁令。"
+       "text": "據科技媒體報導，人工智慧新創 Anthropic 已將備受矚目的首次公開募股（IPO）定價敲定在每股 83 美元，超越先前預期的 70 至 78 美元區間。市場對這家開發 Claude 模型的重量級業者認購意願極高，成功擺脫了近期科技硬體板塊震盪的陰霾。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "台灣作為全球AI硬體與伺服器製造重鎮，海外資料中心合規審查變嚴將直接影響伺服器出貨與雲端夥伴的接單合規流程。"
+       "text": "Anthropic 是全球最頂尖的大語言模型業者之一，其掛牌表現將成為全球資本市場衡量 AI 商業化獲利能力的關鍵晴雨表。"
       }
      ],
      "sources": [
-      "https://medium.com/ai-briefing-room/most-significant-ai-news-post-of-the-day-17-november-2026-4235c34d9b19",
-      "https://news.abs-cbn.com/news/technology/2026/11/18/websites-including-bbc-ikea-and-air-france-hit-by-attack-report-0639"
+      "https://www.961developments.com/news",
+      "https://www.intel.com/content/www/us/en/newsroom/news/corporate/microsoft-azure-infrastructure-collaboration.html"
      ]
     },
     {
-     "title": "全球近百二大網站遭駭竄改程式碼",
+     "title": "微軟自研晶片採英特爾EMIB封裝",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "數位優化平台Optimizely遭駭客注入惡意JavaScript程式碼，導致全球近178個大型網站受害，包括BBC、IKEA、法航與Zoom等。駭客意圖攔截使用者信用卡號、加密貨幣錢包，並向蘋果設備植入漏洞利用套件。"
+       "text": "微軟與英特爾宣布深化長期合作，微軟正式成為首家在 Azure 雲端自研晶片上採用英特爾晶圓代工 EMIB 先進封裝技術的客戶。雙方同時敲定次世代 Xeon 伺服器處理器（代號 Diamond Rapids）的長期採購與記憶體效能優化協議。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "即使造訪知名的大型企業官網，第三方軟體組件也可能帶來資安風險，提醒一般使用者與企業對網頁輸入敏感資訊保持警覺。"
+       "text": "EMIB 是將多個小晶片水平緊密拼接的高階封裝技術；微軟此舉意味著雲端巨頭正加速分散先進封裝供應鏈，不再單一依賴傳統晶圓代工龍頭。"
       }
      ],
      "sources": [
-      "https://news.abs-cbn.com/news/technology/2026/11/18/websites-including-bbc-ikea-and-air-france-hit-by-attack-report-0639",
-      "https://techcrunch.com/2026/11/17/as-decision-model-use-skyrockets-is-customization-is-the-next-frontier/"
+      "https://www.intel.com/content/www/us/en/newsroom/news/corporate/microsoft-azure-infrastructure-collaboration.html",
+      "https://ground.news/article/exclusive-china-dominates-battery-graphite-but-this-startup-could-break-the-monopoly"
      ]
     },
     {
-     "title": "微軟發布決策模型加速企業自動化",
+     "title": "美新創啟用石墨廠挑戰中國獨占",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "微軟在Azure雲端平台全面上線全新決策模型Microsoft-Decision-1.1。這類模型不同於傳統生成式AI，不輸出長篇文字，而是專注於快速、低成本地在預設選項中作出決策並標示信心指數。"
+       "text": "加州能源材料新創 Molten Industries 宣布在奧克蘭啟用全球首座以天然氣熱裂解生產「電池級石墨」的量產廠，初期年產能約 300 公噸並已獲不具名客戶訂單。該技術標榜比傳統石墨開採及高溫合成更低碳排，旨在為北美電池製造提供在地化料源。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "企業不需要每次都呼叫高成本的大型語言模型，透過專用決策模型即可大幅降低營運成本並提升高頻業務的反應速度。"
+       "text": "目前中國掌控全球絕大部分鋰電池負極石墨供應，西方電動車供應鏈若能成功商業化替代製程，將大幅降低地緣政治供應斷鏈的風險。"
       }
      ],
      "sources": [
-      "https://techcrunch.com/2026/11/17/as-decision-model-use-skyrockets-is-customization-is-the-next-frontier/",
-      "https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/"
+      "https://ground.news/article/exclusive-china-dominates-battery-graphite-but-this-startup-could-break-the-monopoly",
+      "https://www.mastercard.com/global/en/news-and-trends/press/2026/november/quantum-readiness-post-quantum-cybersecurity.html"
      ]
     },
     {
-     "title": "印度晶片新創獲資攻AI影像感測",
+     "title": "萬事達卡開展量子諮詢防解密危機",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "印度半導體新創Bharat Semi完成2400萬美元種子輪融資，專注開發整合影像捕捉與AI計算的感測器晶片。該公司宣稱單晶片設計可減少資料傳輸，比傳統架構降低至少70%系統成本，並已取得美國國防廠商設計訂單。"
+       "text": "萬事達卡（Mastercard）宣布成立「量子顧問業務」並發布防護白皮書，協助金融機構盤點加密架構並規劃遷移至後量子密碼（PQC）標準。該行動旨在應對黑客當前發動「先竊取、日後解密」的策略，即先攔截囤積大量敏感交易資料，等待未來強大量子電腦問世後一次破解。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "印度正積極建立本土半導體產業鏈，這顯示終端AI（Edge AI）專用晶片正成為全球供應鏈去中心化的新戰場。"
+       "text": "量子運算若取得突破將直接衝擊現行金融加密體系，支付巨頭提前佈局，直接關係到全球大眾日常信用卡與數位帳戶的長遠資安。"
       }
      ],
      "sources": [
-      "https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/",
-      "https://techcrunch.com/2026/11/16/tesla-goes-all-in-on-the-cybercab-with-upcoming-e3b-berlin-gigafactory-expansion/"
+      "https://www.mastercard.com/global/en/news-and-trends/press/2026/november/quantum-readiness-post-quantum-cybersecurity.html",
+      "https://techmeme.com/index.html"
      ]
     },
     {
-     "title": "特斯拉砸巨資擴建柏林廠產無人車",
+     "title": "入侵GTA6英駭客遭美判刑六年",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "特斯拉宣布將投資30億歐元擴建德國柏林超級工廠，預計2029年開始量產雙座無人駕駛計程車Cybercab。該擴建計畫目標年產能達100萬輛，將成為特斯拉技術最先進的生產基地。"
+       "text": "美國聯邦法院判處知名駭客組織「散落蜘蛛」（Scattered Spider）的 24 歲英國籍核心成員 Tyler Robert Buchanan 6 年監禁。該駭客涉嫌以簡訊釣魚與偽造 SIM 卡等社交工程手法，入侵包含遊戲《俠盜獵車手 6》發行商 Rockstar 在內的多家企業，並盜取超過 1,160 萬美元的虛擬資產。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這代表特斯拉將營運重心徹底轉向AI與機器人產業，自動駕駛商業化的量產進程正式步入實質建廠階段。"
+       "text": "這起案件顯示跨國執法單位已能有效跨境打擊鎖定科技業的精準社交工程攻擊，對猖獗的勒索與虛擬貨幣竊盜形成實質威懾。"
       }
      ],
      "sources": [
-      "https://techcrunch.com/2026/11/16/tesla-goes-all-in-on-the-cybercab-with-upcoming-e3b-berlin-gigafactory-expansion/",
-      "https://apnews.com/article/colby-ukraine-deep-long-nato-strikes-starshield-e570c549277a14f97ad24319f2f1bf7e"
+      "https://babgond.com/moonmoonSecu_v10/",
+      "https://techmeme.com/index.html"
      ]
     }
    ]
@@ -96,54 +96,53 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "美警告烏克蘭深打俄境內具反效果",
+     "title": "深圳APEC峰會川普普丁將會面",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國國防部官員在布魯塞爾NATO會議上指出，烏方深入俄羅斯境內的遠程打擊效果有限，反而激化俄國社會對抗意志，敦促盟友將軍援聚焦於前線裝備。德方則當面駁斥美方主張。"
+       "text": "於中國深圳舉辦的 APEC 峰會上，中俄領導人公開批評西方保護主義與經濟制裁，而美方官員證實美國總統川普將在峰會期間與俄羅斯總統普丁舉行一對一單獨會談。與此同時，德法英等歐洲主要國家首腦則在柏林展開緊急協商，緊盯大國互動對俄烏局勢的實質影響。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "美歐對烏克蘭戰略方向的分歧公開化，將直接影響接下來數月西方對烏軍援的項目分配與地緣政治走向。"
+       "text": "美中俄領導人在同場國際峰會過招，川普與普丁的直接對談將直接牽動俄烏戰爭終戰走向及接下來幾個月的跨國關稅角力。"
       }
      ],
      "sources": [
-      "https://apnews.com/article/colby-ukraine-deep-long-nato-strikes-starshield-e570c549277a14f97ad24319f2f1bf7e",
-      "https://www.newindianexpress.com/india/2026/Nov/17/us-defence-official-criticises-ukraines-deep-strikes-on-russia-says-they-harden-resolve-to-escalate"
+      "https://edition.cnn.com/2026/11/17/politics/live-news/trump-visit-china-philippines",
+      "https://www.consilium.europa.eu/en/press/press-releases/2026/11/18/grids-package-council-and-parliament-agree-to-streamline-permitting-for-a-faster-clean-energy-transition/"
      ]
     },
     {
-     "title": "美墨正式喪失麻疹消除國認證",
+     "title": "歐盟敲定協議大幅加速電網審批",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "泛美衛生組織於11月17日正式宣布，由於疫苗接種率下滑導致疫情持續傳播超過一年，美國與墨西哥已正式失去麻疹消除國的公衛認證。這是美洲近三十年最嚴重的公衛倒退，甚至出現罕見的新生兒先天性麻疹病例。"
+       "text": "歐洲理事會與歐洲議會達成臨時協議，正式通過「電網套案（Grids package）」，大幅簡化並加快歐洲境內再生能源、輸電網路與大型儲能設施的審批程序。新法規修改了多項能源指令，目標是消除各國行政阻礙，加速電網現代化以確保能源安全與氣候中和。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "疫苗猶豫導致傳染病復甦，全球供應鏈與國際商務往來的公衛檢疫風險與成本未來數月恐顯著增加。"
+       "text": "審批冗長一直是歐洲綠能併網與降電價的最大瓶頸，鬆綁管制將加速數千億歐元電網基建落地，實質降低歐洲製造業營運成本。"
       }
      ],
      "sources": [
-      "https://www.krgv.com/news/measles-is-no-longer-considered-eliminated-in-the-us-and-mexico/",
-      "https://www.pbs.org/newshour/health/doctors-are-raising-concerns-about-u-s-babies-born-with-measles"
+      "https://www.consilium.europa.eu/en/press/press-releases/2026/11/18/grids-package-council-and-parliament-agree-to-streamline-permitting-for-a-faster-clean-energy-transition/",
+      "https://www.pbs.org/newshour/world/muslims-are-projected-to-outnumber-christians-by-2035-as-the-worlds-largest-religion"
      ]
     },
     {
-     "title": "摩根大通硬體異常致全美交易延遲",
+     "title": "皮尤預測穆斯林人口2035超基督",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國最大銀行摩根大通因本地硬體系統軟體出錯，導致部分客戶交易處理時間拉長，並波及包含美國銀行、富國銀行等其他金融機構的跨行轉帳與Zelle服務。摩根大通隨後證實並非駭客攻擊，系統已恢復正常。"
+       "text": "美國皮尤研究中心發布最新人口模型預測，全球伊斯蘭教徒人數預計將在 2035 年達到 25.7 億人，正式超越基督教徒的 25.2 億人，躍居世界第一大宗教。調查指出造成消長的核心因素是生育率差距，穆斯林婦女平均生育率為 3.1 人，遠高於全球平均與其他宗教群體。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "凸顯大型金融機構基礎設施若出現技術障礙，將快速擴散至整體支付網絡，影響一般民眾與跨國商業結算效率。"
+       "text": "全球人口結構與文化板塊的重組將深刻影響未來數十年的全球勞動力分佈、國際移民政策走向及新興消費市場的重心轉移。"
       }
      ],
      "sources": [
-      "https://timesofindia.indiatimes.com/technology/tech-news/americas-biggest-bank-jpmorgan-reveals-software-bug-behind-us-bank-transaction-delays-rules-out-cyberattack/articleshow/135907674.cms",
-      "https://www.theguardian.com/business/2026/nov/16/us-bank-outage-chase-wells-fargo"
+      "https://www.pbs.org/newshour/world/muslims-are-projected-to-outnumber-christians-by-2035-as-the-worlds-largest-religion"
      ]
     }
    ]
