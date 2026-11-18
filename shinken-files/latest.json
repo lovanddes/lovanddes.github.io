@@ -2,11 +2,11 @@
   "format": "shinken-files-update",
   "version": 1,
   "android": {
-    "versionCode": 6,
-    "versionName": "0.1.5",
-    "url": "https://lovanddes.github.io/shinken-files/update/shinken-files-0.1.5.apk",
-    "sha256": "3e2cc25f58a621006b1ccc4015d7d57e9bd338d74ac7481f9e77daa6ba1bf56b",
-    "notes": "設定（右上齒輪）新增「分享給朋友」：一鍵把下載網址用 LINE 等傳給家人朋友",
-    "date": "2026-11-14"
+    "versionCode": 7,
+    "versionName": "0.1.6",
+    "url": "https://lovanddes.github.io/shinken-files/update/shinken-files-0.1.6.apk",
+    "sha256": "9c92731ef3d45dea3fc7951bdbe6ad818286f907323db57b0ee32299069590c4",
+    "notes": "設定裡「分享給朋友」下面多一顆「給朋友掃 QR 碼」\n按下去會秀出下載頁的 QR 碼，旁邊的人用手機相機一掃就能下載",
+    "date": "2026-11-18"
   }
 }
