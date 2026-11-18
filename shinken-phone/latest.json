@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 62,
-    "versionName": "1.1.59",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.59.apk",
-    "sha256": "fe407150f5d4026862d041f5570683a6054dfff92c425be89be617b5d45d6cd4",
-    "notes": "通話中打開數字鍵盤後,下方改成一顆白框大按鈕「⬅ 回通話畫面」,一看就知道按這裡回去\n按手機的返回鍵也會收起鍵盤、回到通話畫面",
+    "versionCode": 63,
+    "versionName": "1.1.60",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.60.apk",
+    "sha256": "85e797e06aaf45573d32baa4b6327b00f5eed5d301d834b8f6383a438d62a0e8",
+    "notes": "設定裡「分享給朋友」下面多一顆「給朋友掃 QR 碼」\n按下去會秀出下載頁的 QR 碼，旁邊的人用手機相機一掃就能下載",
     "date": "2026-11-18"
   }
 }
