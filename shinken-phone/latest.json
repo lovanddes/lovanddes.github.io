@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 61,
-    "versionName": "1.1.58",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.58.apk",
-    "sha256": "c735780d8faff62c5c094965a4ef9a92438e8660ddcf7dd7bec1ed1e1c44714e",
-    "notes": "通話中「聲音從哪裡出來」的選單改成大卡片:聽筒、擴音、藍牙各一張,有圖示\n正在使用的那個會框綠框、寫「使用中」",
-    "date": "2026-11-17"
+    "versionCode": 62,
+    "versionName": "1.1.59",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.59.apk",
+    "sha256": "fe407150f5d4026862d041f5570683a6054dfff92c425be89be617b5d45d6cd4",
+    "notes": "通話中打開數字鍵盤後,下方改成一顆白框大按鈕「⬅ 回通話畫面」,一看就知道按這裡回去\n按手機的返回鍵也會收起鍵盤、回到通話畫面",
+    "date": "2026-11-18"
   }
 }
