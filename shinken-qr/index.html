@@ -1,0 +1,199 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>真劍QR 下載</title><link rel="stylesheet" href="../style.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden}
+body{font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;font-size:19px;max-width:760px;margin:0 auto;padding:24px 16px;line-height:1.75;color:#222;background:#faf8f4;overflow-wrap:break-word}
+h1{font-size:1.6em;margin:0 0 .3em}
+h2{font-size:1.25em;margin-top:1.4em;margin-bottom:.5em;border-left:4px solid #de3e2d;padding-left:8px}
+a{color:#b5301f}
+ul,ol{padding-left:1.3em;margin:.5em 0}
+li{margin:.4em 0}
+.btn{display:block;width:100%;text-align:center;padding:16px;margin:12px 0;border-radius:12px;background:#de3e2d;color:#fff !important;font-size:1.25em;font-weight:bold;text-decoration:none}
+.box{border:1px solid #ccc;border-radius:12px;padding:14px 16px;margin:16px 0;background:#fff}
+.warn{display:none;background:#fff3cd;color:#5a4500;border-radius:12px;padding:12px 16px;margin:12px 0;font-weight:bold}
+.muted{color:#666}
+.share{text-align:center}
+.share svg{width:180px;height:180px;border-radius:8px;max-width:100%;height:auto}
+.url{display:block;word-break:break-all;font-family:monospace;margin:8px 0;font-size:.95em}
+.btn2{font-size:1.1em;padding:12px 20px;border-radius:12px;border:2px solid #de3e2d;background:transparent;color:inherit;font-weight:bold;cursor:pointer;max-width:100%}
+@media (prefers-color-scheme:dark){
+  body{background:#1d1e21;color:#eee}
+  a{color:#f08a7a}
+  .box{border-color:#444;background:#26282c}
+  .warn{background:#4a3f12;color:#ffe8a3}
+  .muted{color:#b5b5b5}
+}
+</style></head><body>
+<h1>📷 真劍QR</h1>
+<p>給家人與長輩用的<b>大字、無廣告</b> QR 碼與條碼掃描工具。看清楚網址再打開，遇到可疑網址會主動提醒。</p>
+<div class="warn" id="inapp">你現在在 App 內建的瀏覽器裡，這裡沒辦法下載。<br>請點右上角「⋮」或「…」→「用瀏覽器開啟」，或把這頁網址貼到 Chrome。</div>
+<a class="btn" id="dl-android" href="#">📱 下載手機版(Android)</a>
+<p id="ver" class="muted"></p>
+
+<div class="box"><b>這個 App 有什麼特點？</b>
+<ul>
+<li><b>完全無廣告、不偷傳資料</b>：沒有蓋版廣告、沒有追蹤碼，掃描與安全檢查都在手機本機離線完成。</li>
+<li><b>看清楚再開啟，不自動亂跳轉</b>：掃到網址時，會先把網站名稱放大一行顯示、完整網址攤開給你看，按「用瀏覽器開啟」才會打開。</li>
+<li><b>可疑網址黃底大字提醒</b>：本機自動檢查網址，若發現未加密連線（http）、短網址、數字 IP、偽裝字（xn--）、夾帶 @ 符號，或疑似假冒政府（gov）、LINE、郵局（post）、銀行（bank）的網站，會在最上方亮出黃底警告提醒你小心。</li>
+<li><b>相簿選圖與手電筒補光</b>：除了用相機鏡頭對準掃描，也能點「從相簿選圖」掃手機裡的截圖或照片；暗處可一鍵打開手電筒。</li>
+<li><b>多種條碼與本機紀錄</b>：支援網址、Wi-Fi（顯示網路名稱、複製密碼或加入 Wi-Fi）、電話（只開撥號鍵盤，不會直接撥出）、簡訊、信箱與商品條碼。掃過的內容可從「掃描紀錄」（最多保存 200 筆）隨時重看或清除。</li>
+</ul>
+</div>
+
+<div class="box"><b>安裝步驟</b>
+<ol>
+<li>按上面的「下載手機版」。</li>
+<li>如果跳出「這類檔案可能有害」，按「<b>仍要下載</b>」。</li>
+<li>下載完點開檔案。第一次會問要不要允許「安裝不明應用程式」，照畫面<b>允許</b>，再回來按「安裝」。</li>
+<li>裝好之後打開 App，第一次會請你允許「<b>相機</b>」權限（用來掃描條碼），照畫面<b>允許</b>就可以用了。</li>
+<li>以後有新版時，點 App 右上角「關於」裡的「檢查更新」，按一下就能更新，不用再來這裡。</li>
+</ol>
+</div>
+
+<div class="box share"><b>把這頁傳給家人</b><span class="url" id="shareurl">https://lovanddes.github.io/shinken-qr/</span><button class="btn2" id="copybtn" type="button">📋 複製網址</button><p style="margin:12px 0 4px">或請他用手機相機掃這個:</p><div id="qrbox"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 210" class="segno" role="img" aria-label="真劍QR 下載頁 QR 碼"><g transform="scale(6)"><path fill="#fff" d="M0 0h35v35h-35z"/><path class="qrline" stroke="#000" d="M3 3.5h7M11 3.5h3M18 3.5h1M22 3.5h1M25 3.5h7M3 4.5h1M9 4.5h1M13 4.5h1M15 4.5h2M18 4.5h5M25 4.5h1M31 4.5h1M3 5.5h1M5 5.5h3M9 5.5h1M11 5.5h2M23 5.5h1M25 5.5h1M27 5.5h3M31 5.5h1M3 6.5h1M5 6.5h3M9 6.5h1M13 6.5h2M17 6.5h1M21 6.5h1M25 6.5h1M27 6.5h3M31 6.5h1M3 7.5h1M5 7.5h3M9 7.5h1M11 7.5h1M14 7.5h1M18 7.5h2M21 7.5h2M25 7.5h1M27 7.5h3M31 7.5h1M3 8.5h1M9 8.5h1M18 8.5h1M22 8.5h1M25 8.5h1M31 8.5h1M3 9.5h7M11 9.5h1M13 9.5h1M15 9.5h1M17 9.5h1M19 9.5h1M21 9.5h1M23 9.5h1M25 9.5h7M14 10.5h3M19 10.5h2M22 10.5h2M4 11.5h1M7 11.5h1M9 11.5h1M12 11.5h10M27 11.5h1M30 11.5h1M11 12.5h1M15 12.5h1M19 12.5h1M23 12.5h3M28 12.5h1M31 12.5h1M3 13.5h1M5 13.5h3M9 13.5h2M13 13.5h1M16 13.5h1M20 13.5h1M24 13.5h1M26 13.5h2M29 13.5h3M4 14.5h3M8 14.5h1M10 14.5h2M13 14.5h1M16 14.5h5M22 14.5h1M24 14.5h3M30 14.5h1M3 15.5h1M5 15.5h2M8 15.5h3M13 15.5h2M17 15.5h1M19 15.5h2M22 15.5h4M28 15.5h1M30 15.5h2M4 16.5h1M7 16.5h2M10 16.5h2M19 16.5h1M23 16.5h3M28 16.5h1M31 16.5h1M3 17.5h4M8 17.5h2M12 17.5h1M15 17.5h2M21 17.5h1M24 17.5h2M28 17.5h1M30 17.5h2M4 18.5h4M15 18.5h1M20 18.5h2M23 18.5h2M28 18.5h1M30 18.5h1M6 19.5h2M9 19.5h5M15 19.5h1M18 19.5h3M23 19.5h4M28 19.5h1M30 19.5h2M5 20.5h1M10 20.5h1M12 20.5h2M15 20.5h2M19 20.5h1M23 20.5h3M28 20.5h2M31 20.5h1M3 21.5h1M5 21.5h1M8 21.5h2M12 21.5h2M17 21.5h1M19 21.5h2M23 21.5h4M30 21.5h2M4 22.5h3M8 22.5h1M13 22.5h1M15 22.5h3M19 22.5h3M23 22.5h2M27 22.5h2M30 22.5h1M3 23.5h1M5 23.5h1M7 23.5h3M13 23.5h1M17 23.5h11M13 24.5h2M17 24.5h1M19 24.5h1M22 24.5h2M27 24.5h1M29 24.5h3M3 25.5h7M16 25.5h1M20 25.5h1M22 25.5h2M25 25.5h1M27 25.5h2M30 25.5h2M3 26.5h1M9 26.5h1M15 26.5h1M18 26.5h1M20 26.5h4M27 26.5h2M31 26.5h1M3 27.5h1M5 27.5h3M9 27.5h1M11 27.5h1M13 27.5h1M18 27.5h3M23 27.5h5M30 27.5h2M3 28.5h1M5 28.5h3M9 28.5h1M14 28.5h1M19 28.5h3M23 28.5h1M26 28.5h2M29 28.5h3M3 29.5h1M5 29.5h3M9 29.5h1M11 29.5h2M14 29.5h1M19 29.5h3M23 29.5h1M26 29.5h3M31 29.5h1M3 30.5h1M9 30.5h1M12 30.5h2M15 30.5h1M17 30.5h2M20 30.5h2M23 30.5h1M26 30.5h1M30 30.5h1M3 31.5h7M11 31.5h4M18 31.5h3M22 31.5h5M30 31.5h2"/></g></svg></div></div>
+<p class="muted" style="font-size:.9em">目前是試用階段，只在這裡提供下載。請只從這一頁下載，不要安裝別處傳來的檔案。<br><a href="../index.html">欸唉新跪 小工具</a></p>
+<script>
+(function(){
+  // 頁面內純 JS 產生 QR 碼 SVG（ISO/IEC 18004 Byte Mode, ECC Level M, 零外部依賴）
+  function makeQrSvg(text){
+    var data=[];
+    for(var i=0;i<text.length;i++){
+      var c=text.charCodeAt(i);
+      if(c<0x80)data.push(c);
+      else if(c<0x800)data.push(0xc0|(c>>6),0x80|(c&0x3f));
+      else data.push(0xe0|(c>>12),0x80|((c>>6)&0x3f),0x80|(c&0x3f));
+    }
+    var VTAB=[null,[16,10,1],[28,16,1],[44,26,1],[64,18,2],[86,24,2],[108,16,4]];
+    var ver=1;
+    while(ver<VTAB.length&&VTAB[ver][0]<data.length+2)ver++;
+    var cfg=VTAB[ver],totalData=cfg[0],ecLen=cfg[1],blocks=cfg[2];
+    var bits=[];
+    function pushBits(val,len){for(var b=len-1;b>=0;b--)bits.push((val>>b)&1);}
+    pushBits(4,4);pushBits(data.length,8);
+    for(var i=0;i<data.length;i++)pushBits(data[i],8);
+    for(var i=0;i<4&&bits.length<totalData*8;i++)bits.push(0);
+    while(bits.length&7)bits.push(0);
+    var cw=[];
+    for(var i=0;i<bits.length;i+=8){
+      var b=0;for(var j=0;j<8;j++)b=(b<<1)|bits[i+j];cw.push(b);
+    }
+    for(var p=0;cw.length<totalData;p++)cw.push(p&1?0x11:0xec);
+    var EXP=new Array(512),LOG=new Array(256);
+    for(var x=1,i=0;i<255;i++){EXP[i]=EXP[i+255]=x;LOG[x]=i;x=(x<<1)^(x&128?0x11d:0);}
+    var gen=[1];
+    for(var i=0;i<ecLen;i++){
+      var next=new Array(gen.length+1).fill(0);
+      for(var j=0;j<gen.length;j++){
+        if(gen[j]){next[j]^=gen[j];next[j+1]^=EXP[LOG[gen[j]]+i];}
+      }
+      gen=next;
+    }
+    function rsEncode(msg){
+      var rem=new Array(ecLen).fill(0);
+      for(var i=0;i<msg.length;i++){
+        var factor=msg[i]^rem.shift();rem.push(0);
+        if(factor)for(var j=0;j<ecLen;j++)if(gen[j+1])rem[j]^=EXP[LOG[gen[j+1]]+LOG[factor]];
+      }
+      return rem;
+    }
+    var dBlocks=[],eBlocks=[],bSize=totalData/blocks;
+    for(var b=0;b<blocks;b++){
+      var slice=cw.slice(b*bSize,(b+1)*bSize);
+      dBlocks.push(slice);eBlocks.push(rsEncode(slice));
+    }
+    var finalCw=[];
+    for(var i=0;i<bSize;i++)for(var b=0;b<blocks;b++)finalCw.push(dBlocks[b][i]);
+    for(var i=0;i<ecLen;i++)for(var b=0;b<blocks;b++)finalCw.push(eBlocks[b][i]);
+    var size=ver*4+17,mat=[],isFunc=[];
+    for(var r=0;r<size;r++){mat.push(new Array(size).fill(0));isFunc.push(new Array(size).fill(false));}
+    function setFunc(r,c,v){if(r>=0&&r<size&&c>=0&&c<size){mat[r][c]=v?1:0;isFunc[r][c]=true;}}
+    function finder(r0,c0){
+      for(var dr=-1;dr<=7;dr++)for(var dc=-1;dc<=7;dc++){
+        var v=(dr>=0&&dr<=6&&(dc===0||dc===6))||(dc>=0&&dc<=6&&(dr===0||dr===6))||(dr>=2&&dr<=4&&dc>=2&&dc<=4);
+        setFunc(r0+dr,c0+dc,v);
+      }
+    }
+    finder(0,0);finder(0,size-7);finder(size-7,0);
+    for(var i=8;i<size-8;i++){setFunc(6,i,i%2===0);setFunc(i,6,i%2===0);}
+    if(ver>=2){
+      var ac=size-7;
+      for(var dr=-2;dr<=2;dr++)for(var dc=-2;dc<=2;dc++)setFunc(ac+dr,ac+dc,Math.max(Math.abs(dr),Math.abs(dc))!==1);
+    }
+    setFunc(size-8,8,true);
+    for(var i=0;i<9;i++)if(i!==6){setFunc(8,i,false);setFunc(i,8,false);}
+    for(var i=0;i<8;i++){setFunc(8,size-1-i,false);setFunc(size-1-i,8,false);}
+    var bitIdx=0,totalBits=finalCw.length*8,up=true;
+    for(var right=size-1;right>=1;right-=2){
+      if(right===6)right=5;
+      for(var vert=0;vert<size;vert++){
+        var r=up?size-1-vert:vert;
+        for(var j=0;j<2;j++){
+          var c=right-j;
+          if(!isFunc[r][c]){
+            var bit=bitIdx<totalBits?(finalCw[bitIdx>>3]>>(7-(bitIdx&7)))&1:0;
+            bitIdx++;
+            if((r+c)%2===0)bit^=1;
+            mat[r][c]=bit;
+          }
+        }
+      }
+      up=!up;
+    }
+    var fmt=0x5412;
+    var f1r=[8,8,8,8,8,8,8,8,7,5,4,3,2,1,0];
+    var f1c=[0,1,2,3,4,5,7,8,8,8,8,8,8,8,8];
+    for(var i=0;i<15;i++){
+      var b=(fmt>>(14-i))&1;
+      mat[f1r[i]][f1c[i]]=b;
+      if(i<7)mat[size-1-i][8]=b;
+      else mat[8][size-15+i]=b;
+    }
+    var border=3,full=size+border*2,scale=6,vb=full*scale,d="";
+    for(var r=0;r<size;r++){
+      var y=r+border+0.5,c=0;
+      while(c<size){
+        if(mat[r][c]){
+          var len=1;
+          while(c+len<size&&mat[r][c+len])len++;
+          d+="M"+(c+border)+" "+y+"h"+len;
+          c+=len;
+        }else c++;
+      }
+    }
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+vb+' '+vb+'" class="segno" role="img" aria-label="真劍QR 下載頁 QR 碼"><g transform="scale('+scale+')"><path fill="#fff" d="M0 0h'+full+'v'+full+'h-'+full+'z"/><path class="qrline" stroke="#000" d="'+d+'"/></g></svg>';
+  }
+
+  var shareEl=document.getElementById('shareurl');
+  var qrBox=document.getElementById('qrbox');
+  if(shareEl&&qrBox){
+    qrBox.innerHTML=makeQrSvg(shareEl.textContent.trim());
+  }
+
+  var ua=navigator.userAgent||'';
+  var inApp=/Line\/|FBAN|FBAV|Instagram|Messenger|MicroMessenger/i.test(ua);
+  if(/Line\//i.test(ua) && location.search.indexOf('openExternalBrowser=1')<0){
+    location.replace(location.pathname+'?openExternalBrowser=1');return;
+  }
+  if(inApp){
+    document.getElementById('inapp').style.display='block';
+    if(/Android/i.test(ua)){
+      var u='intent://'+location.host+location.pathname+'#Intent;scheme=https;package=com.android.chrome;end';
+      var a=document.createElement('a');a.href=u;a.className='btn';a.textContent='🌐 用 Chrome 開啟這頁';
+      document.getElementById('inapp').appendChild(document.createElement('br'));document.getElementById('inapp').appendChild(a);
+    }
+  }
+  document.getElementById('copybtn').onclick=function(){
+    var b=this,u=document.getElementById('shareurl').textContent;
+    function ok(){b.textContent='✅ 已複製';setTimeout(function(){b.textContent='📋 複製網址'},2000)}
+    function old(){try{var t=document.createElement('textarea');t.value=u;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);ok()}catch(e){b.textContent='請長按上面網址複製'}}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(ok,old)}else{old()}
+  };
+  fetch('latest.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){
+    document.getElementById('dl-android').href=j.android.url;
+    document.getElementById('ver').textContent='最新版：'+j.android.versionName+'（'+j.android.date+'）';
+  }).catch(function(){
+    document.getElementById('ver').textContent='讀不到最新版資訊,請稍後再試。';
+  });
+})();
+</script>
+</body></html>
