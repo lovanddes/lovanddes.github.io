@@ -2,12 +2,12 @@
   "format": "shinken-alarm-update",
   "version": 1,
   "android": {
-    "versionCode": 56,
-    "versionName": "1.18.10",
-    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.18.10.apk",
-    "sha256": "7a94e2e618cbb00f93f115b61d05149ba3834c6b900ac5df65b5f38645871683",
-    "notes": "設定→關於:「分享給朋友」下面多一顆「給朋友掃 QR 碼」\n按下去會秀出下載頁的 QR 碼,旁邊的人用手機相機一掃就能下載",
-    "date": "2026-11-18"
+    "versionCode": 57,
+    "versionName": "1.18.11",
+    "url": "https://lovanddes.github.io/shinken-alarm/update/shinken-alarm-android-1.18.11.apk",
+    "sha256": "c03c7497f5c902f89afab3b1908fe7d73541c82b1f31b74fb1dad61b47a0e266",
+    "notes": "回報問題:預設只顯示精簡版,按「展開全部」才看完整內容;鬧鐘標題不再出現在回報裡\n修正:小睡鬧鐘答完題後,通知列的「還在響」通知會確實消失",
+    "date": "2026-11-19"
   },
   "windows": {
     "version": "1.17.4",
