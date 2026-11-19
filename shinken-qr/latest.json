@@ -2,11 +2,11 @@
   "format": "shinken-qr-update",
   "version": 1,
   "android": {
-    "versionCode": 1,
-    "versionName": "0.1.0",
-    "url": "https://lovanddes.github.io/shinken-qr/update/shinken-qr-0.1.0.apk",
-    "sha256": "1445c1d44661aa0727447e827bce41f18e37df8d21f205980538e088006d484d",
-    "notes": "第一版:無廣告的 QR 碼/條碼掃描\n掃到網址先放大顯示,可疑網址黃底大字提醒\n可從相簿選圖、手電筒、掃描紀錄\n關於頁有「分享給朋友」和「給朋友掃 QR 碼」",
-    "date": "2026-11-18"
+    "versionCode": 2,
+    "versionName": "0.1.1",
+    "url": "https://lovanddes.github.io/shinken-qr/update/shinken-qr-0.1.1.apk",
+    "sha256": "46d189ed1a5946c943b1a962ddcf45280aaed199266df684806a49bf23c9b881",
+    "notes": "修正:網址結尾帶句點(例如 www.gov.tw.)被誤報仿冒政府、短網址(bit.ly.)漏報",
+    "date": "2026-11-19"
   }
 }
