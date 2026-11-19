@@ -1,93 +1,58 @@
 {
- "date": "2026-11-19",
- "one_line": "美中俄峰會交鋒牽動地緣，科技巨頭則在先進封裝與後量子資安加速築牆。",
+ "date": "2026-11-20",
+ "one_line": "AI代理授權與隱私風險受關注，地緣能源與北極戰略佈局持續演變。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "Anthropic傳IPO定價83美元",
+     "title": "英國法院判政府揭秘密蘋果後門令",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "據科技媒體報導，人工智慧新創 Anthropic 已將備受矚目的首次公開募股（IPO）定價敲定在每股 83 美元，超越先前預期的 70 至 78 美元區間。市場對這家開發 Claude 模型的重量級業者認購意願極高，成功擺脫了近期科技硬體板塊震盪的陰霾。"
+       "text": "英國調查權力法庭做出重大判決，命令英國政府必須公開曾秘密要求蘋果公司為官方建立 iCloud 資料加密後門的指示。蘋果先前拒絕配合該指令，並直接在英國境內關閉「進階資料保護」加密功能。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "Anthropic 是全球最頂尖的大語言模型業者之一，其掛牌表現將成為全球資本市場衡量 AI 商業化獲利能力的關鍵晴雨表。"
+       "text": "這項判決打擊了政府秘密索取加密資料的執法權力；對廣大用戶而言，展現了科技巨頭抗拒政府監管與維護端到端加密隱私的關鍵戰役。"
       }
      ],
      "sources": [
-      "https://www.961developments.com/news",
-      "https://www.intel.com/content/www/us/en/newsroom/news/corporate/microsoft-azure-infrastructure-collaboration.html"
+      "https://techcrunch.com/2026/11/19/u-k-government-forced-to-disclose-secret-apple-backdoor-order?utm_medium=App&utm_source=Newswav",
+      "https://techcrunch.com/2026/11/19/uber-tests-rides-for-kids-as-young-as-10-with-extra-pay-for-drivers/"
      ]
     },
     {
-     "title": "微軟自研晶片採英特爾EMIB封裝",
+     "title": "Uber開試十歲兒童單獨搭車服務",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "微軟與英特爾宣布深化長期合作，微軟正式成為首家在 Azure 雲端自研晶片上採用英特爾晶圓代工 EMIB 先進封裝技術的客戶。雙方同時敲定次世代 Xeon 伺服器處理器（代號 Diamond Rapids）的長期採購與記憶體效能優化協議。"
+       "text": "Uber 正式在美國奧斯汀、納許維爾等三座城市展開「Uber Kids」測試計畫，允許 10 至 12 歲兒童在無家長陪同下單獨搭車。為確保安全，僅限高評分司機接單，家長可全程觀看車內即時影像，司機則能獲得額外津貼。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "EMIB 是將多個小晶片水平緊密拼接的高階封裝技術；微軟此舉意味著雲端巨頭正加速分散先進封裝供應鏈，不再單一依賴傳統晶圓代工龍頭。"
+       "text": "此舉開啟了兒童單獨叫車市場，試圖解決雙薪家庭接送痛點；若該模式獲得成功，未來極可能推廣至其他國家並改變家庭日常生活習慣。"
       }
      ],
      "sources": [
-      "https://www.intel.com/content/www/us/en/newsroom/news/corporate/microsoft-azure-infrastructure-collaboration.html",
-      "https://ground.news/article/exclusive-china-dominates-battery-graphite-but-this-startup-could-break-the-monopoly"
+      "https://techcrunch.com/2026/11/19/uber-tests-rides-for-kids-as-young-as-10-with-extra-pay-for-drivers/",
+      "https://www.brightcoast.ai/blog/daily-ai-intel-brief-2026-11-19"
      ]
     },
     {
-     "title": "美新創啟用石墨廠挑戰中國獨占",
+     "title": "微軟CEO警告基礎設施漏洞難修補",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "加州能源材料新創 Molten Industries 宣布在奧克蘭啟用全球首座以天然氣熱裂解生產「電池級石墨」的量產廠，初期年產能約 300 公噸並已獲不具名客戶訂單。該技術標榜比傳統石墨開採及高溫合成更低碳排，旨在為北美電池製造提供在地化料源。"
+       "text": "微軟執行長 Satya Nadella 在紐約時報峰會上示警，全球許多關鍵基礎設施（如數據中心冷卻設備、HVAC 空調與硬體韌體）皆已連上網路，但其底層系統過時且「根本無法發布補丁修補」。在 AI 助長網路攻擊的時代，這些設備已成為巨大安全隱患。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "目前中國掌控全球絕大部分鋰電池負極石墨供應，西方電動車供應鏈若能成功商業化替代製程，將大幅降低地緣政治供應斷鏈的風險。"
+       "text": "凸顯出物聯網化設備在 AI 時代所帶來的資安破綻；製造業與公共設施若僅將硬體連網卻缺乏維護機制，隨時面臨連鎖性網路攻擊威脅。"
       }
      ],
      "sources": [
-      "https://ground.news/article/exclusive-china-dominates-battery-graphite-but-this-startup-could-break-the-monopoly",
-      "https://www.mastercard.com/global/en/news-and-trends/press/2026/november/quantum-readiness-post-quantum-cybersecurity.html"
-     ]
-    },
-    {
-     "title": "萬事達卡開展量子諮詢防解密危機",
-     "body": [
-      {
-       "label": "發生什麼:",
-       "text": "萬事達卡（Mastercard）宣布成立「量子顧問業務」並發布防護白皮書，協助金融機構盤點加密架構並規劃遷移至後量子密碼（PQC）標準。該行動旨在應對黑客當前發動「先竊取、日後解密」的策略，即先攔截囤積大量敏感交易資料，等待未來強大量子電腦問世後一次破解。"
-      },
-      {
-       "label": "為什麼值得知道:",
-       "text": "量子運算若取得突破將直接衝擊現行金融加密體系，支付巨頭提前佈局，直接關係到全球大眾日常信用卡與數位帳戶的長遠資安。"
-      }
-     ],
-     "sources": [
-      "https://www.mastercard.com/global/en/news-and-trends/press/2026/november/quantum-readiness-post-quantum-cybersecurity.html",
-      "https://techmeme.com/index.html"
-     ]
-    },
-    {
-     "title": "入侵GTA6英駭客遭美判刑六年",
-     "body": [
-      {
-       "label": "發生什麼:",
-       "text": "美國聯邦法院判處知名駭客組織「散落蜘蛛」（Scattered Spider）的 24 歲英國籍核心成員 Tyler Robert Buchanan 6 年監禁。該駭客涉嫌以簡訊釣魚與偽造 SIM 卡等社交工程手法，入侵包含遊戲《俠盜獵車手 6》發行商 Rockstar 在內的多家企業，並盜取超過 1,160 萬美元的虛擬資產。"
-      },
-      {
-       "label": "為什麼值得知道:",
-       "text": "這起案件顯示跨國執法單位已能有效跨境打擊鎖定科技業的精準社交工程攻擊，對猖獗的勒索與虛擬貨幣竊盜形成實質威懾。"
-      }
-     ],
-     "sources": [
-      "https://babgond.com/moonmoonSecu_v10/",
-      "https://techmeme.com/index.html"
+      "https://techcrunch.com/2026/11/18/amidst-fears-of-ai-cyberattacks-satya-nadella-says-lots-of-critical-infrastructure-is-unpatchable/"
      ]
     }
    ]
@@ -96,53 +61,37 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "深圳APEC峰會川普普丁將會面",
+     "title": "英監管機構介入查電網併網延遲亂象",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "於中國深圳舉辦的 APEC 峰會上，中俄領導人公開批評西方保護主義與經濟制裁，而美方官員證實美國總統川普將在峰會期間與俄羅斯總統普丁舉行一對一單獨會談。與此同時，德法英等歐洲主要國家首腦則在柏林展開緊急協商，緊盯大國互動對俄烏局勢的實質影響。"
+       "text": "英國能源監管機構 Ofgem 宣布對國內電網連接嚴重的延遲亂象啟動緊急調查。原本旨在加快綠能與數據中心併網的審批改革，反而導致近百個建設項目的併網日期被押後數年，引發企業強烈不滿。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "美中俄領導人在同場國際峰會過招，川普與普丁的直接對談將直接牽動俄烏戰爭終戰走向及接下來幾個月的跨國關稅角力。"
+       "text": "電網容量不足與併網延遲已成全球 AI 數據中心與能源轉型的共同死穴，英國的監管調查與檢討將為各國處理基礎設施瓶頸提供前車之鑑。"
       }
      ],
      "sources": [
-      "https://edition.cnn.com/2026/11/17/politics/live-news/trump-visit-china-philippines",
-      "https://www.consilium.europa.eu/en/press/press-releases/2026/11/18/grids-package-council-and-parliament-agree-to-streamline-permitting-for-a-faster-clean-energy-transition/"
+      "https://www.ft.com/content/81b74d04-1289-4e87-8777-9eec66d9ae10?syn-25a6b1a6=1",
+      "https://www.investing.com/news/stock-market-news/uniper-nears-first-data-centre-deal-on-idle-power-plant-site--report-93CH-5028487"
      ]
     },
     {
-     "title": "歐盟敲定協議大幅加速電網審批",
+     "title": "丹麥國會高票通過美格陵蘭安全協定",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "歐洲理事會與歐洲議會達成臨時協議，正式通過「電網套案（Grids package）」，大幅簡化並加快歐洲境內再生能源、輸電網路與大型儲能設施的審批程序。新法規修改了多項能源指令，目標是消除各國行政阻礙，加速電網現代化以確保能源安全與氣候中和。"
+       "text": "丹麥國會以 109 票贊成、0 票反對正式批准與美國、格陵蘭的三方安全協定。在美方壓力與談判下，該協定允許美軍擴建北極基地並設立防禦區，同時確保了丹麥的主權與格陵蘭的自主權。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "審批冗長一直是歐洲綠能併網與降電價的最大瓶頸，鬆綁管制將加速數千億歐元電網基建落地，實質降低歐洲製造業營運成本。"
+       "text": "成功化解了美丹跨大西洋關係的緊張局面，但同時標誌著北極圈戰略要地與關鍵礦產的爭奪戰正式升級，美國在極地的軍事部署大幅深化。"
       }
      ],
      "sources": [
-      "https://www.consilium.europa.eu/en/press/press-releases/2026/11/18/grids-package-council-and-parliament-agree-to-streamline-permitting-for-a-faster-clean-energy-transition/",
-      "https://www.pbs.org/newshour/world/muslims-are-projected-to-outnumber-christians-by-2035-as-the-worlds-largest-religion"
-     ]
-    },
-    {
-     "title": "皮尤預測穆斯林人口2035超基督",
-     "body": [
-      {
-       "label": "發生什麼:",
-       "text": "美國皮尤研究中心發布最新人口模型預測，全球伊斯蘭教徒人數預計將在 2035 年達到 25.7 億人，正式超越基督教徒的 25.2 億人，躍居世界第一大宗教。調查指出造成消長的核心因素是生育率差距，穆斯林婦女平均生育率為 3.1 人，遠高於全球平均與其他宗教群體。"
-      },
-      {
-       "label": "為什麼值得知道:",
-       "text": "全球人口結構與文化板塊的重組將深刻影響未來數十年的全球勞動力分佈、國際移民政策走向及新興消費市場的重心轉移。"
-      }
-     ],
-     "sources": [
-      "https://www.pbs.org/newshour/world/muslims-are-projected-to-outnumber-christians-by-2035-as-the-worlds-largest-religion"
+      "https://cphpost.dk/2026-11-19/news/round-up/danish-parliament-approves-expanded-us-military-access-to-greenland/",
+      "https://www.ctvnews.ca/world/article/denmark-approves-security-deal-with-us-and-greenland-seeking-to-finally-ease-tensions-with-trump/"
      ]
     }
    ]
