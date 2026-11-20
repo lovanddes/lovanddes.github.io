@@ -1,58 +1,92 @@
 {
- "date": "2026-11-20",
- "one_line": "AI代理授權與隱私風險受關注，地緣能源與北極戰略佈局持續演變。",
+ "date": "2026-11-21",
+ "one_line": "AI獲利疑慮引發美股熊市，科技代工進化與英歐破冰同步展開。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "英國法院判政府揭秘密蘋果後門令",
+     "title": "Gemini登陸Mac支援代客操作",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "英國調查權力法庭做出重大判決，命令英國政府必須公開曾秘密要求蘋果公司為官方建立 iCloud 資料加密後門的指示。蘋果先前拒絕配合該指令，並直接在英國境內關閉「進階資料保護」加密功能。"
+       "text": "Google 宣布為 macOS 版的 Gemini 桌面應用程式加入「電腦控制」（Computer Use）功能，讓 AI 能在系統背景自主跨軟體操作、整理本地檔案與瀏覽網頁來完成多步驟任務。使用者可以在對話視窗中即時監看 AI 動作，並隨時暫停或設定敏感指令需手動授權。這項功能目前率先開放給美國地區的 Google AI 付費用戶測試使用。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這項判決打擊了政府秘密索取加密資料的執法權力；對廣大用戶而言，展現了科技巨頭抗拒政府監管與維護端到端加密隱私的關鍵戰役。"
+       "text": "這意味著 AI 正從「對話框聊天」走向「直接替你操縱電腦」，未來一般上班族繁瑣的跨系統資料搬運與表單填寫，都將加速邁向全自動化。"
       }
      ],
      "sources": [
-      "https://techcrunch.com/2026/11/19/u-k-government-forced-to-disclose-secret-apple-backdoor-order?utm_medium=App&utm_source=Newswav",
-      "https://techcrunch.com/2026/11/19/uber-tests-rides-for-kids-as-young-as-10-with-extra-pay-for-drivers/"
+      "https://newsfilter.io/articles/google-gives-gemini-the-ability-to-use-your-mac-for-you-e7c9b6ecab305460bdc561ed122672dc",
+      "https://hyper.ai/de/stories/ffcfd7e32e09e749ee5eb8918018aee2"
      ]
     },
     {
-     "title": "Uber開試十歲兒童單獨搭車服務",
+     "title": "義商36億美元買下Mailchimp",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "Uber 正式在美國奧斯汀、納許維爾等三座城市展開「Uber Kids」測試計畫，允許 10 至 12 歲兒童在無家長陪同下單獨搭車。為確保安全，僅限高評分司機接單，家長可全程觀看車內即時影像，司機則能獲得額外津貼。"
+       "text": "曾收購 Evernote、Vimeo 的義大利軟體集團 Bending Spoons 正式宣布，與財會巨頭 Intuit 達成協議，以 36.8 億美元現金買下知名電子郵件行銷服務 Mailchimp。此價格相較於 Intuit 在 2021 年斥資 120 億美元的天價收購，估值縮水近七成，預計於 2027 年初完成交割。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "此舉開啟了兒童單獨叫車市場，試圖解決雙薪家庭接送痛點；若該模式獲得成功，未來極可能推廣至其他國家並改變家庭日常生活習慣。"
+       "text": "Mailchimp 是許多台灣電商、中小企業與行銷人發送 EDM（電子行銷郵件）的核心工具；考量該買家過去收購 Evernote 後大幅裁員並提高收費的作風，既有企業用戶需提早評估長期成本風險。"
       }
      ],
      "sources": [
-      "https://techcrunch.com/2026/11/19/uber-tests-rides-for-kids-as-young-as-10-with-extra-pay-for-drivers/",
-      "https://www.brightcoast.ai/blog/daily-ai-intel-brief-2026-11-19"
+      "https://www.nacionale.com/en/articles/who-bought-mailchimp-bending-spoons-intuit-sale-what-changes-for-users",
+      "https://seeside.app/news/global/article/aHR0cHM6Ly90ZWNoY3J1bmNoLmNvbS8yMDI2LzExLzIwL2JlbmRpbmctc3Bvb25zLWJ1eXMtbWFpbGNoaW1wLWZvci0zLTY4LWJpbGxpb24v"
      ]
     },
     {
-     "title": "微軟CEO警告基礎設施漏洞難修補",
+     "title": "司法聽寫廠商疏漏洩龐大機密",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "微軟執行長 Satya Nadella 在紐約時報峰會上示警，全球許多關鍵基礎設施（如數據中心冷卻設備、HVAC 空調與硬體韌體）皆已連上網路，但其底層系統過時且「根本無法發布補丁修補」。在 AI 助長網路攻擊的時代，這些設備已成為巨大安全隱患。"
+       "text": "長年為美加警方、檢察官辦公室及矽谷科技巨頭提供聽寫服務的 Tigerfish 公司，被資安研究員踢爆將大量敏感客戶資料存放於未設密碼的亞馬遜 AWS S3 雲端儲存空間。外洩內容包含重大刑事案件的警訊錄音、員警密錄器畫面、客戶原始影音以及各警局的請款明細，任何人只要猜出網址即可自由下載。目前該公司在接獲資安媒體通報後已緊急封閉漏洞。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "凸顯出物聯網化設備在 AI 時代所帶來的資安破綻；製造業與公共設施若僅將硬體連網卻缺乏維護機制，隨時面臨連鎖性網路攻擊威脅。"
+       "text": "這起事件再次敲響外包供應鏈的資安警鐘，即便企業自身資安做得再嚴密，第三方廠商最陽春的雲端權限設定疏失，仍會讓最機密的內部影音直接在網路上裸奔。"
       }
      ],
      "sources": [
-      "https://techcrunch.com/2026/11/18/amidst-fears-of-ai-cyberattacks-satya-nadella-says-lots-of-critical-infrastructure-is-unpatchable/"
+      "https://techcrunch.com/2026/11/20/a-transcription-firm-used-by-police-prosecutors-and-tech-giants-exposed-customer-data-online/"
+     ]
+    },
+    {
+     "title": "AI宣稱破解167年黎曼猜想",
+     "body": [
+      {
+       "label": "發生什麼:",
+       "text": "AI 新創 Anthropic 旗下的數學家 Levent Alpöge 宣布，在自家 Claude 模型的協助推演下，成功提出了破解長達 167 年的數學世紀難題「黎曼猜想」（Riemann Hypothesis）之論證；巧合的是，史丹佛大學數學家同日也發表了一份長達 914 頁的全人工獨立證明。目前兩篇論文均已公開，正接受全球頂尖數學界的嚴格同行審查。"
+      },
+      {
+       "label": "為什麼值得知道:",
+       "text": "黎曼猜想若被正式證實，將徹底改寫人類對質數分佈的理解，甚至可能撼動現代金融與網路通訊採用的加密演算法基礎；這也是生成式 AI 跨足基礎科學前沿驗證的關鍵里程碑。"
+      }
+     ],
+     "sources": [
+      "https://kalshi.com/markets/kxriemann/riemann-hypothesis-solved/kxriemann-35",
+      "https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/"
+     ]
+    },
+    {
+     "title": "Spotify創辦人注資AI核融合",
+     "body": [
+      {
+       "label": "發生什麼:",
+       "text": "音樂串流龍頭 Spotify 執行長 Daniel Ek 宣布注資英國隱匿期新創 Europa Fusion，該公司由前 AI 研究學者創立，致力於利用人工智慧演算法來模擬電漿動態並設計緊湊型核融合發電廠。核融合指的是模仿太陽釋放巨大能量且無長半衰期核廢料的發電方式，被視為潔淨能源的終極聖杯。Europa Fusion 正試圖以演算法突破磁場約束電漿的物理控制難題。"
+      },
+      {
+       "label": "為什麼值得知道:",
+       "text": "生成式 AI 資料中心的耗電量正以驚人速度吞噬電網，促使國際科技富豪與創投將資金從單純投資算力晶片，大舉轉向能提供全天候零碳基載電力的次世代核能技術。"
+      }
+     ],
+     "sources": [
+      "https://www.ft.com/content/9f3c6ed6-c08f-4710-9683-ee2f5eb25841?syn-25a6b1a6=1",
+      "https://techcrunch.com/2026/11/20/daniel-ek-backs-ai-researchers-fusion-power-startup-heres-what-theyre-building/"
      ]
     }
    ]
@@ -61,37 +95,54 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "英監管機構介入查電網併網延遲亂象",
+     "title": "美科技股重挫跌入技術性熊市",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "英國能源監管機構 Ofgem 宣布對國內電網連接嚴重的延遲亂象啟動緊急調查。原本旨在加快綠能與數據中心併網的審批改革，反而導致近百個建設項目的併網日期被押後數年，引發企業強烈不滿。"
+       "text": "因市場對龐大 AI 資本支出能否變現的疑慮急速升溫，美股週五遭遇全面拋售，以科技股為主的「那斯達克 100 指數」暴跌 5.6%，單週跌幅達 10.4% 創下逾六年來最差紀錄，自 10 月歷史高點回檔達 20% 正式跌入技術性熊市。標普 500 指數當日亦大跌 3.7%，確認進入回檔修正區間。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "電網容量不足與併網延遲已成全球 AI 數據中心與能源轉型的共同死穴，英國的監管調查與檢討將為各國處理基礎設施瓶頸提供前車之鑑。"
+       "text": "美股科技巨頭的估值大幅修正，將直接衝擊高度連動的台灣半導體與 AI 伺服器代工族群，對全球科技產業接下來幾季的資本支出與投資信心帶來深遠考驗。"
       }
      ],
      "sources": [
-      "https://www.ft.com/content/81b74d04-1289-4e87-8777-9eec66d9ae10?syn-25a6b1a6=1",
-      "https://www.investing.com/news/stock-market-news/uniper-nears-first-data-centre-deal-on-idle-power-plant-site--report-93CH-5028487"
+      "https://apnews.com/article/wall-street-stocks-dow-nasdaq-c10b797a17c2acf37924d834efebe135",
+      "https://thehill.com/homenews/ap/ap-international/ap-the-uk-and-eu-hold-a-rare-summit-to-strengthen-ties-as-burnham-seeks-to-mend-brexit-damage/mlite/"
      ]
     },
     {
-     "title": "丹麥國會高票通過美格陵蘭安全協定",
+     "title": "英歐破冰重啟經貿與青年流動",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "丹麥國會以 109 票贊成、0 票反對正式批准與美國、格陵蘭的三方安全協定。在美方壓力與談判下，該協定允許美軍擴建北極基地並設立防禦區，同時確保了丹麥的主權與格陵蘭的自主權。"
+       "text": "英國與歐盟於週五在布魯塞爾達成重置關係協議，雙方同意簡化雙邊貿易檢驗、對接碳定價市場，並重啟青年流動機制（Youth Movement），矢言修補脫歐多年以來的僵局。這項新協定將大幅降低英國食品與農產進出口的繁複海關壁壘，並重新賦予年輕族群在兩地求學與工作簽證的便利性。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "成功化解了美丹跨大西洋關係的緊張局面，但同時標誌著北極圈戰略要地與關鍵礦產的爭奪戰正式升級，美國在極地的軍事部署大幅深化。"
+       "text": "這是英國脫歐後雙方關係最重大的破冰與實質整合，有助舒緩英國長期的勞動力缺口與民生物資通膨，也為歐洲地緣經貿合作奠定新常態。"
       }
      ],
      "sources": [
-      "https://cphpost.dk/2026-11-19/news/round-up/danish-parliament-approves-expanded-us-military-access-to-greenland/",
-      "https://www.ctvnews.ca/world/article/denmark-approves-security-deal-with-us-and-greenland-seeking-to-finally-ease-tensions-with-trump/"
+      "https://www.cmoney.tw/forum/article/189465407",
+      "https://apnews.com/video/uk-and-eu-agree-deals-on-trade-and-youth-movement-pledging-to-rebuild-ties-after-brexit-474d237ef73b4261920a7c225d5f5ff7"
+     ]
+    },
+    {
+     "title": "美通訊會准進口豁免促產線移美",
+     "body": [
+      {
+       "label": "發生什麼:",
+       "text": "美國聯邦通訊委員會（FCC）宣布已核發進口豁免給 71 家企業，允許其繼續進口原本遭國安禁令限制的無人機、路由器與電力逆變器等設備。但獲得豁免的先決條件，是這些企業必須承諾在美投資 44 億美元並創造 4,700 個製造業職缺，將關鍵設備生產線由海外撤回並在美國落地。"
+      },
+      {
+       "label": "為什麼值得知道:",
+       "text": "美國政府正將國安通訊限制轉化為精準的產業招商槓桿，迫使全球電子組裝與通訊設備大廠加速「脫中移美」，對台灣電子代工龍頭的海外全球設廠布局產生直接牽引。"
+      }
+     ],
+     "sources": [
+      "https://www.investing.com/news/stock-market-news/fcc-grants-tech-import-waivers-as-firms-boost-us-investment-5042422",
+      "https://www.reuters.com/business/fcc-grants-tech-import-waivers-as-firms-boost-us-investment-2026-11-20/"
      ]
     }
    ]
