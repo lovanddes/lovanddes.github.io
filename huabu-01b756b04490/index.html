@@ -98,6 +98,7 @@ button.danger{color:var(--danger)}
 .tbl td,.tbl th{padding:7px 3px}
 .tbl input{width:3.8em;padding:8px 5px}
 .tbl button{white-space:nowrap;padding:6px 8px}
+.tbl.tm th,.tbl.tm td{white-space:nowrap}.tbl.tm td:first-child,.tbl.tm th:first-child{white-space:normal;overflow-wrap:anywhere}.tbl.tm th{font-size:18px}
 .tbl td.money{white-space:nowrap}
 details summary{cursor:pointer;font-weight:700;font-size:23px;letter-spacing:.05em;color:var(--muted)}
 details[open] summary{margin-bottom:10px}
@@ -2976,7 +2977,7 @@ function render(){
 
   const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+oq(o));
   const ks=Object.keys(bs).sort(sortSize);
-  $('bysize').innerHTML=ks.length?`<table class="tbl"><tr><th>${mat?'品項':'尺寸'}</th><th>單價</th><th>${mat?'數量':'片數'}</th><th>金額</th></tr>`+ks.map(k=>`<tr><td><b>${esc(dispName(k))}</b>${dispName(k)!==k?'':` <span class="hint">${esc(CM[k]||rbZhOf(k))}</span>`}</td><td>${price(r,k)?$$(price(r,k)):'待報價'}</td><td>${bs[k]}</td><td class="money">${price(r,k)?$$(price(r,k)*bs[k]):'—'}</td></tr>`).join('')+(ship?`<tr><td colspan="3"><b>運費</b> <span class="hint">依片數平均分</span></td><td class="money">${$$(ship)}</td></tr>`:'')+`<tr class="tot"><td colspan="2"><b>合計</b></td><td><b>${ks.reduce((t,k)=>t+bs[k],0)}</b></td><td class="money"><b>${$$(ks.reduce((t,k)=>t+(price(r,k)?price(r,k)*bs[k]:0),0)+(ship||0))}</b></td></tr></table>`:'<div class="empty">登記後這裡會列出每種'+(mat?'品項總共幾件':'尺寸總共幾片')+'。</div>';
+  $('bysize').innerHTML=ks.length?`<table class="tbl${mat?' tm':''}"><tr><th>${mat?'品項':'尺寸'}</th><th>單價</th><th>${mat?'數量':'片數'}</th><th>金額</th></tr>`+ks.map(k=>`<tr><td><b>${esc(dispName(k))}</b>${dispName(k)!==k?'':` <span class="hint">${esc(CM[k]||rbZhOf(k))}</span>`}</td><td>${price(r,k)?$$(price(r,k)):'待報價'}</td><td>${bs[k]}</td><td class="money">${price(r,k)?$$(price(r,k)*bs[k]):'—'}</td></tr>`).join('')+(ship?`<tr><td colspan="3"><b>運費</b> <span class="hint">依片數平均分</span></td><td class="money">${$$(ship)}</td></tr>`:'')+`<tr class="tot"><td colspan="2"><b>合計</b></td><td><b>${ks.reduce((t,k)=>t+bs[k],0)}</b></td><td class="money"><b>${$$(ks.reduce((t,k)=>t+(price(r,k)?price(r,k)*bs[k]:0),0)+(ship||0))}</b></td></tr></table>`:'<div class="empty">登記後這裡會列出每種'+(mat?'品項總共幾件':'尺寸總共幾片')+'。</div>';
 
   if(isAdmin)renderSheetPrev();
   const act=document.activeElement&&document.activeElement.dataset&&document.activeElement.dataset.p;
