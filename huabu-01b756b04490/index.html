@@ -3371,7 +3371,7 @@ function lineText(){
     out.push('  小計 '+$$(sub));grand+=sub;
   });
   const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+oq(o));
-  out.push('',(isMat(r)?'合計數量:':'合計片數:')+Object.keys(bs).sort(sortSize).map(k=>dispName(k)+'×'+bs[k]).join('、'),'總計 '+$$(grand));
+  out.push('',isMat(r)?'合計數量:':'合計片數:');Object.keys(bs).sort(sortSize).forEach(k=>out.push('・'+dispName(k)+' ×'+bs[k]));out.push('','總計 '+$$(grand));
   return out.join('\n');
 }
 async function copyText(t,msg){
