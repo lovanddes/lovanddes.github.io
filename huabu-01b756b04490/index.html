@@ -64,7 +64,7 @@ button.danger{color:var(--danger)}
 .szType b{font-size:24px}.szType small{color:var(--muted);font-size:19px}
 .szType.on{border-color:var(--accent);background:var(--soft);box-shadow:0 0 0 1px var(--accent) inset}
 .szCards{display:flex;flex-direction:column;gap:8px}
-.rbRow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:8px 0;border-bottom:1px solid var(--line)}.rbSw{width:44px;height:44px;border-radius:8px;border:1px solid var(--line);flex:none}.rbTx{flex:1 1 170px;min-width:0;line-height:1.3}.rbTx b{font-size:20px;display:block;overflow-wrap:anywhere}.rbTx small{display:block;color:var(--muted);font-size:14px;overflow-wrap:anywhere}.rbRow button{padding:10px 14px;font-size:17px;flex:none}.rbRow button[data-ml="40ml"]{margin-left:auto}
+.rbRow{display:flex;flex-wrap:nowrap;align-items:center;gap:8px 8px;padding:8px 0;border-bottom:1px solid var(--line)}.rbSw{width:44px;height:44px;border-radius:8px;border:1px solid var(--line);flex:none}.rbTx{flex:1 1 0;min-width:0;line-height:1.3}.rbTx b{font-size:20px;display:block;overflow-wrap:anywhere}.rbTx small{display:block;color:var(--muted);font-size:14px;overflow-wrap:anywhere}.rbRow button{padding:6px 9px;font-size:17px;line-height:1.15;flex:none;text-align:center}.rbRow button[data-ml="40ml"]{margin-left:auto}
 .rbChips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.rbChips button{padding:8px 12px;font-size:16px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}.rbChips button.on{outline:3px solid var(--accent,#7aa2ff);outline-offset:1px;font-weight:700}.rbChips i{display:inline-block;width:14px;height:14px;border-radius:50%;border:1px solid var(--line)}
 #rbList{margin-top:6px}.rbCount{color:var(--muted);font-size:14px;padding:4px 0}
 .szCard{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);font:inherit;text-align:left;cursor:pointer;width:100%}
@@ -3151,7 +3151,7 @@ function rbDraw(){
   if(!q&&rbFam===null){box.innerHTML='';return}
   const hit=q?rbSearch(q):RB.filter(c=>!rbFam||(c[0]==='295'?'6':c[0][0])===rbFam);
   const cnt=`<div class="rbCount">${q?'搜尋「'+esc(q)+'」':(RB_FAM.find(f=>f[0]===rbFam)||RB_FAM[0])[1]}:${hit.length} 色${hit.length>6?'(框內可上下捲)':''}</div>`;
-  box.innerHTML=hit.length?cnt+hit.map(c=>`<div class="rbRow"><span class="rbSw" style="background:#${c[3]}"></span><span class="rbTx"><b lang="en">${esc(c[0])} ${esc(c[2])}</b><b>${esc(c[1])}</b><small>價格級數 ${c[4]}</small></span><button type="button" data-rb="${esc(c[0])}" data-ml="40ml">40ml</button><button type="button" data-rb="${esc(c[0])}" data-ml="150ml">150ml</button></div>`).join(''):'<div class="hint">找不到這個色號或顏色,可以直接在下面自己打品名。</div>';
+  box.innerHTML=hit.length?cnt+hit.map(c=>`<div class="rbRow"><span class="rbSw" style="background:#${c[3]}"></span><span class="rbTx"><b lang="en">${esc(c[0])} ${esc(c[2])}</b><b>${esc(c[1])}</b><small>價格級數 ${c[4]}</small></span><button type="button" data-rb="${esc(c[0])}" data-ml="40ml">40<br>ml</button><button type="button" data-rb="${esc(c[0])}" data-ml="150ml">150<br>ml</button></div>`).join(''):'<div class="hint">找不到這個色號或顏色,可以直接在下面自己打品名。</div>';
 }
 /* 11/16 先生選 44:英文+中文都大字;色號/中文/英文模糊搜(縮寫展開、打一部分、拼錯一兩字也找得到);品名填英文(老師要學生記英文) */
 const RB_AL={cadm:'cadmium',perm:'permanent',transp:'transparent',l:'light',m:'medium',d:'deep',nick:'nickel',titan:'titanium',tit:'titanium',ox:'oxide',lins:'linseed',wh:'white',ultram:'ultramarine',mang:'manganese',turq:'turquoise',grey:'gray',madder:'alizarin',s:'',de:''};
