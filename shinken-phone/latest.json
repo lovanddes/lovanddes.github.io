@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 64,
-    "versionName": "1.1.61",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.61.apk",
-    "sha256": "b62170790a7ba96e09497a40de6c3e1a1e5c32d62a8ca2b490748253799e2c30",
-    "notes": "通話中的聲音出口不用再點進去選了:聽筒、擴音(有接藍牙或耳機就多一顆)直接並排成大按鈕,一點就切換\n通話紀錄頁也加上搜尋框,跟聯絡人頁一樣",
-    "date": "2026-11-20"
+    "versionCode": 65,
+    "versionName": "1.1.62",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.62.apk",
+    "sha256": "22d167174ab252fc59c101ed336fa1058a5a80152fa598c1c50bb0343cd221cb",
+    "notes": "新增「畫面卡住偵測」:App 如果卡住超過 4 秒,會自動記下當時卡在哪一段\n聯絡人重讀如果太久(超過 2 秒)或同時跑好幾輪,也會記下來\n這版只加紀錄,通話和聯絡人功能沒有改;下次卡住時用「回報問題」送出,我就能查原因",
+    "date": "2026-11-22"
   }
 }
