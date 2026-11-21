@@ -3135,7 +3135,7 @@ function drawMatPick(r){
   const box=$('matPick');if(!box)return;box.hidden=!isMat(r);if(!isMat(r))return;
   const labels=Array.from($('size').options).map(o=>o.value),cur=$('size').value,dis=$('size').disabled?' disabled':'',quo=isQuoting(r),typed=$('matIn').value.trim();
   $('matInBox').hidden=false;
-  $('matCards').innerHTML=(labels.length?'<div class="szLegend">點一下選品項</div>':'')+'<div class="szCards">'+labels.map(l=>`<button type="button" class="szCard${l===cur&&!typed?' on':''}" data-m="${esc(l)}"${dis}><span class="szTxt"><b style="font-size:25px;overflow-wrap:anywhere">${esc(l)}</b>${rbZhOf(l)?`<small style="display:block;font-size:23px;font-weight:700;margin-top:2px;color:inherit">${esc(rbZhOf(l))}</small>`:''}</span><span class="szPrice">${price(r,l)?$$(price(r,l)):'報價中'}</span></button>`).join('')+'</div>';
+  $('matCards').innerHTML=(labels.length?'<div class="szLegend">點一下選品項</div>':'')+'<div class="szCards">'+labels.map(l=>`<button type="button" class="szCard${l===cur&&!typed?' on':''}" data-m="${esc(l)}"${dis}><span class="szTxt"><b style="font-size:25px;overflow-wrap:anywhere">${esc(dispName(l))}</b>${rbZhOf(l)&&dispName(l)===l?`<small style="display:block;font-size:23px;font-weight:700;margin-top:2px;color:inherit">${esc(rbZhOf(l))}</small>`:''}</span><span class="szPrice">${price(r,l)?$$(price(r,l)):'報價中'}</span></button>`).join('')+'</div>';
 }
 $('matCards').onclick=e=>{const b=e.target.closest('button[data-m]');if(!b||b.disabled)return;$('size').value=b.dataset.m;$('matIn').value='';drawMatPick(R())};
 $('matIn').oninput=()=>drawMatPick(R());
