@@ -57,7 +57,7 @@ button.danger{color:var(--danger)}
 .step{display:flex;align-items:center;gap:4px}
 .step button{padding:4px 14px;line-height:1.4}
 .step span{min-width:1.6em;text-align:center;font-variant-numeric:tabular-nums}
-.line .amt{min-width:4.5em;text-align:right}
+.line .amt{min-width:4.5em;text-align:right}.line.lnMat{flex-wrap:nowrap}.line.lnMat .nm{flex:1 1 0;min-width:0;overflow-wrap:anywhere}.line.lnMat .amt{min-width:0;white-space:nowrap}
 .empty{color:var(--muted);padding:6px 0}
 .szTypes{display:flex;gap:8px;margin-bottom:10px}
 .szType{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 4px;border:1.5px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);font:inherit;cursor:pointer;line-height:1.3}
@@ -2969,7 +2969,7 @@ function render(){
       const can=!closed&&(mine||isAdmin);
       const ctl=can?`<div class="step"><button data-a="dec" data-id="${esc(o.id)}" aria-label="減一片">−</button><span>${oq(o)}</span><button data-a="inc" data-id="${esc(o.id)}" aria-label="加一片">＋</button></div>`:`<div class="step"><span>×${oq(o)}</span></div>`;
       const del=can?`<button class="ghost danger" data-a="del" data-id="${esc(o.id)}" aria-label="刪除這筆">✕</button>`:'';
-      return `<div class="line"><div class="nm"><b>${esc(dispName(o.size))}</b>${dispName(o.size)!==o.size?'':`<small>${esc(CM[o.size]||rbZhOf(o.size))}</small>`}</div>${ctl}<div class="amt money">${price(r,o.size)?$$(a):'待報價'}</div>${del}</div>`}).join('');
+      return `<div class="line${dispName(o.size)!==o.size?' lnMat':''}"><div class="nm"><b>${esc(dispName(o.size))}</b>${dispName(o.size)!==o.size?'':`<small>${esc(CM[o.size]||rbZhOf(o.size))}</small>`}</div>${ctl}<div class="amt money">${price(r,o.size)?$$(a):'待報價'}</div>${del}</div>`}).join('');
     const shipLine=ship?`<div class="line"><div class="nm"><small>運費分攤(${pcsBy[n]} 片)</small></div><div class="amt money">${$$(sh[n]||0)}</div></div>`:'';
     return `<div class="person${mine?' me':''}"><div class="phead"><b>${esc(n)}${mine?'(我)':''}</b><span class="money sub">小計 ${$$(sub+(sh[n]||0))}</span>${isAdmin?`<button class="ghost" data-a="renamep" data-pn="${esc(n)}">改名字</button><button class="ghost" data-a="resetpw" data-pn="${esc(n)}">重設密碼</button>`:''}</div>${lines}${shipLine}</div>`;
   }).join(''):'<div class="empty">還沒有人登記。填名字、選'+(mat?'品項':'尺寸')+'、按「加入」。</div>';
