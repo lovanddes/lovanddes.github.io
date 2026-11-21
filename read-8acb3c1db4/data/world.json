@@ -1,92 +1,76 @@
 {
- "date": "2026-11-21",
- "one_line": "AI獲利疑慮引發美股熊市，科技代工進化與英歐破冰同步展開。",
+ "date": "2026-11-22",
+ "one_line": "全球政商直面AI與資安巨變，科技產業迎監管與整併新轉折。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "Gemini登陸Mac支援代客操作",
+     "title": "YouTube涉成癮傳賠30億和解",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "Google 宣布為 macOS 版的 Gemini 桌面應用程式加入「電腦控制」（Computer Use）功能，讓 AI 能在系統背景自主跨軟體操作、整理本地檔案與瀏覽網頁來完成多步驟任務。使用者可以在對話視窗中即時監看 AI 動作，並隨時暫停或設定敏感指令需手動授權。這項功能目前率先開放給美國地區的 Google AI 付費用戶測試使用。"
+       "text": "據彭博社引述知情人士報導，Alphabet 旗下的影音平台 YouTube 正敲定原則性協議，預計支付約 30 億美元，與全美數千個指控該平台刻意設計成癮機制並傷害學童心理健康的公立學區和解。該協議目前仍屬草案階段，未來數月內仍需取得多數學區同意並經由聯邦法院法官批准。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這意味著 AI 正從「對話框聊天」走向「直接替你操縱電腦」，未來一般上班族繁瑣的跨系統資料搬運與表單填寫，都將加速邁向全自動化。"
+       "text": "這是社群影音巨頭面臨「演算法成癮」指控以來規模最大的賠償案之一。若最終敲定，不僅會迫使影音平台大幅修改對未成年人的推薦機制，也可能在台灣及全球引發更多針對演算法危害兒少身心健康的監管與訴訟效應。"
       }
      ],
      "sources": [
-      "https://newsfilter.io/articles/google-gives-gemini-the-ability-to-use-your-mac-for-you-e7c9b6ecab305460bdc561ed122672dc",
-      "https://hyper.ai/de/stories/ffcfd7e32e09e749ee5eb8918018aee2"
+      "https://shattered.io/youtube-nears-3-billion-settlement-school-districts-addiction-claims/",
+      "https://www.bloomberg.com/news/articles/2026-11-21/youtube-finalizing-multibillion-dollar-schools-settlement-over-addiction-claims"
      ]
     },
     {
-     "title": "義商36億美元買下Mailchimp",
+     "title": "蘋果徵才洩密！傳研發自主AI代理",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "曾收購 Evernote、Vimeo 的義大利軟體集團 Bending Spoons 正式宣布，與財會巨頭 Intuit 達成協議，以 36.8 億美元現金買下知名電子郵件行銷服務 Mailchimp。此價格相較於 Intuit 在 2021 年斥資 120 億美元的天價收購，估值縮水近七成，預計於 2027 年初完成交割。"
+       "text": "彭博社報導，蘋果公司一份最新曝光隨後撤下的徵才公告顯示，其工程團隊正在研發具備高度自主權的「AI 代理人」（能自主理解指令並替人類跨軟體操縱系統的智慧助手）。該工具據傳具備撰寫程式碼、瀏覽網頁、控制各類應用程式與協調多個子代理人的能力。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "Mailchimp 是許多台灣電商、中小企業與行銷人發送 EDM（電子行銷郵件）的核心工具；考量該買家過去收購 Evernote 後大幅裁員並提高收費的作風，既有企業用戶需提早評估長期成本風險。"
+       "text": "這意味著蘋果正加速追趕從「問答型助理」邁向「替用戶動手操作」的實用級 AI 工具。未來 iPhone 和 Mac 用戶可望迎來真正能代辦繁瑣數位差事的作業系統重大革新。"
       }
      ],
      "sources": [
-      "https://www.nacionale.com/en/articles/who-bought-mailchimp-bending-spoons-intuit-sale-what-changes-for-users",
-      "https://seeside.app/news/global/article/aHR0cHM6Ly90ZWNoY3J1bmNoLmNvbS8yMDI2LzExLzIwL2JlbmRpbmctc3Bvb25zLWJ1eXMtbWFpbGNoaW1wLWZvci0zLTY4LWJpbGxpb24v"
+      "https://a47news.ai/story/tech/50364/apple-agentic-siri-proactive-ai-roadmap",
+      "https://thewire.ink/"
      ]
     },
     {
-     "title": "司法聽寫廠商疏漏洩龐大機密",
+     "title": "防AI偷看對話！Signal禁截圖",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "長年為美加警方、檢察官辦公室及矽谷科技巨頭提供聽寫服務的 Tigerfish 公司，被資安研究員踢爆將大量敏感客戶資料存放於未設密碼的亞馬遜 AWS S3 雲端儲存空間。外洩內容包含重大刑事案件的警訊錄音、員警密錄器畫面、客戶原始影音以及各警局的請款明細，任何人只要猜出網址即可自由下載。目前該公司在接獲資安媒體通報後已緊急封閉漏洞。"
+       "text": "路透社報導，主打高隱私的加密通訊軟體 Signal 宣布將在手機端預設封鎖螢幕截圖功能，以防範蘋果 Siri AI 或 Google Gemini 等具備「螢幕感知」功能的系統級 AI 助理讀取用戶的私密對話。Signal 同時坦承這項防禦措施「仍不完整」，並公開呼籲各大作業系統開發商給予第三方軟體更明確的權限控制機制。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這起事件再次敲響外包供應鏈的資安警鐘，即便企業自身資安做得再嚴密，第三方廠商最陽春的雲端權限設定疏失，仍會讓最機密的內部影音直接在網路上裸奔。"
+       "text": "隨著手機全面整合能隨時掃描螢幕內容的系統級 AI，便利與隱私的邊界正面臨前所未有的衝突。台灣民眾在使用最新 AI 手機功能時，也需注意私人傳訊內容是否可能在背景遭到自動擷取或分析。"
       }
      ],
      "sources": [
-      "https://techcrunch.com/2026/11/20/a-transcription-firm-used-by-police-prosecutors-and-tech-giants-exposed-customer-data-online/"
+      "https://www.independent.co.uk/tech/signal-screenshot-ai-text-messages-b3088743.html",
+      "https://thenextweb.com/news/signal-ai-agents-blocks-screenshots-siri-gemini-whittaker"
      ]
     },
     {
-     "title": "AI宣稱破解167年黎曼猜想",
+     "title": "DeepMind描繪超級智慧路徑",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "AI 新創 Anthropic 旗下的數學家 Levent Alpöge 宣布，在自家 Claude 模型的協助推演下，成功提出了破解長達 167 年的數學世紀難題「黎曼猜想」（Riemann Hypothesis）之論證；巧合的是，史丹佛大學數學家同日也發表了一份長達 914 頁的全人工獨立證明。目前兩篇論文均已公開，正接受全球頂尖數學界的嚴格同行審查。"
+       "text": "Google DeepMind 研究團隊發表研究報告，探討 AI 超越人類通用水準（AGI）之後的下一階段，正式勾勒邁向「人工超級智慧」（ASI，認知能力遠超整個人類專家群體的系統）的四大途徑。報告指出，藉由運算模型擴展、架構範式轉移、多代理人群體協同與遞迴式自我改進，未來十年全球有效 AI 代理人的規模可能出現爆發性倍增。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "黎曼猜想若被正式證實，將徹底改寫人類對質數分佈的理解，甚至可能撼動現代金融與網路通訊採用的加密演算法基礎；這也是生成式 AI 跨足基礎科學前沿驗證的關鍵里程碑。"
+       "text": "這顯示一線前沿實驗室已開始將研發重心放至「後 AGI 時代」的超智能力量。如果未來運算與推論成本如預測持續銳減，整個軟體、研發與專業諮詢產業的生產力邏輯都將面臨根本性改寫。"
       }
      ],
      "sources": [
-      "https://kalshi.com/markets/kxriemann/riemann-hypothesis-solved/kxriemann-35",
-      "https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/"
-     ]
-    },
-    {
-     "title": "Spotify創辦人注資AI核融合",
-     "body": [
-      {
-       "label": "發生什麼:",
-       "text": "音樂串流龍頭 Spotify 執行長 Daniel Ek 宣布注資英國隱匿期新創 Europa Fusion，該公司由前 AI 研究學者創立，致力於利用人工智慧演算法來模擬電漿動態並設計緊湊型核融合發電廠。核融合指的是模仿太陽釋放巨大能量且無長半衰期核廢料的發電方式，被視為潔淨能源的終極聖杯。Europa Fusion 正試圖以演算法突破磁場約束電漿的物理控制難題。"
-      },
-      {
-       "label": "為什麼值得知道:",
-       "text": "生成式 AI 資料中心的耗電量正以驚人速度吞噬電網，促使國際科技富豪與創投將資金從單純投資算力晶片，大舉轉向能提供全天候零碳基載電力的次世代核能技術。"
-      }
-     ],
-     "sources": [
-      "https://www.ft.com/content/9f3c6ed6-c08f-4710-9683-ee2f5eb25841?syn-25a6b1a6=1",
-      "https://techcrunch.com/2026/11/20/daniel-ek-backs-ai-researchers-fusion-power-startup-heres-what-theyre-building/"
+      "https://aiweekly.co/alerts/google-deepminds-genewein-maps-four-pathways-from-agi-to-asi",
+      "https://deepmind.google/research/publications/239142/"
      ]
     }
    ]
@@ -95,54 +79,53 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "美科技股重挫跌入技術性熊市",
+     "title": "SK海力士成鎧俠大股東！牽動記憶體",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "因市場對龐大 AI 資本支出能否變現的疑慮急速升溫，美股週五遭遇全面拋售，以科技股為主的「那斯達克 100 指數」暴跌 5.6%，單週跌幅達 10.4% 創下逾六年來最差紀錄，自 10 月歷史高點回檔達 20% 正式跌入技術性熊市。標普 500 指數當日亦大跌 3.7%，確認進入回檔修正區間。"
+       "text": "彭博社報導，南韓記憶體晶片巨頭 SK 海力士在最新監管文件中揭露，將其自 2018 年起持有的可轉換公司債轉換為普通股，取得日本對手鎧俠（Kioxia）約 14.1% 的間接股權，正式躍居鎧俠最大股東。雙方均表示鎧俠將維持獨立營運，且在 2028 年前其表決權股份將受協議上限約束。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "美股科技巨頭的估值大幅修正，將直接衝擊高度連動的台灣半導體與 AI 伺服器代工族群，對全球科技產業接下來幾季的資本支出與投資信心帶來深遠考驗。"
+       "text": "兩家公司在全球「快閃記憶體」（NAND Flash，儲存資料且斷電不遺失的晶片）市佔率合計達 33%，已超越長期霸主三星電子的 28%。這場資本重組將重塑全球存儲晶片的競爭格局與擴產節奏，對台灣伺服器與消費電子組裝廠的採購議價與供應穩定性具有深遠影響。"
       }
      ],
      "sources": [
-      "https://apnews.com/article/wall-street-stocks-dow-nasdaq-c10b797a17c2acf37924d834efebe135",
-      "https://thehill.com/homenews/ap/ap-international/ap-the-uk-and-eu-hold-a-rare-summit-to-strengthen-ties-as-burnham-seeks-to-mend-brexit-damage/mlite/"
+      "https://thenextweb.com/news/sk-hynix-kioxia-largest-shareholder-bond-conversion-14-1"
      ]
     },
     {
-     "title": "英歐破冰重啟經貿與青年流動",
+     "title": "系統連環當機！白宮開除國家網路總監",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "英國與歐盟於週五在布魯塞爾達成重置關係協議，雙方同意簡化雙邊貿易檢驗、對接碳定價市場，並重啟青年流動機制（Youth Movement），矢言修補脫歐多年以來的僵局。這項新協定將大幅降低英國食品與農產進出口的繁複海關壁壘，並重新賦予年輕族群在兩地求學與工作簽證的便利性。"
+       "text": "路透社報導，在過去一週全美接連發生聯邦航空總署（FAA）通訊故障致航班大亂、微軟雲端中斷及國安局網路異常後，白宮將國家網路總監凱恩克羅斯（Sean Cairncross）免職，並由國防部資訊長戴維絲（Kirsten Davies）暫代職務。官員透露，高層認為凱恩克羅斯在面對日益複雜的基礎設施威脅時缺乏足夠的資安專業。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這是英國脫歐後雙方關係最重大的破冰與實質整合，有助舒緩英國長期的勞動力缺口與民生物資通膨，也為歐洲地緣經貿合作奠定新常態。"
+       "text": "這反映連串系統癱瘓已跨過單純企業 IT 故障的界線，正式升級為美國最高層級的政治與國安信任危機。由軍方資安專才接掌白宮網路政策，意味著未來數月美方將對大型科技業者施加更嚴苛的關鍵系統彈性與安全審查規範。"
       }
      ],
      "sources": [
-      "https://www.cmoney.tw/forum/article/189465407",
-      "https://apnews.com/video/uk-and-eu-agree-deals-on-trade-and-youth-movement-pledging-to-rebuild-ties-after-brexit-474d237ef73b4261920a7c225d5f5ff7"
+      "https://www.theguardian.com/us-news/2026/nov/19/white-house-cyber-director-ousted",
+      "https://de.tradingview.com/news/benzinga:afac6a57f094b:0-stephen-miller-ousts-cyber-director-sean-cairncross-as-tech-outages-rock-nation-report/"
      ]
     },
     {
-     "title": "美通訊會准進口豁免促產線移美",
+     "title": "傳北京阻2023年後新創境外上市",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國聯邦通訊委員會（FCC）宣布已核發進口豁免給 71 家企業，允許其繼續進口原本遭國安禁令限制的無人機、路由器與電力逆變器等設備。但獲得豁免的先決條件，是這些企業必須承諾在美投資 44 億美元並創造 4,700 個製造業職缺，將關鍵設備生產線由海外撤回並在美國落地。"
+       "text": "據路透社引述多名知情人士報導，中國主管機關近期向業界釋出訊號，針對 2023 年之後在境外註冊設立的中國企業，將不再批准其赴海外（如紐約或香港等地）掛牌上市的申請。這項尚未正式對外公布的限制，預計將對依賴境外融資架構的中國科技新創造成實質衝擊。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "美國政府正將國安通訊限制轉化為精準的產業招商槓桿，迫使全球電子組裝與通訊設備大廠加速「脫中移美」，對台灣電子代工龍頭的海外全球設廠布局產生直接牽引。"
+       "text": "此舉進一步切斷了中國科技新創透過外國資本市場退場變現的通道，凸顯中美地緣金融脫鉤進一步深化。這將促使全球風險投資機構更為謹慎，並可能加速創投資金外溢轉向台灣、日韓與東南亞的科技團隊。"
       }
      ],
      "sources": [
-      "https://www.investing.com/news/stock-market-news/fcc-grants-tech-import-waivers-as-firms-boost-us-investment-5042422",
-      "https://www.reuters.com/business/fcc-grants-tech-import-waivers-as-firms-boost-us-investment-2026-11-20/"
+      "https://www.techmeme.com/river",
+      "https://techurls.com/"
      ]
     }
    ]
