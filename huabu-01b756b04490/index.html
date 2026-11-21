@@ -288,7 +288,7 @@ button:disabled,input:disabled,select:disabled{opacity:.5;cursor:not-allowed}
           <h2 style="margin-top:14px">輸出</h2>
           <div class="row">
             <button class="primary" id="sheetBtn">📄 明細表(PDF / 圖檔)</button>
-            <button id="lineBrief">複製:LINE 文字(一人一行)</button>
+            <button id="lineBrief">複製:LINE 文字(一人一段、一品一行)</button>
           </div>
           <div hidden>
           <div class="row">
@@ -3335,15 +3335,14 @@ $('ovImg').onclick=async()=>{
 // LINE 不能貼表格,所以另給純文字:各尺寸片數+一人一行
 function lineBrief(){
   const r=R(),g=groups();let grand=0;const out=['【'+r.name+'】'+(r.closed?'(已結單)':'')];
-  const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+oq(o));
-  out.push('合計:'+Object.keys(bs).sort(sortSize).map(k=>dispName(k)+'×'+bs[k]).join('、'),'');
+  out.push('');
   const ship=shipOf(r),pb={};Object.keys(g).forEach(n=>pb[n]=g[n].reduce((a,o)=>a+oq(o),0));const sh=shipShares(r,pb);
   Object.keys(g).sort((a,b)=>a.localeCompare(b,'zh-Hant')).forEach(n=>{
     const l=g[n].sort((p,q)=>sortSize(p.size,q.size));let sub=l.reduce((a,o)=>a+price(r,o.size)*oq(o),0);
     if(ship)sub+=sh[n]||0;grand+=sub;
-    out.push(n+':'+l.map(o=>dispName(o.size)+'×'+oq(o)).join('、')+' → '+$$(sub)+(ship?'(含運費)':''));
+    out.push(n+(ship?'(含運費)':'')+' '+$$(sub));l.forEach(o=>out.push('・'+dispName(o.size)+' ×'+oq(o)));out.push('');
   });
-  out.push('','總計 '+$$(grand));return out.join('\n');
+  out.push('總計 '+$$(grand));return out.join('\n');
 }
 const helpUrl=v=>location.href.split('#')[0].replace(/[^\/]*$/,'')+'help/?v='+v;
 $('vidStu').onclick=()=>copyText('油畫班畫布團購怎麼登記(1 分鐘教學影片):\n'+helpUrl('student'),'已複製,貼到 LINE');
