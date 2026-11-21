@@ -3257,7 +3257,7 @@ function sheetMats(){
   });
   return rows;
 }
-// 11/21 先生:顏料品名太長,輸出(圖/表/LINE 文字)只留「色號 中文名」;同色號有兩種容量才補 40ml/150ml。查不到色表的自由輸入品名照原樣。下單、單價、收費表材料格式仍用原品名
+// 11/21 先生:顏料品名太長,輸出(圖/表/LINE 文字)只留「色號 中文名」;一律補容量(11/21 先生選 91:全標 ml)。查不到色表的自由輸入品名照原樣。下單、單價、收費表材料格式仍用原品名
 function dispName(s){
   try{
     if(!isMat(R()))return s;
@@ -3265,7 +3265,7 @@ function dispName(s){
     const zh=rbZhOf(s);if(!zh)return s;
     const same=new Set(orders.map(o=>o.size).filter(x=>{const mm=String(x).match(re);return mm&&mm[1]===m[1]}));
     const ml=(String(s).match(/(\d+)\s*ml/i)||[])[1];
-    return m[1]+' '+zh+(same.size>1&&ml?' '+ml+'ml':'');
+    return m[1]+' '+zh+(ml?' '+ml+'ml':'');
   }catch(e){return s}
 }
 // 明細表:列印/存 PDF/輸出圖檔(和收費表的明細表同一套用法)
