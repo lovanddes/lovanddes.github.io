@@ -3196,7 +3196,7 @@ function sheetMatrix(){
   const r=R(),g=groups();
   const sizes=[...new Set(orders.map(o=>o.size))].sort(sortSize);
   const names=Object.keys(g).sort((x,y)=>(roster.indexOf(x)<0)-(roster.indexOf(y)<0)||(roster.indexOf(x)-roster.indexOf(y))||x.localeCompare(y,'zh-Hant'));
-  const rows=[['姓名',...sizes.map(s=>CM[s]?s+'('+CM[s]+')':s),isMat(r)?'數量':'片數','小計']];
+  const rows=[['姓名',...sizes.map(s=>CM[s]?s+'('+CM[s]+')':dispName(s)),isMat(r)?'數量':'片數','小計']];
   rows.push(['單價',...sizes.map(s=>price(r,s)),'','']);
   let tp=0,ta=0;const tot=sizes.map(()=>0);
   names.forEach(n=>{
@@ -3223,7 +3223,7 @@ function sheetMatrix(){
 function sheetDetail(){
   const r=R(),g=groups();const rows=[['姓名','尺寸','尺寸(cm)','片數','單價','金額']];let ta=0;
   Object.keys(g).sort((x,y)=>x.localeCompare(y,'zh-Hant')).forEach(n=>g[n].sort((a,b)=>sortSize(a.size,b.size)).forEach(o=>{
-    const a=price(r,o.size)*oq(o);ta+=a;rows.push([n,o.size,CM[o.size]||'',oq(o),price(r,o.size),a])}));
+    const a=price(r,o.size)*oq(o);ta+=a;rows.push([n,dispName(o.size),CM[o.size]||'',oq(o),price(r,o.size),a])}));
   rows.push(['總計','','',orders.reduce((a,o)=>a+oq(o),0),'',ta]);return rows;
 }
 // 名字等文字若以 = + - @ 開頭,Excel 會當公式執行,前面補單引號擋掉
@@ -3257,6 +3257,17 @@ function sheetMats(){
   });
   return rows;
 }
+// 11/21 先生:顏料品名太長,輸出(圖/表/LINE 文字)只留「色號 中文名」;同色號有兩種容量才補 40ml/150ml。查不到色表的自由輸入品名照原樣。下單、單價、收費表材料格式仍用原品名
+function dispName(s){
+  try{
+    if(!isMat(R()))return s;
+    const re=/(?:^|林布蘭\s*)(\d{3})\s/,m=String(s).match(re);if(!m)return s;
+    const zh=rbZhOf(s);if(!zh)return s;
+    const same=new Set(orders.map(o=>o.size).filter(x=>{const mm=String(x).match(re);return mm&&mm[1]===m[1]}));
+    const ml=(String(s).match(/(\d+)\s*ml/i)||[])[1];
+    return m[1]+' '+zh+(same.size>1&&ml?' '+ml+'ml':'');
+  }catch(e){return s}
+}
 // 明細表:列印/存 PDF/輸出圖檔(和收費表的明細表同一套用法)
 function sheetFmt(ri,ci,v,rows){
   if(v===''||v==null)return '';
@@ -3267,7 +3278,7 @@ function sheetTitle(){const r=R();return r.name+' 訂購明細表'}
 function openSheet(){
   if(!R())return;const rows=sheetMatrix();
   $('ovH').textContent=sheetTitle();$('ovTitle').textContent='明細表';$('ovImgOut').innerHTML='';
-  $('ovTbl').innerHTML=rows.map((r,ri)=>'<tr'+(ri>=rows.length-2?' class="sum"':'')+'>'+r.map((v,ci)=>(ri===0?'<th>':'<td>')+(ri===0?esc(String(v)).replace(/\((.*)\)$/,'<br><small>$1</small>'):esc(sheetFmt(ri,ci,v,rows)))+(ri===0?'</th>':'</td>')).join('')+'</tr>').join('');
+  $('ovTbl').innerHTML=rows.map((r,ri)=>'<tr'+(ri>=rows.length-2?' class="sum"':'')+'>'+r.map((v,ci)=>(ri===0?'<th>':'<td>')+(ri===0?esc(String(v)).replace(/\((.*)\)$/,'<br><small>$1</small>').replace(/^(\d{3}) /,'$1<br>'):esc(sheetFmt(ri,ci,v,rows)))+(ri===0?'</th>':'</td>')).join('')+'</tr>').join('');
   $('sheetOv').hidden=false;$('sheetOv').scrollTop=0;
 }
 $('sheetBtn').onclick=openSheet;
@@ -3276,21 +3287,34 @@ $('ovPrint').onclick=()=>window.print();
 function drawSheetCanvas(){
   const rows=sheetMatrix(),n=rows[0].length,M=36,W=1080,tw=W-M*2,rh=76,th=110;
   const nameW=Math.max(200,Math.min(300,tw*0.26)),cw=(tw-nameW)/(n-1);
-  const cv=document.createElement('canvas');cv.width=W;cv.height=th+rows.length*rh+M+30;
+  const FONT='"Noto Sans TC",sans-serif';
+  /* 11/21:表頭若是「色號 中文名[ 容量]」→ 色號一行、中文名依欄寬折行(最多 3 行)、容量一行;表頭列依需要加高 */
+  const mc=document.createElement('canvas').getContext('2d');mc.font='700 24px '+FONT;
+  const wrapZh=(z,w)=>{const L=[];let c='';for(const ch of z){if(c&&mc.measureText(c+ch).width>w-10){L.push(c);c=ch}else c+=ch}if(c)L.push(c);if(L.length>3){L.length=3;L[2]=L[2].slice(0,-1)+'…'}return L};
+  const hdr=rows[0].map((v,ci)=>{
+    const t=String(v).replace(/\(.*\)$/,''),m=ci>0&&t.match(/^(\d{3}) (.+?)(?: (\d+ml))?$/);
+    return m?{no:m[1],zh:wrapZh(m[2],cw),ml:m[3]||''}:null});
+  const hl=Math.max(...hdr.map(h=>h?1+h.zh.length+(h.ml?1:0):0),0);
+  const hh=hl?Math.max(rh,22+hl*28):rh;
+  const cv=document.createElement('canvas');cv.width=W;cv.height=th+hh+(rows.length-1)*rh+M+30;
   const x=cv.getContext('2d');if(!x)throw '此瀏覽器不支援 canvas';
   x.fillStyle='#fffdf8';x.fillRect(0,0,cv.width,cv.height);
-  const FONT='"Noto Sans TC",sans-serif';
   x.fillStyle='#2b2620';x.font='700 44px '+FONT;x.textAlign='center';x.textBaseline='middle';x.fillText(sheetTitle(),W/2,th/2+6);
   rows.forEach((r,ri)=>{
-    const y=th+ri*rh,sum=ri>=rows.length-2;
-    x.fillStyle=ri===0?'#e8e2d0':sum?'#f3efe4':'#fffdf8';x.fillRect(M,y,tw,rh);
+    const y=ri===0?th:th+hh+(ri-1)*rh,h=ri===0?hh:rh,sum=ri>=rows.length-2;
+    x.fillStyle=ri===0?'#e8e2d0':sum?'#f3efe4':'#fffdf8';x.fillRect(M,y,tw,h);
     r.forEach((v,ci)=>{
       const cx=ci===0?M:M+nameW+(ci-1)*cw,w=ci===0?nameW:cw,t=ri===0?String(v).replace(/\(.*\)$/,''):sheetFmt(ri,ci,v,rows);
-      x.strokeStyle='#aaa';x.lineWidth=2;x.strokeRect(cx,y,w,rh);
+      x.strokeStyle='#aaa';x.lineWidth=2;x.strokeRect(cx,y,w,h);
       x.fillStyle='#2b2620';x.font=((ri===0||sum||ci===0)?'700 ':'400 ')+(ri===0&&n>6?26:34)+'px '+FONT;
       x.textAlign=ci===0?'left':'center';
+      if(ri===0&&hdr[ci]){
+        const H=hdr[ci],ls=[[H.no,'700 26px '],...H.zh.map(z=>[z,'700 24px ']),...(H.ml?[[H.ml,'400 22px ']]:[])];
+        const lh=28,y0=y+h/2-(ls.length*lh)/2+lh/2;
+        ls.forEach((l,k)=>{x.font=l[1]+FONT;x.fillText(l[0],cx+w/2,y0+k*lh)});return;
+      }
       let s=t;while(x.measureText(s).width>w-16&&s.length>1)s=s.slice(0,-1);
-      x.fillText(s,ci===0?cx+14:cx+w/2,y+rh/2+2);
+      x.fillText(s,ci===0?cx+14:cx+w/2,y+h/2+2);
     });
   });
   return cv;
@@ -3312,12 +3336,12 @@ $('ovImg').onclick=async()=>{
 function lineBrief(){
   const r=R(),g=groups();let grand=0;const out=['【'+r.name+'】'+(r.closed?'(已結單)':'')];
   const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+oq(o));
-  out.push('合計:'+Object.keys(bs).sort(sortSize).map(k=>k+'×'+bs[k]).join('、'),'');
+  out.push('合計:'+Object.keys(bs).sort(sortSize).map(k=>dispName(k)+'×'+bs[k]).join('、'),'');
   const ship=shipOf(r),pb={};Object.keys(g).forEach(n=>pb[n]=g[n].reduce((a,o)=>a+oq(o),0));const sh=shipShares(r,pb);
   Object.keys(g).sort((a,b)=>a.localeCompare(b,'zh-Hant')).forEach(n=>{
     const l=g[n].sort((p,q)=>sortSize(p.size,q.size));let sub=l.reduce((a,o)=>a+price(r,o.size)*oq(o),0);
     if(ship)sub+=sh[n]||0;grand+=sub;
-    out.push(n+':'+l.map(o=>o.size+'×'+oq(o)).join('、')+' → '+$$(sub)+(ship?'(含運費)':''));
+    out.push(n+':'+l.map(o=>dispName(o.size)+'×'+oq(o)).join('、')+' → '+$$(sub)+(ship?'(含運費)':''));
   });
   out.push('','總計 '+$$(grand));return out.join('\n');
 }
@@ -3343,12 +3367,12 @@ function lineText(){
   const ship=shipOf(r),pb={};Object.keys(g).forEach(n=>pb[n]=g[n].reduce((a,o)=>a+oq(o),0));const sh=shipShares(r,pb);
   Object.keys(g).sort((a,b)=>a.localeCompare(b,'zh-Hant')).forEach(n=>{
     let sub=0;out.push('',n);
-    g[n].sort((a,b)=>sortSize(a.size,b.size)).forEach(o=>{const a=price(r,o.size)*oq(o);sub+=a;out.push(`  ${o.size} ×${oq(o)} = ${price(r,o.size)?$$(a):'待報價'}`)});
+    g[n].sort((a,b)=>sortSize(a.size,b.size)).forEach(o=>{const a=price(r,o.size)*oq(o);sub+=a;out.push(`  ${dispName(o.size)} ×${oq(o)} = ${price(r,o.size)?$$(a):'待報價'}`)});
     if(ship){out.push('  運費分攤 '+$$(sh[n]||0));sub+=sh[n]||0}
     out.push('  小計 '+$$(sub));grand+=sub;
   });
   const bs={};orders.forEach(o=>bs[o.size]=(bs[o.size]||0)+oq(o));
-  out.push('',(isMat(r)?'合計數量:':'合計片數:')+Object.keys(bs).sort(sortSize).map(k=>k+'×'+bs[k]).join('、'),'總計 '+$$(grand));
+  out.push('',(isMat(r)?'合計數量:':'合計片數:')+Object.keys(bs).sort(sortSize).map(k=>dispName(k)+'×'+bs[k]).join('、'),'總計 '+$$(grand));
   return out.join('\n');
 }
 async function copyText(t,msg){
