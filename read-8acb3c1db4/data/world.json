@@ -1,76 +1,92 @@
 {
- "date": "2026-11-22",
- "one_line": "全球政商直面AI與資安巨變，科技產業迎監管與整併新轉折。",
+ "date": "2026-11-23",
+ "one_line": "氣候峰會談判破裂，AI耗能民怨與新型無人突襲正重塑全球版圖。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "YouTube涉成癮傳賠30億和解",
+     "title": "AI提早五年揪出膀胱癌病徵",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "據彭博社引述知情人士報導，Alphabet 旗下的影音平台 YouTube 正敲定原則性協議，預計支付約 30 億美元，與全美數千個指控該平台刻意設計成癮機制並傷害學童心理健康的公立學區和解。該協議目前仍屬草案階段，未來數月內仍需取得多數學區同意並經由聯邦法院法官批准。"
+       "text": "英國普利茅斯大學研究團隊開發出一款醫療人工智慧模型，透過比對近 7 萬名病患的長期電子病歷，成功在確診前最長提早 5 年捕捉到膀胱癌的微弱徵兆。該系統能交叉比對過往容易被忽視的就診紀錄與零星症狀，辨識潛在病患的準確率高達 85%。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這是社群影音巨頭面臨「演算法成癮」指控以來規模最大的賠償案之一。若最終敲定，不僅會迫使影音平台大幅修改對未成年人的推薦機制，也可能在台灣及全球引發更多針對演算法危害兒少身心健康的監管與訴訟效應。"
+       "text": "膀胱癌早期症狀常被誤判為單純尿道感染或結石而延誤就醫；這項技術若普及到基層門診，能讓民眾在黃金治療期及早自保，並大幅減少侵入性切片檢查的痛苦。"
       }
      ],
      "sources": [
-      "https://shattered.io/youtube-nears-3-billion-settlement-school-districts-addiction-claims/",
-      "https://www.bloomberg.com/news/articles/2026-11-21/youtube-finalizing-multibillion-dollar-schools-settlement-over-addiction-claims"
+      "http://www.sciencedaily.com/releases/2026/11/261120075602.htm"
      ]
     },
     {
-     "title": "蘋果徵才洩密！傳研發自主AI代理",
+     "title": "相對論顛覆百年教科書化學鍵",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "彭博社報導，蘋果公司一份最新曝光隨後撤下的徵才公告顯示，其工程團隊正在研發具備高度自主權的「AI 代理人」（能自主理解指令並替人類跨軟體操縱系統的智慧助手）。該工具據傳具備撰寫程式碼、瀏覽網頁、控制各類應用程式與協調多個子代理人的能力。"
+       "text": "美國布朗大學團隊在頂尖期刊《Science》發表新發現，證實愛因斯坦的「狹義相對論」（物體接近光速時質量與能量產生的變化）會直接改變重元素原子的電子行為。實驗發現當碳原子與重金屬鉍（Bismuth）結合形成三鍵時，化學界傳統認為互不相干的兩種化學鍵型態竟融為一體。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這意味著蘋果正加速追趕從「問答型助理」邁向「替用戶動手操作」的實用級 AI 工具。未來 iPhone 和 Mac 用戶可望迎來真正能代辦繁瑣數位差事的作業系統重大革新。"
+       "text": "這打破了全球大學化學系沿用數十年的傳統鍵結理論；由於重元素廣泛應用於催化劑與新世代電子元件，這項理論修正將大幅改寫未來半導體材料與綠色化學合成的研發方向。"
       }
      ],
      "sources": [
-      "https://a47news.ai/story/tech/50364/apple-agentic-siri-proactive-ai-roadmap",
-      "https://thewire.ink/"
+      "http://www.sciencedaily.com/releases/2026/11/261120075602.htm",
+      "https://www.sciencedaily.com/releases/2026/11/261120075701.htm"
      ]
     },
     {
-     "title": "防AI偷看對話！Signal禁截圖",
+     "title": "新研究揭AI運作非真正模仿人腦",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "路透社報導，主打高隱私的加密通訊軟體 Signal 宣布將在手機端預設封鎖螢幕截圖功能，以防範蘋果 Siri AI 或 Google Gemini 等具備「螢幕感知」功能的系統級 AI 助理讀取用戶的私密對話。Signal 同時坦承這項防禦措施「仍不完整」，並公開呼籲各大作業系統開發商給予第三方軟體更明確的權限控制機制。"
+       "text": "加拿大約克大學最新研究指出，外界普遍認為仿造大腦運作的人工神經網絡（ANN，模擬生物神經結構的演算法架構），其內部邏輯其實與人類視覺系統大相逕庭。研究團隊測試發現，就算 AI 模型能高度預測大腦皮層在看到物體時的活化數值，兩者處理影像時的真實運算路徑卻完全是兩回事。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "隨著手機全面整合能隨時掃描螢幕內容的系統級 AI，便利與隱私的邊界正面臨前所未有的衝突。台灣民眾在使用最新 AI 手機功能時，也需注意私人傳訊內容是否可能在背景遭到自動擷取或分析。"
+       "text": "這對近年將 AI 模型視為人腦替身的神經科學與腦機介面研發潑了一盆冷水；提醒產業與學界若過度依賴現有 AI 解讀人類大腦，可能在生醫或義肢設計上產生嚴重偏差。"
       }
      ],
      "sources": [
-      "https://www.independent.co.uk/tech/signal-screenshot-ai-text-messages-b3088743.html",
-      "https://thenextweb.com/news/signal-ai-agents-blocks-screenshots-siri-gemini-whittaker"
+      "https://www.sciencedaily.com/releases/2026/11/261120075701.htm",
+      "https://www.nexthorizon.space/2026/11/5-science-news-stories-november-21-2026.html?m=1"
      ]
     },
     {
-     "title": "DeepMind描繪超級智慧路徑",
+     "title": "MIT造出免持續供電超導記憶體",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "Google DeepMind 研究團隊發表研究報告，探討 AI 超越人類通用水準（AGI）之後的下一階段，正式勾勒邁向「人工超級智慧」（ASI，認知能力遠超整個人類專家群體的系統）的四大途徑。報告指出，藉由運算模型擴展、架構範式轉移、多代理人群體協同與遞迴式自我改進，未來十年全球有效 AI 代理人的規模可能出現爆發性倍增。"
+       "text": "麻省理工學院（MIT）團隊在最新發表的物理研究中，成功開發出一種新型「非揮發性」超導記憶體晶片結構（非揮發性意指電腦切斷電源後資料仍不會消失）。該技術結合超薄超導薄膜與雙層奈米磁鐵，利用磁性方向改變超導電流的阻抗，無需持續通電就能穩定保存二進位數據。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這顯示一線前沿實驗室已開始將研發重心放至「後 AGI 時代」的超智能力量。如果未來運算與推論成本如預測持續銳減，整個軟體、研發與專業諮詢產業的生產力邏輯都將面臨根本性改寫。"
+       "text": "目前運算設備面臨記憶體耗電龐大且散熱受限的瓶頸；這項突破能讓未來的低溫超級電腦與量子運算系統在極低功耗下保存海量資料，替算力節能開闢新路。"
       }
      ],
      "sources": [
-      "https://aiweekly.co/alerts/google-deepminds-genewein-maps-four-pathways-from-agi-to-asi",
-      "https://deepmind.google/research/publications/239142/"
+      "https://www.nexthorizon.space/2026/11/5-science-news-stories-november-21-2026.html?m=1",
+      "https://www.sciencedaily.com/news/top/"
+     ]
+    },
+    {
+     "title": "星際光帆加速至75%光速遇阻力",
+     "body": [
+      {
+       "label": "發生什麼:",
+       "text": "最新發表的天體物理學研究指出，人類探索系外行星寄予厚望的「光帆」（利用強力雷射光束照射反光薄膜以推動太空船的推進技術）存在嚴重的物理速度天花板。模擬發現，當光帆加速到光速的 75% 時，極端相對論效應會導致反射的光子產生逆向拖曳阻力，反而開始減緩飛行器的加速。"
+      },
+      {
+       "label": "為什麼值得知道:",
+       "text": "這直接打破了科學界過去認為能無限加碼雷射功率逼近光速的樂觀預期；代表人類未來發射深空探測器前往鄰近星系時，必須徹底修改飛行器設計與雷射推進頻率。"
+      }
+     ],
+     "sources": [
+      "https://www.sciencedaily.com/news/top/",
+      "https://www.jpost.com/environment-and-climate-change/article-915721"
      ]
     }
    ]
@@ -79,53 +95,54 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "SK海力士成鎧俠大股東！牽動記憶體",
+     "title": "COP31談判破裂近17年首見",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "彭博社報導，南韓記憶體晶片巨頭 SK 海力士在最新監管文件中揭露，將其自 2018 年起持有的可轉換公司債轉換為普通股，取得日本對手鎧俠（Kioxia）約 14.1% 的間接股權，正式躍居鎧俠最大股東。雙方均表示鎧俠將維持獨立營運，且在 2028 年前其表決權股份將受協議上限約束。"
+       "text": "在土耳其安塔利亞舉行的第 31 屆聯合國氣候峰會（COP31）在馬拉松式延長兩天後宣告破局。由於主辦國土耳其與澳洲提出的最終協議草案大幅淡化了淘汰化石燃料的具體要求，歐盟與眾多易受氣候衝擊的島國嚴詞拒絕接受，大會主席最終宣布無法達成共識並逕行離席。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "兩家公司在全球「快閃記憶體」（NAND Flash，儲存資料且斷電不遺失的晶片）市佔率合計達 33%，已超越長期霸主三星電子的 28%。這場資本重組將重塑全球存儲晶片的競爭格局與擴產節奏，對台灣伺服器與消費電子組裝廠的採購議價與供應穩定性具有深遠影響。"
+       "text": "這是自 2009 年哥本哈根會議以來聯合國氣候大會首度全面談判崩盤，顯示全球在減碳利益上的撕裂；各國極可能轉向各自推動單邊碳關稅與貿易壁壘，仰賴外貿出口的台灣製造業勢必面臨更嚴峻的供應鏈標準分歧。"
       }
      ],
      "sources": [
-      "https://thenextweb.com/news/sk-hynix-kioxia-largest-shareholder-bond-conversion-14-1"
+      "https://www.jpost.com/environment-and-climate-change/article-915721",
+      "https://apnews.com/article/climate-change-cop31-fossil-fuels-turkey-f571df2b9d6dc6fd6b4b991e988c3bdd"
      ]
     },
     {
-     "title": "系統連環當機！白宮開除國家網路總監",
+     "title": "烏無人艇遠征利比亞擊沉俄艦",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "路透社報導，在過去一週全美接連發生聯邦航空總署（FAA）通訊故障致航班大亂、微軟雲端中斷及國安局網路異常後，白宮將國家網路總監凱恩克羅斯（Sean Cairncross）免職，並由國防部資訊長戴維絲（Kirsten Davies）暫代職務。官員透露，高層認為凱恩克羅斯在面對日益複雜的基礎設施威脅時缺乏足夠的資安專業。"
+       "text": "多艘疑似由烏克蘭操作的海上自殺無人艇，在北非利比亞的班加西海軍港口發動遠程突襲，擊中停靠維修的俄羅斯海軍輕型護衛艦「水星號」（Merkury）。商業衛星空照圖證實該軍艦已在碼頭邊傾覆冒煙，港外另有一艘外國商船受到波及。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這反映連串系統癱瘓已跨過單純企業 IT 故障的界線，正式升級為美國最高層級的政治與國安信任危機。由軍方資安專才接掌白宮網路政策，意味著未來數月美方將對大型科技業者施加更嚴苛的關鍵系統彈性與安全審查規範。"
+       "text": "這代表俄烏衝突中的非對稱無人機作戰範圍已正式突破黑海，延伸到地中海咽喉甚至非洲海域；長程海軍無人載具的戰術擴散，正根本顛覆傳統海上防衛理論與全球重要航運要道的安全評估。"
       }
      ],
      "sources": [
-      "https://www.theguardian.com/us-news/2026/nov/19/white-house-cyber-director-ousted",
-      "https://de.tradingview.com/news/benzinga:afac6a57f094b:0-stephen-miller-ousts-cyber-director-sean-cairncross-as-tech-outages-rock-nation-report/"
+      "https://www.aljazeera.com/news/2026/11/22/suspected-drone-strike-hits-russian-vessel-in-libya",
+      "https://apnews.com/article/libya-russia-vessel-drone-benghazi-59f6f304f3053c69c8cc890138a94d1b"
      ]
     },
     {
-     "title": "傳北京阻2023年後新創境外上市",
+     "title": "AI巨量耗能激化歐美政治反彈",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "據路透社引述多名知情人士報導，中國主管機關近期向業界釋出訊號，針對 2023 年之後在境外註冊設立的中國企業，將不再批准其赴海外（如紐約或香港等地）掛牌上市的申請。這項尚未正式對外公布的限制，預計將對依賴境外融資架構的中國科技新創造成實質衝擊。"
+       "text": "知名科技調查記者巴黎·馬克思（Paris Marx）在 11 月 22 日推出調查新書並接受外媒專訪，直指超大型 AI 資料中心已在歐美引發前所未見的民怨浪潮。許多資料中心吞噬了地方兩成以上的發電量與上百萬公升冷卻水，直接推升民眾電費帳單，並在剛落幕的期中選舉中成為選民反撲科技巨頭的引爆點。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "此舉進一步切斷了中國科技新創透過外國資本市場退場變現的通道，凸顯中美地緣金融脫鉤進一步深化。這將促使全球風險投資機構更為謹慎，並可能加速創投資金外溢轉向台灣、日韓與東南亞的科技團隊。"
+       "text": "AI 基礎建設正從單純的商業投資轉化為尖銳的民生政治衝突；台灣當前也積極爭取外商 AI 算力中心落地，歐美正面臨的水電短缺抗爭與監管政策轉向，是台灣評估能源配比時的重要警訊。"
       }
      ],
      "sources": [
-      "https://www.techmeme.com/river",
-      "https://techurls.com/"
+      "https://techcrunch.com/2026/11/22/why-data-centers-are-at-the-center-of-the-big-tech-backlash/",
+      "https://emergent.sh/news/data-centers-fuel-big-tech-backlash-2026"
      ]
     }
    ]
