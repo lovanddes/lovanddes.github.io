@@ -2,11 +2,11 @@
   "format": "shinken-qr-update",
   "version": 1,
   "android": {
-    "versionCode": 2,
-    "versionName": "0.1.1",
-    "url": "https://lovanddes.github.io/shinken-qr/update/shinken-qr-0.1.1.apk",
-    "sha256": "46d189ed1a5946c943b1a962ddcf45280aaed199266df684806a49bf23c9b881",
-    "notes": "修正:網址結尾帶句點(例如 www.gov.tw.)被誤報仿冒政府、短網址(bit.ly.)漏報",
-    "date": "2026-11-19"
+    "versionCode": 3,
+    "versionName": "0.1.2",
+    "url": "https://lovanddes.github.io/shinken-qr/update/shinken-qr-0.1.2.apk",
+    "sha256": "40005e24c9fe90866fbaf4e32fb27d8d62d5f4b0d7cd22a3cbe59e4b1829e5a3",
+    "notes": "新增:反色(白點黑底)與圓角定位點的 QR 也掃得出來\n一般黑白 QR 掃描不受影響",
+    "date": "2026-11-23"
   }
 }
