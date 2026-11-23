@@ -2,11 +2,11 @@
   "format": "shinken-sms-update",
   "version": 1,
   "android": {
-    "versionCode": 8,
-    "versionName": "0.1.7",
-    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.7.apk",
-    "sha256": "5359a41160718092975c1da74ceaeae44fd8b64173ea47a20feb57cb262c3048",
-    "notes": "簡訊列表的「未讀」更明顯了\n沒讀的對話整列換成淡黃底(深色模式是深琥珀底),左邊多一條紅色粗條\n原本的小紅點改成紅底白字的「新」或「新 3」,一眼就看得出有幾封沒讀",
+    "versionCode": 9,
+    "versionName": "0.1.8",
+    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.8.apk",
+    "sha256": "a010cad4b2496f6893c9ae3d7a5ba99c13e902802e565f6f56cccf5933b0f072",
+    "notes": "對話畫面標題列下面多了兩顆按鈕:「置頂」(已置頂時變「取消置頂」)和「標成未讀」\n看完簡訊覺得沒空處理,直接按「標成未讀」,就會回到列表,不用再退回去長按\n要把重要的對話釘在最上面,也能直接在對話裡按「置頂」",
     "date": "2026-11-23"
   }
 }
