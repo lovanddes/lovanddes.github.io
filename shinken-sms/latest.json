@@ -2,11 +2,11 @@
   "format": "shinken-sms-update",
   "version": 1,
   "android": {
-    "versionCode": 7,
-    "versionName": "0.1.6",
-    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.6.apk",
-    "sha256": "3847f441b4a3a8255b24a53ef4a9b9b7727be75bb6f368fc55210f9a619a8df7",
-    "notes": "設定裡「分享給朋友」下面多一顆「給朋友掃 QR 碼」\n按下去會秀出下載頁的 QR 碼，旁邊的人用手機相機一掃就能下載",
-    "date": "2026-11-18"
+    "versionCode": 8,
+    "versionName": "0.1.7",
+    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.7.apk",
+    "sha256": "5359a41160718092975c1da74ceaeae44fd8b64173ea47a20feb57cb262c3048",
+    "notes": "簡訊列表的「未讀」更明顯了\n沒讀的對話整列換成淡黃底(深色模式是深琥珀底),左邊多一條紅色粗條\n原本的小紅點改成紅底白字的「新」或「新 3」,一眼就看得出有幾封沒讀",
+    "date": "2026-11-23"
   }
 }
