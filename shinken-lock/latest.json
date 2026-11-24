@@ -1,0 +1,12 @@
+{
+  "format": "shinken-lock-update",
+  "version": 1,
+  "android": {
+    "versionCode": 2,
+    "versionName": "0.2.0",
+    "url": "https://lovanddes.github.io/shinken-lock/update/shinken-lock-0.2.0.apk",
+    "sha256": "a5f714fe683d03f57955de8cf064c806f610af66c0cc505f05ca09d53d877fcd",
+    "notes": "第一版線上更新管道\n新增「檢查更新」按鈕(只有按了才連網)",
+    "date": "2026-11-24"
+  }
+}
