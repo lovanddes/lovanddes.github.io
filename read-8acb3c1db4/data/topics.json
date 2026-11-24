@@ -1,20 +1,20 @@
 {
- "date": "2026-11-24",
+ "date": "2026-11-25",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "AI代理職缺狂飆350%",
+     "title": "好幾個月沒開VS Code",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "資策會與 1111 人力銀行發布《2027未來人才白皮書》，顯示企業對具備「AI 代理人（AI Agent）」技能的需求相較年初暴增 350%，連化學製造與倉儲等傳產都急搶。這引發上班族集體焦慮：大家連日常提問指令都還在摸索，市場卻已經跳級要求員工能部署與管理整支 AI 代理人團隊。"
+       "text": "微軟執行長納德拉受訪坦言，自從 Claude Code 等命令列 AI 代理崛起後，許多工程師好幾個月沒打開過 VS Code。寫程式從手動逐行敲碼轉為由終端機 AI 代理直接交付，微軟長年主導的 IDE 開發模式面臨顛覆。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我也是那個連交辦工作給實習生都講不清楚，卻看著滿街徵求「AI 代理人主管」感到頭皮發麻的人。"
+       "text": "我連 VS Code 的快捷鍵都還沒背熟，世界就告訴我現在連編輯器都不用開了。"
       },
       {
        "label": "建議欄目:",
@@ -22,19 +22,19 @@
       }
      ],
      "sources": [
-      "https://money.udn.com/money/story/10869/9896169"
+      "https://www.techbang.com/posts/135036-nadella-claude-code-challenges-vs-code"
      ]
     },
     {
-     "title": "Nest App宣布終止服務",
+     "title": "AI職場大凍結不裁員也不開缺",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "Google 正式宣布長年運作的 Nest App 將於 2027 年 1 月正式關閉，所有智慧家庭裝置控制將全面強制移轉至 Google Home，歷史監控影片若未手動備份也將被清除。這引發智慧家庭用戶哀號，痛批大廠隨手一聲整併升級，用戶就得在下班後熬夜重新設定整間屋子的設備。"
+       "text": "最新研究與就業市場數據顯示，AI 對白領的衝擊不是大舉裁員，而是企業悄悄關閉入門職缺，以自然離職取代招募。過去給新鮮人練功的基礎行政與資料整理全被 AI 接管，導致職場出現「只凍結不開缺」，新鮮人起跑點的梯子正被默默抽走。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我也是那個好不容易把家裡智慧家電摸熟，結果又被通知必須整批搬家重設的人。"
+       "text": "我也是那個慶幸自己早幾年進公司的人，不然看著入門職缺都被 AI 沒收，我現在連當分母的資格都沒有。"
       },
       {
        "label": "建議欄目:",
@@ -42,19 +42,20 @@
       }
      ],
      "sources": [
-      "https://www.bnext.com.tw/article/93159/google-nest-app-assistant-shutdown-2027"
+      "https://technews.tw/2026/11/24/1-5-million-jobs-vanish-study-ai-can-eliminate-jobs-without-layoffs/",
+      "https://udn.com/news/story/7240/9895838"
      ]
     },
     {
-     "title": "Threads推自訂按讚特效",
+     "title": "科技巨頭瘋替AI裝殺戮開關",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "Threads 推出全新「自訂按讚動畫」功能，發文者可將愛心替換為自訂 Emoji、貼圖或迷因動圖，引發台灣社群瘋狂洗版「點愛心看驚喜」。許多上班族滑手機時為了看動畫盲目狂按，猛然發現自己下班後的放空時間全被演算法與花俏特效偷走。"
+       "text": "資安巨頭 CrowdStrike 宣布以約 439 億美元收購 Zscaler，創下資安史上最大併購之一。官方強調企業大量導入自主 AI 代理後，最大威脅是失控跑偏的惡意代理，因此急需在端點與雲端建立統一監控、隨時能一鍵斷電的「殺戮開關（Kill Switch）」。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我也是那個下班後為了看別人貼文會跳出什麼奇怪動畫，在螢幕上盲目狂點了幾百次愛心的人。"
+       "text": "我也是那個看著世界忙著替 AI 裝緊急煞車，卻連自己的下班開關都找不到的人。"
       },
       {
        "label": "建議欄目:",
@@ -62,7 +63,7 @@
       }
      ],
      "sources": [
-      "https://www.nownews.com/news/6891861"
+      "https://infosecu.technews.tw/2026/11/24/crowdstrike-to-acquire-zscaler/"
      ]
     }
    ]
