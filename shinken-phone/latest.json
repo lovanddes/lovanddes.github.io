@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 65,
-    "versionName": "1.1.62",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.62.apk",
-    "sha256": "22d167174ab252fc59c101ed336fa1058a5a80152fa598c1c50bb0343cd221cb",
-    "notes": "新增「畫面卡住偵測」:App 如果卡住超過 4 秒,會自動記下當時卡在哪一段\n聯絡人重讀如果太久(超過 2 秒)或同時跑好幾輪,也會記下來\n這版只加紀錄,通話和聯絡人功能沒有改;下次卡住時用「回報問題」送出,我就能查原因",
-    "date": "2026-11-22"
+    "versionCode": 66,
+    "versionName": "1.1.63",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.63.apk",
+    "sha256": "7e31136926934368e812d476e3b15248301bdc3ce9892095478ec2f2060a5c1d",
+    "notes": "通話紀錄搜尋改成在背景處理,輸入後稍等一下才開始比對,1600 多筆通話也不會卡到「沒有回應」。\n「畫面卡住」的紀錄再加一道:系統判定無回應時,診斷紀錄也會記下當時卡在哪一行。",
+    "date": "2026-11-24"
   }
 }
