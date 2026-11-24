@@ -2,11 +2,11 @@
   "format": "shinken-qr-update",
   "version": 1,
   "android": {
-    "versionCode": 3,
-    "versionName": "0.1.2",
-    "url": "https://lovanddes.github.io/shinken-qr/update/shinken-qr-0.1.2.apk",
-    "sha256": "40005e24c9fe90866fbaf4e32fb27d8d62d5f4b0d7cd22a3cbe59e4b1829e5a3",
-    "notes": "新增:反色(白點黑底)與圓角定位點的 QR 也掃得出來\n一般黑白 QR 掃描不受影響",
-    "date": "2026-11-23"
+    "versionCode": 4,
+    "versionName": "0.1.3",
+    "url": "https://lovanddes.github.io/shinken-qr/update/shinken-qr-0.1.3.apk",
+    "sha256": "bd66baac347149dbddc7ea9eb6d152d40543e1a4d823f6cb842fa52c41461e35",
+    "notes": "改進:鏡頭即時掃描加強,對著螢幕上又小又暈光的 QR 比較容易讀出來\n其他功能不變",
+    "date": "2026-11-24"
   }
 }
