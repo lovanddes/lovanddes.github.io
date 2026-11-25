@@ -2,11 +2,11 @@
   "format": "shinken-phone-update",
   "version": 1,
   "android": {
-    "versionCode": 66,
-    "versionName": "1.1.63",
-    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.63.apk",
-    "sha256": "7e31136926934368e812d476e3b15248301bdc3ce9892095478ec2f2060a5c1d",
-    "notes": "通話紀錄搜尋改成在背景處理,輸入後稍等一下才開始比對,1600 多筆通話也不會卡到「沒有回應」。\n「畫面卡住」的紀錄再加一道:系統判定無回應時,診斷紀錄也會記下當時卡在哪一行。",
-    "date": "2026-11-24"
+    "versionCode": 67,
+    "versionName": "1.1.64",
+    "url": "https://lovanddes.github.io/shinken-phone/update/shinken-phone-1.1.64.apk",
+    "sha256": "a62c5305b5ab4ab91669db149ba7c9baeaa94af7d043b8ec3d9947a62d5ccb89",
+    "notes": "開 App 時,通話記錄不再被撥號鍵盤蓋住:一進去先看到通話記錄,從別的分頁切回來也一樣。\n撥號欄空白時按下面的撥號鈕,會打開撥號鍵盤,並記住你按的是哪一張卡(該鈕加粗框、另一個變淡);打好號碼再按撥出,就用那張卡。原本「帶入最近一筆通話」的做法取消。",
+    "date": "2026-11-25"
   }
 }
