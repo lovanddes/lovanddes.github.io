@@ -1,88 +1,88 @@
 {
- "date": "2026-11-25",
- "one_line": "微軟紅警整頓雲端、自主AI實戰現身，華為與美關稅迎新法律戰",
+ "date": "2026-11-26",
+ "one_line": "太空AI機房獲准、馬斯克傳換股合併，路透工會掀AI抗爭",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "微軟發布紅警大改雲端系統",
+     "title": "SpaceX獲准建百萬太空AI機房",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "路透社揭露微軟內部備忘錄，針對 11 月中旬 Exchange、Outlook 與 Teams 全球大當機近 24 小時的災情，內部正式啟動最高等級的「紅色警戒」（Code Red）動員令。微軟將全面翻新工程架構與事故應變流程，實施跨區域流量隔離，並立下嚴格目標，要求未來全球性事故必須在 1 小時內排除。"
+       "text": "美國聯邦通訊委員會（FCC）正式有條件核准 SpaceX 部署代號「Starmind」的軌道運算衛星星座，規模最高達 100 萬顆衛星。這批重型衛星將搭載先進 AI 晶片，直接在軌道上利用全天候太陽能發電，並透過太空真空輻射散熱，再以高速雷射將運算結果回傳地面。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "台灣多數企業與公家機關日常高度依賴微軟雲端辦公套件，這次內部大整頓顯示雲端單一故障點的脆弱性，也意味微軟未來更新與穩定性要求將大幅收緊。"
+       "text": "地表資料中心正面臨極嚴峻的電力吃緊與水資源消耗限制；若能將龐大運算負載送上太空，將徹底改寫未來十年的 AI 算力基礎設施，同時加速太空抗輻射晶片的規格革新。"
       }
      ],
      "sources": [
-      "https://www.ctvnews.ca/sci-tech/article/microsoft-declares-code-red-after-historic-outage-internal-memos-show-reuters-exclusive/"
+      "https://techcrunch.com/2026/11/25/fcc-approves-spacex-plan-to-put-ai-data-centers-in-space/"
      ]
     },
     {
-     "title": "自主AI首度獨立挖出零日漏洞",
+     "title": "特斯拉與SpaceX設特委會談合併",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "亞馬遜資安團隊公開最新威脅情報，發現有攻擊者利用名為「Cairn」的開源自主 AI 滲透測試工具，在無人類干預下自主分析目標系統。該 AI 代理人在短短 11 分鐘內，獨立找出醫療影像開源軟體 MONAI Label 的「零日漏洞」（指官方尚未發現且無修補程式的安全弱點），並成功奪取最高管理者權限。"
+       "text": "據外媒報導，特斯拉與 SpaceX 董事會已各自成立由獨立董事組成的特別委員會，著手評估一項規模達 3.5 兆美元（約新台幣 114 兆元）的全股票換股合併案。為避免嚴重的利益衝突，身兼兩家公司靈魂人物的馬斯克（Elon Musk）已被正式排除在談判團隊之外。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這是全球首起證實自主 AI 能夠完全獨立發現並利用零日漏洞的實戰案例，代表駭客攻擊節奏已壓縮至幾分鐘，未來企業資安防禦光靠人類工程師反應將難以招架。"
+       "text": "一旦這場世紀整合成真，將誕生全球首家橫跨電動車、人形機器人、低軌衛星與太空火箭的科技超級巨擘，直接牽動台灣車用晶片與航太供應鏈的長期版圖。"
       }
      ],
      "sources": [
-      "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/"
+      "https://thenextweb.com/news/spacex-tesla-merger-five-directors-special-committees"
      ]
     },
     {
-     "title": "紐時禁攝影師用PS新版防AI",
+     "title": "歐盟擬設500億歐元主權科技基金",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "《紐約時報》向外聘攝影記者發出正式指引，要求工作時避免使用 Adobe Photoshop 2027（28.0 版及後續版本）。報社指出該版本在後台大量植入不易察覺的生成式 AI 功能，甚至連基礎編輯動作都可能自動觸發 AI 計算，並在檔案中寫入標註為「AI 生成或修改」的數位履歷（C2PA 元數據）。"
+       "text": "歐盟執委會在新公布的《量子法案》草案中，正式提議設立規模達 500 億歐元（約新台幣 1.7 兆元）的「主權科技股權基金」（STEF）。該基金將突破過去單純提供補助或貸款的慣例，轉為直接入股歐洲的 AI、量子計算與關鍵半導體新創，提供高風險、長期的成長資金。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "新聞攝影核心在於真實呈現，商業修圖工具強推自動化 AI 反而可能讓真照片被貼上偽造標籤；這也提醒上班族與專業工作者，隨意更新軟體可能在不知不覺中被 AI 竄改原始資料。"
+       "text": "歐洲長期面臨頂尖科研成果無法商業化、新創因缺乏後期資金而紛紛出走美中的痛點；這項主權投資計畫若通過，將是歐洲建立關鍵科技自主防線的關鍵一步。"
       }
      ],
      "sources": [
-      "https://petapixel.com/2026/11/24/new-york-times-prohibits-photographers-from-using-photoshop-2027/"
+      "https://thenextweb.com/news/eu-50bn-sovereign-tech-equity-fund-ai-quantum"
      ]
     },
     {
-     "title": "傳訊不用切！IG私訊內嵌AI",
+     "title": "芬蘭商用量子電腦首度攻入南韓",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "Meta 於 11 月 24 日起擴大推出整合更新，將旗下個人助理「Muse AI」直接內建在 Instagram 的私訊聊天室（DM）中。用戶無需在不同 App 間切換，就能直接請 AI 整理收藏的貼文與短影音，甚至自動把存下的美食影片轉成購物清單，或將旅遊短片整理成行程表。"
+       "text": "歐洲量子運算大廠 IQM 宣布與南韓雲端基礎設施商 QAI 達成商業協議，將於首爾的民營資料中心部署 54 量子位元的「IQM Radiance」系統。這是亞洲首次有商用量子電腦直接進駐企業機房，預計將與既有的 AI 繪圖處理器（GPU，專門用於平行運算的大型運算晶片）叢集串接，提供混合運算服務。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "社群平台正在從單純滑動內容，轉型為替個人處理瑣事的生活管家，一般用戶日常整理靈感或跟朋友揪團出遊的流程將變得更直覺省事。"
+       "text": "這代表量子電腦不再只是頂尖大學的展示品，而是正式走向能與企業現有 AI 伺服器協同運作的商業實用階段，有助於加速新藥開發與材料模擬的商業化落地。"
       }
      ],
      "sources": [
-      "https://techcrunch.com/2026/11/24/meta-brings-its-muse-ai-assistant-directly-into-instagram-dms/"
+      "https://www.globenewswire.com/news-release/2026/11/25/3410386/0/en/inside-information-iqm-quantum-computers-plc-has-received-a-new-order-for-an-iqm-radiance-54-qubit-quantum-computer-from-qai-a-south-korean-quantum-ai-company.html"
      ]
     },
     {
-     "title": "英監管示警自主金融AI踩紅線",
+     "title": "全面AI取代審查！Meta遭爆大亂",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "英國金融行為監管局（FCA）發布最新監管指南，嚴正警告科技公司與平台業者，不得以「純科技提供者」自居來規避金融法規。監管局明定，一旦 AI 代理人（具備自主執行能力的智慧軟體）跨越單純提供資訊，開始替用戶轉帳、扣款、申請貸款或執行投資決策，就必須完全受現行金融牌照與消費者保護法規管束。"
+       "text": "英國《衛報》披露內部吹哨者指控，Meta 近期為了大幅壓低營運成本，大量裁減真人內容審查員，並將有害內容把關工作全權轉交給生成式 AI 系統。然而留守的少數真人團隊根本無法應付龐大工作量，導致多國用戶在重大新聞事件中的合法發文頻遭演算法誤刪，仇恨言論的誤漏率也急遽攀升。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "當大眾未來習慣讓手機上的 AI 代客下單買票、代繳帳單甚至理財，若發生扣錯款或盜刷，科技巨頭將不能再把責任全推給模型演算法，必須負起完全法律賠償責任。"
+       "text": "這凸顯企業過度依賴 AI 自動化決策帶來的治理隱憂；對一般台灣社群用戶而言，當帳號因 AI 誤判遭停權或內容被下架時，恐將更難以尋求真人客服即時平反。"
       }
      ],
      "sources": [
-      "https://www.fca.org.uk/firms/innovation/ai-approach/agentic-ai"
+      "https://www.theguardian.com/technology/2026/nov/25/meta-insiders-concerned-push-to-ai-content-moderation"
      ]
     }
    ]
@@ -91,51 +91,51 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "華為竊密詐欺十項刑事罪成立",
+     "title": "美財團百億美元接盤俄油海外資產",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國紐約布魯克林聯邦法院陪審團在歷經 11 週審理後，於 11 月 24 日裁定中國電信巨頭華為犯下 10 項刑事罪名，包括共謀竊取美國企業商業機密、銀行詐欺、電匯詐欺及違反對伊朗制裁。不過，陪審團駁回了檢方求處最嚴厲的「共謀勒索組織犯罪」（RICO，常用於起訴黑幫的法條）指控。"
+       "text": "由美國富豪波利（Todd Boehly）旗下的 Eldridge 投資公司與美國政府官方的「國際開發金融公司」（DFC）牽頭的財團，正式與俄羅斯第二大石油巨頭盧克石油達成協議。該交易以約 100 億美元的無現金「股權互換」架構，收購盧克石油遍及歐洲與中亞等 16 國的油氣田、煉油廠與加油站資產，以完全避開現金制裁紅線。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這項長達數年的重磅官司正式在法律上將華為定罪為刑事犯，雖然華為避開了全公司被定性為犯罪組織的命運，但美中科技戰在司法層面的全面圍堵已無回頭路，對全球供應鏈選邊站的壓力更加劇烈。"
+       "text": "這是俄烏衝突以來西方資本最大規模吞併俄國海外能源命脈的行動，不僅美國政府首度能從中分潤，也大幅重塑中亞通往歐洲的能源地緣政治走廊。"
       }
      ],
      "sources": [
-      "https://www.courthousenews.com/huawei-found-guilty-of-stealing-trade-secrets-in-us-trial/"
+      "https://www.cnn.com/2026/11/25/business/lukoil-sale-todd-boehly-intl"
      ]
     },
     {
-     "title": "美擬改引301條款重啟全球關稅",
+     "title": "不滿AI授權被白嫖！路透工會准罷工",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "據彭博社報導，在先前依緊急權力實施的全面性全球關稅遭美國最高法院裁定違憲無效後，美國貿易代表署（USTR）正著手改用 1974 年《貿易法》第 301 條款重啟新一輪精準關稅。這項計畫針對中國、歐盟、日本、南韓等十多個經濟體，指控其補貼製造業產能過剩並傾銷美國市場，將量身訂做差別稅率。"
+       "text": "代表路透社美國近 300 名記者的紐約新聞工會以高票通過罷工授權，隨時可能發動 46 年來首場無期限罷工。勞資雙方最大爭端在於母公司湯姆森路透向微軟、Meta 等科技巨頭高價授權新聞資料庫訓練 AI，單季賺進近兩千萬美元，記者卻分不到任何授權利潤，同時面臨工作遭 AI 取代的威脅。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "美國政府並未放棄關稅大棒，而是轉向法律基礎更穩固的法定條款；未來幾個月這批鎖定產業過剩的關稅清單，將直接牽動台灣關鍵零組件與下游代工廠商的外銷出口佈局。"
+       "text": "這是全球頂尖新聞機構首度因「AI 數據授權利潤分配」引發重大勞資決裂，將成為未來內容創作者與文字工作者向科技巨頭爭取智財權益的重要風向球。"
       }
      ],
      "sources": [
-      "https://econbrowser.com/archives/2026/11/enhancing-affordability-trump-style-section-301-run-amok"
+      "https://www.poynter.org/business-work/2026/reuters-strike-ai-protections-deal-wages/"
      ]
     },
     {
-     "title": "聯盟急購百萬劑伊波拉新疫苗",
+     "title": "德國總理預警：俄野心絕不只烏克蘭",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "全球疫苗免疫聯盟（Gavi）於 11 月 24 日簽署預購合約，透過應變基金向印度血清研究所與牛津大學採購至多 150 萬劑試驗性疫苗，以因應剛果民主共和國爆發的本迪布焦（Bundibugyo）型伊波拉疫情。該罕見病毒株迄今已奪走逾 5,700 條人命，而全球目前尚無任何正式核准上市的對應疫苗或藥物。"
+       "text": "德國總理默茨（Friedrich Merz）於 11 月 25 日在聯邦議會發表預算演說時嚴正警告，俄羅斯正在波羅的海、波蘭、黑海與外太空發動多維度的「混合戰」（指結合軍事威嚇、假訊息與網路攻擊的非傳統衝突），其野心遠超烏克蘭。默茨頂住國內預算爭議，表態將強力捍衛德國國防開支大幅增長，以向莫斯科劃出不可退讓的紅線。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "伊波拉變異株致死率高且過去缺乏專用預防工具，國際衛生組織在進入臨床試驗階段即提前鎖定產能與儲備，是遏止非洲疫情演變成跨國公共衛生浩劫的關鍵前哨戰。"
+       "text": "作為歐洲經濟領頭羊，德國最高領導人將國防安全提升至最高優先順序，確立了歐洲在未來數年全面重整軍備並徹底與俄羅斯戰略脫鉤的長期走勢。"
       }
      ],
      "sources": [
-      "https://www.gavi.org/news/media-room/gavi-signs-agreement-serum-institute-india-secure-rapid-access-bundibugyo-vaccines"
+      "https://www.irishtimes.com/world/europe/2026/11/25/russia-wants-more-than-ukraine-germanys-merz-warns/"
      ]
     }
    ]
