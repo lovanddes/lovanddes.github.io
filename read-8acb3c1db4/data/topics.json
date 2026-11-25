@@ -1,40 +1,20 @@
 {
- "date": "2026-11-25",
+ "date": "2026-11-26",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "好幾個月沒開VS Code",
+     "title": "LINE網頁版拍板2027退場",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "微軟執行長納德拉受訪坦言，自從 Claude Code 等命令列 AI 代理崛起後，許多工程師好幾個月沒打開過 VS Code。寫程式從手動逐行敲碼轉為由終端機 AI 代理直接交付，微軟長年主導的 IDE 開發模式面臨顛覆。"
+       "text": "LINE 官方公告 Chrome 與 Whale 瀏覽器專用的擴充功能（俗稱網頁版）將於 2027 年 1 月 26 日終止服務。由於許多上班族受限於公司電腦資安規範無法安裝桌面版軟體，消息一出引發集體焦慮「上班怎麼偷偷回訊息」，官方建議自備平板或用手機鏡像輸出更引發熱議。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我連 VS Code 的快捷鍵都還沒背熟，世界就告訴我現在連編輯器都不用開了。"
-      },
-      {
-       "label": "建議欄目:",
-       "text": "【頭上的龍蝦又重了】"
-      }
-     ],
-     "sources": [
-      "https://www.techbang.com/posts/135036-nadella-claude-code-challenges-vs-code"
-     ]
-    },
-    {
-     "title": "AI職場大凍結不裁員也不開缺",
-     "body": [
-      {
-       "label": "為什麼熱:",
-       "text": "最新研究與就業市場數據顯示，AI 對白領的衝擊不是大舉裁員，而是企業悄悄關閉入門職缺，以自然離職取代招募。過去給新鮮人練功的基礎行政與資料整理全被 AI 接管，導致職場出現「只凍結不開缺」，新鮮人起跑點的梯子正被默默抽走。"
-      },
-      {
-       "label": "新跪的角度:",
-       "text": "我也是那個慶幸自己早幾年進公司的人，不然看著入門職缺都被 AI 沒收，我現在連當分母的資格都沒有。"
+       "text": "我也是那個在公司電腦只敢偷偷掛 Chrome 擴充功能收發訊息的人。"
       },
       {
        "label": "建議欄目:",
@@ -42,20 +22,20 @@
       }
      ],
      "sources": [
-      "https://technews.tw/2026/11/24/1-5-million-jobs-vanish-study-ai-can-eliminate-jobs-without-layoffs/",
-      "https://udn.com/news/story/7240/9895838"
+      "https://udn.com/news/story/7088/8383821",
+      "https://www.cna.com.tw/news/ahel/202411250153.aspx"
      ]
     },
     {
-     "title": "科技巨頭瘋替AI裝殺戮開關",
+     "title": "把AI當隊友除錯率降18%",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "資安巨頭 CrowdStrike 宣布以約 439 億美元收購 Zscaler，創下資安史上最大併購之一。官方強調企業大量導入自主 AI 代理後，最大威脅是失控跑偏的惡意代理，因此急需在端點與雲端建立統一監控、隨時能一鍵斷電的「殺戮開關（Kill Switch）」。"
+       "text": "《哈佛商業評論》最新研究指出，當主管把內部 AI 系統擬人化、替它取名並要求員工當成「隊友」時，員工對產出內容的除錯率反而大降 18%，個人責任感也隨之降低。大家熱議原本以為找了神隊友，結果反而在不知不覺中把該自己把關的責任拋給了 AI。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我也是那個看著世界忙著替 AI 裝緊急煞車，卻連自己的下班開關都找不到的人。"
+       "text": "我身邊這隻水母最近越來越像同事，連報告出錯我都想轉頭怪它。"
       },
       {
        "label": "建議欄目:",
@@ -63,7 +43,29 @@
       }
      ],
      "sources": [
-      "https://infosecu.technews.tw/2026/11/24/crowdstrike-to-acquire-zscaler/"
+      "https://hbr.org/2024/11/when-ai-is-your-teammate-you-check-its-work-less",
+      "https://sunmedia.tw/ai-teammate-error-checking/"
+     ]
+    },
+    {
+     "title": "AI通用接口MCP正式開源",
+     "body": [
+      {
+       "label": "為什麼熱:",
+       "text": "Claude 開發商 Anthropic 正式推出並開源 Model Context Protocol（MCP）協議，被科技界譽為 AI 界的「USB-C」。它能讓 AI 無縫插上使用者的本機檔案、資料庫與各類日常軟體，引發開發者熱烈響應，也讓普通上班族開始焦慮電腦裡的一切都要被 AI 串聯接管。"
+      },
+      {
+       "label": "新跪的角度:",
+       "text": "我也是那個看到大家在慶祝 AI 接口統一，抽屜裡卻還塞著三條打結舊線的人。"
+      },
+      {
+       "label": "建議欄目:",
+       "text": "【頭上的龍蝦又重了】"
+      }
+     ],
+     "sources": [
+      "https://technews.tw/2024/11/26/anthropic-model-context-protocol/",
+      "https://www.ithome.com.tw/news/166212"
      ]
     }
    ]
