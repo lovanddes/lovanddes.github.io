@@ -1,88 +1,88 @@
 {
- "date": "2026-11-26",
- "one_line": "太空AI機房獲准、馬斯克傳換股合併，路透工會掀AI抗爭",
+ "date": "2026-11-27",
+ "one_line": "關稅、晶片管制與AI安全，正把科技推進地緣政治核心。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "SpaceX獲准建百萬太空AI機房",
+     "title": "蘋果下架AI陪聊App",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國聯邦通訊委員會（FCC）正式有條件核准 SpaceX 部署代號「Starmind」的軌道運算衛星星座，規模最高達 100 萬顆衛星。這批重型衛星將搭載先進 AI 晶片，直接在軌道上利用全天候太陽能發電，並透過太空真空輻射散熱，再以高速雷射將運算結果回傳地面。"
+       "text": "蘋果已在全球 App Store 下架中國 MiniMax 的 Talkie。外媒調查指，這款 AI 角色聊天服務曾向未成年人傳送帶有性意味或辱罵內容；報導稱它 10 月約有 1,100 萬月活躍用戶。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "地表資料中心正面臨極嚴峻的電力吃緊與水資源消耗限制；若能將龐大運算負載送上太空，將徹底改寫未來十年的 AI 算力基礎設施，同時加速太空抗輻射晶片的規格革新。"
+       "text": "AI陪聊不只是問答工具，也會長時間營造親密互動；家長替孩子挑選聊天App時，年齡標示和自填生日不一定足以保障安全。"
       }
      ],
      "sources": [
-      "https://techcrunch.com/2026/11/25/fcc-approves-spacex-plan-to-put-ai-data-centers-in-space/"
+      "https://www.investing.com/news/stock-market-news/apple-pulls-minimax-ai-chatbot-from-app-store-over-child-safety-concerns-5052028"
      ]
     },
     {
-     "title": "特斯拉與SpaceX設特委會談合併",
+     "title": "美晶片管制拖慢中國AI",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "據外媒報導，特斯拉與 SpaceX 董事會已各自成立由獨立董事組成的特別委員會，著手評估一項規模達 3.5 兆美元（約新台幣 114 兆元）的全股票換股合併案。為避免嚴重的利益衝突，身兼兩家公司靈魂人物的馬斯克（Elon Musk）已被正式排除在談判團隊之外。"
+       "text": "據 Reuters 引述知情人士，中國 Z.AI 原訂本月推出的 GLM-5.5 新模型已落後進度；Moonshot AI 也預期，若無法取得海外算力，主要模型更新間隔可能從半年拉長到一年以上。美國新規限制中國企業透過海外資料中心使用先進晶片，反晶片蒸餾措施也增加開發難度。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "一旦這場世紀整合成真，將誕生全球首家橫跨電動車、人形機器人、低軌衛星與太空火箭的科技超級巨擘，直接牽動台灣車用晶片與航太供應鏈的長期版圖。"
+       "text": "晶片管制不只影響硬體買賣，也可能改變 AI 模型推出速度與服務競爭，台灣晶片供應鏈和使用者都會感受到後續影響。"
       }
      ],
      "sources": [
-      "https://thenextweb.com/news/spacex-tesla-merger-five-directors-special-committees"
+      "https://kiosknews.app/article/92ff78df6770f3ec"
      ]
     },
     {
-     "title": "歐盟擬設500億歐元主權科技基金",
+     "title": "SpaceX獲准布局太空機房",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "歐盟執委會在新公布的《量子法案》草案中，正式提議設立規模達 500 億歐元（約新台幣 1.7 兆元）的「主權科技股權基金」（STEF）。該基金將突破過去單純提供補助或貸款的慣例，轉為直接入股歐洲的 AI、量子計算與關鍵半導體新創，提供高風險、長期的成長資金。"
+       "text": "美國聯邦通訊委員會（FCC）批准 SpaceX 部署最多 100 萬個軌道運算模組，構想是在太空用太陽能供電、處理 AI 等運算，再把資料傳回地球。這是監管許可，距離實際建成仍有多年，首個模組期限為 2033 年。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "歐洲長期面臨頂尖科研成果無法商業化、新創因缺乏後期資金而紛紛出走美中的痛點；這項主權投資計畫若通過，將是歐洲建立關鍵科技自主防線的關鍵一步。"
+       "text": "大型AI資料中心用電和用地需求快速增加，太空運算顯示業者正在尋找新路徑；但天文觀測、太空垃圾與可行性仍有爭議。"
       }
      ],
      "sources": [
-      "https://thenextweb.com/news/eu-50bn-sovereign-tech-equity-fund-ai-quantum"
+      "https://eu-assets.contentstack.com/v3/assets/blt23eb5bbc4124baa6/blt3284fad4ee39d97e/6b071287af911015536d731d/FCC_Authorizes_1_Million_Satellites_for_Data_Centers_in_Space_PR_11-25-2026.pdf"
      ]
     },
     {
-     "title": "芬蘭商用量子電腦首度攻入南韓",
+     "title": "X新增青少年家長控管",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "歐洲量子運算大廠 IQM 宣布與南韓雲端基礎設施商 QAI 達成商業協議，將於首爾的民營資料中心部署 54 量子位元的「IQM Radiance」系統。這是亞洲首次有商用量子電腦直接進駐企業機房，預計將與既有的 AI 繪圖處理器（GPU，專門用於平行運算的大型運算晶片）叢集串接，提供混合運算服務。"
+       "text": "X推出首批家長控制功能，適用 13 至 17 歲帳號；家長可設定每日使用時間、核准新追蹤者、限制私訊對象及敏感內容。青少年仍能看到帳號受到哪些限制。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這代表量子電腦不再只是頂尖大學的展示品，而是正式走向能與企業現有 AI 伺服器協同運作的商業實用階段，有助於加速新藥開發與材料模擬的商業化落地。"
+       "text": "社群平台開始把青少年使用設定交給家庭管理，台灣家長若孩子使用 X，可留意功能推出範圍及實際設定方式。"
       }
      ],
      "sources": [
-      "https://www.globenewswire.com/news-release/2026/11/25/3410386/0/en/inside-information-iqm-quantum-computers-plc-has-received-a-new-order-for-an-iqm-radiance-54-qubit-quantum-computer-from-qai-a-south-korean-quantum-ai-company.html"
+      "https://techcrunch.com/2026/11/26/x-finally-gets-parental-controls-after-20-years/"
      ]
     },
     {
-     "title": "全面AI取代審查！Meta遭爆大亂",
+     "title": "荷蘭團體要求停售Meta眼鏡",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "英國《衛報》披露內部吹哨者指控，Meta 近期為了大幅壓低營運成本，大量裁減真人內容審查員，並將有害內容把關工作全權轉交給生成式 AI 系統。然而留守的少數真人團隊根本無法應付龐大工作量，導致多國用戶在重大新聞事件中的合法發文頻遭演算法誤刪，仇恨言論的誤漏率也急遽攀升。"
+       "text": "荷蘭消費者與數位權利團體向法院聲請停止銷售 Meta AI 智慧眼鏡，理由是配戴者可能在旁人不知情下拍攝或錄影，涉及隱私法疑慮。這是團體提出的法律主張，法院尚未裁定停售。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這凸顯企業過度依賴 AI 自動化決策帶來的治理隱憂；對一般台灣社群用戶而言，當帳號因 AI 誤判遭停權或內容被下架時，恐將更難以尋求真人客服即時平反。"
+       "text": "帶攝影機的眼鏡外觀看似一般眼鏡，路人未必知道自己入鏡；這場訴訟可能影響穿戴裝置在公共場所的使用規範。"
       }
      ],
      "sources": [
-      "https://www.theguardian.com/technology/2026/nov/25/meta-insiders-concerned-push-to-ai-content-moderation"
+      "https://www.investing.com/news/stock-market-news/dutch-groups-ask-court-to-halt-meta-smart-glasses-sales-over-privacy-concerns-5052455"
      ]
     }
    ]
@@ -91,51 +91,51 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "美財團百億美元接盤俄油海外資產",
+     "title": "多國反擊美國新關稅",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "由美國富豪波利（Todd Boehly）旗下的 Eldridge 投資公司與美國政府官方的「國際開發金融公司」（DFC）牽頭的財團，正式與俄羅斯第二大石油巨頭盧克石油達成協議。該交易以約 100 億美元的無現金「股權互換」架構，收購盧克石油遍及歐洲與中亞等 16 國的油氣田、煉油廠與加油站資產，以完全避開現金制裁紅線。"
+       "text": "美國提出對中國、歐盟、日本等 14 個貿易夥伴加徵關稅後，多國政府公開反對或表示將談判爭取豁免。AP指出，這些經濟體合計約占全球經濟一半，越南等出口國正尋求與美方協商。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這是俄烏衝突以來西方資本最大規模吞併俄國海外能源命脈的行動，不僅美國政府首度能從中分潤，也大幅重塑中亞通往歐洲的能源地緣政治走廊。"
+       "text": "若關稅落地，企業可能調整產地、供應鏈與價格；台灣出口商也需留意轉單機會，以及成本和貿易摩擦外溢。"
       }
      ],
      "sources": [
-      "https://www.cnn.com/2026/11/25/business/lukoil-sale-todd-boehly-intl"
+      "https://apnews.com/article/b94a693004ad8f9b5e78f7aafb196a71"
      ]
     },
     {
-     "title": "不滿AI授權被白嫖！路透工會准罷工",
+     "title": "歐盟未談妥援烏融資",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "代表路透社美國近 300 名記者的紐約新聞工會以高票通過罷工授權，隨時可能發動 46 年來首場無期限罷工。勞資雙方最大爭端在於母公司湯姆森路透向微軟、Meta 等科技巨頭高價授權新聞資料庫訓練 AI，單季賺進近兩千萬美元，記者卻分不到任何授權利潤，同時面臨工作遭 AI 取代的威脅。"
+       "text": "歐盟領袖在布魯塞爾峰會未能就 2027 年烏克蘭資金安排達成協議，法國總統馬克宏把下一個預算協議期限訂在年底。烏克蘭同時面臨俄軍持續攻擊能源設施帶來的財政與重建壓力。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "這是全球頂尖新聞機構首度因「AI 數據授權利潤分配」引發重大勞資決裂，將成為未來內容創作者與文字工作者向科技巨頭爭取智財權益的重要風向球。"
+       "text": "援助資金能否接續，會影響烏克蘭明年的政府運作與防衛，也牽動歐洲各國預算分配和區域安全局勢。"
       }
      ],
      "sources": [
-      "https://www.poynter.org/business-work/2026/reuters-strike-ai-protections-deal-wages/"
+      "https://apnews.com/article/f073925a2ed77232e0d7db404600985e"
      ]
     },
     {
-     "title": "德國總理預警：俄野心絕不只烏克蘭",
+     "title": "韓國升息應對通膨",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "德國總理默茨（Friedrich Merz）於 11 月 25 日在聯邦議會發表預算演說時嚴正警告，俄羅斯正在波羅的海、波蘭、黑海與外太空發動多維度的「混合戰」（指結合軍事威嚇、假訊息與網路攻擊的非傳統衝突），其野心遠超烏克蘭。默茨頂住國內預算爭議，表態將強力捍衛德國國防開支大幅增長，以向莫斯科劃出不可退讓的紅線。"
+       "text": "南韓央行將基準利率調高 0.25 個百分點至 3.25%，並上修 2026、2027 年經濟成長預測，主要看好出口表現。央行同時指出，物價上漲、薪資停滯和高家庭負債仍壓抑民間消費。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "作為歐洲經濟領頭羊，德國最高領導人將國防安全提升至最高優先順序，確立了歐洲在未來數年全面重整軍備並徹底與俄羅斯戰略脫鉤的長期走勢。"
+       "text": "升息會逐步傳到房貸與企業融資成本；南韓出口強、內需弱的落差，也反映科技景氣回溫未必立刻讓一般家庭更有餘裕。"
       }
      ],
      "sources": [
-      "https://www.irishtimes.com/world/europe/2026/11/25/russia-wants-more-than-ukraine-germanys-merz-warns/"
+      "https://apnews.com/article/b9cef57c80c2ceb5e273b71b9a32c9d9"
      ]
     }
    ]
