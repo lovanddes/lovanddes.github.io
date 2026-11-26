@@ -2,11 +2,11 @@
   "format": "shinken-sms-update",
   "version": 1,
   "android": {
-    "versionCode": 9,
-    "versionName": "0.1.8",
-    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.8.apk",
-    "sha256": "a010cad4b2496f6893c9ae3d7a5ba99c13e902802e565f6f56cccf5933b0f072",
-    "notes": "對話畫面標題列下面多了兩顆按鈕:「置頂」(已置頂時變「取消置頂」)和「標成未讀」\n看完簡訊覺得沒空處理,直接按「標成未讀」,就會回到列表,不用再退回去長按\n要把重要的對話釘在最上面,也能直接在對話裡按「置頂」",
-    "date": "2026-11-23"
+    "versionCode": 10,
+    "versionName": "0.1.9",
+    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.9.apk",
+    "sha256": "7949fc4af194648e8ccbfd66df53ad23a4e9ff3f144748d08a46fa2f857aabe1",
+    "notes": "修正:點進對話再退回來,有時沒有變成已讀,要進出好幾次\n現在標已讀沒成功會自動再試,退出對話時也會補標一次",
+    "date": "2026-11-26"
   }
 }
