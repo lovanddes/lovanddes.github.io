@@ -1,41 +1,20 @@
 {
- "date": "2026-11-26",
+ "date": "2026-11-27",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "LINE網頁版拍板2027退場",
+     "title": "對AI說請謝謝最燒錢",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "LINE 官方公告 Chrome 與 Whale 瀏覽器專用的擴充功能（俗稱網頁版）將於 2027 年 1 月 26 日終止服務。由於許多上班族受限於公司電腦資安規範無法安裝桌面版軟體，消息一出引發集體焦慮「上班怎麼偷偷回訊息」，官方建議自備平板或用手機鏡像輸出更引發熱議。"
+       "text": "賓州州立大學最新研究指出，使用者對 AI 提問的語氣會顯著影響運算成本，禮貌甚至帶諂媚的提問容易誘發更長的回覆，導致輸出算力成本暴增多達 44.3%；反而是強硬、無禮的指令最省運算資源且準確率更高，引發網友熱議「在 AI 時代連保持基本禮貌都得花錢」。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我也是那個在公司電腦只敢偷偷掛 Chrome 擴充功能收發訊息的人。"
-      },
-      {
-       "label": "建議欄目:",
-       "text": "【欸唉新跪的生存週報】"
-      }
-     ],
-     "sources": [
-      "https://udn.com/news/story/7088/8383821",
-      "https://www.cna.com.tw/news/ahel/202411250153.aspx"
-     ]
-    },
-    {
-     "title": "把AI當隊友除錯率降18%",
-     "body": [
-      {
-       "label": "為什麼熱:",
-       "text": "《哈佛商業評論》最新研究指出，當主管把內部 AI 系統擬人化、替它取名並要求員工當成「隊友」時，員工對產出內容的除錯率反而大降 18%，個人責任感也隨之降低。大家熱議原本以為找了神隊友，結果反而在不知不覺中把該自己把關的責任拋給了 AI。"
-      },
-      {
-       "label": "新跪的角度:",
-       "text": "我身邊這隻水母最近越來越像同事，連報告出錯我都想轉頭怪它。"
+       "text": "我也是那個每次交代水母做事都忍不住補一句「請幫我」跟「謝謝」，結果現在發現自己的禮貌比算力還貴的人。"
       },
       {
        "label": "建議欄目:",
@@ -43,20 +22,19 @@
       }
      ],
      "sources": [
-      "https://hbr.org/2024/11/when-ai-is-your-teammate-you-check-its-work-less",
-      "https://sunmedia.tw/ai-teammate-error-checking/"
+      "https://technews.tw/2026/11/26/politeness-to-ai-increases-costs/"
      ]
     },
     {
-     "title": "AI通用接口MCP正式開源",
+     "title": "紐時禁攝影師用新版PS",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "Claude 開發商 Anthropic 正式推出並開源 Model Context Protocol（MCP）協議，被科技界譽為 AI 界的「USB-C」。它能讓 AI 無縫插上使用者的本機檔案、資料庫與各類日常軟體，引發開發者熱烈響應，也讓普通上班族開始焦慮電腦裡的一切都要被 AI 串聯接管。"
+       "text": "《紐約時報》要求旗下特約攝影師執行採訪時，全面禁用最新版 Photoshop 2027。主因是新版軟體在後製流程中自動導入生成式 AI，並會強制寫入 C2PA 元數據標記，導致純手工原創拍攝的新聞照片也被系統打上「AI 生成」標籤，引發專業創作者降級退回舊版的抗拒潮。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我也是那個看到大家在慶祝 AI 接口統一，抽屜裡卻還塞著三條打結舊線的人。"
+       "text": "我也是那個辛辛苦苦純手工修了一整晚圖，結果存檔那一秒被軟體擅自貼上「AI 生成」標籤的人。"
       },
       {
        "label": "建議欄目:",
@@ -64,8 +42,29 @@
       }
      ],
      "sources": [
-      "https://technews.tw/2024/11/26/anthropic-model-context-protocol/",
-      "https://www.ithome.com.tw/news/166212"
+      "https://technews.tw/2026/11/27/ny-times-banning-photographers-from-using-photoshop-2027/",
+      "https://petapixel.com/2026/11/24/new-york-times-prohibits-photographers-from-using-photoshop-2027/"
+     ]
+    },
+    {
+     "title": "民眾對AIPC普及無感",
+     "body": [
+      {
+       "label": "為什麼熱:",
+       "text": "個人電腦大廠惠普（HP）公布最新財報，個人系統銷量遜於預期導致盤後股價重挫逾 7%。研調機構 Gartner 與業界分析指出，儘管科技大廠鋪天蓋地宣傳 AI PC 與邊緣算力，但大部分民眾對 AI PC 能發揮的效益依然一知半解、普遍「無感」，市場根本未如預期掀起換機潮。"
+      },
+      {
+       "label": "新跪的角度:",
+       "text": "我也是那個天天聽廠商推銷 AI 電腦有多神，低頭看著自己這台舊筆電依然覺得很夠用的人。"
+      },
+      {
+       "label": "建議欄目:",
+       "text": "【欸唉新跪的生存週報】"
+      }
+     ],
+     "sources": [
+      "https://finance.technews.tw/2024/11/27/hp-inc-reports-fiscal-2024-full-year-and-fourth-quarter-results/",
+      "https://www.ctee.com.tw/news/20241127700538-430702"
      ]
     }
    ]
