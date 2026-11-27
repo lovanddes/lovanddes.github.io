@@ -2,11 +2,11 @@
   "format": "shinken-sms-update",
   "version": 1,
   "android": {
-    "versionCode": 10,
-    "versionName": "0.1.9",
-    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.9.apk",
-    "sha256": "7949fc4af194648e8ccbfd66df53ad23a4e9ff3f144748d08a46fa2f857aabe1",
-    "notes": "修正:點進對話再退回來,有時沒有變成已讀,要進出好幾次\n現在標已讀沒成功會自動再試,退出對話時也會補標一次",
-    "date": "2026-11-26"
+    "versionCode": 11,
+    "versionName": "0.1.10",
+    "url": "https://lovanddes.github.io/shinken-sms/update/shinken-sms-0.1.10.apk",
+    "sha256": "4891e30bd2a2c4ece4f980e40cc5423c1f5a55c14cfbea3736102b10ba3cb770",
+    "notes": "新增「只看未讀」按鈕:搜尋框下面按一下,只顯示還沒讀的對話,旁邊會寫有幾段未讀。\n再按「全部」就回到原本的列表。",
+    "date": "2026-11-27"
   }
 }
