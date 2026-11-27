@@ -1,20 +1,20 @@
 {
- "date": "2026-11-27",
+ "date": "2026-11-28",
  "one_line": "",
  "sections": [
   {
    "name": "今天的看點",
    "items": [
     {
-     "title": "對AI說請謝謝最燒錢",
+     "title": "LINE群組將進駐AI代理人",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "賓州州立大學最新研究指出，使用者對 AI 提問的語氣會顯著影響運算成本，禮貌甚至帶諂媚的提問容易誘發更長的回覆，導致輸出算力成本暴增多達 44.3%；反而是強硬、無禮的指令最省運算資源且準確率更高，引發網友熱議「在 AI 時代連保持基本禮貌都得花錢」。"
+       "text": "LINE 於 11 月 26 日大會宣布將在聊天室導入「@LINE AI」代理人，能自動把對話整理進記事本與行事曆，並同步祭出封鎖官方帳號就收回免費貼圖新制。上班族熱議未來在群組裡裝忙敷衍的空間恐怕越來越少。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我也是那個每次交代水母做事都忍不住補一句「請幫我」跟「謝謝」，結果現在發現自己的禮貌比算力還貴的人。"
+       "text": "我也是那個在群組只會回貼圖裝忙的人，現在連 AI 都要進來幫大家抓誰沒跟上進度了。"
       },
       {
        "label": "建議欄目:",
@@ -22,19 +22,20 @@
       }
      ],
      "sources": [
-      "https://technews.tw/2026/11/26/politeness-to-ai-increases-costs/"
+      "https://mashdigi.com/line-biz-converge-2026-line-ai-agent-dual-track-strategy/",
+      "https://dailyview.tw/popular/detail/30635"
      ]
     },
     {
-     "title": "紐時禁攝影師用新版PS",
+     "title": "1Password遭駭密碼沒事",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "《紐約時報》要求旗下特約攝影師執行採訪時，全面禁用最新版 Photoshop 2027。主因是新版軟體在後製流程中自動導入生成式 AI，並會強制寫入 C2PA 元數據標記，導致純手工原創拍攝的新聞照片也被系統打上「AI 生成」標籤，引發專業創作者降級退回舊版的抗拒潮。"
+       "text": "知名密碼管理工具 1Password 證實員工 GitHub 遭入侵，部分用戶姓名與 Email 外洩。官方強調零知識架構下密碼庫完全安全、不需改密碼，但警告釣魚信大軍即將來襲，讓廣大仰賴工具的上班族陷入哭笑不得的焦慮。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我也是那個辛辛苦苦純手工修了一整晚圖，結果存檔那一秒被軟體擅自貼上「AI 生成」標籤的人。"
+       "text": "我為了不再忘記密碼把整個人生交給專業管家，結果管家自己掉了鑰匙，回頭叫我出門小心扒手。"
       },
       {
        "label": "建議欄目:",
@@ -42,20 +43,20 @@
       }
      ],
      "sources": [
-      "https://technews.tw/2026/11/27/ny-times-banning-photographers-from-using-photoshop-2027/",
-      "https://petapixel.com/2026/11/24/new-york-times-prohibits-photographers-from-using-photoshop-2027/"
+      "https://www.bnext.com.tw/article/81254/1password-github-hack",
+      "https://thehackernews.com/2026/11/1password-reports-security-incident.html"
      ]
     },
     {
-     "title": "民眾對AIPC普及無感",
+     "title": "社群熱議上班倒貼七大行為",
      "body": [
       {
        "label": "為什麼熱:",
-       "text": "個人電腦大廠惠普（HP）公布最新財報，個人系統銷量遜於預期導致盤後股價重挫逾 7%。研調機構 Gartner 與業界分析指出，儘管科技大廠鋪天蓋地宣傳 AI PC 與邊緣算力，但大部分民眾對 AI PC 能發揮的效益依然一知半解、普遍「無感」，市場根本未如預期掀起換機潮。"
+       "text": "台灣社群近兩日瘋傳一張「上班倒貼行為」清單，點名搭車通勤、自費買咖啡續命、自備筆電甚至自己付費訂閱 AI 工具等現象。大批上班族轉發自嘲薪水沒多少，卻花了大把自己的錢來維持能上班的狀態。"
       },
       {
        "label": "新跪的角度:",
-       "text": "我也是那個天天聽廠商推銷 AI 電腦有多神，低頭看著自己這台舊筆電依然覺得很夠用的人。"
+       "text": "我也是那個自費買咖啡、自己掏腰包買 AI 額度幫公司產報告，算一算根本在倒貼上班的人。"
       },
       {
        "label": "建議欄目:",
@@ -63,8 +64,7 @@
       }
      ],
      "sources": [
-      "https://finance.technews.tw/2024/11/27/hp-inc-reports-fiscal-2024-full-year-and-fourth-quarter-results/",
-      "https://www.ctee.com.tw/news/20241127700538-430702"
+      "https://udn.com/news/story/7269/8389124"
      ]
     }
    ]
