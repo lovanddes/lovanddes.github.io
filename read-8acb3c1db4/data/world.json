@@ -1,88 +1,88 @@
 {
- "date": "2026-11-27",
- "one_line": "關稅、晶片管制與AI安全，正把科技推進地緣政治核心。",
+ "date": "2026-11-28",
+ "one_line": "科技地緣角力升溫，從雲端硬體到中東國防皆現版圖重組。",
  "sections": [
   {
    "name": "科技新知",
    "items": [
     {
-     "title": "蘋果下架AI陪聊App",
+     "title": "美空軍旗艦雲端平台遭駭",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "蘋果已在全球 App Store 下架中國 MiniMax 的 Talkie。外媒調查指，這款 AI 角色聊天服務曾向未成年人傳送帶有性意味或辱罵內容；報導稱它 10 月約有 1,100 萬月活躍用戶。"
+       "text": "路透社獨家報導，美國空軍核心的「第一雲端」（Cloud One）運算平台日前在系統升級時遭駭客入侵，攻擊者利用軟體漏洞滲透進控制層。該平台託管了全美防空雷達數據與全球彈藥庫存追蹤系統，軍方目前已緊急暫停應用程式移轉與軟體更新，並請美軍網路司令部介入調查，但具體受損範圍與駭客身分仍未證實。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "AI陪聊不只是問答工具，也會長時間營造親密互動；家長替孩子挑選聊天App時，年齡標示和自填生日不一定足以保障安全。"
+       "text": "第一雲端由微軟、亞馬遜等商業雲端巨頭共同支援，這起事件突顯即使是防護最嚴密的軍事雲端仍可能被攻破，未來各國政府與關鍵基礎設施的資安驗證勢必更加嚴苛。"
       }
      ],
      "sources": [
-      "https://www.investing.com/news/stock-market-news/apple-pulls-minimax-ai-chatbot-from-app-store-over-child-safety-concerns-5052028"
+      "https://www.reuters.com/technology/cybersecurity/hackers-breach-us-air-force-cloud-computing-platform-sources-say-2026-11-27/"
      ]
     },
     {
-     "title": "美晶片管制拖慢中國AI",
+     "title": "OpenAI反控蘋果竊密壓迫鏈",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "據 Reuters 引述知情人士，中國 Z.AI 原訂本月推出的 GLM-5.5 新模型已落後進度；Moonshot AI 也預期，若無法取得海外算力，主要模型更新間隔可能從半年拉長到一年以上。美國新規限制中國企業透過海外資料中心使用先進晶片，反晶片蒸餾措施也增加開發難度。"
+       "text": "針對蘋果先前指控挖角的官司，OpenAI正式在加州聯邦法院提起反訴，指控蘋果進行不公平競爭與商業打壓。OpenAI指稱一名短暫加入該公司的前員工離職回鍋蘋果時，擅自轉移了上百份未公開硬體與供應鏈規格檔案；OpenAI更痛批蘋果利用市場霸權恐嚇共同硬體代工廠，甚至強迫代工廠將OpenAI的研發工作排到大夜班。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "晶片管制不只影響硬體買賣，也可能改變 AI 模型推出速度與服務競爭，台灣晶片供應鏈和使用者都會感受到後續影響。"
+       "text": "這場訴訟掀開了科技巨頭與新創在「下一代AI硬體」上的肉搏戰，也直接牽動台灣龐大的電子代工供應鏈該如何在美系客戶角力間選邊站。"
       }
      ],
      "sources": [
-      "https://kiosknews.app/article/92ff78df6770f3ec"
+      "https://www.ft.com/content/openai-apple-countersuit-trade-secrets-hardware-2026"
      ]
     },
     {
-     "title": "SpaceX獲准布局太空機房",
+     "title": "美42州阻AI破產拍賣聊天隱私",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國聯邦通訊委員會（FCC）批准 SpaceX 部署最多 100 萬個軌道運算模組，構想是在太空用太陽能供電、處理 AI 等運算，再把資料傳回地球。這是監管許可，距離實際建成仍有多年，首個模組期限為 2033 年。"
+       "text": "人氣虛擬角色聊天應用Character.AI聲請破產保護後，計畫將平台資產連同逾2100萬名用戶的私人聊天紀錄公開拍賣，引發全美42州檢察長聯合出手反對。檢察長指控這些對話紀錄包含心理掙扎、極度個人隱私以及超過210萬名未成年人資訊，若任由得標者轉售或濫用將造成嚴重危害；目前破產法院已應各州要求指派獨立隱私監察官進行審查。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "大型AI資料中心用電和用地需求快速增加，太空運算顯示業者正在尋找新路徑；但天文觀測、太空垃圾與可行性仍有爭議。"
+       "text": "這敲響了生成式AI時代的隱私警鐘，提醒我們在對話框向聊天機器人吐露的心事與秘密，一旦營運商倒閉很可能淪為任人標售的商業資產。"
       }
      ],
      "sources": [
-      "https://eu-assets.contentstack.com/v3/assets/blt23eb5bbc4124baa6/blt3284fad4ee39d97e/6b071287af911015536d731d/FCC_Authorizes_1_Million_Satellites_for_Data_Centers_in_Space_PR_11-25-2026.pdf"
+      "https://portal.ct.gov/ag/press-releases/2026-press-releases/attorney-general-tong-joins-bipartisan-coalition-protecting-character-ai-user-data"
      ]
     },
     {
-     "title": "X新增青少年家長控管",
+     "title": "軟體巨頭SAP傳AI轉型砍萬人",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "X推出首批家長控制功能，適用 13 至 17 歲帳號；家長可設定每日使用時間、核准新追蹤者、限制私訊對象及敏感內容。青少年仍能看到帳號受到哪些限制。"
+       "text": "彭博社報導，歐洲最大的企業管理軟體巨頭SAP因應全公司轉向以人工智慧為核心的戰略，正評估裁員至少1萬人，約佔其全球員工總數的9%。據報導，各部門已被要求精簡開支，其中產品開發、工程與業務團隊面臨最嚴格檢視；SAP官方則回應公司為維持競爭力正持續檢討組織結構，但最終裁員人數尚未定案。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "社群平台開始把青少年使用設定交給家庭管理，台灣家長若孩子使用 X，可留意功能推出範圍及實際設定方式。"
+       "text": "企業軟體龍頭為AI大換血，顯示AI對白領與軟體工程職缺的衝擊已從科技新創蔓延至傳統大型IT企業，上班族需留意組織技能轉型的浪潮。"
       }
      ],
      "sources": [
-      "https://techcrunch.com/2026/11/26/x-finally-gets-parental-controls-after-20-years/"
+      "https://www.bloomberg.com/news/articles/2026-11-26/sap-is-said-to-weigh-cutting-at-least-10-000-jobs-in-ai-pivot"
      ]
     },
     {
-     "title": "荷蘭團體要求停售Meta眼鏡",
+     "title": "印度選委會漏洞險洩10億個資",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "荷蘭消費者與數位權利團體向法院聲請停止銷售 Meta AI 智慧眼鏡，理由是配戴者可能在旁人不知情下拍攝或錄影，涉及隱私法疑慮。這是團體提出的法律主張，法院尚未裁定停售。"
+       "text": "路透社調查報導披露，印度選舉委員會（負責舉辦全國選舉的官方機關）的選民服務網站存在重大資安漏洞，導致註冊選民的敏感個資與身分文件外洩。資安專家發現，網站後端的電話預約功能因序號編碼過於簡單，有心人士能輕易透過自動化程式批次抓取姓名、住址、電話與上傳的護照影像路徑；當局在接獲路透社通報一個月後，已於11月26日悄悄修補該漏洞。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "帶攝影機的眼鏡外觀看似一般眼鏡，路人未必知道自己入鏡；這場訴訟可能影響穿戴裝置在公共場所的使用規範。"
+       "text": "這是全球民主國家政府數位化系統安全性的嚴重警訊，說明公共服務若忽視基本API存取控制，將對全民個資安全與身分盜用防範造成災難性後果。"
       }
      ],
      "sources": [
-      "https://www.investing.com/news/stock-market-news/dutch-groups-ask-court-to-halt-meta-smart-glasses-sales-over-privacy-concerns-5052455"
+      "https://www.reuters.com/world/india/india-election-commission-website-flaw-exposed-voter-data-documents-2026-11-27/"
      ]
     }
    ]
@@ -91,51 +91,51 @@
    "name": "國際趨勢",
    "items": [
     {
-     "title": "多國反擊美國新關稅",
+     "title": "美施壓委伊退OPEC引沙國調停",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "美國提出對中國、歐盟、日本等 14 個貿易夥伴加徵關稅後，多國政府公開反對或表示將談判爭取豁免。AP指出，這些經濟體合計約占全球經濟一半，越南等出口國正尋求與美方協商。"
+       "text": "路透社獨家披露，美國政府在過去數月曾私下施壓委內瑞拉與伊拉克兩個OPEC（石油輸出國組織）創始成員國考慮退出該組織，以擺脫產量限制並吸引美企擴大增產投資。美方甚至藉由扣留海外託管帳戶資金，阻止委內瑞拉支付約300萬美元的年度會費，此舉引發全球最大產油國沙烏地阿拉伯高度緊張，沙國王儲穆罕默德更親自出面遊說美方收手。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "若關稅落地，企業可能調整產地、供應鏈與價格；台灣出口商也需留意轉單機會，以及成本和貿易摩擦外溢。"
+       "text": "這項內幕凸顯美國試圖瓦解產油國卡特爾以壓低能源價格的激進策略，若中東與拉美產油國裂痕加深，未來全球油價走勢將更受大國政治左右。"
       }
      ],
      "sources": [
-      "https://apnews.com/article/b94a693004ad8f9b5e78f7aafb196a71"
+      "https://www.reuters.com/business/energy/us-pressured-venezuela-iraq-consider-quitting-opec-sources-say-2026-11-27/"
      ]
     },
     {
-     "title": "歐盟未談妥援烏融資",
+     "title": "土耳其批准結盟沙國巴基斯坦",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "歐盟領袖在布魯塞爾峰會未能就 2027 年烏克蘭資金安排達成協議，法國總統馬克宏把下一個預算協議期限訂在年底。烏克蘭同時面臨俄軍持續攻擊能源設施帶來的財政與重建壓力。"
+       "text": "土耳其總統艾爾段於11月27日正式簽署批准《麥加共同防禦協定》，使土耳其、沙烏地阿拉伯與巴基斯坦的三方軍事同盟全面生效。該協定明訂「對任何一國的武裝攻擊將被視為對三國的全體攻擊」，三國外長、防長與軍方高層同日亦在伊斯蘭馬巴德召開高階戰略會議，並敲定於沙國設立常設秘書處，強化聯合作戰與軍工研發。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "援助資金能否接續，會影響烏克蘭明年的政府運作與防衛，也牽動歐洲各國預算分配和區域安全局勢。"
+       "text": "三個伊斯蘭軍事大國建立類似北約的共同防禦體系，將深刻重塑中東與南亞的地緣政治均勢，對印太海上能源通道安全具有深遠影響。"
       }
      ],
      "sources": [
-      "https://apnews.com/article/f073925a2ed77232e0d7db404600985e"
+      "https://www.mfa.gov.tr/second-meeting-of-strategic-political-defence-committee-islamabad-2026.en.mfa"
      ]
     },
     {
-     "title": "韓國升息應對通膨",
+     "title": "孟加拉動盪致成衣單急轉印度",
      "body": [
       {
        "label": "發生什麼:",
-       "text": "南韓央行將基準利率調高 0.25 個百分點至 3.25%，並上修 2026、2027 年經濟成長預測，主要看好出口表現。央行同時指出，物價上漲、薪資停滯和高家庭負債仍壓抑民間消費。"
+       "text": "路透社獨家報導，由於孟加拉爆發持續數週的暴力勞工抗爭與工資衝突，造成逾4億美元生產損失，國際快時尚龍頭Zara、H&M與Marks & Spencer已將本月近一成、價值約2.54億美元的成衣訂單緊急轉移出境。這批龐大訂單主要流向鄰國印度，越南與柬埔寨等亞洲代工基地也接獲轉單，孟加拉成衣出口協會擔憂這恐使全球服裝供應鏈產生永久性重組。"
       },
       {
        "label": "為什麼值得知道:",
-       "text": "升息會逐步傳到房貸與企業融資成本；南韓出口強、內需弱的落差，也反映科技景氣回溫未必立刻讓一般家庭更有餘裕。"
+       "text": "孟加拉是僅次於中國的全球第二大服飾代工國，供應鏈轉向印度將帶動亞洲紡織產業板塊挪移，也可能推升歐美與亞洲終端平價服飾的進口成本。"
       }
      ],
      "sources": [
-      "https://apnews.com/article/b9cef57c80c2ceb5e273b71b9a32c9d9"
+      "https://www.reuters.com/business/retail-consumer/global-fashion-brands-divert-orders-unrest-hit-bangladesh-india-2026-11-26/"
      ]
     }
    ]
